@@ -1,0 +1,141 @@
+
+#pera{
+
+
+  text-align: center;
+  padding-right:100px; 
+  padding-left:100px;
+
+}
+
+
+.title h1{
+    color:black;
+    font-size: 90px;
+}
+/*
+      .zzz{
+        background-image: url("https://mdn.mozillademos.org/files/7693/catfront.png");
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        }
+      
+
+      .footer{ display: flex;
+    justify-content: space-around ;}
+
+ h2.white {
+  background-color:gray;
+
+ } 
+      *{
+    margin: 0;
+    padding: 0;
+    font-family: century Gothic;
+}
+.zz{
+     display: flex;
+    justify-content: space-around ;
+    border-radius: 50px;
+    border-color: black;
+}
+ul{
+    float:right; 
+    list-style-type: none;
+    margin-top: 50px;
+}
+ul li{
+    display: inline-block;
+}
+ul li a{
+    font-size:2.5rem;
+     
+    text-decoration: none;
+    color: #fff;
+    padding: 20px 40px;
+    border: 1px solid transparent;
+    transition: 0.6s ease;
+}
+ul li a:hover{
+    background-color: #fff;
+    color: #000;
+}
+ul li.active a{
+    background-color: #fff;
+    color: #000;
+}
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+}
+.main{
+    max-width: 1200px;
+    margin: auto;
+}
+.title{
+
+    /*position: absolute;
+    top: 50%;
+    rigt: 50%;
+    transform: translate(-50%,-50%);
+
+
+.button{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.btn{
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+}
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+}*/
+    
+    
+      .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+      
+      
+      }
+        
+      
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin .checkbox {
+        font-weight: normal;
+      }
+      .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+      }
+      .form-signin .form-control:focus {
+        z-index: 2;
+      }
+      .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+     
