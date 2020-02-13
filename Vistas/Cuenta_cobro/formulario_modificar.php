@@ -7,23 +7,18 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	
 	<title>Formulario</title>
-	<!-- set your website meta description and keywords -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<meta name="description" content="Add your business website description here">
 	<meta name="keywords" content="Add your business website keywords here">
-	<!-- set your website favicon -->
 	<link href="favicon.html" rel="icon">	
 	
-	<!-- Bootstrap Stylesheets -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- Font Awesome Stylesheets -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<!-- Template Main Stylesheets -->
 	<link rel="stylesheet" href="css/contact-form.css" type="text/css">	
 
 	<style type="text/css">
 		.ww{ position: relative; box-shadow: 5px 5px 10px black; /*box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);*/ padding: 10px; background: white;}
-	</style>
+	</style> -->
 </head>
 <body>
 	<section id="contact-form-section" class="form-content-wrap">

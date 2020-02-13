@@ -8,6 +8,7 @@ session_start();
 	<title>Zamasoft</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="iconos/css/fontello.css">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/estilos-inicio.css">

@@ -6,35 +6,25 @@
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
 	
 	<title>Modificar abonos</title>
-	<!-- set your website meta description and keywords -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
+	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	<!-- set your website favicon -->
 	<link href="favicon.html" rel="icon">	
 	
-	<!-- Bootstrap Stylesheets -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- Font Awesome Stylesheets -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<!-- Template Main Stylesheets -->
 	<link rel="stylesheet" href="css/contact-form.css" type="text/css">	
-
 	<style type="text/css">
 		.ww{ position: relative; box-shadow: 5px 5px 10px black; /*box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);*/ padding: 10px; background: white;}
-	</style>
+	</style> -->
 	
 
 </head>
 
 <body>
 
-<div id="modificar-abono">
-<form action='Controladores/Abono_Controlador.php' method='POST' id="res-modificar-abono">
-<input type='hidden' name='action' value='modificar_abono'>
-	
+
 	<section id="contact-form-section" class="form-content-wrap">
 		<div class="container">
 			<div class="row">
@@ -45,21 +35,18 @@
 								
 								<div class="col-md-12">
 								
-								
-								
 <div id="modificar-abono">
-<form action='Controladores/Abono_Controlador.php' method='POST' id="res-modificar-abono">
-<input type='hidden' name='action' value='modificar_abono'>
-
-<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-balance"></i>
-			</div>
-			<div class="full-width header-well-text">
-				<p class="text-condensedLight">
-					Modificar Abono
-				</p>
-			</div>
+	<form action='Controladores/Abono_Controlador.php' method='POST' id="res-modificar-abono">
+		<input type='hidden' name='action' value='modificar_abono'>
+		<section class="full-width header-well">
+				<div class="full-width header-well-icon">
+					<i class="zmdi zmdi-balance"></i>
+				</div>
+				<div class="full-width header-well-text">
+					<p class="text-condensedLight">
+						Modificar Abono
+					</p>
+				</div>
 		</section>
 		<div class="full-width divider-menu-h"></div>
 		<div class="mdl-grid">
@@ -162,9 +149,7 @@
 		</div><!--End container -->
 	</section>
 	
-<div class="colBottomMargin">
-		&nbsp;<div class="colBottomMargin">&nbsp;</div>
-	</div>	
+
 	
 	
 	
