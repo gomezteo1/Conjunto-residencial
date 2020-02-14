@@ -22,6 +22,8 @@
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-store"></i>
 			</div>
+			<p><a class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
+
 			<div class="full-width header-well-text" align="left">
 				<p class="text-condensedLight">
 				Inicio de Abono
@@ -39,7 +41,6 @@
 
 				<?php
 				?>
-				<p><a class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
 				</p>
 					<div id="resultado_busqueda">
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">

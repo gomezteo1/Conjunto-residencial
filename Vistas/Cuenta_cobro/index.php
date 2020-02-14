@@ -9,13 +9,12 @@
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
-
 <body>
 <p><a href="?controller=cuenta_cobro&action=formulario_cuenta_cobro" class="btn btn-success">Agregar</a>
 </p>
 
 <input type="text" name="txtbuscar" id="txtbuscar" />
-<button name="btnbuscar" id="btnbuscar">Buscar</button>
+<button name="btnbuscar" id="btnbuscar"><img src="./Reportes/imajenes/busqueda.png"></button>
 <div id="resultado_busqueda">
 <br>
 <br>
@@ -52,7 +51,7 @@ foreach ($cuenta_cobros as $cuenta_cobro){?>
 				<td><?php echo $cuenta_cobro->monto_por_cancelar; ?></td>
 				<td><?php echo $cuenta_cobro->estado==1?'Pagado':'Sin Pagar'; ?></td>
 				
-				<td><a href="?controller=cuenta_cobro&action=formulario_modificar&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro?> "class="btn btn-warning">Actualizar</a></td>
+				<td><a href="?controller=cuenta_cobro&action=formulario_modificar&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro?> "class="btn btn-secondary">Actualizar</a></td>
 				<td>
 					<input <?php echo $cuenta_cobro->estado==1 ? "checked" : "" ?> onchange="prueba_cc(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">
 				</td>
