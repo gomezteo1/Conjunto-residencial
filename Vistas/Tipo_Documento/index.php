@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Inicio</title>
+	<title>Inicio Tipo Documento</title>
 	
 	<!-- Esto es del toogle-->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -14,60 +14,44 @@
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
-<?php 
-//require_once('conexion.php');
- ?>
-<body background="img/5.jpg">
-		<h1>
-			<a class="btn btn-outline-primary" href="?controller=tipo_documento&action=formulario_registrar">Registrar</a>
-		</h1>
-	
-		<div align="left">
-			<section class="full-width header-well">
-				<div class="full-width header-well-icon">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-				<div class="full-width header-well-text" align="left">
-					<p class="text-condensedLight">
-						Inicio Tipo Documento
-					</p>
-					<input type="text" name="txtbuscar" id="txtbuscar" />
-					<button class="btn-outline" name="btnbuscar" id="btnbuscar">
+<body>
+	<div align="center">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-shopping-cart"></i>
+			</div>
+			<p><a class="btn btn-outline-primary" href="?controller=tipo_documento&action=formulario_registrar">Registrar</a></p>
+			<div align="left" class="full-width header-well-text">
+				<p class="text-condensedLight">
+					Inicio Tipo Documento
+				</p>
+				<input type="text" name="txtbuscar" id="txtbuscar" />
+				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
 					<img src="./Reportes/imajenes/busqueda.png">
-					</button>
-				</div>
-			</section>
-
-			<div class="full-width divider-menu-h"></div>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="table-responsive">
-						<div id="resultado_busqueda">
-						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							<thead>
-								<tr>
-									<th scope="col"># Tipo Documento</th>
-									<th scope="col">Documento</th>
-									<th colspan=3 >Acciones</th>
-								</tr>
-							</thead>
-							<?php
-			foreach ($tipo_documentos as $tipo_documento) { ?>
+				</button>
+			</div>
+		</section>
+		<div class=""></div>
+		<div id="resultado_busqueda">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<thead>
+					<tr>
+						<td><b>#Tipo Documento</b></td>
+						<td><b>Documento</b></td>
+						<th colspan=3><b>Acciones</b></td>
+					</tr>
+				</thead>
+				<?php foreach ($tipo_documentos as $tipo_documento) { ?>
 				<tbody>
 					<tr>
-						<th scope="col"><?php echo $tipo_documento->id_tipo_documento; ?></th>
-						<th scope="col"><?php echo $tipo_documento->documento; ?></th>
-					
-						<th scope="col"><a class="btn btn-secondary" href="?controller=tipo_documento&action=formulario_modificar&id_tipo_documento=<?php echo $tipo_documento->id_tipo_documento ?>">Actualizar</a> </th>
-						<!-- <th scope="col"><a class="btn btn-danger" href="?controller=tipo_documento&action=eliminar_tipo_documento&id_tipo_documento=<?php echo $tipo_documento->id_tipo_documento ?>">Eliminar</a> </th> -->
+						<td><?php echo $tipo_documento->id_tipo_documento; ?></td>
+						<td><?php echo $tipo_documento->documento; ?></td>
+						<td><a class="btn btn-secondary" href="?controller=tipo_documento&action=formulario_modificar&id_tipo_documento=<?php echo $tipo_documento->id_tipo_documento ?>">Actualizar</a></td>
+						<!-- <td><a class="btn btn-danger" href="?controller=tipo_documento&action=eliminar_tipo_documento&id_tipo_documento=<?php echo $tipo_documento->id_tipo_documento ?>">Eliminar</a> </th> -->
 					</tr>		
-						<?php } ?>
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+				</tbody>
+				<?php } ?>
+			</table>
 		</div>
 	</div>
 </body>

@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Index</title>
-	
+	<title>Inicio Cuenta de Cobro</title>
 	<!-- Esto es del toogle-->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script
@@ -15,74 +14,57 @@
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
 <body>
-		
-
-		<div align="center">
+	<div align="center">
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-store"></i>
 			</div>
 			<p><a class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
-
-			<div class="full-width header-well-text" align="left">
+			<div align="left" class="full-width header-well-text">
 				<p class="text-condensedLight">
-				Inicio de Abono
+					Inicio de Abono
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
-					<button class="btn-outline" name="btnbuscar" id="btnbuscar">
+				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
 					<img src="./Reportes/imajenes/busqueda.png">
-					</button>
+				</button>
 			</div>
 		</section>
-		<div class="full-width divider-menu-h"></div>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<div class="table-responsive">
-
+		<div class=""></div>
+		<div id="resultado_busqueda">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<thead>
+					<tr>
+						<td><b># Abono</b></td>
+						<td><b>Monto a pagar</b></td>
+						<td><b>Nombre</b></td>
+						<td><b>Fecha</b></td>
+						<td><b>Deuda</b></td>
+						<td><b>Abono</b></td>
+						<td><b>Saldo</b></td>
+						<td colspan=3 align="center" ><b>Acciones</b></td>
+					</tr>
+				</thead>			
 				<?php
-				?>
-				</p>
-					<div id="resultado_busqueda">
-					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-						<thead>
-							<tr>
-								<td><b># Abono</b></td>
-								<td><b>Monto a pagar</b></td>
-								<td><b>Nombre</b></td>
-								<td><b>Fecha</b></td>
-								<td><b>Deuda</b></td>
-								<td><b>Abono</b></td>
-								<td><b>Saldo</b></td>
-								<td colspan=3 ><b>Acciones</b></td>
-
-								<?php
-								foreach ($abonos as $abono) { ?>
-									
-										<tr>
-											<td><?php echo $abono->codigo_abono; ?></td>
-											<td><?php echo $abono->nombrePago; ?></td>
-											<td><?php echo $abono->nombreUsuario;?></td>
-											<td><?php echo $abono->fecha;?></td>
-											<td><?php echo $abono->deuda;?></td>
-											<td><?php echo $abono->abono;?></td>
-											<td><?php echo $abono->saldo;?></td>
-											<td><a  class="btn btn-secondary" href="?controller=abono&action=formulario_modificar&codigo_abono=<?php echo $abono->codigo_abono ?>">Actualizar</a> </td>
-											<!-- <td><a class="btn btn-danger" href="?controller=abono&action=eliminar_abono&codigo_abono=<?php echo $abono->codigo_abono ?>">Eliminar</a> </td> -->
-											<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportea&action=index&codigo_abono=<?php echo $abono->codigo_abono ?>">Ver</a> </td>
-										</tr>		
-								<?php } ?>
-
-							</tr>
-						</thead>
-						<tbody>
-
-						</tbody>
-					</table>
-				</div>
-			</div>
+				foreach ($abonos as $abono) { ?>
+				<tbody>
+					<tr>
+						<td><?php echo $abono->codigo_abono; ?></td>
+						<td><?php echo $abono->nombrePago; ?></td>
+						<td><?php echo $abono->nombreUsuario;?></td>
+						<td><?php echo $abono->fecha;?></td>
+						<td><?php echo $abono->deuda;?></td>
+						<td><?php echo $abono->abono;?></td>
+						<td><?php echo $abono->saldo;?></td>
+						<td><a  class="btn btn-secondary" href="?controller=abono&action=formulario_modificar&codigo_abono=<?php echo $abono->codigo_abono ?>">Actualizar</a> </td>
+						<!-- <td><a class="btn btn-danger" href="?controller=abono&action=eliminar_abono&codigo_abono=<?php echo $abono->codigo_abono ?>">Eliminar</a> </td> -->
+						<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportea&action=index&codigo_abono=<?php echo $abono->codigo_abono ?>">Ver</a> </td>
+					</tr>
+				</tbody>			
+				<?php } ?>
+			</table>
 		</div>
 	</div>
-</div>
 </body>
 </html>
 

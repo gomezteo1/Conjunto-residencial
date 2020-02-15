@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Inicio</title>
+	<title>Inicio Usuario</title>
 	
 	<!-- Esto es del toogle-->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
@@ -18,93 +18,76 @@
 require_once('conexion.php');
  ?>
 <body background="img/5.jpg">
-
-		<div align="left">
-			<section class="full-width header-well">
-				<div class="full-width header-well-icon">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-				<div  class="full-width header-well-text">
-					<p class="text-condensedLight">
-						Datos Usuario
-					</p>
-					
-				</div>
-			</section>
-
-			<div class="full-width divider-menu-h"></div>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="table-responsive">
-						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							<thead>
-								<tr>
-									<th scope="col">#Usuario</th>
-									<th scope="col">Nombre</th>
-									<th scope="col">Apellido</th>			
-									<th scope="col">Tipo Documento</th>
-									<th scope="col">Numero Documento</th>
-									<!--<th scope="col">Rol</th>-->	
-									<th scope="col">Telefono</th>
-									<th scope="col">Fecha Nacimiento</th>
-									<!--<th scope="col">Estado</th>-->			
-								
-									<th scope="col">Correo</th>			
-									<th scope="col">Correo recuperacion</th>	
-									<th scope="col">Cambiar Clave</th>		
-									<th colspan="2">Acciones</th>
-								</tr>	
-							</thead>
-							<?php  
-							foreach($usuarios as $usuario){ 
-							?>
-							<tbody>
-								<tr>
-									<th scope="col"><?php echo $usuario->id_usuario; ?></th>
-									<th scope="col"><?php echo $usuario->nombres; ?></th>
-									<th scope="col"><?php echo $usuario->apellidos; ?></th>
-									<th scope="col"><?php echo $usuario->nombreTipoDocumento; ?></th>
-									<th scope="col"><?php echo $usuario->numero_documento; ?></th>
-									<!--<th scope="col"><?php //echo $usuario->id_rol; ?></th>-->
-									
-
-									<th scope="col"><?php echo $usuario->telefono; ?></th>
-									<th scope="col"><?php echo $usuario->fecha_nacimiento; ?></th>
-									<!--<th scope="col"><?php //echo $usuario->estado; ?></th>-->
-
-									<!--<th scope="col"><?php echo $usuario->clave; ?></th>
-									-->
-
-									<th scope="col"><?php echo $usuario->correo; ?></th>
-									
-
-									<th scope="col"><?php echo $usuario->correo_recuperacion; ?></th>
-									
-									<th> <a class="btn btn-primary" href="?controller=usuario&action=frm_cambiarClaveUsu&id_usuario=<?php echo $usuario->id_usuario ?>">Cambiar Clave</a></th>
-
-									<th scope="col">
-										<a href=
-											"?controller=usuario&action=frm_modificar_usuario&id_usuario=<?php echo
-											 $usuario->id_usuario ?> " class="btn btn-secondary">Modificar
-										</a>
-										
-									</th>
-
-									
-								</tr>
+	<div align="center">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-shopping-cart"></i>
+			</div>
+			<div align="left" class="full-width header-well-text">
+				<p class="text-condensedLight">
+					Datos Usuario
+				</p>
+			</div>
+		</section>
+		<div class=""></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<thead>
+						<tr>
+							<td><b>#Usuario</b></td>
+							<td><b>Nombre</b></td>
+							<td><b>Apellido</b></td>			
+							<td><b>Tipo Documento</b></td>
+							<td><b>Numero Documento</b></td>
+							<!--<td><b>Rol</b></th>-->	
+							<td><b>Telefono</b></td>
+							<td><b>Fecha Nacimiento</b></td>
+							<!--<td>Estado</td>-->			
+							<td><b>Correo</b></td>			
+							<td><b>Correo recuperacion</b></td>	
+							<td><b>Cambiar Clave</b></td>		
+							<td colspan="1" align="center"><b>Acciones</b></td>
+						</tr>	
+					</thead>
+					<?php foreach($usuarios as $usuario){ ?>
+					<tbody>
+						<tr>
+							<td><?php echo $usuario->id_usuario; ?></th>
+							<td><?php echo $usuario->nombres; ?></th>
+							<td><?php echo $usuario->apellidos; ?></th>
+							<td><?php echo $usuario->nombreTipoDocumento; ?></th>
+							<td><?php echo $usuario->numero_documento; ?></th>
+							<!--<td><?php //echo $usuario->id_rol; ?></th>-->
 							
+
+							<td><?php echo $usuario->telefono; ?></th>
+							<td><?php echo $usuario->fecha_nacimiento; ?></th>
+							<!--<td><?php //echo $usuario->estado; ?></th>-->
+
+							<!--<td><?php echo $usuario->clave; ?></th>
+							-->
+
+							<td><?php echo $usuario->correo; ?></th>
 							
-							<?php
-							}	
-							?>
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
+
+							<td><?php echo $usuario->correo_recuperacion; ?></th>
+							
+							<td> <a class="btn btn-primary" href="?controller=usuario&action=frm_cambiarClaveUsu&id_usuario=<?php echo $usuario->id_usuario ?>">Cambiar Clave</a></th>
+
+							<td>
+								<a href=
+									"?controller=usuario&action=frm_modificar_usuario&id_usuario=<?php echo
+										$usuario->id_usuario ?> " class="btn btn-secondary">Modificar
+								</a>
+							</td>
+						</tr>
+					</tbody>
+					<?php }	?>
+				</table>
 			</div>
 		</div>
-
+	</div>
 </body>
 
 <!--este es del toogle-->

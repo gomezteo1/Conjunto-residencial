@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Index</title>
-	
+	<title>Inicio Usuario Inmueble</title>
 	<!-- Esto es del toogle-->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script
@@ -14,68 +13,47 @@
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
-<?php 
-//require_once('conexion.php');
- ?>
-<body background="img/5.jpg">
-		<h1>
-			<a class="btn btn-outline-primary" href="?controller=usuario_inmueble&action=formulario_registrar">Registrar</a>
-		</h1>
-	<div id="resultado_busqueda">
-		<div align="left">
-			<section class="full-width header-well">
-				<div class="full-width header-well-icon">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-				<div  class="full-width header-well-text">
-					<p class="text-condensedLight">
-						Detaller Inmueble con su respectivo usuario
-					</p>
-					<input type="text" name="txtbuscar" id="txtbuscar" />
-					<button class="btn-outline" name="btnbuscar" id="btnbuscar">
-					<img src="./Reportes/imajenes/busqueda.png">
-					</button>
-				</div>
-			</section>
-
-			<div class="full-width divider-menu-h"></div>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="table-responsive">
-						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							<thead>
-								<tr>
-									<th scope="col"># usuario inmueble</th>
-									<th scope="col">Usuario</th>
-									<th scope="col">Inmueble</th>
-									
-									<th colspan=4>Acciones</th>
-								</tr>		
-							</thead>
-							<?php  
-							foreach ($usuario_inmuebles as $usuario_inmueble) { ?>
-							<tbody>
-								<tr>
-									<th scope="col"><?php echo $usuario_inmueble->id_usuario_inmueble; ?></th>
-									<th scope="col"><?php echo $usuario_inmueble->nombreUsuario; ?></th>
-									<th scope="col"><?php echo $usuario_inmueble->nombreInmueble;?></th>
-									
-
-									<th scope="col"><a class="btn btn-secondary" href="?controller=usuario_inmueble&action=formulario_modificar&id_usuario_inmueble=<?php echo $usuario_inmueble->id_usuario_inmueble ?>">Actualizar</a> </th>
-									<!-- <th scope="col"><a class="btn btn-danger"  href="?controller=usuario_inmueble&action=eliminar_usuario_inmueble&id_usuario_inmueble=<?php echo $usuario_inmueble->id_usuario_inmueble?>">E</a> </th> -->
-									<!--<th scope="col"><a class="btn btn-success" target="_blank" href="?controller=reporte&action=index&codigo_pago=<?php echo $usuario_inmueble->id_usuario_inmueble ?>">Ver</a> </th>-->
-								</tr>
-																
-							
-							<?php
-							}	
-							?>
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
+<body>
+	<div align="center">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-shopping-cart"></i>
 			</div>
+			<p><a class="btn btn-outline-primary" href="?controller=usuario_inmueble&action=formulario_registrar">Registrar</a></p>
+			<div align="left" class="full-width header-well-text">
+				<p class="text-condensedLight">
+				Inmueble y su Usuario
+				</p>
+				<input type="text" name="txtbuscar" id="txtbuscar" />
+				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
+					<img src="./Reportes/imajenes/busqueda.png">
+				</button>
+			</div>
+		</section>
+		<div class=""></div>
+		<div id="resultado_busqueda">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<thead>
+					<tr>
+						<td><b>#Usuario Inmueble</b></td>
+						<td><b>Usuario</b></td>
+						<td><b>Inmueble</b></td>
+						<td colspan=2><b>Acciones</b></td>
+					</tr>		
+				</thead>
+				<?php foreach ($usuario_inmuebles as $usuario_inmueble) { ?>
+				<tbody>
+					<tr>
+						<td><?php echo $usuario_inmueble->id_usuario_inmueble; ?></td>
+						<td><?php echo $usuario_inmueble->nombreUsuario; ?></td>
+						<td><?php echo $usuario_inmueble->nombreInmueble;?></td>
+						<td><a class="btn btn-secondary" href="?controller=usuario_inmueble&action=formulario_modificar&id_usuario_inmueble=<?php echo $usuario_inmueble->id_usuario_inmueble ?>">Actualizar</a></td>
+						<!-- <td><a class="btn btn-danger"  href="?controller=usuario_inmueble&action=eliminar_usuario_inmueble&id_usuario_inmueble=<?php echo $usuario_inmueble->id_usuario_inmueble?>">E</a> </th> -->
+						<!--<td><a class="btn btn-success" target="_blank" href="?controller=reporte&action=index&codigo_pago=<?php echo $usuario_inmueble->id_usuario_inmueble ?>">Ver</a> </th>-->
+					</tr>
+				</tbody>
+				<?php }	?>
+			</table>
 		</div>
 	</div>
 </body>

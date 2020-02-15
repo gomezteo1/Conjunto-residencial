@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Inicio</title>
-	
+	<title>Inicio Rol</title>
 	<!-- Esto es del toogle-->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script
@@ -14,65 +13,43 @@
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
-<?php 
-//require_once('conexion.php');
- ?>
-<body background="img/5.jpg">
-		<h1>
-			<a class="btn btn-outline-primary" href="?controller=rol&action=formulario_registrar">Registrar</a>
-		</h1>
-	
-		<div align="center">
-			<section class="full-width header-well">
-				<div class="full-width header-well-icon">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-				<div class="full-width header-well-text" align="left">
-					<p class="text-condensedLight">
-						Inicio Rol
-					</p>
-					<input type="text" name="txtbuscar" id="txtbuscar" />
-					<button class="btn-outline" name="btnbuscar" id="btnbuscar">
-					<img src="./Reportes/imajenes/busqueda.png">
-					</button>
-				</div>
-			</section>
-
-			<div class="full-width divider-menu-h"></div>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="table-responsive">
-						<div id="resultado_busqueda">
-						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							<thead>
-								<tr>
-									<th scope="col">#Rol</th>
-									<th scope="col">Rol</th>
-								</tr>		
-							</thead>
-							<?php  
-							foreach ($roles as $rol) { ?>
-							<tbody>
-								<tr>
-									<th scope="col"> <?php echo $rol->id_rol; ?> </th>
-									<th scope="col"> <?php echo $rol->rol; ?> </th>
-									
-									<th scope="col"><a class="btn btn-secondary" href="?controller=rol&action=formulario_modificar&id_rol=<?php echo $rol->id_rol ?>">Actualizar</a> </th>
-									
-								
-									<!-- <th scope="col"><a class="btn btn-danger" href="?controller=rol&action=eliminar_rol&id_rol=<?php echo $rol->id_rol ?>">Eliminar</a> </th> -->
-								</tr>		
-														
-							
-							<?php
-							}	
-							?>
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
+<body>
+	<div align="center">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-shopping-cart"></i>
 			</div>
+			<p><a class="btn btn-outline-primary" href="?controller=rol&action=formulario_registrar">Registrar</a></p>
+			<div align="left" class="full-width header-well-text">
+				<p class="text-condensedLight">
+					Inicio Rol
+				</p>
+				<input type="text" name="txtbuscar" id="txtbuscar" />
+				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
+					<img src="./Reportes/imajenes/busqueda.png">
+				</button>
+			</div>
+		</section>
+		<div class=""></div>
+		<div id="resultado_busqueda">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<thead>
+					<tr>
+						<td><b>#Rol</b></td>
+						<td><b>Rol</b></td>
+					</tr>		
+				</thead>
+				<?php foreach ($roles as $rol) { ?>
+				<tbody>
+					<tr>
+						<td><?php echo $rol->id_rol; ?> </td>
+						<td><?php echo $rol->rol; ?> </td>
+						<td><a class="btn btn-secondary" href="?controller=rol&action=formulario_modificar&id_rol=<?php echo $rol->id_rol ?>">Actualizar</a> </td>
+						<!-- <td><a class="btn btn-danger" href="?controller=rol&action=eliminar_rol&id_rol=<?php echo $rol->id_rol ?>">Eliminar</a> </th> -->
+					</tr>		
+				</tbody>
+				<?php }	?>
+			</table>
 		</div>
 	</div>
 </body>

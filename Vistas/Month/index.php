@@ -4,8 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Inicio</title>
-	
+	<title>Inicio Mes</title>
 	<!-- Esto es del toogle-->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script
@@ -14,68 +13,50 @@
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
-<?php 
-//require_once('conexion.php');
- ?>
-<body background="img/5.jpg">
-		<h1>
-			<a class="btn btn-primary" href="?controller=month&action=formulario_registrar">Registrar</a>
-		</h1>
-	
-		<div align="center">
-			<section class="full-width header-well">
-				<div class="full-width header-well-icon">
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-				<div class="full-width header-well-text" align="left">
-					<p class="text-condensedLight">
-						Inicio Mes
-					</p>
-					<input type="text" name="txtbuscar" id="txtbuscar" />
-					<button class="btn-outline" name="btnbuscar" id="btnbuscar">
+<body>
+	<div align="center">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-shopping-cart"></i>
+			</div>
+			<p>
+				<a class="btn btn-outline-primary" href="?controller=month&action=formulario_registrar">Registrar</a>
+			</p>
+			<div align="left" class="full-width header-well-text">
+				<p class="text-condensedLight">
+					Inicio Mes
+				</p>
+				<input type="text" name="txtbuscar" id="txtbuscar" />
+				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
 					<img src="./Reportes/imajenes/busqueda.png">
-					</button>
-				</div>
-			</section>
-
-			<div class="full-width divider-menu-h"></div>
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-					<div class="table-responsive">
-						<div id="resultado_busqueda">
-						<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-							<thead>
-								<tr>
-									<th scope="col">#Mes</th>
-									<th scope="col">Mes</th>
-								
-									<th scope="col">Porcentaje</th>
-									<th scope="col">Fecha</th>
-									
-									<th colspan=3 >Acciones</th>
-								</tr>
-							</thead>
-							<?php
-			foreach ($months as $month) { ?>
+				</button>
+			</div>
+		</section>
+		<div class=""></div>
+		<div id="resultado_busqueda">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<thead>
+					<tr>
+						<td><b>#Mes</b></td>
+						<td><b>Mes</b></td>
+						<td><b>Porcentaje</b></td>
+						<td><b>Fecha</b></td>
+						<td colspan=2 align="center"><b>Acciones</b></td>
+					</tr>
+				</thead>
+				<?php foreach ($months as $month) { ?>
 				<tbody>
 					<tr>
-						<th scope="col"><?php echo $month->codigo_month; ?></th>
-						<th scope="col"><?php echo $month->mes; ?></th>
-						
-						<th scope="col"><?php echo $month->porcentaje; ?></th>
-						<th scope="col"><?php echo $month->fecha; ?></th>
-
-					
-						<th scope="col"><a class="btn btn-secondary" href="?controller=month&action=formulario_modificar&codigo_month=<?php echo $month->codigo_month ?>">Actualizar</a> </th>
-						<!-- 						<th scope="col"><a class="btn btn-danger" href="?controller=month&action=eliminar_month&codigo_month=<?php echo $month->codigo_month ?>">Eliminar</a> </th> -->
-					</tr>		
-						<?php } ?>
-								
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+						<td><?php echo $month->codigo_month; ?></td>
+						<td><?php echo $month->mes; ?></td>
+						<td><?php echo $month->porcentaje; ?></td>
+						<td><?php echo $month->fecha; ?></td>
+						<td><a class="btn btn-secondary" href="?controller=month&action=formulario_modificar&codigo_month=<?php echo $month->codigo_month ?>">Actualizar</a></td>
+						<!-- <td><a class="btn btn-danger" href="?controller=month&action=eliminar_month&codigo_month=<?php echo $month->codigo_month ?>">Eliminar</a> </th> -->
+					</tr>
+				</tbody>			
+				<?php } ?>
+			</table>
 		</div>
 	</div>
 </body>

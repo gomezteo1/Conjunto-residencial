@@ -1,71 +1,80 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<script
+</head>
+<body>
+	<div align="center">
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-shopping-cart"></i>
+			</div>
+			<p><a href="?controller=cuenta_cobro&action=formulario_cuenta_cobro" class="btn btn-outline-primary">Registrar</a><p>
+			<div align="left" class="full-width header-well-text">
+				<p class="text-condensedLight">
+					Inicio Cuenta Cobro
+				</p>
+				<input type="text" name="txtbuscar" id="txtbuscar" />
+				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
+					<img src="./Reportes/imajenes/busqueda.png">
+				</button>
+			</div>
+		</section>
+		<div class=""></div>
+		<div id="resultado_busqueda">
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+				<thead>
+					<tr>
+						<td><b>#</b></td>
+						<td><b>#Cuenta</b></td>
+						<td><b>Nit</b></td>
+						<td><b>Codigo usuario</b></td>
+						<td><b>Codigo inmueble</b></td>
+						<td><b>Codigo month</b></td>
+						<td><b>Codigo tipo pago</b></td>
+						<td><b>Fecha</b></td>
+						<td><b>Monto pagar</b></td>
+						<td><b>Monto por cancelar</b></td>
+						<td><b>Estado</b></td>
+						<td colspan="2" align="center"><b>Acciones</b></td>
+					</tr>
+				</thead>
+				<?php foreach ($cuenta_cobros as $cuenta_cobro){?>
+					<tbody>
+						<tr>
+							<td><?php echo $cuenta_cobro->codigo_cuenta_cobro; ?></td>
+							<td><?php echo $cuenta_cobro->numero_cuenta; ?></td>
+							<td><?php echo $cuenta_cobro->nit; ?></td>
+							<td><?php echo $cuenta_cobro->id_usuario;?></td>
+							<td><?php echo $cuenta_cobro->codigo_inmueble; ?></td>
+							<td><?php echo $cuenta_cobro->codigo_month; ?></td>
+							<td><?php echo $cuenta_cobro->codigo_tipo_pago; ?></td>
+							<td><?php echo $cuenta_cobro->fecha; ?></td>
+							<td><?php echo $cuenta_cobro->codigo_mora; ?></td>
+							<td><?php echo $cuenta_cobro->monto_por_cancelar; ?></td>
+							<td><?php echo $cuenta_cobro->estado==1?'Pagado':'Sin Pagar'; ?></td>
+							
+							<td><a href="?controller=cuenta_cobro&action=formulario_modificar&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro?> "class="btn btn-secondary">Actualizar</a></td>
+							<td>
+								<input <?php echo $cuenta_cobro->estado==1 ? "checked" : "" ?> onchange="prueba_cc(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">
+							</td>
+							<!-- <td><a href="?controller=cuenta_cobro&action=eliminar_cuenta_cobro&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>"class="btn btn-danger">Eliminar</a></td> -->
+							<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportec&action=index&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">Ver</a> </td>
+						</tr>
+					</tbody>			
+					<?php } ?>
+			</table>
+		</div>	
+	</div>
+</body>
+<script
 	  src="https://code.jquery.com/jquery-3.4.1.js"
 	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-</head>
-<body>
-<p><a href="?controller=cuenta_cobro&action=formulario_cuenta_cobro" class="btn btn-success">Agregar</a>
-</p>
-
-<input type="text" name="txtbuscar" id="txtbuscar" />
-<button name="btnbuscar" id="btnbuscar"><img src="./Reportes/imajenes/busqueda.png"></button>
-<div id="resultado_busqueda">
-<br>
-<br>
-<table class="table table-hover table-condensed table-bordered">
-<thead>
-	<tr>
-		<th>#</th>
-		<th>Numero cuenta</th>
-		<th>Nit</th>
-		<th>Codigo ususario</th>
-		<th>Codigo inmueble</th>
-		<th>Codigo month</th>
-		<th>Codigo tipo pago</th>
-		<th>Fecha</th>
-		<th>Monto pagar</th>
-		<th>Monto por cancelar</th>
-		<th>estado</th>
-		<th colspan=3 >Acciones</th>
-	</tr>
-</thead>
-<?php
-foreach ($cuenta_cobros as $cuenta_cobro){?>
-		
-			<tr>
-			    <td><?php echo $cuenta_cobro->codigo_cuenta_cobro; ?></td>
-				<td><?php echo $cuenta_cobro->numero_cuenta; ?></td>
-				<td><?php echo $cuenta_cobro->nit; ?></td>
-				<td><?php echo $cuenta_cobro->id_usuario;?></td>
-				<td><?php echo $cuenta_cobro->codigo_inmueble; ?></td>
-				<td><?php echo $cuenta_cobro->codigo_month; ?></td>
-				<td><?php echo $cuenta_cobro->codigo_tipo_pago; ?></td>
-				<td><?php echo $cuenta_cobro->fecha; ?></td>
-				<td><?php echo $cuenta_cobro->codigo_mora; ?></td>
-				<td><?php echo $cuenta_cobro->monto_por_cancelar; ?></td>
-				<td><?php echo $cuenta_cobro->estado==1?'Pagado':'Sin Pagar'; ?></td>
-				
-				<td><a href="?controller=cuenta_cobro&action=formulario_modificar&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro?> "class="btn btn-secondary">Actualizar</a></td>
-				<td>
-					<input <?php echo $cuenta_cobro->estado==1 ? "checked" : "" ?> onchange="prueba_cc(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">
-				</td>
-				<!-- <td><a href="?controller=cuenta_cobro&action=eliminar_cuenta_cobro&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>"class="btn btn-danger">Eliminar</a></td> -->
-				<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportec&action=index&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">Ver</a> </td>
-			</tr>		
-	<?php } ?>
-</table>
-
-</div>
-
-
-
-</body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
