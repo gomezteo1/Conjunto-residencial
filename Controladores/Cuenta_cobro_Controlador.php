@@ -66,7 +66,6 @@
 		
 			
 			public function buscar_cuenta_cobro($dato){
-				echo "buscar_cuenta_cobro";
 				$cuenta_cobros = Cuenta_cobro::buscar_cuenta_cobro($dato);
 				require_once('../Vistas/Cuenta_cobro/listar_cuenta_cobros.php');
 			

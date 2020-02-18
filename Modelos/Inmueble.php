@@ -111,7 +111,9 @@ class Inmueble
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT * FROM inmueble
 		WHERE tipo like '%$dato%' 
-		OR numero like '%$dato%'
+		OR numero like '%$dato%' or 
+		numero_matricula like '%$dato%' 
+		OR torre like '%$dato%' or estado like '%$dato%'
 		");
 		
 		// carga en la $lista_productos cada registro desde la base de datos

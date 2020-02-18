@@ -71,6 +71,7 @@ public static function listar_todos(){
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT * FROM tipo_documento
 		WHERE id_tipo_documento like '%$dato%' 
+		
 		OR documento like '%$dato%'
 		");
 		

@@ -76,7 +76,7 @@ class Tipo_pago
             $db=Db::getConnect();
             $sql=$db->query("SELECT * FROM tipo_pago
             WHERE codigo_tipo_pago like '%$dato%' 
-            OR tipo_pago like '%$dato%'
+            OR tipo_pago like '%$dato%' or descripcion like '%$dato%'
             ");
             
             // carga en la $lista_productos cada registro desde la base de datos

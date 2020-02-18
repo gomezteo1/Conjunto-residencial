@@ -82,11 +82,11 @@ class Usuario_Inmueble
             $insert->execute();
         }
         //eliminar 
-        public static function eliminar_usuario_inmueble($usuario_inmueble){
-            $db=Db::getConnect();
-            $delete=$db->prepare("DELETE FROM usuario_inmueble WHERE id_usuario_inmueble=$id_usuario_inmueble");
-            $delete->execute();
-        }
+        // public static function eliminar_usuario_inmueble($usuario_inmueble){
+        //     $db=Db::getConnect();
+        //     $delete=$db->prepare("DELETE FROM usuario_inmueble WHERE id_usuario_inmueble=$id_usuario_inmueble");
+        //     $delete->execute();
+        // }
      
         //la funcion para actualizar 
          public static function Obtener_por_id_usuario_inmueble($id_usuario_inmueble){
@@ -101,19 +101,43 @@ class Usuario_Inmueble
          public static function buscar_usuario_inmueble($dato){
             $listar_usuario_inmuebles =[];
             $db=Db::getConnect();
-            $sql=$db->query("SELECT * FROM usuario_inmueble
-          WHERE id_usuario like '%$dato%' 
-          OR codigo_inmueble like '%$dato%'
+            $sql=$db->query("SELECT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM 
+            usuario_inmueble ui 
+            inner join usuario u on ui.id_usuario = u.id_usuario 
+            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+          WHERE (u.nombres like '%$dato%' 
+          or u.apellidos like '%$dato%')or i.numero like '%$dato%' 
+          or i.torre like '%$dato%'
+          
           
           ");
-            
-     
             // carga en la $lista_productos cada registro desde la base de datos
-            foreach ($sql->fetchAll() as $usuario_inmueble) {
-              $listar_usuario_inmuebles[]= new Usuario_Inmueble($usuario_inmueble['id_usuario_inmueble'], $usuario_inmueble['id_usuario'], $usuario_inmueble['codigo_inmueble']);
+            foreach ($sql->fetchAll() as $usuario_inmueble){
+              $itemusuario_inmueble= new Usuario_Inmueble($usuario_inmueble['id_usuario_inmueble'], $usuario_inmueble['id_usuario'], 
+                  $usuario_inmueble['codigo_inmueble']);
+              $itemusuario_inmueble->nombreUsuario=$usuario_inmueble['xx'];
+              $itemusuario_inmueble->nombreInmueble=$usuario_inmueble['zz'];
+                
+              $listar_usuario_inmuebles[]= $itemusuario_inmueble; 
             }
             return  $listar_usuario_inmuebles;
         }	
+
+
+
+
+
+
+
+//_-------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+        //-------------------------------------------------------------------------------------
 
     public static function consultar_usuario_inmueble($id_usuario_inmuebles){
     //buscar

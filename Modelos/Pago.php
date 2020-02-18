@@ -115,10 +115,13 @@ class Pago
             $listar_pagos =[];
             $db=Db::getConnect();
             $sql=$db->query("SELECT p.*, concat(u.nombres,'', u.apellidos)as xx,
-         t.tipo_pago  FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
-          inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-          WHERE lower(concat(u.nombres,' ',u.apellidos)) like '%$dato%' 
-          ");
+            t.tipo_pago  FROM pago p 
+            inner join usuario u on p.id_usuario = u.id_usuario 
+            inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
+            WHERE u.nombres like trim('%$dato%') Or u.apellidos like trim('%$dato%') 
+            Or t.tipo_pago like trim('%$dato%') Or p.fecha like trim('%$dato%')
+            Or p.monto_cancelado like trim('%$dato%') Or p.monto_a_pagar like trim('%$dato%')  
+            ");
             
             // carga en la $lista_productos cada registro desde la base de datos
             foreach ($sql->fetchAll() as $pago) {

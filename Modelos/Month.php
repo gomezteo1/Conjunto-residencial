@@ -80,11 +80,12 @@ class Month
 	}
 	
 	public static function buscar_month($dato){
-		$lista_months =[];
+		$lista_months =[];	
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT * FROM month
 		WHERE codigo_month like '%$dato%' 
-		OR mes like '%$dato%'
+		OR mes like '%$dato%' or porcentaje like '%$dato%' 
+		OR fecha like '%$dato%'
 		");
 		
 		// carga en la $lista_productos cada registro desde la base de datos

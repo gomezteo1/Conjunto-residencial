@@ -81,6 +81,7 @@ class Rol
 		$sql=$db->query("SELECT * FROM rol
 		WHERE estado like '%$dato%' 
 		OR rol like '%$dato%'
+		OR id_rol like '%$dato%' 
 		");
 		
 		foreach ($sql->fetchAll() as $rol) {

@@ -201,7 +201,8 @@ public static function buscar_usuario($dato){
         $sql=$db->query("SELECT  u.*,r.rol as rol, t.documento as documento FROM usuario u 
             inner join rol r on u.id_rol = r.id_rol 
             inner join tipo_documento t on u.id_tipo_documento = t.id_tipo_documento
-          WHERE u.nombres like '%$dato%'
+          WHERE u.nombres like '%$dato%' or r.rol like '%$dato%' or u.apellidos like '%$dato%' or u.numero_documento like '%$dato%'
+          or u.telefono like '%$dato%' or u.correo like '%$dato%' 
         ");
         
        foreach($sql->fetchAll() as $usuario){

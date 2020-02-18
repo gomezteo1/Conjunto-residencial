@@ -159,12 +159,17 @@ if($update->execute()){
 	public static function buscar_abono($dato){
 		$lista_abonos =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario inner join abonos_pago a on p.id_cuentaCobro=a.id_cuentaCobro
-		WHERE u.nombres like '%$dato%'");
+		$sql=$db->query("SELECT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo 
+		FROM usuario u 
+		inner join pago p on u.id_usuario = p.id_usuario 
+		inner join abonos_pago a on p.codigo_cuenta_cobro=a.id_cuentaCobro
+		WHERE (u.nombres like '%$dato%'
+		or u.apellidos like '%$dato%')
+		or a.codigo_abono like '%$dato%'");
 		
 		// carga en la $lista_inmuebles cada registro desde la base de datos
 		   foreach ($sql->fetchAll() as $abono){
-            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['id_usuario'],$abono['fecha'],$abono['deuda'],$abono['abono'],$abono['saldo']);
+            $itemabono= new Abono($abono['codigo_abono'],$abono['id_cuentaCobro'],$abono['id_usuario'],$abono['fecha'],$abono['deuda'],$abono['abono'],$abono['saldo']);
             $itemabono->nombreUsuario=$abono['nombre'];
             $itemabono->nombrePago=$abono['monto'];
               
