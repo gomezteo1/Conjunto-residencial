@@ -12,10 +12,11 @@
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-shopping-cart"></i>
 			</div>
-			<p><a href="?controller=cuenta_cobro&action=formulario_cuenta_cobro" class="btn btn-outline-primary">Registrar</a><p>
 			<div align="left" class="full-width header-well-text">
 				<p class="text-condensedLight">
 					Inicio Cuenta Cobro
+					<a href="?controller=cuenta_cobro&action=formulario_cuenta_cobro" class="btn btn-outline-primary">Registrar</a>
+
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<button class="btn-outline" name="btnbuscar" id="btnbuscar">

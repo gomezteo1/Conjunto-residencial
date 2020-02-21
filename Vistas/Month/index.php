@@ -19,12 +19,12 @@
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-shopping-cart"></i>
 			</div>
-			<p>
-				<a class="btn btn-outline-primary" href="?controller=month&action=formulario_registrar">Registrar</a>
-			</p>
 			<div align="left" class="full-width header-well-text">
 				<p class="text-condensedLight">
 					Inicio Mes
+					<a class="btn btn-outline-primary" href="?controller=month&action=formulario_registrar">Registrar</a>
+			
+
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<button class="btn-outline" name="btnbuscar" id="btnbuscar">

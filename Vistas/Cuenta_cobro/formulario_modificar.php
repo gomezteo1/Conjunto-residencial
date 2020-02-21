@@ -77,11 +77,11 @@
       ?>
       </div><!-- end form-group -->
 
-      <div class="form-group col-sm-6">
+      <!-- <div class="form-group col-sm-6">
                                        <?php
-      $llenar_select_tipo_pago="si";
-      require_once("Controladores/Tipo_pago_Controlador.php");
-      ?>
+      //$llenar_select_tipo_pago="si";
+      //require_once("Controladores/Tipo_pago_Controlador.php");
+      //?> -->
       </div><!-- end form-group -->
                                         <div class="form-group col-sm-6">
 														<div class="help-block with-errors"></div>

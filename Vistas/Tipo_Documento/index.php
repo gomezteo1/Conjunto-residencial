@@ -20,10 +20,11 @@
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-shopping-cart"></i>
 			</div>
-			<p><a class="btn btn-outline-primary" href="?controller=tipo_documento&action=formulario_registrar">Registrar</a></p>
 			<div align="left" class="full-width header-well-text">
 				<p class="text-condensedLight">
 					Inicio Tipo Documento
+					<a class="btn btn-outline-primary" href="?controller=tipo_documento&action=formulario_registrar">Registrar</a>
+
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
