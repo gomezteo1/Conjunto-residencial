@@ -32,12 +32,13 @@ require_once('conexion.php');
 							<td><b>#</b></td>
 							<td><b>Numero cuenta</b></td>
 							<td><b>Nit</b></td>
-							<td><b>Codigo Usuario</b></td>
-							<td><b>Codigo inmueble</b></td>
-							<td><b>Codigo Tipo Pago</b></td>
+							<td><b>Usuario</b></td>
+							<td><b>Inmueble</b></td>
+							<td><b>Mes</b></td>
+							<td><b>Documento</b></td>
 							<td><b>Fecha</b></td>
-							<td><b>Monto pagar</b></td>
-							<td><b>Monto por cancelar</b></td>
+							<td><b>Monto por pagar</b></td>
+							<td><b>Mora</b></td>
 							<td><b>Estado</b></td>
 							<td colspan="1" align="center"><b>Acciones</b></td>
 						</tr>
@@ -50,9 +51,10 @@ require_once('conexion.php');
 							<td><?php echo $cuenta_cobro->nit; ?></td>
 							<td><?php echo $cuenta_cobro->nombreUsuario;?></td>
 							<td><?php echo $cuenta_cobro->nombreInmueble; ?></td>
-							<td><?php echo $cuenta_cobro->nombreTipoPago; ?></td>
+							<td><?php echo $cuenta_cobro->nombreMes; ?></td>
+							<td><?php echo $cuenta_cobro->nombreDocumento; ?></td>
 							<td><?php echo $cuenta_cobro->fecha; ?></td>
-							<td><?php echo $cuenta_cobro->nombreMora; ?></td>
+							<td><?php echo $cuenta_cobro->porMora; ?></td>
 							<td><?php echo $cuenta_cobro->monto_por_cancelar; ?></td>
 							<td><?php echo $cuenta_cobro->estado==1?'Pagado':'Sin Pagar'; ?></td>
 							<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportec&action=index&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">Ver</a> </th>

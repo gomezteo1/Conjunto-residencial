@@ -46,10 +46,10 @@
 			case 'reportec':
 				$controller= new ReporteC_Controlador();
 				break; 		 	 
-			case 'mora':
-				 require_once('Modelos/Mora.php');
-				 $controller= new Mora_Controlador();
-				 break;
+		// case 'mora':
+			// 	 require_once('Modelos/Mora.php');
+			// 	 $controller= new Mora_Controlador();
+			// 	 break;
 			case 'month':
 				 require_once('Modelos/Month.php');
 				 $controller= new Month_Controlador();

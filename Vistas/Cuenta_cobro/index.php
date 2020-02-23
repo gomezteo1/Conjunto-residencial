@@ -32,29 +32,29 @@
 						<td><b>#</b></td>
 						<td><b>#Cuenta</b></td>
 						<td><b>Nit</b></td>
-						<td><b>Codigo usuario</b></td>
-						<td><b>Codigo inmueble</b></td>
-						<td><b>Codigo month</b></td>
-						<td><b>Codigo tipo pago</b></td>
+						<td><b>Usuario</b></td>
+						<td><b>Inmueble</b></td>
+						<td><b>Documento</b></td>
 						<td><b>Fecha</b></td>
-						<td><b>Monto pagar</b></td>
-						<td><b>Monto por cancelar</b></td>
+						<td><b>Fecha</b></td>
+						<td><b>Mora</b></td>
+						<td><b>Monto por pagar</b></td>
 						<td><b>Estado</b></td>
 						<td colspan="2" align="center"><b>Acciones</b></td>
 					</tr>
 				</thead>
-				<?php foreach ($cuenta_cobros as $cuenta_cobro){?>
+				<?php foreach ($cuenta_cobros as $cuenta_cobro) { ?>
 					<tbody>
 						<tr>
 							<td><?php echo $cuenta_cobro->codigo_cuenta_cobro; ?></td>
 							<td><?php echo $cuenta_cobro->numero_cuenta; ?></td>
 							<td><?php echo $cuenta_cobro->nit; ?></td>
-							<td><?php echo $cuenta_cobro->id_usuario;?></td>
-							<td><?php echo $cuenta_cobro->codigo_inmueble; ?></td>
-							<td><?php echo $cuenta_cobro->codigo_month; ?></td>
-							<td><?php echo $cuenta_cobro->codigo_tipo_pago; ?></td>
+							<td><?php echo $cuenta_cobro->nombreUsuario;?></td>
+							<td><?php echo $cuenta_cobro->nombreInmueble; ?></td>
+							<td><?php echo $cuenta_cobro->nombreDocumento; ?></td>
+							<td><?php echo $cuenta_cobro->nombreMes; ?></td>
 							<td><?php echo $cuenta_cobro->fecha; ?></td>
-							<td><?php echo $cuenta_cobro->codigo_mora; ?></td>
+							<td><?php echo $cuenta_cobro->porMora; ?></td>
 							<td><?php echo $cuenta_cobro->monto_por_cancelar; ?></td>
 							<td><?php echo $cuenta_cobro->estado==1?'Pagado':'Sin Pagar'; ?></td>
 							

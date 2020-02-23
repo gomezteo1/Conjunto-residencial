@@ -223,7 +223,7 @@ session_start();
 													<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>Usuario Inmueble
+														<i class="zmdi zmdi-balance"></i>Usuario e Inmueble
 													</div>
 												</a>
 											</li>
@@ -248,7 +248,7 @@ session_start();
 											<i class="zmdi zmdi-balance"></i>
 											</div>
 											<div class="navLateral-body-cr">
-												AJUSTES
+												GESTIÓN DE CUENTA
 											</div>
 											<span class="zmdi zmdi-chevron-left"></span>
 										</a>
@@ -439,7 +439,7 @@ session_start();
 												<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>¡Usuario Inmueble
+														<i class="zmdi zmdi-balance"></i>Usuario e Inmueble
 												</div>
 											</a>
 											</li>
@@ -474,15 +474,24 @@ session_start();
 													<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>Ajustes
+														<i class="zmdi zmdi-balance"></i>Perfíl
 													</div>
-												</a>
+											</a>
 										</li>
-										
+										<li>
+										<?php  
+											echo'<a href="destruir_sesion.php">
+											<div class="navLateral-body-cl">
+											</div>
+											<div class="navLateral-body-cr">
+											<i class="zmdi zmdi-power bg-danger"></i>Cerrar Sesion
+											</div></a>';
+											?>		
+										</li>
 									</ul>
 								</li>
 								<!--lOS QUE DIVIDEN LA ZONA-->
-								<li class="full-width divider-menu-h"></li>
+								<!-- <li class="full-width divider-menu-h"></li>
 								
 
 									<li class="full-width divider-menu-h"></li>
@@ -498,17 +507,11 @@ session_start();
 										</a>
 										<ul class="full-width menu-principal sub-menu-options">
 											<li class="full-width">
-											<?php  
-											echo'<a href="destruir_sesion.php"><div class="navLateral-body-cl">
-											</div>
-											<div class="navLateral-body-cr">
-											<i class="zmdi zmdi-power bg-danger"></i>Cerrar Sesion
-											</div></a>';
-											?>		
+												
 											</li>
 											
 										</ul>
-									</li>
+									</li> -->
 
 
 							</ul>

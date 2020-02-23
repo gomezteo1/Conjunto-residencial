@@ -27,7 +27,9 @@ class Pago
     public static function listar_todos(){ 
         $listar_pagos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT p.*, concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago  FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
+        $sql=$db->query("SELECT p.*, 
+        concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago  
+        FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
           inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago ");
 
         //carga en la lista cada registro de la base de datos 
