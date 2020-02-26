@@ -28,6 +28,8 @@ class Cuenta_cobro
         $this->monto_por_cancelar=$monto_por_cancelar;
         $this->estado=$estado;
     }
+ 
+ //------------------------------------------------------------------------------
     //funtion para obtener todos los produuctos 
     public static function Obtener_cuenta_cobro($id){
         $db=Db::getConnect();
@@ -42,6 +44,31 @@ class Cuenta_cobro
         return $lista_cuenta_cobros;
     }
 
+    public function Obtener_monto_cancelado($idCuenta){
+        $db=Db::getConnect();
+        $sql=$db->query("SELECT SUM(abono) as totabono  FROM abonos_pago WHERE id_cuentaCobro='$idCuenta'"); 
+        $cuenta_cobro=$sql->fetch();
+        $totalAbono=$cuenta_cobro['totabono'];           
+        return $totalAbono;        
+     }
+ //------------------------------------------------------------------------------    
+   
+ 
+
+    // public static function listar_todos(){
+    //     $lista_cuenta_cobros=[];
+    //     $db=Db::getConnect();
+    //     $sql=$db->query('SELECT * FROM cuenta_cobro');
+
+    //     //carga en la lista _factuura cada registro 
+    //     foreach ($sql->fetchAll() as $cuenta_cobro) {
+    //         $lista_cuenta_cobros[]= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'],$cuenta_cobro['numero_cuenta'],$cuenta_cobro['nit'],$cuenta_cobro['id_usuario'],$cuenta_cobro['codigo_inmueble'],$cuenta_cobro['codigo_month'],$cuenta_cobro['fecha'],$cuenta_cobro['monto_por_cancelar'],$cuenta_cobro['porMora'],$cuenta_cobro['estado']);
+    //     }
+    //     return $lista_cuenta_cobros;
+    // }
+    
+    /*Luego trabajamos con la de abajo*/
+ 
     // Listar todos con inner join
     public static function listar_todos(){ 
         $lista_cuenta_cobros=[];
@@ -70,20 +97,6 @@ class Cuenta_cobro
     }    
 
 
-
-    // public static function listar_todos(){
-    //     $lista_cuenta_cobros=[];
-    //     $db=Db::getConnect();
-    //     $sql=$db->query('SELECT * FROM cuenta_cobro');
-
-    //     //carga en la lista _factuura cada registro 
-    //     foreach ($sql->fetchAll() as $cuenta_cobro) {
-    //         $lista_cuenta_cobros[]= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'],$cuenta_cobro['numero_cuenta'],$cuenta_cobro['nit'],$cuenta_cobro['id_usuario'],$cuenta_cobro['codigo_inmueble'],$cuenta_cobro['codigo_month'],$cuenta_cobro['fecha'],$cuenta_cobro['monto_por_cancelar'],$cuenta_cobro['porMora'],$cuenta_cobro['estado']);
-    //     }
-    //     return $lista_cuenta_cobros;
-    // }
-    
-/*Luego trabajamos con la de abajo*/
 
     public static function listar_cuenta_cobro_usuario($id_usuario){ 
         $lista_cuenta_cobros=[];
@@ -128,7 +141,7 @@ class Cuenta_cobro
           $cuenta_cobro->codigo_month, 
           '$cuenta_cobro->fecha', 
           $cuenta_cobro->monto_por_cancelar,
-          '1.5',
+          '',
           '1')");
     // echo "INSERT INTO cuenta_cobro(codigo_cuenta_cobro,numero_cuenta,nit,id_usuario,codigo_inmueble,codigo_month,fecha,porMora,monto_por_cancelar,estado)VALUES('',$cuenta_cobro->numero_cuenta,$cuenta_cobro->nit, $cuenta_cobro->id_usuario, $cuenta_cobro->codigo_inmueble, $cuenta_cobro->codigo_month, '$cuenta_cobro->fecha'
     // ,$cuenta_cobro->monto_por_cancelar,'','')";
@@ -245,6 +258,32 @@ class Cuenta_cobro
         return $lista_cuenta_cobros;
     }    
    
+    
+    //---------------------------------------------------------------------
+    //recien agregadas
+    public function modificar_cuenta_cobroMora($codigo_cuenta_cobro,$mora){
+        $db=Db::getConnect();
+        $update=$db->prepare("UPDATE cuenta_cobro SET 
+        porMora='$mora'
+        WHERE codigo_cuenta_cobro='$codigo_cuenta_cobro'");
+        $update->execute();
+    }
+
+
+    public static function UpMora(){
+        $fechaActual= date("Y-m-d");
+        
+      foreach(Cuenta_cobro::listar_todos() as $cuenta_cobro){
+          if($cuenta_cobro->fecha<$fechaActual and $cuenta_cobro->estado==0 ){
+              //echo "ENTRO";
+              Cuenta_cobro::modificar_cuenta_cobroMora($cuenta_cobro->codigo_cuenta_cobro,1.5);
+          }
+        }
+      
+  }
+//Recien agregadas------------------------------------------------------------
+
+
 }
 
 ?>

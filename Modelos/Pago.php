@@ -136,7 +136,7 @@ class Pago
             return $listar_pagos;
         }	
 
-        public static function consultar_valor($codigo_pago){
+    public static function consultar_valor($codigo_pago){
     //buscar
     $monto_cancelado=9;
     $db=Db::getConnect();

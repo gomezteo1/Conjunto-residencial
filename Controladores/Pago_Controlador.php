@@ -23,11 +23,22 @@
           require_once('Vistas/Pago/formulario_registrar.php');
         } 
        
+      
+      //----------------------------------------------- Los pagos
+      // public function registrar_pago($pago){
+      //   Pago::registrar_pago($pago);
+      //   header('Location: ../index.php?controller=pago&action=index');
+           
+      // }
+      
       public function registrar_pago($pago){
+        require_once('Modelos/Cuenta_cobro.php');
+        Cuenta_cobro::UpMora();
         Pago::registrar_pago($pago);
         header('Location: ../index.php?controller=pago&action=index');
            
       }
+      //--------------------------------------------------------------
       public function formulario_modificar(){
           require_once('Modelos/Pago.php');
           $pago=Pago::Obtener_por_codigo_pago($_GET['codigo_pago']);

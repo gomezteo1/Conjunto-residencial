@@ -13,8 +13,16 @@
           
           require_once('Vistas/Abono/indexusuario.php');
       }
-		//Mostar vista para registrar el inmueble
-        public function formulario_registrar(){
+		  
+	// Formularios registrar
+
+	    // public function formulario_registrar(){
+		// 	require_once('Vistas/Abono/formulario_registrar.php');
+        // }
+		
+		public function formulario_registrar(){
+        	require_once('Modelos/Cuenta_cobro.php');
+        	Cuenta_cobro::UpMora();
 			require_once('Vistas/Abono/formulario_registrar.php');
         }
 
@@ -24,6 +32,7 @@
 			header('Location: ../index.php');
 		}
 		
+	//------------------------------------------------------	
 		//Mostar vista para modificar el inmueble
         public function formulario_modificar(){
 			require_once('Modelos/Abono.php');				

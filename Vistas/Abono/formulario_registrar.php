@@ -93,6 +93,16 @@
 										</div>
 									</div>
 
+									
+									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abonoAnt" name="abonoAnt" readonly
+											<label class="mdl-textfield__label" for="abonoAnt"> Abonos Anteriores</label>
+											
+										</div>
+									</div>
+
+
 
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

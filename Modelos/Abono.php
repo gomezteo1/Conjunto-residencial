@@ -129,7 +129,7 @@ if($update->execute()){
 	  $updateC=$db->prepare("UPDATE cuenta_cobro ccc
 	  inner join   pago p on  ccc.codigo_cuenta_cobro =  p.codigo_cuenta_cobro 
 	  SET ccc.monto_pagar = ( $abonoViejo + ccc.monto_pagar - $abono)
-	  WHERE p.codigo_pago='$codigo_pago'");
+	  WHERE p.codigo_pago=$codigo_pago");
 	  $updateC->execute();
 }
 		
