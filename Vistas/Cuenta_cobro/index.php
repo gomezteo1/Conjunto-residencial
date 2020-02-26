@@ -35,7 +35,7 @@
 						<td><b>Usuario</b></td>
 						<td><b>Inmueble</b></td>
 						<td><b>Documento</b></td>
-						<td><b>Fecha</b></td>
+						<td><b>Mes-Valor</b></td>
 						<td><b>Fecha</b></td>
 						<td><b>Mora</b></td>
 						<td><b>Monto por pagar</b></td>

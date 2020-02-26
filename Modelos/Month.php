@@ -22,7 +22,7 @@ class Month
 	public static function listar_todos(){
 		$lista_months  =[];
 		$db=Db::getConnect();
-		$sql=$db->query('SELECT * FROM month');
+		$sql=$db->query('SELECT DISTINCT * FROM month');
 
 		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $month) {

@@ -25,13 +25,11 @@ class Detalle_Cuenta_cobro
 		 detalle_cuenta_cobro(codigo_cuenta_cobro,codigo_month,fecha_detalle) VALUES
 		 ($ccc,$cm,now())");
 		 $respuesta = $insert->execute(); 
-		 if($respuesta)
-		 {
-			 return "Detalle Guardado";
+		 if($respuesta){
+		   return "Detalle Guardado";
 		 }
-		 else
-		 {
-			 return "Problemas en el registro detalle";
+		 else{
+		   return "Problemas en el registro detalle";
 		 }
     }
 }

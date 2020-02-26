@@ -19,7 +19,7 @@ class Usuario_Inmueble
     public static function listar_todos(){ 
         $listar_usuario_inmuebles =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM 
+        $sql=$db->query("SELECT DISTINCT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM 
           usuario_inmueble ui 
           inner join usuario u on ui.id_usuario = u.id_usuario 
           inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble ");
@@ -39,7 +39,7 @@ class Usuario_Inmueble
      public static function listar_usuario_inmueble($id_usuario){ 
         $listar_usuario_inmuebles =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz FROM 
+        $sql=$db->query("SELECT DISTINCT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz FROM 
           usuario u 
           inner join usuario_inmueble ui on u.id_usuario = ui.id_usuario 
           inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble where ui.id_usuario='$id_usuario'");
@@ -101,7 +101,7 @@ class Usuario_Inmueble
          public static function buscar_usuario_inmueble($dato){
             $listar_usuario_inmuebles =[];
             $db=Db::getConnect();
-            $sql=$db->query("SELECT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM 
+            $sql=$db->query("SELECT DISTINCT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM 
             usuario_inmueble ui 
             inner join usuario u on ui.id_usuario = u.id_usuario 
             inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble

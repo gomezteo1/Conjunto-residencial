@@ -19,7 +19,7 @@ class Rol
 	public static function listar_todos(){
 		$lista_roles =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM rol WHERE estado!='0'");
+		$sql=$db->query("SELECT DISTINCT * FROM rol WHERE estado!='0'");
 
 		// carga en la $lista_pagos cada registro desde la base de documentoddocumentoatos
 		foreach ($sql->fetchAll() as $rol) {

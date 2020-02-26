@@ -34,7 +34,7 @@ class Usuario{
     public static function listar_todos(){
         $listar_usuarios =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT u.*,r.rol,t.documento FROM usuario u 
+        $sql=$db->query("SELECT DISTINCT u.*,r.rol,t.documento FROM usuario u 
             inner join rol r on u.id_rol = r.id_rol 
             inner join tipo_documento t on u.id_tipo_documento = t.id_tipo_documento");
       
@@ -182,7 +182,30 @@ class Usuario{
         $select->execute();
         $usuario = $select->fetch();
         return  $usuario;
-    }       
+    } 
+    public static function obtenerNom(string $nombres){
+        $db = Db::getConnect();
+        $select = $db->prepare("SELECT * FROM usuario  WHERE nombres ='$nombres'");
+        $select->execute();
+        $usuario = $select->fetch();
+        return  $usuario;
+    }
+
+    public static function obtenerApe(string $apellidos){
+        $db = Db::getConnect();
+        $select = $db->prepare("SELECT * FROM usuario  WHERE apellidos ='$apellidos'");
+        $select->execute();
+        $usuario = $select->fetch();
+        return  $usuario;
+    }     
+
+    public static function obtenerDoc(int $numero_documento){
+        $db = Db::getConnect();
+        $select = $db->prepare("SELECT * FROM usuario  WHERE numero_documento ='$numero_documento'");
+        $select->execute();
+        $usuario = $select->fetch();
+        return  $usuario;
+    }
 
 public static function login_usuario($correo,$clave){
        
@@ -219,7 +242,7 @@ public static function buscar_usuario($dato){
     public static function buscar_tipo_usuario($id_usuario){
         //buscar
         $db=Db::getConnect();
-        $select=$db->prepare("SELECT  u.*, r.rol as rol, t.documento as documento FROM usuario u 
+        $sql=$db->prepare("SELECT DISTINCT u.*, r.rol as rol, t.documento as documento FROM usuario u 
             inner join rol r on u.id_rol = r.id_rol 
             inner join tipo_documento t on u.id_tipo_documento = t.id_tipo_documento 
         WHERE id_usuario=$id_usuario");

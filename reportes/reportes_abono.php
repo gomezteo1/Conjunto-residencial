@@ -3,39 +3,74 @@
   
 require('librerias/fpdf181/fpdf.php');
 require_once('conexion.php');
-class PDF extends FPDF
-{
+
+class PDF extends FPDF{
+   
 //Cabecera de página
    function Header()
-   {
-    //Logo
-    $this->Image("image/Logo.jpg" , 10 ,8, 35 , 38 , "JPG" ,"http://localhost/zamasoft(1)/");
-    //Arial bold 15
-    $this->SetFont('Arial','B',15);
-    //Movernos a la derecha
-    $this->Cell(80);
-    //Título
-    $this->Cell(60,10,'Abonos',1,0,'C');
-    //Salto de línea
-    $this->Ln(20);
+   {  
+      require_once('Modelos/Usuario.php');
+      //$nombre = $new->getNom($usuario->nombres);
+      //$apellido = $new->getApe($usuario->apellidos);
+      //$documento = $new->getDoc($usuario->$numero_documento);
+      //var_dump($nombre);
+      //die();
+
+      $this->SetTextColor(255, 255, 255);
+      $this->SetFillColor(255,135,39);
+      $this->Rect(0,0,220,20,'F');
+      $this->SetFont('Arial','B',14);
+      
+      //$this->Write(5, 'Zamasoft');
+      
+      $this->Image("image/logo.png", 170, 8, 35);
+      
+      $this->Ln(10);
+      $this->SetTextColor(0, 0, 0);
+      $this->SetFont('Arial', '', 25);
+      $this->Cell(175, -13, "Conjunto Residencial Juan del Corral", 0, 0, 'L');
+      
+      $this->Ln(20);
+      $this->SetFont('Arial', '', 20);
+      $this->Cell(60, -20,utf8_decode("Información básica"),0,0,'L');
+      
+      $this->Ln(8);
+      $this->SetTextColor(0, 0, 0);
+      $this->SetFont('Arial', '', 10);
+      $this->Cell(190, 0, date('d-m-Y', time()), 0, 0, 'R');
+      
+      $this->Ln(10);
+      $this->SetFont('Arial', 'B', 13);
+      $this->SetTextColor(00, 00, 00);
+      $this->Cell(47, -20,'Nombre y Apellido : ',0,0,'R');
+      
+      //1 
+      $this->Ln(10);
+      $this->SetFont('Arial', 'B', 13);
+      $this->Cell(190, 0, utf8_decode("Cedula : "), 0, 0, 'L');
+      $this->SetTextColor(0, 0, 0);
+      //  $this->Cell(9, 1, $usuario['nombre'], 0, 0, 'L');
+   
+      //1
+      // $this->SetFont('Arial', '', 10);
+      // $this->SetTextColor(0, 0, 0);
+      //$this->Cell(91, 10, $cuenta_cobro['documento'], 0, 0, 'L');   
+
+      // $this->SetFont('Arial','B',15);
+      //Movernos a la derecha
+      
+      //Título
+      $this->SetFillColor(255, 120, 0);
+      
+      //Salto de línea
+      $this->Ln(20);
       
    }
    
-   //Pie de página
-   function Footer()
-   {
-    //Posición: a 1,5 cm del final
-    $this->SetY(-15);
-    //Arial italic 8
-    $this->SetFont('Arial','I',8);
-    //Número de página
-    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
-   }
-   ///Tabla coloreada
 function TablaColores($header)
 {
 //Colores, ancho de línea y fuente en negrita
-$this->SetFillColor(70, 130, 180);
+$this->SetFillColor(250, 120, 0);
 $this->SetTextColor(21);
 $this->SetDrawColor(49,0,0);
 $this->SetLineWidth(.3);
@@ -50,13 +85,14 @@ $this->Ln();
 $this->SetFillColor(224,235,255);
 $this->SetTextColor(0);
 $this->SetFont('');
+// $this->SetX(40);
 //Datos
-   $fill=false;
+$fill=false;
 
     $db=Db::getConnect();
     $codigo_abono = $_GET['codigo_abono'];
-    $sql=$db->query("SELECT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-      inner join abonos_pago a on p.id_usuario=a.id_usuario where $codigo_abono=codigo_abono");
+    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+      LEFT join abonos_pago a on p.id_usuario=a.id_usuario where codigo_abono='$codigo_abono'");
     $registro=0;
     //carga en la lista cada registro de la base de datos 
     foreach ($sql->fetchAll() as $abono){
@@ -66,38 +102,56 @@ $this->SetFont('');
           $fill=!$fill;
         }
         
-        $this->Cell(30,6,$abono['id_cuentaCobro'],'LR',0,'L',$fill);
+        $this->Cell(30,6,$abono['id_cuentaCobro'],'LRB',0,'L',$fill);
 
-        $this->Cell(30,6,$abono['nombre'],'LR',0,'L',$fill);
+        //$this->Cell(30,6,$abono['nombre'],'LR',0,'L',$fill);
 
         $this->Cell(30,6,$abono['fecha'],'LR',0,'L',$fill);
 
         $this->Cell(30,6,$abono['deuda'],'LR',0,'L',$fill);
 
-        $this->Cell(30,6,$abono['abono'],'LR',0,'L',$fill);
+        $this->Cell(30,6,$abono['abono'],'LRB',0,'L',$fill);
 
-        $this->Cell(30,6,$abono['saldo'],'LR',0,'L',$fill);
+        $this->Cell(30,6,$abono['saldo'],'LRB',0,'L',$fill);
         
         $this->Ln();
         $fill=!$fill;
-
+        $this->SetX(40);
     }
 //$this->Ln();
 
 $fill=true;
    //$this->Ln();
-   $this->Cell(240,0,'','T');
+   $this->Cell(100,0,'','T');
+}
+//Pie de página
+function Footer()
+{ 
+   $this->SetFillColor(253,135,39);
+   $this->Rect(0,150,220,50,'F');
+   $this->SetFont('Arial','B',10);
+   $this->SetTextColor(255, 255, 255);
+   $this->SetY(-10);
+   $this->Write(8, 'Zamasoft');
+   //Posición: a 1,5 cm del final
+   $this->Ln();
+   $this->SetY(-15);
+   //Arial italic 8
+   $this->SetFont('Arial','I',8);
+   //  //Número de página
+    $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+   }
 }
 
-}
-
-$pdf=new PDF('L');
+$pdf=new PDF();
 //Títulos de las columnas
-$header=array('# Pago','Nombre','Fecha','Deuda','Abono','Saldo');
+$header=array('#Cuenta Cobro','Fecha','Deuda','Abono','Saldo');
 $pdf->AliasNbPages();
 //Primera página
 $pdf->AddPage();
-$pdf->SetY(65);
+$pdf->SetY(90);
 $pdf->TablaColores($header);
 $pdf->Output();
+
+
 ?>

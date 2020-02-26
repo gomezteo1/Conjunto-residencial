@@ -1,6 +1,6 @@
 <?php 
-	class Cuenta_cobro_Controlador
-	{	
+	class Cuenta_cobro_Controlador{
+
 		public function __construct(){}
 
 			public function index(){
@@ -46,9 +46,9 @@
 				require_once('Vistas/Cuenta_cobro/formulario_cuenta_cobro.php');
 			}
 			public function registrar_cuenta_cobro($cuenta_cobro){
-				$codigo_cuenta_cobro=Cuenta_cobro::registrar_cuenta_cobro($cuenta_cobro);
+				Cuenta_cobro::registrar_cuenta_cobro($cuenta_cobro);
 				//header('location: /index.php');
-				return $codigo_cuenta_cobro;
+				return "jeje";
 			}
 				//Mostar vista para modificar el inmueble
 			public function formulario_modificar(){
@@ -63,13 +63,18 @@
 				//header('Location: ../index.php');
 			}
 		
-			
+			//--------------------------------------------------------------
 			public function buscar_cuenta_cobro($dato){
 				$cuenta_cobros = Cuenta_cobro::buscar_cuenta_cobro($dato);
 				require_once('../Vistas/Cuenta_cobro/listar_cuenta_cobros.php');
 			
 			}
 
+			public function consultar_tipo_cc($dato){
+				$cuenta_cobros = Cuenta_cobro::buscar_tipo_cc($dato);
+			}
+
+			//--------------------------------------------------------------------
 			public function error(){
 				header('Vistas/error.php');
 			}
@@ -84,6 +89,45 @@
 			}
 	   }
 	   
+	    if(isset($_POST["cuenta_cobro"])){
+			$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
+
+
+
+
+
+
+			$detalleCuentasCobro = json_decode($_POST['detalleCuentasCobro']);
+			require_once('../Modelos/Cuenta_cobro.php');
+			require_once('../Modelos/Detalle_Cuenta_cobro.php');
+			require_once('../conexion.php');
+
+		
+
+			foreach($detalleCuentasCobro as $cuenta )
+			{
+				echo $cuenta->fecha;
+
+				$cuenta_cobro= new cuenta_cobro('',
+				$cuenta->numero_cuenta,
+				$cuenta->nit,
+				$cuenta->slcusuario,
+				$cuenta->slcinmueble,
+				$cuenta->slcmonth,
+				$cuenta->fecha,
+				$cuenta->monto_por_cancelar
+				,''
+				,'1');
+			
+				$cuenta_cobro_controlador->registrar_cuenta_cobro($cuenta_cobro);
+
+			}
+
+			
+		}
+		
+
+		/* 
 	    if(isset($_POST["cuenta_cobro"])){
 			echo $_POST['txtcantidad_detalles'];
 			require_once('../Modelos/Cuenta_cobro.php');
@@ -104,8 +148,7 @@
 				$cuenta_cobro_actual['codigo_cuenta_cobro'],
 				$cuenta_cobro_actual['codigo_month']);			
 			}
-		}
-		
+		} */
 
 	    if(isset($llenar_select_cuenta_cobro)){
 			require_once('Modelos/Cuenta_cobro.php');
@@ -158,8 +201,16 @@
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
 				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','','');
 				$cuenta_cobro_controlador->buscar_cuenta_cobro($_POST['dato_buscar']);
+			}
+
+			if($_POST['action']=='consultar_cuenta_de_cobro'){
+				require_once('../Modelos/Cuenta_cobro.php');
+				require_once('../conexion.php');
+				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
+				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','','');
+				$cuenta_cobro_controlador->consultar_cuenta_de_cobro($_POST['dato_buscar']);
+			}
 		}
-	}
 
 ?> 
 

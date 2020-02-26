@@ -40,7 +40,7 @@ class Abono
      public static function listar_todos(){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
             inner join abonos_pago a on p.id_usuario=a.id_usuario");
 
         //carga en la lista cada registro de la base de datos 
@@ -57,7 +57,7 @@ class Abono
     public static function listar_abono_usuario($id_usuario){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
       inner join abonos_pago a on p.id_usuario=a.id_usuario where u.id_usuario='$id_usuario'");
 
         //carga en la lista cada registro de la base de datos 
@@ -159,7 +159,7 @@ if($update->execute()){
 	public static function buscar_abono($dato){
 		$lista_abonos =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo 
+		$sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo 
 		FROM usuario u 
 		inner join pago p on u.id_usuario = p.id_usuario 
 		inner join abonos_pago a on p.codigo_cuenta_cobro=a.id_cuentaCobro

@@ -164,15 +164,14 @@ class Usuario_Controlador
 	}  
  //--------------------------------------------------------------
 	public function buscar_usuario($dato){
-			$usuarios = Usuario::buscar_usuario($dato);
+		$usuarios = Usuario::buscar_usuario($dato);
 		require_once('../Vistas/Usuario/listar_usuarios.php');
-
-		}
+	}
 		
 	public function consultar_tipo_usuario($dato){
 			$usuario = Usuario::buscar_tipo_usuario($dato);
 			//echo $usuario;
-		}
+	}
 		
 	public function llenar_select_usuario(){
 			require_once('Modelos/Usuario.php');
@@ -188,7 +187,7 @@ class Usuario_Controlador
 
     public function recuperarClave($referencia)
     {
-    	        require_once('../Modelos/Usuario.php');
+    	require_once('../Modelos/Usuario.php');
         $usuario = Usuario::obtenerPorReferencia($referencia);
         if (is_array($usuario)) {
             Usuario::modificarClave($usuario['correo'], md5($usuario['clave']));

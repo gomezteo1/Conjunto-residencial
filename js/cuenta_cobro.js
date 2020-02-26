@@ -24,53 +24,103 @@
    document.getElementById('txtvalor_total').value = valor_unitario*catidad;
  }
 */
+const detalleCuentasCobro = [];
 
-var cantidad_detalles = 0;
 $(function() { //funtion jquiery
     $('#btnagregar').click(function(e) {
         e.preventDefault(); //evitar submint
+        numeroCuenta = $('#numero_cuenta').val()
+        nit = $('#nit').val()
+        usuario = $('#slcusuario').val();
         slcinmueble = $('#slcinmueble').val();
-        nombre_inmueble = $('#slcinmueble option:selected').text();
         slcmonth = $('#slcmonth').val();
-        slctipo_pago = $('#slctipo_pago').val();
+        fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
-        //detalle
-        //alert(precio);
-        //detalle
-        $("#detalle_cuenta_cobro").append('<div class="col-lg-12" id="detalle_cuenta_cobro' + cantidad_detalles + '"><div class="col-lg-12"><input type="text" name="inmueble"' + cantidad_detalles + ' id="inmueble' + cantidad_detalles + '" value="' + slcinmueble + '"></input><input type="text"name="nombre_inmueble"' + cantidad_detalles + ' id="nombre_inmueble' + cantidad_detalles + '"value="' + nombre_inmueble + '"></input><input type="text"name=" slcmonth"' + cantidad_detalles + ' id="slcmonth' + cantidad_detalles + '" value="' + slctipo_pago + '"</input><input type="text" id="slctipo_pago' + cantidad_detalles + '" name="slctipo_pago+' + cantidad_detalles + '"value="' + monto_por_cancelar + '"</input><input type="text" id="monto_por_cancelar' + cantidad_detalles + '" name="monto_por_cancelar+' + cantidad_detalles + numero_cuenta + '"></input><button id="btnquitar" name="btnquitar"onclick="eliminar_detalle(' + cantidad_detalles + ')">eliminar</button></div><div class="col-lg-6"></div>');
-        $('#txtcantidad_detalles').val(parseInt($('#txtcantidad_detalles').val()) + parseInt(1));
-        cantidad_detalles = $('txtcantidad_detalles').val();
-        cantidad_detalles++;
+
+
+
+        detalleCuentasCobro.push({
+
+            numero_cuenta: numero_cuenta.value,
+            nit,
+            slcusuario: slcusuario.value,
+            nombre: slcusuario.options[slcusuario.selectedIndex].label,
+            slcinmueble,
+            slcmonth,
+            fecha,
+            monto_por_cancelar
+
+
+
+        });
+
+        actualizar();
+
+
+        console.log(detalleCuentasCobro);
     });
 });
 // alert(eliminar_detalle);
+
+const actualizar = () => {
+    let todo = '<div class="row justify-content-center">';
+
+    for (const [index, cuenta] of detalleCuentasCobro.entries()) {
+        todo += `
+          <div class="col-2 align-self-end">
+                <p>Fecha: ${cuenta.fecha}</p>
+          </div>
+        <div class="col-5">
+          <p>Cuenta: ${cuenta.numero_cuenta}</p>
+          <p>Nombre: ${cuenta.nombre}</p>
+          <p>Nit: ${cuenta.nit}</p>
+        </div>
+        <div class="col-4">
+          <p>inmuble: ${cuenta.slcinmueble}</p>
+          <p>mes: ${cuenta.slcmonth}</p>
+          <p>pagar: ${cuenta.monto_por_cancelar}</p>
+        </div>
+        <div class="col-1">
+            <button class="btn btn-outline-danger" onClick="eliminarCuenta(${index})"><i class="zmdi zmdi-close-circle"></i></button>
+        </div>
+        `
+    }
+    todo += '</div>'
+
+    $("#detalle_cuenta_cobro").html(todo)
+}
 
 function eliminar_detalle(cantidad_detalles) {
     $("#detalle_cuenta_cobro" + cantidad_detalles).remove();
 }
 
+const eliminarCuenta = (id) => {
+    console.log(detalleCuentasCobro);
+    detalleCuentasCobro.splice(id, 1)
+    actualizar();
+};
+
+
+
+
 /* para guardar */
 $(function() { //funtion para guardar en Db
     $('#btnguardar').click(function(e) {
         e.preventDefault();
-        datos = $('#frmcuenta_cobro').serialize();
+        datos = {
+            cuenta_cobro: 'cuenta_cobro',
+            detalleCuentasCobro: JSON.stringify(detalleCuentasCobro)
+        }
+
         $.ajax({
             type: 'POST',
             url: 'Controladores/Cuenta_cobro_Controlador.php',
-            //datatype :"json",
+            datatype: "json",
             data: datos,
             success: function(data) {
-                alert(data);
+                console.log(data);
                 /*document.getElementById('prueba').innerHTML=data*/
             }
         });
-    });
-});
-
-$(obtener_registros());
-fuction obtener_registros(cuentas_cobro) {
-    $.ajax({
-
     })
-
-}
+})

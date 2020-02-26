@@ -67,7 +67,7 @@
 		
 		public function consultar_precio($dato){
 			$precio = Inmueble::buscar_precio($dato);
-			echo $precio;
+			// echo $precio;
 		}
 		
 		public function llenar_select_inmueble(){

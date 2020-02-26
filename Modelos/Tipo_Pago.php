@@ -19,7 +19,7 @@ class Tipo_pago
     public static function listar_todos(){
         $listar_tipo_pagos =[];
         $db=Db::getConnect();
-        $sql=$db->query('SELECT * FROM tipo_pago');
+        $sql=$db->query('SELECT DISTINCT * FROM tipo_pago');
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $tipo_pago){

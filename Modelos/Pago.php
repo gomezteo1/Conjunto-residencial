@@ -27,7 +27,7 @@ class Pago
     public static function listar_todos(){ 
         $listar_pagos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT p.*, 
+        $sql=$db->query("SELECT DISTINCT p.*, 
         concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago  
         FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
           inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago ");
@@ -47,7 +47,7 @@ class Pago
         $listar_pagos =[];
         $db=Db::getConnect();
 
-        $sql=$db->query("SELECT p.*, concat(u.nombres,'', u.apellidos)as xx,
+        $sql=$db->query("SELECT DISTINCT p.*, concat(u.nombres,'', u.apellidos)as xx,
          t.tipo_pago  FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
           inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago where p.id_usuario='$id_usuario'");
 
@@ -140,7 +140,7 @@ class Pago
     //buscar
     $monto_cancelado=9;
     $db=Db::getConnect();
-    $select=$db->prepare("SELECT * FROM pago 
+    $select=$db->prepare("SELECT DISTINCT * FROM pago 
     WHERE codigo_pago=$codigo_pago");
     //echo "SELECT * FROM pago WHERE codigo_pago=$codigo_pago";
     $select->execute();

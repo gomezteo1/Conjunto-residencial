@@ -16,7 +16,7 @@ function __construct($id_tipo_documento, $documento)
 public static function listar_todos(){
 	$lista_tipo_documentos =[];
 	$db=Db::getConnect();
-	$sql=$db->query('SELECT * FROM tipo_documento');
+	$sql=$db->query('SELECT DISTINCT * FROM tipo_documento');
 
 	// carga en la $lista cada registro desde la base de datos
 	foreach ($sql->fetchAll() as $tipo_documento) {
