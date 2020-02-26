@@ -61,6 +61,7 @@
 			public function modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario,$codigo_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado){
 				Cuenta_cobro::modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario,$codigo_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado);
 				//header('Location: ../index.php');
+				header('Location: ../index.php?controller=cuenta_cobro&action=index');
 			}
 		
 			//--------------------------------------------------------------
@@ -164,10 +165,10 @@
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
 				$cuenta_cobro= new Cuenta_cobro($_POST['codigo_cuenta_cobro'], $_POST['numero_cuenta'], $_POST['nit'],
 				$_POST['slcusuario'],$_POST['slcinmueble'],$_POST['slcmonth'],$_POST['fecha'],$_POST['monto_por_cancelar'],
-				$_POST['porMora'],$_POST['estado']);
+				$_POST['porMora'],'');
 				$cuenta_cobro_controlador->modificar_cuenta_cobro($_POST['codigo_cuenta_cobro'],$_POST['numero_cuenta'],
 				$_POST['nit'],$_POST['slcusuario'],$_POST['slcinmueble'],$_POST['slcmonth'],$_POST['fecha'],
-				$_POST['monto_por_cancelar'],$_POST['porMora'],$_POST['estado']);
+				$_POST['monto_por_cancelar'],$_POST['porMora'],'');
 			}
 		}
 		

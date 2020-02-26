@@ -183,29 +183,29 @@ class Usuario{
         $usuario = $select->fetch();
         return  $usuario;
     } 
-    public static function obtenerNom(string $nombres){
-        $db = Db::getConnect();
-        $select = $db->prepare("SELECT * FROM usuario  WHERE nombres ='$nombres'");
-        $select->execute();
-        $usuario = $select->fetch();
-        return  $usuario;
-    }
+    // public static function obtenerNom(string $nombres){
+    //     $db = Db::getConnect();
+    //     $select = $db->prepare("SELECT * FROM usuario  WHERE nombres ='$nombres'");
+    //     $select->execute();
+    //     $usuario = $select->fetch();
+    //     return  $usuario;
+    // }
 
-    public static function obtenerApe(string $apellidos){
-        $db = Db::getConnect();
-        $select = $db->prepare("SELECT * FROM usuario  WHERE apellidos ='$apellidos'");
-        $select->execute();
-        $usuario = $select->fetch();
-        return  $usuario;
-    }     
+    // public static function obtenerApe(string $apellidos){
+    //     $db = Db::getConnect();
+    //     $select = $db->prepare("SELECT * FROM usuario  WHERE apellidos ='$apellidos'");
+    //     $select->execute();
+    //     $usuario = $select->fetch();
+    //     return  $usuario;
+    // }     
 
-    public static function obtenerDoc(int $numero_documento){
-        $db = Db::getConnect();
-        $select = $db->prepare("SELECT * FROM usuario  WHERE numero_documento ='$numero_documento'");
-        $select->execute();
-        $usuario = $select->fetch();
-        return  $usuario;
-    }
+    // public static function obtenerDoc(int $numero_documento){
+    //     $db = Db::getConnect();
+    //     $select = $db->prepare("SELECT * FROM usuario  WHERE numero_documento ='$numero_documento'");
+    //     $select->execute();
+    //     $usuario = $select->fetch();
+    //     return  $usuario;
+    // }
 
 public static function login_usuario($correo,$clave){
        
@@ -236,7 +236,36 @@ public static function buscar_usuario($dato){
             }
         return $listar_usuarios;
     }   
-    
+    //-------------------------------------------------------------------------
+
+    public static function  obtenerPorpId($id_usuario)
+    {
+        $db = Db::getConnect();
+        $select = $db->prepare("SELECT * FROM usuario  WHERE id_usuario ='$id_usuario'");
+        $select->execute();
+        $usuario = $select->fetch();
+        return  $usuario;
+    }
+
+    public static function obtenerPorId($id_usuario)
+    {   
+        //buscar
+        $db = Db::getConnect();
+        $select = $db->prepare("SELECT * FROM usuario  WHERE id_usuario ='$id_usuario'");
+        $select->execute();
+        $usuarioDb = $select->fetch();
+        //la logica para mostrar el 
+        $usuario = $usuarioDb['id_usuario'];
+        return  $usuario;
+    }
+
+
+
+
+
+
+
+    //-----------------------------------------------------------------------------
 
 
     public static function buscar_tipo_usuario($id_usuario){

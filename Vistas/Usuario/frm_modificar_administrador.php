@@ -41,7 +41,7 @@
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
 									    </div>
 
-									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" readonly> 
+									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" hidden> 
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

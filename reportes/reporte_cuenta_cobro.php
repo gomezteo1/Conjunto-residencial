@@ -3,19 +3,21 @@
   
 require('librerias/fpdf181/fpdf.php');
 require_once('conexion.php');
+session_start();
 
 class PDF extends FPDF{
-   
+  
 //Cabecera de página
    function Header()
    {  
       require_once('Modelos/Usuario.php');
+      // $pdf->Cell(150, 10, 'Factura de pago: '.$_SESSION['id_usuario'], 0);
       //$nombre = $new->getNom($usuario->nombres);
       //$apellido = $new->getApe($usuario->apellidos);
       //$documento = $new->getDoc($usuario->$numero_documento);
       //var_dump($nombre);
       //die();
-
+        
       $this->SetTextColor(255, 255, 255);
       $this->SetFillColor(255,135,39);
       $this->Rect(0,0,220,20,'F');
@@ -66,79 +68,155 @@ class PDF extends FPDF{
       $this->Ln(20);
       
    }
+   function TablaColores($header){
+      //Colores, ancho de línea y fuente en negrita
+         $this->SetFillColor(250, 120, 0);
+         $this->SetTextColor(21);
+         $this->SetDrawColor(49,0,0);
+         $this->SetLineWidth(.3);
+         $this->SetFontSize(8);
+         $this->SetFont('','B');
+         //Cabecera
+      
+         for($i=0;$i<count($header);$i++)
+         $this->Cell(30,7,$header[$i],1,0,'C',1);
+         $this->Ln();
+         //Restauración de colores y fuentes
+         $this->SetFillColor(224,235,255);
+         $this->SetTextColor(0);
+         $this->SetFont('');
+         // $this->SetX(40);
+         //Datos
+         $fill=false;
+         
+       
+          $codigo_cuenta_cobro = $_GET['codigo_cuenta_cobro'];
+          $db=Db::getConnect();
+      
+      
+          $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
+          c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
+          concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
+          concat(i.numero,'',i.torre) as inmueble, m.mes as mes
+          FROM cuenta_cobro c
+          left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
+          left join usuario u on u.id_usuario = c.id_usuario 
+          left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+          left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+          left join month m on c.codigo_month = m.codigo_month
+          where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
+          $registro=0;
+          //carga en la lista cada registro de la base de datos 
+          foreach ($sql->fetchAll() as $cuenta_cobro){
+             if($registro>0)//No generar fila vacia
+              {
+                  $this->Ln();
+                  $fill=!$fill;
+              }
+              
+             $this->Cell(30,6,$cuenta_cobro['numero_cuenta'],'LRB',0,'L',$fill);
+      
+             $this->Cell(30,6,$cuenta_cobro['nit'],'LRB',0,'L',$fill);
+             
+             $this->Cell(30,6,$cuenta_cobro['inmueble'],'LRB',0,'L',$fill);
+              
+             $this->Cell(30,6,$cuenta_cobro['fecha'],'LRB',0,'L',$fill);
+      
+             $this->Cell(30,6,$cuenta_cobro['monto_por_cancelar'],'LRB',0,'L',$fill);
+      
+             $this->Cell(30,6,$cuenta_cobro['estado'],'LRB',0,'L',$fill);
+             
+             $this->Ln();
+              
+              $fill=!$fill;
+              $this->SetX(80);
+      
+          }
+          
+      //$this->Ln();
+      
+      $fill=true;
+         //$this->Ln();
+         $this->Cell(100,0,'','T');
+      }
+
+   function TablaColores2($body){
+      
+         //Colores, ancho de línea y fuente en negrita
+       
+         $this->SetFontSize(11);
+         $this->SetFont('','B');
+         //Cabecera
+         
+         for($i=0;$i<count($body);$i++)
+        
+         $codigo_cuenta_cobro = $_GET['codigo_cuenta_cobro'];
+         $db=Db::getConnect();
+      
+      
+         $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
+         c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
+         concat(u.nombres,'  ', u.apellidos)as nombre, u.numero_documento as numero_documento,
+         concat(i.numero,'',i.torre) as inmueble, m.mes as mes
+         FROM cuenta_cobro c
+         left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
+         left join usuario u on u.id_usuario = c.id_usuario 
+         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+         left join month m on c.codigo_month = m.codigo_month
+         where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
+         
+         //carga en la lista cada registro de la base de datos 
+         foreach ($sql->fetchAll() as $cuenta_cobro){
+            
+            
+            $this->Cell(30,6,$cuenta_cobro['nombre'],'',0,'L',);
+      
+         }
+             
+         //$this->Ln();
+         
+         
+         }   
+
+ //----------------------------------------------------------------------
+function TablaColores3($body2){
+   //Colores, ancho de línea y fuente en negrita
+ 
+   $this->SetFontSize(10);
+   $this->SetFont('','B');
+   //Cabecera
    
-function TablaColores($header)
-{
-//Colores, ancho de línea y fuente en negrita
-$this->SetFillColor(250, 120, 0);
-$this->SetTextColor(21);
-$this->SetDrawColor(49,0,0);
-$this->SetLineWidth(.3);
-$this->SetFontSize(8);
-$this->SetFont('','B');
-//Cabecera
-
-for($i=0;$i<count($header);$i++)
-$this->Cell(30,7,$header[$i],1,0,'C',1);
-$this->Ln();
-//Restauración de colores y fuentes
-$this->SetFillColor(224,235,255);
-$this->SetTextColor(0);
-$this->SetFont('');
-// $this->SetX(40);
-//Datos
-   $fill=false;
-
-    $db=Db::getConnect();
-    $codigo_cuenta_cobro = $_GET['codigo_cuenta_cobro'];
+   for($i=0;$i<count($body2);$i++)
+  
+   $codigo_cuenta_cobro = $_GET['codigo_cuenta_cobro'];
+   $db=Db::getConnect();
 
 
-    $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
-    c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
-    concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
-    concat(i.numero,'',i.torre) as inmueble, m.mes as mes
-    FROM cuenta_cobro c
-    left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
-    left join usuario u on u.id_usuario = c.id_usuario 
-    left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
-    left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-    left join month m on c.codigo_month = m.codigo_month
-    where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
-    $registro=0;
-    //carga en la lista cada registro de la base de datos 
-    foreach ($sql->fetchAll() as $cuenta_cobro){
-       if($registro>0)//No generar fila vacia
-        {
-            $this->Ln();
-            $fill=!$fill;
-        }
-        
-       $this->Cell(30,6,$cuenta_cobro['numero_cuenta'],'LRB',0,'L',$fill);
+   $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
+   c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
+   concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as numero_documento,
+   concat(i.numero,'',i.torre) as inmueble, m.mes as mes
+   FROM cuenta_cobro c
+   left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
+   left join usuario u on u.id_usuario = c.id_usuario 
+   left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+   left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+   left join month m on c.codigo_month = m.codigo_month
+   where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
+   
+   //carga en la lista cada registro de la base de datos 
+   foreach ($sql->fetchAll() as $cuenta_cobro){
+      
+      
+      $this->Cell(30,6,$cuenta_cobro['numero_documento'],'',0,'L',);
 
-       $this->Cell(30,6,$cuenta_cobro['nit'],'LRB',0,'L',$fill);
+   }
        
-
-       $this->Cell(30,6,$cuenta_cobro['inmueble'],'LRB',0,'L',$fill);
-        
-       $this->Cell(30,6,$cuenta_cobro['fecha'],'LRB',0,'L',$fill);
-
-       $this->Cell(30,6,$cuenta_cobro['monto_por_cancelar'],'LRB',0,'L',$fill);
-
-       $this->Cell(30,6,$cuenta_cobro['estado'],'LRB',0,'L',$fill);
-       
-       $this->Ln();
-        
-        $fill=!$fill;
-        $this->SetX(80);
-
-    }
-    
-//$this->Ln();
-
-$fill=true;
    //$this->Ln();
-   $this->Cell(100,0,'','T');
-}
+   
+   
+   }   
 //Pie de página
 function Footer()
 { 
@@ -159,12 +237,24 @@ function Footer()
 }
 
 $pdf=new PDF();
-//Títulos de las columnas
+
+$body=array('');
+
+$body2=array('');
+
 $header=array('#Cuenta','Nit','Inmueble','Fecha','Monto Pagar','Estado');
+
 $pdf->AliasNbPages();
 //Primera página
 $pdf->AddPage();
-$pdf->SetY(90);
+$pdf->SetY(55);
+$pdf->SetX(13);
+$pdf->TablaColores2($body);
+
+$pdf->SetY(75);
+$pdf->SetX(13);
+$pdf->TablaColores3($body2);
+$pdf->SetY(100);
 $pdf->TablaColores($header);
 $pdf->Output();
 
