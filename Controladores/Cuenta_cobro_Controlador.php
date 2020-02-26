@@ -48,7 +48,8 @@
 			public function registrar_cuenta_cobro($cuenta_cobro){
 				Cuenta_cobro::registrar_cuenta_cobro($cuenta_cobro);
 				//header('location: /index.php');
-				return "jeje";
+				// return "jeje";
+				header('Location: ../index.php?controller=cuenta_cobro&action=index');
 			}
 				//Mostar vista para modificar el inmueble
 			public function formulario_modificar(){

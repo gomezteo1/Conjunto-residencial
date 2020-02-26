@@ -123,8 +123,11 @@ class PDF extends FPDF{
              $this->Cell(30,6,$cuenta_cobro['fecha'],'LRB',0,'L',$fill);
       
              $this->Cell(30,6,$cuenta_cobro['monto_por_cancelar'],'LRB',0,'L',$fill);
-      
-             $this->Cell(30,6,$cuenta_cobro['estado'],'LRB',0,'L',$fill);
+            
+             if($cuenta_cobro['estado']==1){ return $this->Cell(30,6,"Pagado",'LRB',0,'L',$fill);
+            }
+             else{ return $this->Cell(30,6,"Debe",'LRB',0,'L',$fill);
+            }
              
              $this->Ln();
               
