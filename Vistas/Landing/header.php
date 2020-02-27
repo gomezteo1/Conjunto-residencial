@@ -1,5 +1,5 @@
 <header>
-		<img src="image/Logo.jpg" class="img-logo">
+		<img src="image/logo.png" class="img-logo">
 		<!--<input type="checkbox" id="check">-->
 		<label for="check" class="icon-menu"></label>
 
@@ -14,3 +14,4 @@
 			</ul>
 		</nav>
 </header>
+

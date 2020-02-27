@@ -66,6 +66,69 @@ class PDF extends FPDF{
       $this->Ln(20);
       
    }
+
+   function TablaColores2($body){
+      
+      //Colores, ancho de línea y fuente en negrita
+    
+      $this->SetFontSize(11);
+      $this->SetFont('','B');
+      //Cabecera
+      
+      for($i=0;$i<count($body);$i++)
+     
+      $codigo_abono = $_GET['codigo_abono'];
+      $db=Db::getConnect();
+   
+   
+      $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre ,a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+      LEFT join abonos_pago a on p.id_usuario=a.id_usuario where codigo_abono='$codigo_abono'");
+      
+      //carga en la lista cada registro de la base de datos 
+      foreach ($sql->fetchAll() as $abono){
+         
+         
+         $this->Cell(30,6,$abono['nombre'],'',0,'L',);
+   
+      }
+          
+      //$this->Ln();
+      
+      
+      }   
+
+//----------------------------------------------------------------------
+function TablaColores3($body2){
+//Colores, ancho de línea y fuente en negrita
+
+$this->SetFontSize(10);
+$this->SetFont('','B');
+//Cabecera
+
+for($i=0;$i<count($body2);$i++)
+
+$codigo_abono = $_GET['codigo_abono'];
+$db=Db::getConnect();
+
+
+$sql=$db->query("SELECT DISTINCT u.numero_documento as numero_documento
+FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+LEFT join abonos_pago a on p.id_usuario=a.id_usuario 
+where codigo_abono='$codigo_abono'"); 
+//carga en la lista cada registro de la base de datos 
+foreach ($sql->fetchAll() as $abono){
+   
+   
+   $this->Cell(30,6,$abono['numero_documento'],'',0,'L',);
+
+}
+    
+//$this->Ln();
+
+
+}   
+
+//_------------------------------------------------------------------------------------------------------  
    
 function TablaColores($header)
 {
@@ -104,8 +167,6 @@ $fill=false;
         
         $this->Cell(30,6,$abono['id_cuentaCobro'],'LRB',0,'L',$fill);
 
-        //$this->Cell(30,6,$abono['nombre'],'LR',0,'L',$fill);
-
         $this->Cell(30,6,$abono['fecha'],'LR',0,'L',$fill);
 
         $this->Cell(30,6,$abono['deuda'],'LR',0,'L',$fill);
@@ -132,7 +193,7 @@ function Footer()
    $this->SetFont('Arial','B',10);
    $this->SetTextColor(255, 255, 255);
    $this->SetY(-10);
-   $this->Write(8, 'Zamasoft');
+   $this->Write(8, 'Zamasoft Abonos de Pago');
    //Posición: a 1,5 cm del final
    $this->Ln();
    $this->SetY(-15);
@@ -144,12 +205,24 @@ function Footer()
 }
 
 $pdf=new PDF();
-//Títulos de las columnas
-$header=array('#Cuenta Cobro','Fecha','Deuda','Abono','Saldo');
+
+$body=array('');
+
+$body2=array('');
+
+$header=array('#Cuenta','Fecha','Deuda','Abono','Saldo');
+
 $pdf->AliasNbPages();
 //Primera página
 $pdf->AddPage();
-$pdf->SetY(90);
+$pdf->SetY(55);
+$pdf->SetX(13);
+$pdf->TablaColores2($body);
+
+$pdf->SetY(75);
+$pdf->SetX(13);
+$pdf->TablaColores3($body2);
+$pdf->SetY(100);
 $pdf->TablaColores($header);
 $pdf->Output();
 

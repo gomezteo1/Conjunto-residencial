@@ -142,7 +142,7 @@ class PDF extends FPDF{
          //$this->Ln();
          $this->Cell(100,0,'','T');
       }
-
+//-------------------------------------------------------------------------------------------------------
    function TablaColores2($body){
       
          //Colores, ancho de línea y fuente en negrita
@@ -220,6 +220,8 @@ function TablaColores3($body2){
    
    
    }   
+  
+ //_------------------------------------------------------------------------------------------------------  
 //Pie de página
 function Footer()
 { 
@@ -228,7 +230,7 @@ function Footer()
    $this->SetFont('Arial','B',10);
    $this->SetTextColor(255, 255, 255);
    $this->SetY(-10);
-   $this->Write(8, 'Zamasoft');
+   $this->Write(8, 'Zamasoft Cuenta de Cobro ');
    //Posición: a 1,5 cm del final
    $this->Ln();
    $this->SetY(-15);

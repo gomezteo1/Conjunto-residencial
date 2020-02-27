@@ -95,7 +95,8 @@ $sql=$db->query("SELECT DISTINCT u.nombres as nombre,p.codigo_pago,p.codigo_cuen
   p.fecha,t.tipo_pago,p.monto_cancelado,p.monto_a_pagar 
   FROM tipo_pago t 
   LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
-  Left join usuario u on p.id_usuario=u.id_usuario where codigo_pago='$codigo_pago'");
+  Left join usuario u on p.id_usuario=u.id_usuario 
+  where codigo_pago='$codigo_pago'");
 $registro=0;
 //carga en la lista cada registro de la base de datos 
 foreach ($sql->fetchAll() as $pago){
@@ -128,6 +129,69 @@ $fill=true;
    //$this->Ln();
    $this->Cell(100,0,'','T');
 }
+//-------------------------------------------------------------------------------------------------------
+function TablaColores2($body){
+      
+   //Colores, ancho de línea y fuente en negrita
+ 
+   $this->SetFontSize(11);
+   $this->SetFont('','B');
+   //Cabecera
+   
+   for($i=0;$i<count($body);$i++)
+  
+   $codigo_pago = $_GET['codigo_pago'];
+   $db=Db::getConnect();
+
+
+   $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre
+   FROM tipo_pago t 
+   LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
+   Left join usuario u on p.id_usuario=u.id_usuario 
+   where codigo_pago='$codigo_pago'");
+   
+   //carga en la lista cada registro de la base de datos 
+   foreach ($sql->fetchAll() as $pago){
+      
+      
+      $this->Cell(30,6,$pago['nombre'],'',0,'L',);
+
+   }
+       
+   //$this->Ln();
+   
+   
+   }   
+
+//----------------------------------------------------------------------
+function TablaColores3($body2){
+//Colores, ancho de línea y fuente en negrita
+
+$this->SetFontSize(10);
+$this->SetFont('','B');
+//Cabecera
+
+for($i=0;$i<count($body2);$i++)
+
+$codigo_pago = $_GET['codigo_pago'];
+$db=Db::getConnect();
+$sql=$db->query("SELECT DISTINCT u.numero_documento as numero_documento 
+  FROM tipo_pago t 
+  LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
+  Left join usuario u on p.id_usuario=u.id_usuario 
+  where codigo_pago='$codigo_pago'");
+
+//carga en la lista cada registro de la base de datos 
+foreach ($sql->fetchAll() as $pago){
+
+
+$this->Cell(30,6,$pago['numero_documento'],'',0,'L',);
+
+}
+ 
+}   
+
+//_------------------------------------------------------------------------------------------------------  
 //Pie de página
 function Footer()
 { 
@@ -136,7 +200,7 @@ function Footer()
    $this->SetFont('Arial','B',10);
    $this->SetTextColor(255, 255, 255);
    $this->SetY(-10);
-   $this->Write(8, 'Zamasoft');
+   $this->Write(8, 'Zamasoft Pago');
    //Posición: a 1,5 cm del final
    $this->Ln();
    $this->SetY(-15);
@@ -148,14 +212,25 @@ function Footer()
 }
 
 $pdf=new PDF();
-//Títulos de las columnas
+
+$body=array('');
+
+$body2=array('');
+
 $header=array('#Pago','#Cuenta','Fecha','Tipo Pago','Monto Cancelado','Monto a Pagar');
+
 $pdf->AliasNbPages();
 //Primera página
 $pdf->AddPage();
-$pdf->SetY(90);
+$pdf->SetY(55);   
+$pdf->SetX(13);
+$pdf->TablaColores2($body);
+
+$pdf->SetY(75);
+$pdf->SetX(13);
+$pdf->TablaColores3($body2);
+$pdf->SetY(100);
 $pdf->TablaColores($header);
 $pdf->Output();
-
 
 ?>
