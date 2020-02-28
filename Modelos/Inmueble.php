@@ -23,6 +23,11 @@ class Inmueble
 		
 	}
 
+	 // Codigo maestro para las fechas
+        //SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
+        //and ((datediff(fecha,now())*-1) >=0)
+
+
 	//función para obtener todos los productos
 	public static function listar_todos(){
 		$lista_inmuebles =[];

@@ -69,6 +69,14 @@ class Cuenta_cobro
     
     /*Luego trabajamos con la de abajo*/
  
+        // Codigo maestro para las fechas
+        //SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
+        //and ((datediff(fecha,now())*-1) >=0)
+         // Codigo maestro para las fechas
+        //SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
+        //and ((datediff(fecha,now())*-1) >=0)
+
+
     // Listar todos con inner join
     public static function listar_todos(){ 
         $lista_cuenta_cobros=[];
@@ -83,6 +91,7 @@ class Cuenta_cobro
         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
         left join month m on c.codigo_month = m.codigo_month
+        where is not c.fecha> 
         ");
         foreach ($sql->fetchAll() as $cuenta_cobro){
             $itemcuenta_cobross = new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['codigo_inmueble'],$cuenta_cobro['codigo_month'], $cuenta_cobro['id_usuario'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelar'],$cuenta_cobro['porMora'], $cuenta_cobro['estado']);
