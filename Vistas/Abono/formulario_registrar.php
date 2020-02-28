@@ -153,7 +153,7 @@
 
 $(document).ready(function(){
 		$('#button-Rabono').click(function(){
-			alert('llega')
+			// alert('llega')
 
 			if($('#slcusuario').val()==""){
 				Swal.fire({

@@ -32,8 +32,8 @@
       // }
       
       public function registrar_pago($pago){
-        require_once('Modelos/Cuenta_cobro.php');
-        Cuenta_cobro::UpMora();
+        //require_once('Modelos/Cuenta_cobro.php');
+        //Cuenta_cobro::UpMora();
         Pago::registrar_pago($pago);
         header('Location: ../index.php?controller=pago&action=index');
            
@@ -96,7 +96,7 @@
          require_once('../Modelos/Pago.php');
          require_once('../conexion.php');
          $pago_controlador=new Pago_Controlador();
-         $pago= new pago($_POST['codigo_pago'], $_POST['slcusuario'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
+         $pago= new pago('', $_POST['slcusuario'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
          $pago_controlador->registrar_pago($pago);
      }
     
