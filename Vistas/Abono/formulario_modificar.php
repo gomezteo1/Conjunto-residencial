@@ -81,7 +81,7 @@
 									</div>
 								</div>
 
-								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+								<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet hidden">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<?php
 														$llenar_select_usuario="si";
@@ -90,7 +90,7 @@
 										<label class="mdl-textfield__label" for="NameCompany"></label>
 										<span class="mdl-textfield__error">Invalid name</span>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="mdl-cell mdl-cell--12-col">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

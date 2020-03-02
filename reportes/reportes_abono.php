@@ -81,8 +81,8 @@ class PDF extends FPDF{
       $db=Db::getConnect();
    
    
-      $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre ,a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-      LEFT join abonos_pago a on p.id_usuario=a.id_usuario where codigo_abono='$codigo_abono'");
+      $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+      LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago where codigo_abono='$codigo_abono'");
       
       //carga en la lista cada registro de la base de datos 
       foreach ($sql->fetchAll() as $abono){
@@ -113,7 +113,7 @@ $db=Db::getConnect();
 
 $sql=$db->query("SELECT DISTINCT u.numero_documento as numero_documento
 FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-LEFT join abonos_pago a on p.id_usuario=a.id_usuario 
+LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago 
 where codigo_abono='$codigo_abono'"); 
 //carga en la lista cada registro de la base de datos 
 foreach ($sql->fetchAll() as $abono){
@@ -154,8 +154,8 @@ $fill=false;
 
     $db=Db::getConnect();
     $codigo_abono = $_GET['codigo_abono'];
-    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.id_cuentaCobro,a.id_usuario ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-      LEFT join abonos_pago a on p.id_usuario=a.id_usuario where codigo_abono='$codigo_abono'");
+    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+      LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago where codigo_abono='$codigo_abono'");
     $registro=0;
     //carga en la lista cada registro de la base de datos 
     foreach ($sql->fetchAll() as $abono){
@@ -165,7 +165,7 @@ $fill=false;
           $fill=!$fill;
         }
         
-        $this->Cell(30,6,$abono['id_cuentaCobro'],'LRB',0,'L',$fill);
+        $this->Cell(30,6,$abono['codigo_pago'],'LRB',0,'L',$fill);
 
         $this->Cell(30,6,$abono['fecha'],'LR',0,'L',$fill);
 

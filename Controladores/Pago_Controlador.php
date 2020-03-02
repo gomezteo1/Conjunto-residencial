@@ -4,7 +4,7 @@
       public function __construct(){}
 
       public function select_pago(){
-          $pagos=Pago::select_pago();
+          //$pagos=Pago::select_pago();
           require_once('Vistas/Pago/select_pagos.php');
     }
 
@@ -31,13 +31,15 @@
            
       // }
       
+      // Este Modelo me da error 
       public function registrar_pago($pago){
-        //require_once('Modelos/Cuenta_cobro.php');
-        //Cuenta_cobro::UpMora();
+        require_once('../Modelos/Cuenta_cobro.php');
+        Cuenta_cobro::UpMora();
         Pago::registrar_pago($pago);
         header('Location: ../index.php?controller=pago&action=index');
            
       }
+      // Este Modelo me da error 
       //--------------------------------------------------------------
       public function formulario_modificar(){
           require_once('Modelos/Pago.php');

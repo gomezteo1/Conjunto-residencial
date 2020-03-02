@@ -29,7 +29,7 @@
 		//guardar
 		public function registrar_abono($abono){
 			Abono::registrar_abono($abono);
-			header('Location: ../index.php');
+			//header('Location: ../index.php');
 		}
 		
 	//------------------------------------------------------	
@@ -41,8 +41,8 @@
         }
 		
 		//guardar cambios
-		public function modificar_abono($codigo_abono,$codigo_pago,$id_usuario,$fecha,$deuda,$abono,$saldo){
-			Abono::modificar_abono($codigo_abono,$codigo_pago,$id_usuario,$fecha,$deuda,$abono,$saldo);
+		public function modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo){
+			Abono::modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo);
 			header('Location: ../index.php');
 		}
 				
@@ -116,7 +116,7 @@
 			require_once('../conexion.php');
 			$abono_controlador=new Abono_Controlador();
 			$abono_controlador=new Abono_Controlador();
-			$abono= new Abono('', $_POST['slcpago'], $_POST['slcusuario'], $_POST['fecha'], $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
+			$abono= new Abono('', $_POST['slcpago'], $_POST['fecha'], $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
 			$abono_controlador->registrar_abono($abono);
 			//echo" llego el paro papi ";
 
@@ -137,8 +137,8 @@
 			*/
 			//Medio codigo de Modificar abono sin cambi
 			$abono_controlador=new Abono_Controlador();
-			$abono= new Abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['slcusuario'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
-			$abono_controlador->modificar_abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['slcusuario'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
+			$abono= new Abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
+			$abono_controlador->modificar_abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
 			
 
 		}
@@ -166,6 +166,14 @@
 		$abono_controlador->buscar_abono($_POST['dato_buscar']);
 		}
 		
+		if($_POST['action']=='consultar_valor'){
+		require_once('../Modelos/Abono.php');	
+		require_once('../conexion.php');
+		$abono_controlador=new Abono_Controlador();
+		$abono = new Abono('','','','','','','');
+		$abono_controlador->consultar_valor($_POST['dato_buscar']);
+
+		}
 		
 	}
 

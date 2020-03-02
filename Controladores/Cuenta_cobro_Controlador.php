@@ -38,7 +38,7 @@
 
 			public function activar_estado_cuenta_cobro($codigo_cuenta_cobro){
 				require_once('../Modelos/Cuenta_cobro.php');
-				return Usuario::activar_estado_cuenta_cobro($codigo_cuenta_cobro);
+				return Cuenta_cobro::activar_estado_cuenta_cobro($codigo_cuenta_cobro);
 			}	
 	      
 			//Mostrar Vistas para registrar al producto
@@ -210,7 +210,7 @@
 				require_once('../conexion.php');
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
 				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','','');
-				$cuenta_cobro_controlador->consultar_cuenta_de_cobro($_POST['dato_buscar']);
+				$cuenta_cobro_controlador->consultar_tipo_cc($_POST['dato_buscar']);
 			}
 		}
 

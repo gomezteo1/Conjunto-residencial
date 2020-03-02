@@ -150,8 +150,8 @@ class Cuenta_cobro
           $cuenta_cobro->codigo_month, 
           '$cuenta_cobro->fecha', 
           $cuenta_cobro->monto_por_cancelar,
-          '',
-          '1')");
+          '1.5',
+          '0')");
     // echo "INSERT INTO cuenta_cobro(codigo_cuenta_cobro,numero_cuenta,nit,id_usuario,codigo_inmueble,codigo_month,fecha,porMora,monto_por_cancelar,estado)VALUES('',$cuenta_cobro->numero_cuenta,$cuenta_cobro->nit, $cuenta_cobro->id_usuario, $cuenta_cobro->codigo_inmueble, $cuenta_cobro->codigo_month, '$cuenta_cobro->fecha'
     // ,$cuenta_cobro->monto_por_cancelar,'','')";
     $insert->execute();
@@ -281,9 +281,8 @@ class Cuenta_cobro
 
     public static function UpMora(){
         $fechaActual= date("Y-m-d");
-        
-      foreach(Cuenta_cobro::listar_todos() as $cuenta_cobro){
-          if($cuenta_cobro->fecha<$fechaActual and $cuenta_cobro->estado==0 ){
+        foreach(Cuenta_cobro::listar_todos() as $cuenta_cobro){
+          if($cuenta_cobro->fecha<$fechaActual and $cuenta_cobro->estado==0){
               //echo "ENTRO";
               Cuenta_cobro::modificar_cuenta_cobroMora($cuenta_cobro->codigo_cuenta_cobro,1.5);
           }
