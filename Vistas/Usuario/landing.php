@@ -9,7 +9,7 @@
 					</div>
 					<div class="card">
 						<!--Inquilino-->
-						<?php if( $_SESSION['acceso']['id_rol']==3){?>
+						<?php if( $_SESSION['acceso']['id_rol']>=3){?>
 						<div class="card-head" align="center">
 							<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> Hemos recibido su solicitud, esta siendo revisada por administración, esto puede llevar unos días, muchas gracias por esperar.</p>
 							<a href="destruir_sesion.php">Salir</a>
