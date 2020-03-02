@@ -64,11 +64,18 @@
 
 									</div>
 									<p class="text-center">
-										<button id="button-MTipo_pago" type="submit" class="btn btn-sm btn-primary button-RPago" value="res-registrar-tipo_pago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
+										<button id="button-MTipo_pago button-Mcc" name="button-Mcc" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary button-RPago " value="res-registrar-tipo_pago" type="submit">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="btn-tipo-pago">Modificar tipo de pago</div>
 									</p>
+
+									<!-- <p class="text-center">
+										<button id="button-Mcc" value='Guardar' name="button-Mcc" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
+											<i class="zmdi zmdi-plus"></i>
+										</button>
+										<div class="mdl-tooltip" for="btn-addProduct">Agregar CC</div>
+									</p> -->
 								
 							</div>
 						</div>

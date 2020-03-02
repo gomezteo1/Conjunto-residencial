@@ -24,20 +24,10 @@
 
 <body>
 
-
-	<section id="contact-form-section" class="form-content-wrap">
-		<div class="container">
-			<div class="row">
-				<div class="tab-content">
-					<div class="col-sm-12">
-						<div class="item-wrap ww">
-							<div class="row ">
-								
-								<div class="col-md-12">
-								
-<div id="modificar-abono">
+<!-- <div id="modificar-abono">
+	
 	<form action='Controladores/Abono_Controlador.php' method='POST' id="res-modificar-abono">
-		<input type='hidden' name='action' value='modificar_abono'>
+		<input type='hidden' name='action' value='modificar_abono'> -->
 		<section class="full-width header-well">
 				<div class="full-width header-well-icon">
 					<i class="zmdi zmdi-balance"></i>
@@ -130,8 +120,15 @@
 													<div class="clearfix"></div>
 												</div><!-- end row -->
 											</form><!-- end form -->
-											<input algin="center" type='submit' id="button-Mabono" name="button-Mabono" value='Guardar'>
-							
+											<!-- <input  class="btn btn-primary" aling="center" type='submit' id="button-Mabono" name="button-Mabono" value='Guardar'>
+							 -->
+											<p class="text-center">
+										<button id="button-Mcc button-Mabono " value='Guardar' name="button-Mcc button-Mabono" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
+											<i class="zmdi zmdi-plus"></i>
+										</button>
+										<div class="mdl-tooltip" for="btn-addProduct">Agregar CC</div>
+									</p>
+
 								</div>
 							</div><!--End row -->
 							</form>

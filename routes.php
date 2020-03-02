@@ -67,7 +67,7 @@
 if(isset($_SESSION['acceso']) &&  $_SESSION['acceso']['id_rol']==1){
 	//array con los controladores y sus respectivas acciones
 	$controllers= array(
-		'usuario' => ['landing','index','indexUsuario','indexUsuario','frm_registrar_usuario','frm_modificar_administrador','frm_login','frm_singup','eliminar_administrador','cerrarSesion','desactivar_estado_usuario','activar_estado_usuario','frm_sweet','frm_cambiarClaveAdm','frm_cambiarClaveUsu'],
+		'usuario' => ['landing','index','indexUsuario','indexUsuario','frm_modificar_usuario','frm_registrar_usuario','frm_modificar_administrador','frm_login','frm_singup','eliminar_administrador','cerrarSesion','desactivar_estado_usuario','activar_estado_usuario','frm_sweet','frm_cambiarClaveAdm','frm_cambiarClaveUsu'],
 		'rol'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_rol','eliminar','cambiar_estado_rol'],
 		'tipo_documento'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_tipo_documento','eliminar'],
 		'cuenta_cobro'=>['index','formulario_cuenta_cobro','formulario_modificar','eliminar_cuenta_cobro'],
