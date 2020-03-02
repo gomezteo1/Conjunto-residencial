@@ -92,13 +92,13 @@
 									</div>
 								</div> -->
 
-								<div class="mdl-cell mdl-cell--12-col">
+								 <div class="mdl-cell mdl-cell--12-col " >
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $abono->fecha ?>">
+										<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $abono->fecha ?>">
 										<label class="mdl-textfield__label"  for="fecha"></label>
 										<span class="mdl-textfield__error">Fecha Invalida</span>
 									</div>
-								</div>
+								</div> 
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="deuda" name="deuda" value="<?php echo $abono->dueda ?>" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>

@@ -116,7 +116,7 @@
 			require_once('../conexion.php');
 			$abono_controlador=new Abono_Controlador();
 			$abono_controlador=new Abono_Controlador();
-			$abono= new Abono('', $_POST['slcpago'], $_POST['fecha'], $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
+			$abono= new Abono('', $_POST['slcpago'], '', $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
 			$abono_controlador->registrar_abono($abono);
 			//echo" llego el paro papi ";
 

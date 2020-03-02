@@ -28,8 +28,8 @@
           require_once('Vistas/Month/formulario_modificar.php');
       }
        
-      public function modificar_month($codigo_month,$mes,$porcentaje,$fecha){
-        Month::modificar_month($codigo_month,$mes,$porcentaje,$fecha);
+      public function modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha){
+        Month::modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha);
          header('Location: ../index.php?controller=month&action=index');
       }
         
@@ -80,7 +80,7 @@
          require_once('../Modelos/Month.php');
          require_once('../conexion.php');
          $month_controlador=new Month_Controlador();
-         $month= new month('', $_POST['mes'], $_POST['porcentaje'], $_POST['fecha']);
+         $month= new month('', $_POST['mes'], $_POST['tarifa'], $_POST['porcentaje'], '');
          $month_controlador->registrar_month($month);
      }
     
@@ -91,7 +91,7 @@
          require_once('../conexion.php');
 
          $month_controlador=new Month_Controlador();
-         $month_controlador->modificar_month($_POST['codigo_month'], $_POST['mes'], $_POST['porcentaje'], $_POST['fecha']);
+         $month_controlador->modificar_month($_POST['codigo_month'], $_POST['mes'],$_POST['tarifa'], $_POST['porcentaje'], $_POST['fecha']);
      }
     
  }

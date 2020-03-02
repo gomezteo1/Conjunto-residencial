@@ -1,6 +1,11 @@
 <?php
+
+date_default_timezone_set("America/bogota");
+$fechita = date('yyyy-mm-dd');
+    
 class Pago
-{
+{   
+   
     //atributos 
     public $codigo_pago;
     public $id_usuario;
@@ -9,7 +14,7 @@ class Pago
     public $codigo_tipo_pago;
     public $monto_cancelado;
     public $monto_a_pagar;
-    
+       
     //controlador de la clase 
     function __construct($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar)
     {
@@ -30,7 +35,10 @@ class Pago
         $sql=$db->query("SELECT DISTINCT p.*, 
         concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago  
         FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
-          inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago ");
+          inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago 
+          where ((datediff(p.fecha,now())*-1) <= 30)
+         and ((datediff(p.fecha,now())*-1) >=0)
+          ");
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $pago){
@@ -62,7 +70,7 @@ class Pago
         return $listar_pagos;
     }
 
-
+    
     //la funcion para registrar un pago 
     public static function registrar_pago($pago){
         $db=Db::getConnect();
@@ -71,11 +79,11 @@ class Pago
         $insert->bindValue('codigo_pago',$pago->codigo_pago);
         $insert->bindValue('id_usuario',$pago->id_usuario);
         $insert->bindValue('codigo_cuenta_cobro',$pago->codigo_cuenta_cobro);
-        $insert->bindValue('fecha',$pago->fecha);
+        $insert->bindValue('fecha',date("y-m-d"));
         $insert->bindValue('codigo_tipo_pago',$pago->codigo_tipo_pago);
         $insert->bindValue('monto_cancelado',$pago->monto_cancelado);
         $insert->bindValue('monto_a_pagar',$pago->monto_a_pagar);
-
+      
         if($insert->execute())
           {
                 $update=$db->prepare("UPDATE cuenta_cobro 
@@ -90,7 +98,7 @@ class Pago
           }
     }
         //la funcion para actualizar  $codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar
-        public static function modificar_pago($codigo_pago,$id_usuario, $codigo_cuenta_cobro, $fecha, $codigo_tipo_pago, $monto_cancelado, $monto_a_pagar){
+        public static function modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro, $fecha, $codigo_tipo_pago, $monto_cancelado, $monto_a_pagar){
             $db=Db::getConnect();
             $insert=$db->prepare("UPDATE pago SET id_usuario=id_usuario, codigo_cuenta_cobro=$codigo_cuenta_cobro, fecha='$fecha', codigo_tipo_pago=$codigo_tipo_pago, monto_cancelado='$monto_cancelado', monto_a_pagar='$monto_a_pagar'
             WHERE codigo_pago='$codigo_pago'");

@@ -69,11 +69,11 @@
 										
 										
 
-									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+									<!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="date" id="fecha" name="fecha">
 										<label class="mdl-textfield__label"  for="fecha"></label>
 										<span class="mdl-textfield__error">Fecha Invalida</span>
-									</div>
+									</div> -->
 
 										
 									</div>

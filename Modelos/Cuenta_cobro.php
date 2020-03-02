@@ -70,11 +70,12 @@ class Cuenta_cobro
     /*Luego trabajamos con la de abajo*/
  
         // Codigo maestro para las fechas
-        //SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
-        //and ((datediff(fecha,now())*-1) >=0)
-         // Codigo maestro para las fechas
-        //SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
-        //and ((datediff(fecha,now())*-1) >=0)
+        // SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
+        // and ((datediff(fecha,now())*-1) >=0)
+       
+        //  Codigo maestro para las fechas
+        // SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
+        // and ((datediff(fecha,now())*-1) >=0)
 
 
     // Listar todos con inner join
@@ -90,7 +91,10 @@ class Cuenta_cobro
         left join usuario u on u.id_usuario = c.id_usuario 
         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-        left join month m on c.codigo_month = m.codigo_month
+        left join month m on c.codigo_month = m.codigo_month 
+        /*Validacion con la profe magn */
+        where ((datediff(c.fecha,now())*-1) <= 30)
+         and ((datediff(c.fecha,now())*-1) >=0)
       
         ");
         foreach ($sql->fetchAll() as $cuenta_cobro){

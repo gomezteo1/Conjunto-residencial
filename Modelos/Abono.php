@@ -43,7 +43,9 @@ class Abono
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo 
 		FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-            inner join abonos_pago a on p.codigo_pago=a.codigo_pago");
+		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
+		where ((datediff(a.fecha,now())*-1) <= 30)
+         and ((datediff(a.fecha,now())*-1) >=0)");
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $abono){
@@ -82,7 +84,7 @@ class Abono
         // $insert->bindValue('id_cuentaCobro',$abono->id_cuentaCobro);//Puede ser codigo_pago
 		$insert->bindValue('codigo_pago',$abono->codigo_pago);
 		//$insert->bindValue('id_usuario',$abono->id_usuario);
-        $insert->bindValue('fecha',$abono->fecha);	
+       $insert->bindValue('fecha',date("y-m-d"));
         $insert->bindValue('deuda',$abono->deuda);
         $insert->bindValue('abono',$abono->abono);
         $insert->bindValue('saldo',$abono->saldo);
