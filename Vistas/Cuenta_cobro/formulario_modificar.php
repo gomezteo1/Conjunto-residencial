@@ -78,7 +78,7 @@
 											</div><!-- end form-group -->
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $cuenta_cobro->fecha ?>">
+												<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $cuenta_cobro->fecha ?>">
 												<label class="mdl-textfield__label"  for="fecha_"></label>
 												<span class="mdl-textfield__error">Fecha </span>
 											</div>	

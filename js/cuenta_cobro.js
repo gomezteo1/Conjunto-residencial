@@ -57,7 +57,7 @@ $(function() { //funtion jquiery
         actualizar();
 
 
-        console.log(detalleCuentasCobro);
+        //console.log(detalleCuentasCobro);
     });
 });
 // alert(eliminar_detalle);
@@ -68,7 +68,7 @@ const actualizar = () => {
     for (const [index, cuenta] of detalleCuentasCobro.entries()) {
         todo += `
           <div class="col-2 align-self-end">
-                <p>Fecha: ${cuenta.fecha}</p>
+                
           </div>
         <div class="col-5">
           <p>Cuenta: ${cuenta.numero_cuenta}</p>
@@ -95,7 +95,7 @@ function eliminar_detalle(cantidad_detalles) {
 }
 
 const eliminarCuenta = (id) => {
-    console.log(detalleCuentasCobro);
+    //console.log(detalleCuentasCobro);
     detalleCuentasCobro.splice(id, 1)
     actualizar();
 };

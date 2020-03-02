@@ -143,23 +143,47 @@ class Cuenta_cobro
  public static function registrar_cuenta_cobro($cuenta_cobro){
     //print_r($cuenta_cobro);
     $db=Db::getConnect();
-    $insert=$db->prepare("INSERT INTO cuenta_cobro(
-        codigo_cuenta_cobro, numero_cuenta, nit, id_usuario, codigo_inmueble, codigo_month, fecha,
-         monto_por_cancelar, porMora, estado)
-         VALUES('', 
-         $cuenta_cobro->numero_cuenta,
-          $cuenta_cobro->nit, 
-          $cuenta_cobro->id_usuario, 
-          $cuenta_cobro->codigo_inmueble,
-          $cuenta_cobro->codigo_month, 
-          '$cuenta_cobro->fecha', 
-          $cuenta_cobro->monto_por_cancelar,
-          '1.5',
-          '0')");
-    // echo "INSERT INTO cuenta_cobro(codigo_cuenta_cobro,numero_cuenta,nit,id_usuario,codigo_inmueble,codigo_month,fecha,porMora,monto_por_cancelar,estado)VALUES('',$cuenta_cobro->numero_cuenta,$cuenta_cobro->nit, $cuenta_cobro->id_usuario, $cuenta_cobro->codigo_inmueble, $cuenta_cobro->codigo_month, '$cuenta_cobro->fecha'
-    // ,$cuenta_cobro->monto_por_cancelar,'','')";
-    $insert->execute();
-}
+    $insert=$db->prepare('INSERT INTO cuenta_cobro VALUES( 
+        :codigo_cuenta_cobro, :numero_cuenta, :nit, :id_usuario, :codigo_inmueble, 
+        :codigo_month, :fecha, :monto_por_cancelar, :porMora, :estado)');
+            
+        $insert->bindValue('codigo_cuenta_cobro',$cuenta_cobro->codigo_cuenta_cobro);
+        $insert->bindValue('numero_cuenta',$cuenta_cobro->numero_cuenta);
+        $insert->bindValue('nit',$cuenta_cobro->nit);
+        $insert->bindValue('id_usuario',$cuenta_cobro->id_usuario);
+        $insert->bindValue('codigo_inmueble',$cuenta_cobro->codigo_inmueble);
+        $insert->bindValue('codigo_month',$cuenta_cobro->codigo_month);
+        $insert->bindValue('fecha',date("y-m-d"));
+        $insert->bindValue('monto_por_cancelar',$cuenta_cobro->monto_por_cancelar);
+        $insert->bindValue('porMora',$cuenta_cobro->porMora);
+        $insert->bindValue('estado',$cuenta_cobro->estado);
+        if($insert->execute()){
+            echo "Registro exitoso.";
+        }else{
+            echo "Problemas en el registro.";
+         } 
+        }
+
+
+
+//           public static function registrar_cuenta_cobro($cuenta_cobro){
+//             $db=Db::getConnect();
+//             $insert=$db->prepare('INSERT INTO cuenta_cobro( 
+//             codigo_cuenta_cobro, numero_cuenta, nit, id_usuario, codigo_inmueble, codigo_month, fecha,
+//             monto_por_cancelar, porMora, estado)     
+//             VALUES(:codigo_abono, :codigo_pago,  :fecha, :deuda, :abono, :saldo)');
+//             $insert->bindValue('codigo_abono',$abono->codigo_abono);
+//             // $insert->bindValue('id_cuentaCobro',$abono->id_cuentaCobro);//Puede ser codigo_pago
+//             $insert->bindValue('codigo_pago',$abono->codigo_pago);
+//             //$insert->bindValue('id_usuario',$abono->id_usuario);
+//             $insert->bindValue('fecha',date("y-m-d"));
+//             $insert->bindValue('deuda',$abono->deuda);
+//             $insert->bindValue('abono',$abono->abono);
+//             $insert->bindValue('saldo',$abono->saldo);
+//     // echo "INSERT INTO cuenta_cobro(codigo_cuenta_cobro,numero_cuenta,nit,id_usuario,codigo_inmueble,codigo_month,fecha,porMora,monto_por_cancelar,estado)VALUES('',$cuenta_cobro->numero_cuenta,$cuenta_cobro->nit, $cuenta_cobro->id_usuario, $cuenta_cobro->codigo_inmueble, $cuenta_cobro->codigo_month, '$cuenta_cobro->fecha'
+//     // ,$cuenta_cobro->monto_por_cancelar,'','')";
+//     $insert->execute();
+// }
 
     //la función para actualizar 
 

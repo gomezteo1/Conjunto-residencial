@@ -118,8 +118,8 @@
 				$cuenta->slcmonth,
 				$cuenta->fecha,
 				$cuenta->monto_por_cancelar
-				,''
-				,'1');
+				,'1.5'
+				,'0');
 			
 				$cuenta_cobro_controlador->registrar_cuenta_cobro($cuenta_cobro);
 

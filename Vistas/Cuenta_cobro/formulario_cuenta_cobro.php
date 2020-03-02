@@ -82,13 +82,13 @@
 										<br>
 										<br>
 										<br>
-										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+										<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="date" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="fecha" id="fecha" required>
 												<label class="mdl-textfield__label" for="fecha"></label>
 												<span class="mdl-textfield__error"> invalido</span>
 											</div>
-										</div>
+										</div> -->
 										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

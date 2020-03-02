@@ -84,7 +84,7 @@ class Abono
         // $insert->bindValue('id_cuentaCobro',$abono->id_cuentaCobro);//Puede ser codigo_pago
 		$insert->bindValue('codigo_pago',$abono->codigo_pago);
 		//$insert->bindValue('id_usuario',$abono->id_usuario);
-       $insert->bindValue('fecha',date("y-m-d"));
+        $insert->bindValue('fecha',date("y-m-d"));
         $insert->bindValue('deuda',$abono->deuda);
         $insert->bindValue('abono',$abono->abono);
         $insert->bindValue('saldo',$abono->saldo);
