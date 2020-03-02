@@ -22,11 +22,11 @@ class Month
 	public static function listar_todos(){
 		$lista_months  =[];
 		$db=Db::getConnect();
-		$sql=$db->query('SELECT DISTINCT * FROM month');
+		$sql=$db->query("SELECT DISTINCT *, concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes FROM month");
 
 		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $month) {
-			$lista_months []= new Month($month['codigo_month'],$month['mes'],$month['tarifa'],$month['porcentaje'],$month['fecha']);
+			$lista_months []= new Month($month['codigo_month'],$month['mes'],$month['tarifas'],$month['porcentajes'],$month['fecha']);
 		}
 		return $lista_months;
     }
@@ -87,7 +87,7 @@ class Month
 	public static function buscar_month($dato){
 		$lista_months =[];	
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM month
+		$sql=$db->query("SELECT *,  concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes FROM month
 		WHERE codigo_month like '%$dato%' 
 		OR mes like '%$dato%' or porcentaje like '%$dato%' 
 		OR fecha like '%$dato%'
@@ -95,7 +95,7 @@ class Month
 		
 		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $month) {
-			$lista_months[]= new Month($month['codigo_month'], $month['mes'], $month['tarifa'],$month['porcentaje'],$month['fecha']);
+			$lista_months[]= new Month($month['codigo_month'], $month['mes'], $month['tarifas'],$month['porcentajes'],$month['fecha']);
 		}
 		return $lista_months;
     }

@@ -32,7 +32,7 @@ class Pago
     public static function listar_todos(){ 
         $listar_pagos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT p.*, 
+        $sql=$db->query("SELECT DISTINCT p.*, concat('$','',monto_cancelado) as monto_cancelados, concat('$','',monto_a_pagar) as monto_a_pagars,
         concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago  
         FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
           inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago 
@@ -42,7 +42,7 @@ class Pago
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $pago){
-            $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelado'],$pago['monto_a_pagar']);
+            $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelados'],$pago['monto_a_pagars']);
             $itempago->nombreUsuario=$pago['xx'];
             $itempago->nombreTipoPago=$pago['tipo_pago'];
               
@@ -55,13 +55,13 @@ class Pago
         $listar_pagos =[];
         $db=Db::getConnect();
 
-        $sql=$db->query("SELECT DISTINCT p.*, concat(u.nombres,'', u.apellidos)as xx,
+        $sql=$db->query("SELECT DISTINCT p.*, concat(u.nombres,'', u.apellidos)as xx,concat('$','',monto_cancelado) as monto_cancelados, concat('$','',monto_a_pagar) as monto_a_pagars,
          t.tipo_pago  FROM pago p inner join usuario u on p.id_usuario = u.id_usuario 
           inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago where p.id_usuario='$id_usuario'");
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $pago){
-            $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelado'],$pago['monto_a_pagar']);
+            $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelados'],$pago['monto_a_pagars']);
             $itempago->nombreUsuario=$pago['xx'];
             $itempago->nombreTipoPago=$pago['tipo_pago'];
               
@@ -125,7 +125,7 @@ class Pago
             $listar_pagos =[];
             $db=Db::getConnect();
             $sql=$db->query("SELECT p.*, concat(u.nombres,'', u.apellidos)as xx,
-            t.tipo_pago  FROM pago p 
+            t.tipo_pago,concat('$','',monto_cancelado) as monto_cancelados, concat('$','',monto_a_pagar) as monto_a_pagars  FROM pago p 
             inner join usuario u on p.id_usuario = u.id_usuario 
             inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
             WHERE u.nombres like trim('%$dato%') Or u.apellidos like trim('%$dato%') 
@@ -135,7 +135,7 @@ class Pago
             
             // carga en la $lista_productos cada registro desde la base de datos
             foreach ($sql->fetchAll() as $pago) {
-              $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelado'],$pago['monto_a_pagar']);
+              $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelados'],$pago['monto_a_pagars']);
             $itempago->nombreUsuario=$pago['xx'];
             $itempago->nombreTipoPago=$pago['tipo_pago'];
               

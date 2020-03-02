@@ -154,7 +154,7 @@ $fill=false;
 
     $db=Db::getConnect();
     $codigo_abono = $_GET['codigo_abono'];
-    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
       LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago where codigo_abono='$codigo_abono'");
     $registro=0;
     //carga en la lista cada registro de la base de datos 
@@ -169,11 +169,11 @@ $fill=false;
 
         $this->Cell(30,6,$abono['fecha'],'LR',0,'L',$fill);
 
-        $this->Cell(30,6,$abono['deuda'],'LR',0,'L',$fill);
+        $this->Cell(30,6,$abono['deudas'],'LR',0,'L',$fill);
 
-        $this->Cell(30,6,$abono['abono'],'LRB',0,'L',$fill);
+        $this->Cell(30,6,$abono['abonos'],'LRB',0,'L',$fill);
 
-        $this->Cell(30,6,$abono['saldo'],'LRB',0,'L',$fill);
+        $this->Cell(30,6,$abono['saldos'],'LRB',0,'L',$fill);
         
         $this->Ln();
         $fill=!$fill;

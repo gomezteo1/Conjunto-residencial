@@ -95,7 +95,7 @@ class PDF extends FPDF{
       
       
           $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
-          c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
+          c.id_usuario, c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, c.porMora, c.estado,
           concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
           concat(i.numero,'',i.torre) as inmueble, m.mes as mes
           FROM cuenta_cobro c
@@ -106,6 +106,8 @@ class PDF extends FPDF{
           left join month m on c.codigo_month = m.codigo_month
           where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
           $registro=0;
+
+          
           //carga en la lista cada registro de la base de datos 
           foreach ($sql->fetchAll() as $cuenta_cobro){
              if($registro>0)//No generar fila vacia
@@ -122,7 +124,7 @@ class PDF extends FPDF{
               
              $this->Cell(30,6,$cuenta_cobro['fecha'],'LRB',0,'L',$fill);
       
-             $this->Cell(30,6,$cuenta_cobro['monto_por_cancelar'],'LRB',0,'L',$fill);
+             $this->Cell(30,6,$cuenta_cobro['monto_por_cancelars'],'LRB',0,'L',$fill);
             
              if($cuenta_cobro['estado']==1){ return $this->Cell(30,6,"Pagado",'LRB',0,'L',$fill);
             }

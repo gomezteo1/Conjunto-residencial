@@ -41,7 +41,7 @@ class Abono
      public static function listar_todos(){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo 
+        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha as fechas ,concat('$','',a.deuda) as deudas  ,concat('$','',a.abono) as abonos ,concat('$','',a.saldo) as saldos
 		FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
 		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
 		where ((datediff(a.fecha,now())*-1) <= 30)
@@ -49,7 +49,7 @@ class Abono
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $abono){
-            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deuda'],$abono['abono'],$abono['saldo']);
+            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fechas'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
             $itemabono->nombrePago=$abono['monto'];
               
@@ -61,13 +61,14 @@ class Abono
     public static function listar_abono_usuario($id_usuario){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo 
+        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos 
+		,concat('$','',a.saldo as saldos
 		FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
         inner join abonos_pago a on p.codigo_pago=a.codigo_pago where u.id_usuario='$id_usuario'");
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $abono){
-            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deuda'],$abono['abono'],$abono['saldo']);
+            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
             $itemabono->nombrePago=$abono['monto'];
               
@@ -187,17 +188,18 @@ class Abono
 	public static function buscar_abono($dato){
 		$lista_abonos =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, p.monto_a_pagar as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo 
+		$sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas, concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos 
 		FROM usuario u 
 		inner join pago p on u.id_usuario = p.id_usuario 
 		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
 		WHERE (u.nombres like '%$dato%'
 		or u.apellidos like '%$dato%')
-		or a.codigo_abono like '%$dato%'");
+		or a.codigo_abono like '%$dato%'  
+		or a.fecha like '%$dato%' or p.monto_a_pagar like '%$dato%' ");
 		
 		// carga en la $lista_inmuebles cada registro desde la base de datos
 		   foreach ($sql->fetchAll() as $abono){
-            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deuda'],$abono['abono'],$abono['saldo']);
+            $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
             $itemabono->nombrePago=$abono['monto'];
               

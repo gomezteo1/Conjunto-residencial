@@ -92,7 +92,7 @@ $fill=false;
 $db=Db::getConnect();
 $codigo_pago = $_GET['codigo_pago'];
 $sql=$db->query("SELECT DISTINCT u.nombres as nombre,p.codigo_pago,p.codigo_cuenta_cobro,
-  p.fecha,t.tipo_pago,p.monto_cancelado,p.monto_a_pagar 
+  p.fecha,t.tipo_pago,concat('$','',p.monto_cancelado) as monto_cancelados ,concat('$','',p.monto_a_pagar) as monto_a_pagars 
   FROM tipo_pago t 
   LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
   Left join usuario u on p.id_usuario=u.id_usuario 
@@ -115,9 +115,9 @@ foreach ($sql->fetchAll() as $pago){
 
     $this->Cell(30,6,$pago['tipo_pago'],'LR',0,'L',$fill);
 
-    $this->Cell(30,6,$pago['monto_cancelado'],'LRB',0,'L',$fill);
+    $this->Cell(30,6,$pago['monto_cancelados'],'LRB',0,'L',$fill);
 
-    $this->Cell(30,6,$pago['monto_a_pagar'],'LRB',0,'L',$fill);
+    $this->Cell(30,6,$pago['monto_a_pagars'],'LRB',0,'L',$fill);
    
     $this->Ln();
     $fill=!$fill;
