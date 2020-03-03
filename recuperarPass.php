@@ -26,7 +26,8 @@ try {
     $mail->Port       = 587;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom($usuario['correo_recuperacion'], 'Zamasoft y asociados');
+    $mail->setFrom($usuario['correo_recuperacion'], 'Conjunto Residencial Juan del Corral
+    -Zamasoft');
     $mail->addAddress($usuario['correo_recuperacion']);     // Add a recipient
     //$mail->addAddress('ellen@example.com');               // Name is optional
     //$mail->addReplyTo('jeysonspt1996@gmail.com');
@@ -42,18 +43,31 @@ try {
     $mail->Subject = 'Recuperacion de clave';
     $mail->Body    = '
     <body>
-    <h1>Conjunto Residencial</h1>
-    <h4>Juan del Corral</h4>
+
+    <div class="container" align="left">
+      <div class="row">
+         <div class="card">
+                 <div class="card-body">
+                     <h1>Conjunto Residencial Juan del Corral</h1>
+                     <h3 style="color:#0097C2;font-size:23px">Hola,<strong>' . $usuario['nombres'].$usuario['apellidos']; '</strong></h3>
+                     
+                     <div>
+                       
+                       <h3 style="color:#0097C2; font-size:20px"><strong>&nbsp;&nbsp;   Contraseña restablecida</strong></h3>
+                             Ahora puede usar su nueva contraseña para iniciar sesión de nuevo
+                             en el  sistema.
+                    
+                         <p>Estimado ' . $usuario['nombres'].'  '.$usuario['apellidos']  . '<br> su contraseña es <strong>:'.' '.$usuario['clave'] . '</strong></p>
+ 
+                             <p>Recomendamos cambiar esta contraseña una vez inicie sesión, el cambio de contraseña 
+                             lo encontrará en la sección de: <br><span style="color:#142F56"><strong>Ménu>Perfil>En la tabla>Cambiar contraseña</strong></span> </p>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+           </div>   
+     </body>';       
     
-
-
-
-
-    <p>Estimado ' . $usuario['nombres'].'  '.$usuario['apellidos']  . '<br> su contraseña es <strong>:'.' '.$usuario['clave'] . '</strong></p>
-
-
-
-    </body>';
     //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();

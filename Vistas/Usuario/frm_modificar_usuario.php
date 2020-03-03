@@ -113,7 +113,7 @@
 												<span class="mdl-textfield__error">Clave invalido</span>
 											</div>
 										</div>-->
-<a href="controller=usuario&action=cambiarClaveUsu&&id_usuario=<?php$usuairo['id_usuairo']?>"
+<a href="controller=usuario&action=cambiarClaveUsu&&id_usuario=<?php $usuairo['id_usuairo']?>"
 ></a>				
 
 
@@ -127,14 +127,14 @@
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@-_.]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
 												<label class="mdl-textfield__label" for="correo">Correo</label>
 												<span class="mdl-textfield__error">Correo invalido</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion" value="<?php echo $usuario->correo_recuperacion  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@-_. ]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion" value="<?php echo $usuario->correo_recuperacion  ?>">
 												<label class="mdl-textfield__label" for="correo_recuperacion">Correo Recuperación</label>
 												<span class="mdl-textfield__error">Correo R.invalido</span>
 											</div>

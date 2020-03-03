@@ -123,12 +123,7 @@
 											</div>
 										</div>--->
 
-	<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php$_SESSION['acceso']['id_Usuairo']?>"
-></a>				
-
-
-
-
+	<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
 <!--------------------------------------------------------------------------------------------_----->
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
