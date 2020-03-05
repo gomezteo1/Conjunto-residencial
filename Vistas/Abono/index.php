@@ -32,6 +32,9 @@
 			</div>
 		</section>
 		<div class=""></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+			
 		<div id="resultado_busqueda">
 			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 				<thead>

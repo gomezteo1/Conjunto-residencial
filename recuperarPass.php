@@ -45,7 +45,7 @@ try {
       '<body>
         <div class="row"> 
           <div class="col-2"></div>
-          <div class="col-7" align="center"><h1 style="color:#000000; font-size:30px;">Conjunto Residencial R Juan del Corral</h1></div>
+          <div class="col-7" align="center"><h1 style="color:#000000; font-size:30px;">Conjunto Residencial Juan del Corral</h1></div>
           <div class="col-2" align="center"></div>
           <div class="col-1"></div>
         </div>
