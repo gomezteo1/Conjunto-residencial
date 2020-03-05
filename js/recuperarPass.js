@@ -20,7 +20,7 @@ $('#buttonR').unbind('click').click(function() {
                 data: informacion,
                 beforeSend: function() {
                     //error
-                    $("div#" + myId).html('</br><div style="width:10%; height:10%;"><img src="assets/img/cargando.gif" style="width:100%; height:100%;" class="centerAllContens"></div>' +
+                    $("div#" + myId).html('</br><div style="width:15%; height:15%;"><img src="assets/img/cargando.gif" style="width:100%; height:100%;" class="centerAllContens"></div>' +
                         '</br>Buscando ...');
                 },
                 error: function() {
