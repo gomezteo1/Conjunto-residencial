@@ -61,9 +61,10 @@ class Abono
     public static function listar_abono_usuario($id_usuario){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos 
-		,concat('$','',a.saldo as saldos
-		FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
+        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono, a.codigo_pago  
+		,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos 
+		,concat('$','',a.saldo) as saldos
+		FROM usuario u left join pago p on u.id_usuario = p.id_usuario 
         inner join abonos_pago a on p.codigo_pago=a.codigo_pago where u.id_usuario='$id_usuario'");
 
         //carga en la lista cada registro de la base de datos 
