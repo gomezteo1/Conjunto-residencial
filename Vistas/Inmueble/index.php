@@ -68,6 +68,18 @@
 							</tr>		
 						</tbody>
 						<?php }	?>
+						<tfoot>
+							<tr>
+								<td><b>#Inmueble</b></td>
+								<td><b>Numero de matricula</b></td>
+								<td><b>Tipo</b></td>
+								<td><b>Torre</b></td>
+								<td><b>Numero</b></td>
+								<td><b>Metros</b></td>
+								<td><b>Estado</b></td>
+								<td colspan="1" align="center"><b>Acciones</b></b></td>
+							</tr>		
+						</tfoot>
 					</table>
 				</div>
 			</div>

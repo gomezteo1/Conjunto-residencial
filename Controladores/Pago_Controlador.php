@@ -43,6 +43,7 @@
       //--------------------------------------------------------------
       public function formulario_modificar(){
           require_once('Modelos/Pago.php');
+          // require_once('Modelos/Usuario.php');
           $pago=Pago::Obtener_por_codigo_pago($_GET['codigo_pago']);
           require_once('Vistas/Pago/formulario_modificar.php');
       }

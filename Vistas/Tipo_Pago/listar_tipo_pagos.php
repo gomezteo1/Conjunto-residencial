@@ -20,4 +20,12 @@
 		</tr>
 	</tbody>
 	<?php }	?>
+	<tfoot>
+		<tr>
+			<td><b>#Tipo Pago</b></td>
+			<td><b>Tipo Pago</b></td>
+			<td><b>Descripción</b></td>
+			<td colspan=2 align="center"><b>Acciones</b></td>
+		</tr>		
+	</tfoot>
 </table>

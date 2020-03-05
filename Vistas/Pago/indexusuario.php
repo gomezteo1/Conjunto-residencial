@@ -35,8 +35,8 @@ require_once('conexion.php');
 					<thead>
 						<tr>
 							<td><b>#Pago</b></td>
-							<td><b>Nombres</b><td>
-							<td><b>Cuenta Cobro</b></td>
+							<td><b>Nombre</b><td>
+							<td><b>#Cuenta cobro</b></td>						
 							<td><b>Fecha</b></td>
 							<td><b>Tipo Pago</b></td>
 							<td><b>Monto Cancelado</b></td>
@@ -59,6 +59,18 @@ require_once('conexion.php');
 						</tr>
 					</tbody>
 					<?php }	?>
+					<tfoot>
+						<tr>
+							<td><b>#Pago</b></td>
+							<td><b>Nombre</b></td>
+							<td><b>#Cuenta Cobro</b></td>
+							<td><b>Fecha</b></td>
+							<td><b>Tipo Pago</b></td>
+							<td><b>Monto Cancelado</b></td>
+							<td><b>Monto a Pagar</b></td>
+							<td colspan=1 align="center"><b>Acciones</b></td>
+						</tr>		
+					</tfoot>
 				</table>
 			</div>
 		</div>

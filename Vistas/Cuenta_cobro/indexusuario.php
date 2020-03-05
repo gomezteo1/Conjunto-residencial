@@ -62,6 +62,22 @@ require_once('conexion.php');
 						</tr>
 					</tbody>
 					<?php } ?>
+					<tfoot>
+						<tr>
+							<td><b>#</b></td>
+							<td><b>Numero cuenta</b></td>
+							<td><b>Nit</b></td>
+							<td><b>Usuario</b></td>
+							<td><b>Inmueble</b></td>
+							<td><b>Mes</b></td>
+							<td><b>Documento</b></td>
+							<td><b>Fecha</b></td>
+							<td><b>Mora</b></td>
+							<td><b>Monto por pagar</b></td>
+							<td><b>Estado</b></td>
+							<td colspan="1" align="center"><b>Acciones</b></td>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
 		</div>

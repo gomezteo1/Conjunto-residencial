@@ -3,7 +3,7 @@
 		<tr>
 			<td><b>#Tipo Documento</b></td>
 			<td><b>Documento</b></td>
-			<th colspan=3><b>Acciones</b></td>
+			<td colspan=3><b>Acciones</b></td>
 		</tr>
 	</thead>
 	<?php foreach ($tipo_documentos as $tipo_documento) { ?>
@@ -16,4 +16,11 @@
 		</tr>		
 	</tbody>
 	<?php } ?>
+	<tfoot>
+		<tr>
+			<td><b>#Tipo Documento</b></td>
+			<td><b>Documento</b></td>
+			<td colspan=3><b>Acciones</b></td>
+		</tr>
+	</tfoot>
 </table>

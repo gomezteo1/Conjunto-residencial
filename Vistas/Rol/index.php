@@ -52,6 +52,13 @@
 							</tr>		
 						</tbody>
 						<?php }	?>
+						<tfoot>
+							<tr>
+								<td><b>#Rol</b></td>
+								<td><b>Rol</b></td>
+							</tr>		
+						</tfoot>
+						
 					</table>
 				</div>
 			</div>

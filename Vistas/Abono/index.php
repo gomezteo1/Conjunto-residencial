@@ -66,6 +66,18 @@
 					</tr>
 				</tbody>			
 				<?php } ?>
+				<tfoot>
+					<tr>
+						<td><b># Abono</b></td>
+						<td><b>Monto a pagar</b></td>
+						<td><b>Nombre</b></td>
+						<td><b>Fecha</b></td>
+						<td><b>Deuda</b></td>
+						<td><b>Abono</b></td>
+						<td><b>Saldo</b></td>
+						<td colspan=3 align="center" ><b>Acciones</b></td>
+					</tr>		
+				</tfoot>
 			</table>
 		</div>
 	</div>

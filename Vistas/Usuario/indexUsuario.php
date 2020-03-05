@@ -44,6 +44,7 @@ require_once('conexion.php');
 							<td><b>Telefono</b></td>
 							<td><b>Fecha Nacimiento</b></td>
 							<!--<td>Estado</td>-->			
+								<!--<td>Clave</td>-->	
 							<td><b>Correo</b></td>			
 							<td><b>Correo recuperacion</b></td>	
 							<td><b>Cambiar Clave</b></td>		
@@ -53,27 +54,20 @@ require_once('conexion.php');
 					<?php foreach($usuarios as $usuario){ ?>
 					<tbody>
 						<tr>
-							<td><?php echo $usuario->id_usuario; ?></th>
-							<td><?php echo $usuario->nombres; ?></th>
-							<td><?php echo $usuario->apellidos; ?></th>
-							<td><?php echo $usuario->nombreTipoDocumento; ?></th>
-							<td><?php echo $usuario->numero_documento; ?></th>
-							<!--<td><?php //echo $usuario->id_rol; ?></th>-->
-							
-
-							<td><?php echo $usuario->telefono; ?></th>
-							<td><?php echo $usuario->fecha_nacimiento; ?></th>
+							<td><?php echo $usuario->id_usuario; ?></td>
+							<td><?php echo $usuario->nombres; ?></td>
+							<td><?php echo $usuario->apellidos; ?></td>
+							<td><?php echo $usuario->nombreTipoDocumento; ?></td>
+							<td><?php echo $usuario->numero_documento; ?></td>
+							<!--<td><?php //echo $usuario->id_rol; ?></td>-->
+							<td><?php echo $usuario->telefono; ?></td>
+							<td><?php echo $usuario->fecha_nacimiento; ?></td>
 							<!--<td><?php //echo $usuario->estado; ?></th>-->
-
-							<!--<td><?php echo $usuario->clave; ?></th>
+							<!--<td><?php //echo $usuario->clave; ?></th>
 							-->
-
-							<td><?php echo $usuario->correo; ?></th>
-							
-
-							<td><?php echo $usuario->correo_recuperacion; ?></th>
-							
-							<td> <a class="btn btn-primary" href="?controller=usuario&action=frm_cambiarClaveUsu&id_usuario=<?php echo $usuario->id_usuario ?>">Cambiar Clave</a></th>
+							<td><?php echo $usuario->correo; ?></td>
+							<td><?php echo $usuario->correo_recuperacion; ?></td>
+							<td> <a class="btn btn-primary" href="?controller=usuario&action=frm_cambiarClaveUsu&id_usuario=<?php echo $usuario->id_usuario ?>">Cambiar Clave</a></td>
 
 							<td>
 								<a href=
@@ -84,6 +78,24 @@ require_once('conexion.php');
 						</tr>
 					</tbody>
 					<?php }	?>
+					<tfoot>
+							<tr>
+								<td><b>#Usuario</b></td>
+								<td><b>Nombre</b></td>
+								<td><b>Apellido</b></td>			
+								<td><b>Tipo Documento</b></td>
+								<td><b>Numero Documento</b></td>
+								<!-- <td>Rol</td>	 -->
+								<td><b>Telefono</b></td>
+								<td><b>Fecha Nacimiento</b></td>
+								<!-- <td>Estado</td>			 -->
+								<td><b>Correo</b></td>
+								<td><b>Correo recuperacion</b></td>
+								<td><b>Cambiar Clave</b></td>			
+							
+								<td colspan="1" align="center"><b>Acciones</b></td>
+							</tr>		
+						</tfoot>
 				</table>
 			</div>
 		</div>

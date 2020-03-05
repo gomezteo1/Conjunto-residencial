@@ -60,6 +60,16 @@
 							</tr>
 						</tbody>			
 						<?php } ?>
+						<tfoot>
+							<tr>
+								<td><b>#Mes</b></td>
+								<td><b>Mes</b></td>
+								<td><b>Tarifa</b></td>
+								<td><b>Porcentaje</b></td>
+								<td><b>Fecha</b></td>
+								<td colspan=2 align="center"><b>Acciones</b></td>
+							</tr>
+						</tfoot>
 					</table>
 				</div>
 			</div>	

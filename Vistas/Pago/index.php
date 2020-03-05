@@ -65,6 +65,18 @@
 							</tr>
 						</tbody>									
 						<?php }	?>
+						<tfoot>
+							<tr>
+								<td><b>#Pago</b></td>
+								<td><b>Nombre</b></td>
+								<td><b>#Cuenta Cobro</b></td>
+								<td><b>Fecha</b></td>
+								<td><b>Tipo Pago</b></td>
+								<td><b>Monto Cancelado</b></td>
+								<td><b>Monto a Pagar</b></td>
+								<td colspan=4><b>Acciones</b></td>
+							</tr>		
+						</tfoot>
 					</table>
 				</div>
 			</div>

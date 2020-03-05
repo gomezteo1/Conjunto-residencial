@@ -36,5 +36,20 @@
                 <td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportec&action=index&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">Ver</a> </td>
             </tr>
         </tbody>			
-        <?php } ?>
+    <?php } ?>
+    <tfoot>
+        <tr>
+            <td><b>#</b></td>
+            <td><b>#Cuenta</b></td>
+            <td><b>Nit</b></td>
+            <td><b>Usuario</b></td>
+            <td><b>Inmueble</b></td>
+            <td><b>Mes-valor</b></td>
+            <td><b>Fecha</b></td>
+            <td><b>Mora</b></td>
+            <td><b>Monto por cancelar</b></td>
+            <td><b>Estado</b></td>
+            <td colspan="2" align="center"><b>Acciones</b></td>
+        </tr>
+    </tfoot>
 </table>
