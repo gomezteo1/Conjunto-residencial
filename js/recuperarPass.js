@@ -14,30 +14,28 @@ $('#buttonR').unbind('click').click(function() {
             console.log(metodo);
             console.log(peticion);
 
-            $.ajax({    
+            $.ajax({
                 type: metodo,
                 url: peticion,
                 data: informacion,
                 beforeSend: function() {
                     //error
-                     $("div#" + myId).html('</br><img src="assets/img/update.gif" class="centerAllContens">' +
-                      '</br>Buscando ...');
+                    $("div#" + myId).html('</br><div style="width:10%; height:10%;"><img src="assets/img/cargando.gif" style="width:100%; height:100%;" class="centerAllContens"></div>' +
+                        '</br>Buscando ...');
                 },
                 error: function() {
                     //$("div#" + myId).html('Ha ocurrido un error en el sistema');
                 },
                 success: function(data) {
                     console.log('data:' + data);
-                    
 
-                     if(data != ''){ 
-                     $("div#"+myId).html("Se a enviado un mensaje a tu correo con una nueva contraseña, se recomienda cambiar esta contraseña una vez ingreses al sistema ")
-                        }
 
-                    else{
-                    $("div#"+myId).html('El correo ingresado no se encuentra registrado en el sistema')
+                    if (data != '') {
+                        $("div#" + myId).html("Se a enviado un mensaje a tu correo con una nueva contraseña, se recomienda cambiar esta contraseña una vez ingreses al sistema ")
+                    } else {
+                        $("div#" + myId).html('El correo ingresado no se encuentra registrado en el sistema')
 
-                        }
+                    }
                     /*$("div#" + myId).html(' ');
                     if (data != '') {
                         Swal.fire({

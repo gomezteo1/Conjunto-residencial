@@ -27,8 +27,10 @@
 
 						<form id="resRegistrar" class="form-horizontal" role="form" action="Controladores/Usuario_Controlador.php" method="POST" autocomplete="on">
 							
-							<div style="margin-bottom: 25px" class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<div style="margin-bottom: 50px" class="input-group">
+								<span class="input-group-addon">
+								<i class="glyphicon glyphicon-user"></i>
+								</span>
 								<input id="correo_recuperacion" type="correo_recuperacion" class="form-control" name="correo_recuperacion" placeholder="Correo de recuperacion">                                        
 							</div>
 							   <input type='hidden' name='action' id="action" value='recuperarClave'>

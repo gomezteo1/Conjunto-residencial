@@ -30,7 +30,7 @@ try {
     -Zamasoft');
     $mail->addAddress($usuario['correo_recuperacion']);     // Add a recipient
     //$mail->addAddress('ellen@example.com');               // Name is optional
-    //$mail->addReplyTo('jeysonspt1996@gmail.com');
+    //$mail->addReplyTo('ccd@gmail.com');
     //$mail->addCC('cc@example.com');
     //$mail->addBCC('bcc@example.com');
 
@@ -41,45 +41,38 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Recuperacion de clave';
-    $mail->Head ;
     $mail->Body    = 
-    require('headRecuperar.php');
-    '<body>
-      
-    
-      <div class="row"> 
-        <div class="col-2"></div>
-        <div class="col-7" align="center"><h1 style="color:#000000; font-size:30px;">Conjunto Residencial Juan del Corral</h1></div>
-        <div class="col-2" align="center"><img src="../image/logo.png"></div>
-        <div class="col-1"></div>
-      </div>
-      <div class="container" align="center">
-        <div class="card">
-          <div class="card-body bg-light" align="left">
-    
-            <h3 style="color:#0097C2;font-size:20px">Hola,<strong>'.''.$usuario['nombres'].''.$usuario['apellidos'].''. '</strong></h3>
-            <div>
-              <br>
-              <h3 style="color:#; font-size:20px"><strong>&nbsp;&nbsp;Contraseña restablecida</strong></h3>
-              <br><br>
-              Ahora puede usar su nueva contraseña para iniciar sesión de nuevo
-              en el  sistema.
-    
-              <p>Estimado:  '.''.$usuario['nombres'].''.$usuario['apellidos'].''.'<br> su contraseña es <strong>: '.''.$usuario['clave'].''.'</strong></p>
-    
-              <p>Recomendamos cambiar esta contraseña una vez inicie sesión, el cambio de contraseña 
-                lo encontrará en la sección de: <br><span style="color:#142F56"><strong>Ménu>Perfil>En la tabla>Cambiar contraseña</strong></span> </p>
+      '<body>
+        <div class="row"> 
+          <div class="col-2"></div>
+          <div class="col-7" align="center"><h1 style="color:#000000; font-size:30px;">Conjunto Residencial R Juan del Corral</h1></div>
+          <div class="col-2" align="center"></div>
+          <div class="col-1"></div>
+        </div>
+        <div class="container" align="center">
+          <div class="card">
+            <div class="card-body bg-light" align="left">
+              <h3 style="color:#0097C2;font-size:20px">Hola,<strong>'.'  '.$usuario['nombres'].''.$usuario['apellidos'].''. '</strong></h3>
+              <div>
+                <br>
+                <h3 style="color:#; font-size:20px"><strong>&nbsp;&nbsp; Contraseña restablecida </strong></h3>
+                <br><br>
+                <p></p>Ahora puede usar su nueva contraseña para iniciar sesión de nuevo
+                en el  sistema.</p>
+
+                <p>Estimado:  '.''.$usuario['nombres'].''.$usuario['apellidos'].''.'<br> su contraseña es <strong>: '.''.$usuario['clave'].''.'</strong></p>
+
+                <p>Recomendamos cambiar esta contraseña una vez inicie sesión, el cambio de contraseña 
+                  lo encontrará en la sección de: <br><span style="color:#142F56"><strong>Ménu>Perfil>En la tabla>Cambiar contraseña</strong></span> </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    
-    
-       </body>';             
-    
-    //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
+      </body>';   
+       
+      
+      $mail->send();
+     
     echo 'Se a enviado un mensaje a tu correo con tu contraseña :D';
 } catch (Exception $e) {
     echo "No se ha podido mandar el correo con la contraseña :( : {$mail->ErrorInfo}";
