@@ -71,5 +71,5 @@ $(document).ready(function(){
 	
 
 </script>
-<script type="text/javascript" src="js/show.js"></script>
-<script src="https://use.fontawesome.com/e622d3b53e.js"></script>
+<!-- <script type="text/javascript" src="js/show.js"></script>
+<script src="https://use.fontawesome.com/e622d3b53e.js"></script> -->

@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	
-	<title>registrar abonos</title>
-	<!-- set your website meta description and keywords -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<!-- set your website favicon -->
+	<title>Registrar Abonos</title>
 </head>
-<!----DISEÑO FULL HD 4K------>
-
 <body>
 	<form action='Controladores/Abono_Controlador.php' method='POST' id="res-registrar-abono">
 	<input type='hidden' name='action' value='registrar_abono'>
@@ -133,17 +120,17 @@
 		<a href="#" class="scrollup"><i class="fa fa-arrow-circle-up"></i></a>
 </body>		
 		<!-- jQuery Library -->
-		<script src="js/jquery-3.2.1.min.js"></script>	
+		<!-- <script src="js/jquery-3.2.1.min.js"></script>	 -->
 		<!-- Popper js -->
-		<script src="js/popper.min.js"></script>
+		<!-- <script src="js/popper.min.js"></script> -->
 		<!-- Bootstrap Js -->
-		<script src="js/bootstrap.min.js"></script>
+		<!-- <script src="js/bootstrap.min.js"></script> -->
 		<!-- Form Validator -->
-		<script src="js/validator.min.js"></script>
+		<!-- <script src="js/validator.min.js"></script> -->
 		<!-- Contact Form Js -->
-		<script src="js/contact-form.js"></script>
+		<!-- <script src="js/contact-form.js"></script> -->
 	
-		<script src="js/abono.js"></script>
+		<!-- <script src="js/abono.js"></script> -->
 
 </html>
 

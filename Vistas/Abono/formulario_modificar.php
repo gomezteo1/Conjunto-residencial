@@ -1,25 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
-	
-	<title>Modificar abonos</title>
-	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	<link href="favicon.html" rel="icon">	
-	
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/contact-form.css" type="text/css">	
-	<style type="text/css">
-		.ww{ position: relative; box-shadow: 5px 5px 10px black; /*box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);*/ padding: 10px; background: white;}
-	</style> -->
-	
-
+	<title>Modificar Abonos</title>
 </head>
 
 <body>
@@ -133,11 +115,7 @@
 							</div><!--End row -->
 							</form>
 						</div>
-							
-						
-								
-							
-							<!-- Popup end -->
+						<!-- Popup end -->
 							
 						</div><!-- end item-wrap -->
 					</div><!--End col -->
@@ -145,28 +123,6 @@
 			</div><!--End row -->
 		</div><!--End container -->
 	</section>
-	
-
-	
-	
-	
-	<a href="#" class="scrollup"><i class="fa fa-arrow-circle-up"></i></a>
-		
-	<!-- jQuery Library -->
-	<script src="js/jquery-3.2.1.min.js"></script>	
-	<!-- Popper js -->
-	<script src="js/popper.min.js"></script>
-	<!-- Bootstrap Js -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Form Validator -->
-	<script src="js/validator.min.js"></script>
-	<!-- Contact Form Js -->
-	<script src="js/contact-form.js"></script>
-
-	<script src="js/abono.js"></script>
-
-	<!---<script src="javascript/funciones.js"> </script>--->
-	
 </body>
 </html>
 
