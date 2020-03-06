@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Inicio Mes</title>
-	<!-- Esto es del toogle-->
 </head>
 <body>
 	<div align="center">

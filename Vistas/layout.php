@@ -57,81 +57,11 @@ session_start();
 	<script src="js/sweetalert2.min.js" ></script>
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script> -->
-	<!----------------------------------------------------------------------------->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<style>
-	
-	.footer-style {
+	<!--------------------------------Sweetalert--------------------------------------------->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<style>
+		.footer-style {
 		    padding-top: 50px;
 		    background-color: rgb(28, 30, 32);
 		}
@@ -154,29 +84,22 @@ session_start();
 		  background-color: #233140;
 		}
 	</style>
-	
-
-
 </head>
 <body>
 	
-
 <?php if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==1){ ?>	
-	
 	<?php require_once('Vistas/Landing/administrador.php') ?>
-		
 <?php } 
-
-		//Layout propietarios
-		if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==2){
-			if(isset($_SESSION['acceso'])){ 
-		$cuenta_cobros;
+	//Layout propietarios
+	if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==2){
+		if(isset($_SESSION['acceso'])){ 
+	$cuenta_cobros;
+	
+	if (isset($_SESSION['acceso']) && $_SESSION['acceso']['id_rol']==2 ) {
+		require_once('Modelos/Cuenta_Cobro.php');
+		$cuenta_cobros=Cuenta_Cobro::notificar_cuenta_cobro_propietario($_SESSION['acceso']['id_usuario']);
 		
-		if (isset($_SESSION['acceso']) && $_SESSION['acceso']['id_rol']==2 ) {
-			require_once('Modelos/Cuenta_Cobro.php');
-			$cuenta_cobros=Cuenta_Cobro::notificar_cuenta_cobro_propietario($_SESSION['acceso']['id_usuario']);
-			
-		} ?>
+	} ?>
 		<!-- Notifications area -->
 			<section class="full-width container-notifications">
 				<div class="full-width container-notifications-bg btn-Notification"></div>

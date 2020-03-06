@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
 	<title>Inicio Rol</title>
-	
 </head>
 <body>
 	<div align="center">

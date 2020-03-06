@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<title>Inicio Pago</title>
-	
 </head>
 <?php 
 require_once('conexion.php');

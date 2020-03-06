@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	
 	<title>Inicio Abono</title>
-	<!-- Esto es del toogle-->
-	
 </head>
 <body>
 	<div align="center">
