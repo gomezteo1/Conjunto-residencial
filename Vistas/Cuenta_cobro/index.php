@@ -189,7 +189,7 @@ $(function(){ //Función Jquery
     e.preventDefault(); //Evitar submit
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	alert(dato_buscar);
+	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
             //url:'Vistas/Producto/prueba.php',

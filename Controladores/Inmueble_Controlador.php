@@ -38,7 +38,7 @@
 		}
 
 		public function buscar_inmueble($dato){
-			echo "buscar_inmueble";
+			//echo "buscar_inmueble";
 			$inmuebles = Inmueble::buscar_inmueble($dato);
 			require_once('../Vistas/Inmueble/listar_inmuebles.php');
 

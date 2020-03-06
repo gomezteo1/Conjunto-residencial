@@ -52,7 +52,7 @@
 		}
 
 		public function buscar_abono($dato){
-			echo "buscar_abono";
+			//echo "buscar_abono";
 			$abonos = Abono::buscar_abono($dato);
 			require_once('../Vistas/Abono/listar_abonos.php');
 
