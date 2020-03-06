@@ -13,6 +13,9 @@
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
+<?php 
+require_once('conexion.php');
+ ?>
 <body>
 	<div align="center">
 		<section class="full-width header-well">
@@ -23,7 +26,6 @@
 				<p class="text-condensedLight">
 					Inicio Pago
 					<a class="btn btn-outline-primary" href="?controller=pago&action=formulario_registrar">Registrar</a>
-
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
@@ -45,7 +47,7 @@
 								<td><b>Tipo Pago</b></td>
 								<td><b>Monto Cancelado</b></td>
 								<td><b>Monto a Pagar</b></td>
-								<td colspan=4><b>Acciones</b></td>
+								<td colspan="1" align="center"><b>Acciones</b></td>
 							</tr>		
 						</thead>
 						<?php  
@@ -74,7 +76,7 @@
 								<td><b>Tipo Pago</b></td>
 								<td><b>Monto Cancelado</b></td>
 								<td><b>Monto a Pagar</b></td>
-								<td colspan=4><b>Acciones</b></td>
+								<td colspan="1" align="center"><b>Acciones</b></td>
 							</tr>		
 						</tfoot>
 					</table>
