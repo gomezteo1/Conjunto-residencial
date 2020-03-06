@@ -26,8 +26,7 @@ require_once('conexion.php');
 		<div class=""></div>
 		<div class="mdl-grid">
 			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
-				<table class="table table-hover table-condensed table-bordered">
-					<thead>
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">		<thead>
 						<tr>
 							<td><b>#</b></td>
 							<td><b>Numero cuenta</b></td>
