@@ -1,11 +1,11 @@
 
 <?php 
 		if(isset($_SESSION['acceso'])) { ?>
-		<br><br><br>
-			<div class="container" style="height:400px;">
-				<div class="col-12">
-					<div align="center"> 
-						<img src="image/Logo.png" width="300" height="300">
+		
+			<div class="container" >
+				<div class="col-12" align="center">
+					<div style="width:370px; height:400px;" align="center"> 
+						<img style="width:100%; height:100%;" src="image/Logo.png" >
 					</div>
 					<div class="card">
 						<!--Inquilino-->
