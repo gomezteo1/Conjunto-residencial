@@ -6,14 +6,15 @@
     <title>Acerca de</title>
 </head>
 <body><br><br><br><br>
-    <div class="container" align="center">
-        <div class="jumbotron text-center w-75 h-100 d-flex justify-content-center align-content-center align-items-center "">
+    <div class="container w-75 h-100 d-flex justify-content-center align-content-center align-items-center">
+        <div class="jumbotron text-center">
             <h1>Acerca de Nosotros</h1>
     <!-- <p>Resize this responsive page to see the effect!</p> -->
         </div>
  
 <!------------------------------------------------------------------------>
-        <div class="w-75 h-100 d-flex justify-content-center align-content-center align-items-center ">
+
+<div class="w-75 h-100 d-flex justify-content-center align-content-center align-items-center ">
             <div id="carouselExampleControls" class="carousel slide "  data-ride="carousel">
                 <div class="carousel-inner" >
                     <div class="carousel-item active">
