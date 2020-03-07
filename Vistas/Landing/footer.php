@@ -2,6 +2,7 @@
 	
 
 		<div class="container">
+			<div class="row"><br></div>
 			<div class="row">
 				<div class="col-12">
    		   	 		<div class="jumbotron text-center">
@@ -12,16 +13,19 @@
 			</div>
 			<div class="row">
 				<div class="content-details">
-					<div class="col-6">
+					<div class="col-1"></div>
+					<div class="col-5">
 						<label class="icon-heart"></label>
 						<h3>Prado</h3>
 						<p>«Prado es un barrio del centro de Medellín, ubicado en la zona norte de la comuna de La Candelaria, cerca del centro de la ciudad. Desde 2006 es patrimonio arquitectónico de la ciudad.</p>
 					</div>
-					<div class="col-6">
+					<div class="col-5">
 						<label class="icon-support"></label>
-						<h3></h3>
+						<h3>Centro</h3>
 						<p> rango de servicios por medio del cual se proporciona asistencia a los usuarios cuando estos presenten algún problema al utilizar un producto o servicio, ya sea este el hardware o software de una computadora de un servidor </p>
 					</div>
+					<div class="col-1"></div>
+					
 				</div>
 			</div>
 			<div class="row" align="center">
