@@ -44,19 +44,6 @@ session_start();
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<!------------------------------------Viene-Frm Login-------------------------------->
-	<!-- <link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="css/material.min.css">
-	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="js/material.min.js" ></script>
-	<script src="js/sweetalert2.min.js" ></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
-	<script src="js/main.js" ></script> -->
 	<!--------------------------------Sweetalert--------------------------------------------->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -88,9 +75,10 @@ session_start();
 <body>
 	
 <?php if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==1){ ?>	
+<!-- //Layout Administrador-->
 	<?php require_once('Vistas/Landing/administrador.php') ?>
 <?php } 
-	//Layout propietarios
+	//Layout Propietarios
 	if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==2){
 		if(isset($_SESSION['acceso'])){ 
 	$cuenta_cobros;
@@ -144,16 +132,10 @@ session_start();
 						
 						<?php  	} 
 			            	} } ?>
-				            		
-
-			           
-
-			         
+				         
 			    </section>
 			</section>
 			<!-- navLateral -->
-
-
 
 			<section class="full-width navLateral">
 				<div class="full-width navLateral-bg btn-menu"></div>
@@ -309,13 +291,15 @@ session_start();
 				<br>
 <?php } 
 if($_SESSION['acceso']['id_rol']==3){ ?>	
-
+	
+	<!---Layout del Inquilino------------------------------------------>
 	<?php require_once('Vistas/Landing/inquilino.php') ?>
 	
 <?php } }
 
 if(!isset($_SESSION['acceso']['id_rol']) && !isset($_SESSION['acceso'])){ ?>
-	
+	<!---La cabecera sin loguear ------------------------------------------>
+
 	<?php require_once('Vistas/Landing/header.php') ?>
 	
 <?php } require_once('routes.php'); ?>

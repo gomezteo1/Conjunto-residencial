@@ -4,20 +4,13 @@ class Usuario_Controlador
 	
 
 	public function __construct(){}
-
-
-	public function landing(){
 	
-	require_once('Vistas/Usuario/landing.php');
-
-	}
-	
-	//------------------------------------------------------------------
+	//-----------Error----------------------------------------------------------------
 	public function error(){ //este me lleva al indice del administrador
 		//$usuarios=Usuario::error();
 		require_once('Vistas/error.php');
 	} 
-	//------------------------------------------------------------------
+	//----------Inicio Usuario--------------------------------------------------------
 
 	public function index(){ //este me lleva al indice del administrador
 		$usuarios=Usuario::listar_todos();
@@ -28,7 +21,7 @@ class Usuario_Controlador
 		$usuarios=Usuario::listar_usuario($_GET['id_usuario']);
 		require_once('Vistas/Usuario/indexUsuario.php');
 	} 
-	//------------------CAmbio de clave---------------------------------------------
+	//-----------Cambio de clave-------------------------------------------------------
 	
 
 	public function frm_cambiarClaveAdm(){ 
@@ -60,9 +53,6 @@ class Usuario_Controlador
 		require_once('Vistas/Usuario/frm_login.php');
 	}
 
-	public function frm_sweet(){ 
-		require_once('Vistas/Usuario/frm_sweet.php');
-	}
 	
 	public function frm_singup(){
 		require_once('Vistas/Usuario/frm_singup.php');

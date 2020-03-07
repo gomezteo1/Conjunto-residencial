@@ -46,18 +46,8 @@ class Usuario{
         }
         return $listar_usuarios;
     } 
-
-    /* public static function listar_todes(){
-        $listar_usuarios =[];
-        $db=Db::getConnect();
-        $sql=$db->query("SELECT * FROM usuario");
-        foreach($sql->fetchAll() as $usuario){
-            $listar_usuarios = new Usuario($usuario['id_usuario'], $usuario['nombres'], $usuario['apellidos'], $usuario['id_tipo_documento'], $usuario['numero_documento'], $usuario['id_rol'], $usuario['telefono'], $usuario['fecha_nacimiento'], $usuario['estado'], $usuario['clave'], $usuario['correo'], $usuario['correo_recuperacion']);
-        }
-        return $listar_usuarios;
-    } */
-
-        /*---------------------------------Cambio clave--------------------------------------------------*/
+    
+    /*---------------------------------Cambio clave--------------------------------------------------*/
      public static function cambiarClaveAdm($usuario,$clave){
      $db=DB::getConnect();
      $update = $db->prepare("UPDATE usuario SET clave ='$clave' WHERE id_usuario=
@@ -65,17 +55,14 @@ class Usuario{
         $update->execute();
     }
     
-     public static function cambiarClaveUsu($usuario,$clave){
-     $db=DB::getConnect();
-     $update = $db->prepare("UPDATE usuario SET clave ='$clave' WHERE id_usuario=
-        $usuario");
-     $update->execute();
-    }
-        
-
-
-
-        /*---------------------------------------------------------------------------------------------*/
+        public static function cambiarClaveUsu($usuario,$clave){
+        $db=DB::getConnect();
+        $update = $db->prepare("UPDATE usuario SET clave ='$clave' WHERE id_usuario=
+            $usuario");
+        $update->execute();
+        }
+    
+    /*---------------------------------------------------------------------------------------------*/
         //este es el listar del usuario inquilino o propietario
         public static function listar_usuario($id_usuario){
         $listar_usuarios =[];
@@ -90,9 +77,6 @@ class Usuario{
         }
         return $listar_usuarios;
     }   
-
-       
-    
 
         public static function registrar_usuario($usuario){
         $db=DB::getConnect();
@@ -183,29 +167,7 @@ class Usuario{
         $usuario = $select->fetch();
         return  $usuario;
     } 
-    // public static function obtenerNom(string $nombres){
-    //     $db = Db::getConnect();
-    //     $select = $db->prepare("SELECT * FROM usuario  WHERE nombres ='$nombres'");
-    //     $select->execute();
-    //     $usuario = $select->fetch();
-    //     return  $usuario;
-    // }
-
-    // public static function obtenerApe(string $apellidos){
-    //     $db = Db::getConnect();
-    //     $select = $db->prepare("SELECT * FROM usuario  WHERE apellidos ='$apellidos'");
-    //     $select->execute();
-    //     $usuario = $select->fetch();
-    //     return  $usuario;
-    // }     
-
-    // public static function obtenerDoc(int $numero_documento){
-    //     $db = Db::getConnect();
-    //     $select = $db->prepare("SELECT * FROM usuario  WHERE numero_documento ='$numero_documento'");
-    //     $select->execute();
-    //     $usuario = $select->fetch();
-    //     return  $usuario;
-    // }
+   
 
 public static function login_usuario($correo,$clave){
        

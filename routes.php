@@ -25,6 +25,10 @@
 				require_once('Modelos/Pago.php');
 				$controller=new Pago_Controlador();
 				break;
+				case 'landing':
+					require_once('Modelos/Usuario.php');
+					$controller=new Landing_Controlador();
+					break;	
 			case 'inmueble':
 				require_once('Modelos/Inmueble.php');
 				$controller=new Inmueble_Controlador();
@@ -46,10 +50,6 @@
 			case 'reportec':
 				$controller= new ReporteC_Controlador();
 				break; 		 	 
-		// case 'mora':
-			// 	 require_once('Modelos/Mora.php');
-			// 	 $controller= new Mora_Controlador();
-			// 	 break;
 			case 'month':
 				 require_once('Modelos/Month.php');
 				 $controller= new Month_Controlador();
@@ -67,7 +67,8 @@
 if(isset($_SESSION['acceso']) &&  $_SESSION['acceso']['id_rol']==1){
 	//array con los controladores y sus respectivas acciones
 	$controllers= array(
-		'usuario' => ['landing','index','indexUsuario','indexUsuario','frm_modificar_usuario','frm_registrar_usuario','frm_modificar_administrador','frm_login','frm_singup','eliminar_administrador','cerrarSesion','desactivar_estado_usuario','activar_estado_usuario','frm_sweet','frm_cambiarClaveAdm','frm_cambiarClaveUsu'],
+		'landing'=>['landing'],
+		'usuario' => ['index','indexUsuario','indexUsuario','frm_modificar_usuario','frm_registrar_usuario','frm_modificar_administrador','frm_login','frm_singup','eliminar_administrador','cerrarSesion','desactivar_estado_usuario','activar_estado_usuario','frm_cambiarClaveAdm','frm_cambiarClaveUsu'],
 		'rol'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_rol','eliminar','cambiar_estado_rol'],
 		'tipo_documento'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_tipo_documento','eliminar'],
 		'cuenta_cobro'=>['index','formulario_cuenta_cobro','formulario_modificar','eliminar_cuenta_cobro'],
@@ -78,22 +79,24 @@ if(isset($_SESSION['acceso']) &&  $_SESSION['acceso']['id_rol']==1){
 		'reporte'=>['index'],'reportea'=>['index'],'reportec'=>['index'],
 		'mora'=>['index','formulario_registrar','formulario_modificar','eliminar_mora'],
 		'month'=>['index','formulario_registrar','formulario_modificar','eliminar_month'],
-		'usuario_inmueble'=>['index','formulario_registrar','formulario_modificar','eliminar_usuario_inmueble']
-
-		);
+		'usuario_inmueble'=>['index','formulario_registrar','formulario_modificar','eliminar_usuario_inmueble']);
 	}
 	else if(isset($_SESSION['acceso']) && $_SESSION['acceso']['id_rol']==2){$controllers= array(
 						'cuenta_cobro'=>['indexusuario'],
 						'pago'=>['indexusuario'],
 						'abono'=>['indexusuario'],
 						'usuario_inmueble'=>['indexusuario'],
-						'usuario' => ['frm_cambiarClaveUsu','landing','indexUsuario','frm_modificar_usuario','eliminar_usuario','cerrarSesion','cambiarClaveUsu']);
-	}
+						'usuario' => ['frm_cambiarClaveUsu','indexUsuario','frm_modificar_usuario','eliminar_usuario','cerrarSesion','cambiarClaveUsu'],
+						'landing' =>['landing']);
+					}
 	else if(isset($_SESSION['acceso']) && $_SESSION['acceso']['id_rol']==3){$controllers= array(
-						'usuario' => ['frm_cambiarClaveUsu','landing','indexUsuario','frm_modificar_usuario','eliminar_usuario','cerrarSesion']);
-	}
+						'landing' => ['landing'],
+						'usuario' => ['frm_cambiarClaveUsu','indexUsuario','frm_modificar_usuario','eliminar_usuario','cerrarSesion']);
+
+					}
 	else {$controllers= array(
-				'usuario' => ['landing','frm_registrar_usuario','frm_login','frm_recuperar_clave']);
+						'landing' =>['landing','acercaDe','contactanos','inicio'],
+						'usuario' => ['frm_registrar_usuario','frm_login','frm_recuperar_clave']);
 	}	
 	//verifica que el controlador enviado desde index.php esté dentro del arreglo controllers
 	if(isset($controller))

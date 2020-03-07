@@ -31,7 +31,7 @@
 
 		<?php } else if(!isset($_SESSION['acceso'])){ ?>
 		
-			<?php require_once('Vistas/Landing/landing1.php') ?>
+			<?php require_once('Vistas/Landing/footer.php') ?>
 		
 		<?php } else if(isset($_SESSION['debe']) && $_SESSION['acceso']['id_rol']==2 ){ ?>
 
