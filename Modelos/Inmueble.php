@@ -1,7 +1,6 @@
 <?php
 class Inmueble
 {
-	//atributos
 	public $codigo_inmueble;
 	public $numero_matricula;
 	public $tipo;
@@ -10,7 +9,6 @@ class Inmueble
 	public $metros;
 	public $estado;
 	
-	//constructor de la clase
 	function __construct($codigo_inmueble,$numero_matricula,$tipo,$torre,$numero,$metros,$estado)
 	{
 		$this->codigo_inmueble=$codigo_inmueble;
@@ -22,27 +20,21 @@ class Inmueble
 		$this->estado=$estado;
 		
 	}
-
-	 // Codigo maestro para las fechas
+		// Codigo maestro para las fechas
         //SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
         //and ((datediff(fecha,now())*-1) >=0)
 
-
-	//función para obtener todos los productos
+//---CRUD-----------------------------------------------------------------------------------------------------
 	public static function listar_todos(){
 		$lista_inmuebles =[];
 		$db=Db::getConnect();
 		$sql=$db->query('SELECT DISTINCT * FROM inmueble WHERE estado !=0 ');
-
-		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $inmueble) {
 			$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'],$inmueble['numero_matricula'],$inmueble['tipo'],$inmueble['torre'],$inmueble['numero'], $inmueble['metros'] , $inmueble['estado']);
 		}
 		return $lista_inmuebles;
     }
-        
-    //la función para registrar un producto
-	public static function registrar_inmueble($inmueble){
+    public static function registrar_inmueble($inmueble){
         $db=Db::getConnect();
         $insert=$db->prepare('INSERT INTO inmueble   
         VALUES(:codigo_inmueble,:numero_matricula,:tipo,:torre,:numero,:metros,:estado)');
@@ -62,8 +54,6 @@ class Inmueble
               echo "Problemas en el registro.";
           }
     }
-	
-	//la función para actualizar 
 	public static function modificar_inmueble($codigo_inmueble,$numero_matricula,$tipo,$torre,$numero,$metros,$estado){
 		$db=Db::getConnect();
 		$update=$db->prepare("UPDATE inmueble SET 
@@ -76,41 +66,36 @@ class Inmueble
 		WHERE codigo_inmueble='$codigo_inmueble'");
 		$update->execute();
 	}
-	
-	//la función para eliminar 
 	public static function eliminar_inmueble($codigo_inmueble){
 		$db=Db::getConnect();
 		$update=$db->prepare("DELETE FROM inmueble 
 		WHERE codigo_inmueble=$codigo_inmueble");
 		$update->execute();
 	}
-	
+//-----Obtener por ids---------------------------------------------------------	
 	public static function Obtener_por_codigo_inmueble($codigo_inmueble){
-		//buscar
 		$db=Db::getConnect();
 		$select=$db->prepare("SELECT * FROM inmueble 
 		WHERE codigo_inmueble=$codigo_inmueble");
 		$select->execute();
-		//asignarlo al objeto producto
 		$inmuebleDb=$select->fetch();
 		$inmueble= new Inmueble($inmuebleDb['codigo_inmueble'], $inmuebleDb['numero_matricula'],$inmuebleDb['tipo'], $inmuebleDb['torre'], $inmuebleDb['numero'], $inmuebleDb['metros'], $inmuebleDb['estado']);
 		return $inmueble;
 	}
-
-	 public static function desactivar_estado_inmueble($codigo_inmueble){ 
+//-----Cambiar el estado del inmueble---------------------------------------------------------	
+	public static function desactivar_estado_inmueble($codigo_inmueble){ 
         require_once('../conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE inmueble SET estado='0' WHERE codigo_inmueble=$codigo_inmueble");
         $update->execute();                
     }
-
-    public static function activar_estado_inmueble($codigo_inmueble){ 
+	public static function activar_estado_inmueble($codigo_inmueble){ 
         require_once('../conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE inmueble SET estado='1' WHERE codigo_inmueble=$codigo_inmueble");
         $update->execute();                
-    }
-	
+	}
+//-----Buscar---------------------------------------------------------	
 	public static function buscar_inmueble($dato){
 		$lista_inmuebles =[];
 		$db=Db::getConnect();
@@ -120,8 +105,6 @@ class Inmueble
 		numero_matricula like '%$dato%' 
 		OR torre like '%$dato%' or estado like '%$dato%'
 		");
-		
-		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $inmueble) {
 			$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'], $inmueble['numero_matricula'], $inmueble['tipo'], $inmueble['torre'], $inmueble['numero'], $inmueble['metros'] ,$inmueble['estado']);
 		}
