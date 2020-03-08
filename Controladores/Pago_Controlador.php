@@ -110,7 +110,7 @@
          require_once('../conexion.php');
 
          $pago_controlador=new Pago_Controlador();
-         $pago_controlador->modificar_pago($_POST['codigo_pago'], $_POST['slcusuario'],$_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
+         $pago_controlador->modificar_pago($_POST['codigo_pago'], $_POST['slcusuario'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
      }
     
  }

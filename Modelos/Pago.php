@@ -5,7 +5,6 @@ $fechita = date('yyyy-mm-dd');
     
 class Pago
 {   
-   
     //atributos 
     public $codigo_pago;
     public $id_usuario;
@@ -101,7 +100,7 @@ class Pago
         public static function modificar_pago($codigo_pago, $id_usuario, $codigo_cuenta_cobro, $fecha, $codigo_tipo_pago, $monto_cancelado, $monto_a_pagar){
             $db=Db::getConnect();
             // require('');
-            $insert=$db->prepare("UPDATE pago SET id_usuario=id_usuario, codigo_cuenta_cobro=$codigo_cuenta_cobro, fecha='$fecha', codigo_tipo_pago=$codigo_tipo_pago, monto_cancelado='$monto_cancelado', monto_a_pagar='$monto_a_pagar'
+            $insert=$db->prepare("UPDATE pago SET id_usuario=$id_usuario, codigo_cuenta_cobro=$codigo_cuenta_cobro, fecha='$fecha', codigo_tipo_pago=$codigo_tipo_pago, monto_cancelado='$monto_cancelado', monto_a_pagar='$monto_a_pagar'
             WHERE codigo_pago='$codigo_pago'");
             $insert->execute();
         }
