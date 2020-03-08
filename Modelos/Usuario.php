@@ -36,7 +36,8 @@ class Usuario{
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT u.*,r.rol,t.documento FROM usuario u 
             inner join rol r on u.id_rol = r.id_rol 
-            inner join tipo_documento t on u.id_tipo_documento = t.id_tipo_documento");
+            inner join tipo_documento t on u.id_tipo_documento = t.id_tipo_documento  
+            WHERE U.estado !=0 ");
       
         foreach($sql->fetchAll() as $usuario){
             $itemusuario = new Usuario($usuario['id_usuario'], $usuario['nombres'], $usuario['apellidos'], $usuario['id_tipo_documento'], $usuario['numero_documento'], $usuario['id_rol'], $usuario['telefono'], $usuario['fecha_nacimiento'], $usuario['estado'], $usuario['clave'], $usuario['correo'], $usuario['correo_recuperacion']);

@@ -32,7 +32,7 @@ class Inmueble
 	public static function listar_todos(){
 		$lista_inmuebles =[];
 		$db=Db::getConnect();
-		$sql=$db->query('SELECT DISTINCT * FROM inmueble');
+		$sql=$db->query('SELECT DISTINCT * FROM inmueble WHERE estado !=0 ');
 
 		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $inmueble) {
