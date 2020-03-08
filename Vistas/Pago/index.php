@@ -19,8 +19,8 @@ require_once('conexion.php');
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
-				<img src="./Reportes/imajenes/busqueda.png">
-				</button>
+				<img src="./image/buscar.png" class="btn-outline">			
+					</button>
 			</div>
 		</section>
 		<div class=""></div>
