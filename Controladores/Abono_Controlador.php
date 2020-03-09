@@ -120,7 +120,7 @@
 			require_once('../Modelos/Abono.php');
 			require_once('../conexion.php');
 			$abono_controlador=new Abono_Controlador();
-			$abono_controlador=new Abono_Controlador();
+			// $abono_controlador=new Abono_Controlador();
 			$abono= new Abono('', $_POST['slcpago'], '', $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
 			$abono_controlador->registrar_abono($abono);
 			//echo" llego el paro papi ";
@@ -148,17 +148,7 @@
 
 		}
 
-		/*
-		if(($_POST['action']=='modificar_inmueble')) {
-			
-			require_once('../Modelos/Inmueble.php');
-			require_once('../conexion.php');
-			
-			$inmueble_controlador=new Inmueble_Controlador();
-			$inmueble= new Inmueble($_POST['id_inmueble'],$_POST['torre'],$_POST['id_categoria'],$_POST['precio']);
-			$inmueble_controlador->modificar_inmueble($_POST['id_inmueble'],$_POST['torre'],$_POST['id_categoria'],$_POST['precio']);
-		*/
-
+		
 		if(($_POST['action']=='eliminar_abono')) {	
 			$abono_controlador->eliminar_abono($_GET['codigo_abono']);			//require_once(//'Vistas/Inmueble/formulario_modificar.php');
 		}

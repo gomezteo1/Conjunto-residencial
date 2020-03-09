@@ -115,16 +115,18 @@ class Abono
 		 $abonoViejo = $resutlado['abono'];
 		//$pagoReal = ($abonoViejo<$abono) ? $abono - $abonoViejo: $abonoViejo -$abono;
 		// carga en la $lista_inmuebles cada registro desde la base de datos
-	
 		$update=$db->prepare("UPDATE abonos_pago SET
-		codigo_abono=$codigo_abono,codigo_pago=$codigo_pago,
-		fecha='$fecha',deuda=$deuda +$abonoViejo -abono,
-		abono=$abono,saldo=$saldo
+		codigo_abono=$codigo_abono, 
+		codigo_pago=$codigo_pago,
+		fecha='$fecha',
+		deuda=$deuda +$abonoViejo -abono,
+		abono=$abono,
+		saldo=$saldo
 		WHERE codigo_abono=$codigo_abono");
 				
 		if($update->execute()){
 			$updateP=$db->prepare("UPDATE pago  SET
-			monto_cancelado = monto_cancelado - $abonoViejo  + $abono
+			monto_cancelado = monto_cancelado - $abonoViejo + $abono
 			WHERE codigo_pago='$codigo_pago'");
 			if($updateP->execute()){
 

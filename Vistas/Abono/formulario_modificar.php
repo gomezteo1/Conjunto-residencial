@@ -29,7 +29,8 @@
 					</div>
 					<div class="full-width panel-content">
 					<form action='Controladores/Abono_Controlador.php' method='POST' id="res-registrar-abono">
-							<div class="mdl-grid">
+					<input type='hidden' name='action' value='modificar_abono'>	
+						<div class="mdl-grid">
 								<div class="mdl-cell mdl-cell--12-col">
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Modificar Abono</legend><br>
 								</div>
