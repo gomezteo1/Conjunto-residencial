@@ -44,47 +44,34 @@ class Usuario_Controlador
 	header('Location: ../index.php');
 	}
 	
-
-
 	//------------------------------------------------------------------
-
-	
 	public function frm_login(){ 
 		require_once('Vistas/Usuario/frm_login.php');
 	}
-
-	
 	public function frm_singup(){
 		require_once('Vistas/Usuario/frm_singup.php');
-
 	}
-		
 	public function frm_registrar_usuario(){
 		require_once('Vistas/Usuario/frm_registrar_usuario.php');
 	} 
-
 	public function frm_modificar_usuario(){
 		require_once('Modelos/Usuario.php');
 		$usuario=Usuario::Obtener_por_identificacion($_GET['id_usuario']); //obtener por id 
 		require_once('Vistas/Usuario/frm_modificar_usuario.php');
 	}
-
 	public function frm_modificar_administrador(){
 		require_once('Modelos/Usuario.php');
 		$usuario=Usuario::Obtener_por_identificacion($_GET['id_usuario']); //obtener por id 
 		require_once('Vistas/Usuario/frm_modificar_administrador.php');
 	}
-
 	public function eliminar_administrador(){
 		Usuario::eliminar_usuario($_GET['id_usuario']);
 		//header('Location: ./index.php');
 	}
-
 	public function eliminar_usuario(){
 		Usuario::eliminar_usuario($_GET['id_usuario']);
 		//header('Location: ./index.php');
 	}
-
 	public function desactivar_estado_usuario($id_usuario,$on){
 		require_once('../Modelos/Usuario.php');
 		
@@ -98,13 +85,28 @@ class Usuario_Controlador
 		return Usuario::activar_estado_usuario($id_usuario);	
 
 		}
-
 	}
-
-	public function activar_estado_usuario($id_usuario){
+public function activar_estado_usuario($id_usuario){
 		require_once('../Modelos/Usuario.php');
 		return Usuario::activar_estado_usuario($id_usuario);
 	}		
+//-------------------------------------------------------------------------
+
+public function desactivarEstadoLista($id_usuario){
+	require_once('../Modelos/Usuario.php');
+	return Usuario::desactivarEstadoLista($id_usuario);
+	}
+	
+public function activarEstadoLista($id_usuario){
+	require_once('../Modelos/Usuario.php');
+	return Usuario::activarEstadoLista($id_usuario);
+}		
+
+
+
+
+
+
 
 	public function registrar_usuario($usuario){
 		Usuario::registrar_usuario($usuario);
@@ -208,8 +210,18 @@ if(isset($llenar_select_usuario))
  		if($_POST['action'] == 'activar_estado'){
  			$usuario_controlador = new Usuario_Controlador();
  			echo $usuario_controlador->activar_estado_usuario($_POST['id_usuario']);
- 		}
+		 }
+		//Desactivar desde la lista-------------------------------
+		 if($_POST['action'] == 'desactivarEstadoLista'){
+			$usuario_controlador = new Usuario_Controlador();
+			echo $usuario_controlador->desactivarEstadoLista($_POST['id_usuario']);
+		}
 
+		if($_POST['action'] == 'activarEstadoLista'){
+			$usuario_controlador = new Usuario_Controlador();
+			echo $usuario_controlador->activarEstadoLista($_POST['id_usuario']);
+		}
+		//----------------------------------------------------------
  		if($_POST['action']=='registrar_usuario'){
 			require_once('../Modelos/Usuario.php');
 			require_once('../conexion.php');

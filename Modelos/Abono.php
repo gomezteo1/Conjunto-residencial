@@ -1,7 +1,6 @@
 <?php
 class Abono
 {
-	//atributos
 	public $codigo_abono;
 	//public $id_cuentaCobro;
 	public $codigo_pago;
@@ -11,7 +10,6 @@ class Abono
 	public $abono;
 	public $saldo;
 
-	//constructor de la clase
 	function __construct($codigo_abono, $codigo_pago, $fecha, $deuda, $abono, $saldo)
 	{
 		$this->codigo_abono=$codigo_abono;
@@ -22,8 +20,7 @@ class Abono
 		$this->abono=$abono;
 		$this->saldo=$saldo;
 	}
-
-	//función para obtener todos los inmuebles
+//---------------------Listar------------------------------------------
 
 /*	public static function listar_todos(){
 		$lista_abonos =[];
@@ -37,8 +34,7 @@ class Abono
 		return $lista_abonos;
 	}
 */
-
-     public static function listar_todos(){ 
+	public static function listar_todos(){ 
         $lista_abonos =[];
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha as fechas ,concat('$','',a.deuda) as deudas  ,concat('$','',a.abono) as abonos ,concat('$','',a.saldo) as saldos
@@ -47,8 +43,7 @@ class Abono
 		where ((datediff(a.fecha,now())*-1) <= 30)
          and ((datediff(a.fecha,now())*-1) >=0)");
 
-        //carga en la lista cada registro de la base de datos 
-        foreach ($sql->fetchAll() as $abono){
+		foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fechas'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
             $itemabono->nombrePago=$abono['monto'];
@@ -57,8 +52,7 @@ class Abono
         }
         return $lista_abonos;
     }
-
-    public static function listar_abono_usuario($id_usuario){ 
+	public static function listar_abono_usuario($id_usuario){ 
         $lista_abonos =[];
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono, a.codigo_pago  
@@ -67,7 +61,6 @@ class Abono
 		FROM usuario u left join pago p on u.id_usuario = p.id_usuario 
         inner join abonos_pago a on p.codigo_pago=a.codigo_pago where u.id_usuario='$id_usuario'");
 
-        //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
@@ -77,7 +70,7 @@ class Abono
         }
         return $lista_abonos;
     }
-
+//------------------------CRUD-------------------------------------------------------------------
 	public static function registrar_abono($abono){
         $db=Db::getConnect();
         $insert=$db->prepare('INSERT INTO abonos_pago   
@@ -107,23 +100,13 @@ class Abono
 			}else{
 		 	 echo "Problemas en el registro.";
 	  		}
-	  
-	  
-		
-		}catch (PDOException $e) {
-			
+	  	}catch (PDOException $e) {
 			//return $e->getCode();
 			echo"No se puede registrar ese valor existe";
         }
         //se encarga de ejecutar las inserciones    
     }
 		
-		
-		
-		
-
-    
-	
 	//la función para actualizar 
 	public static function modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo){
 		$db=Db::getConnect();
@@ -132,8 +115,7 @@ class Abono
 		 $abonoViejo = $resutlado['abono'];
 		//$pagoReal = ($abonoViejo<$abono) ? $abono - $abonoViejo: $abonoViejo -$abono;
 		// carga en la $lista_inmuebles cada registro desde la base de datos
-
-
+	
 		$update=$db->prepare("UPDATE abonos_pago SET
 		codigo_abono=$codigo_abono,codigo_pago=$codigo_pago,
 		fecha='$fecha',deuda=$deuda +$abonoViejo -abono,

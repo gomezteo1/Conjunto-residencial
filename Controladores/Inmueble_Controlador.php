@@ -117,7 +117,8 @@
  			$inmueble_controlador = new Inmueble_Controlador();
  			echo $inmueble_controlador->activar_estado_inmueble($_POST['codigo_inmueble']);
  		}
-
+		
+		 
 		if(($_POST['action']=='registrar_inmueble')) {
 			require_once('../Modelos/Inmueble.php');
 			require_once('../conexion.php');

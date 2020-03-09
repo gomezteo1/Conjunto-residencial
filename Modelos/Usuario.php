@@ -150,6 +150,20 @@ class Usuario{
         $update = $db->prepare("UPDATE usuario SET estado='1' WHERE id_usuario=$id_usuario");
         $update->execute();                
     }
+//------------------------Desactivar desde la lista-----------------------------------
+    public static function desactivarEstadoLista($id_usuario){ 
+        require_once('../conexion.php');
+        $db = Db::getConnect();
+        $update = $db->prepare("UPDATE usuario SET estado='0' WHERE id_usuario=$id_usuario");
+        $update->execute();                
+    }
+
+    public static function activarEstadoLista($id_usuario){ 
+        require_once('../conexion.php');
+        $db = Db::getConnect();
+        $update = $db->prepare("UPDATE usuario SET estado='1' WHERE id_usuario=$id_usuario");
+        $update->execute();                
+    }
  //----------------Login-----------------------------------------------------------------------------------------------------------------
     public static function login_usuario($correo,$clave){
        $db=DB::getConnect();

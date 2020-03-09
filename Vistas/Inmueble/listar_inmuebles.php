@@ -25,9 +25,13 @@
 			<td>
 				<input <?php echo $inmueble->estado==1 ? "checked" : "" ?> onchange="prueba_i(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $inmueble->codigo_inmueble ?>">
 			</td>
-
-			<!-- <td>
-				<a onclick="alertEliminar()" class="btn btn-danger" href="?controller=inmueble&action=eliminar_inmueble&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Elimar</a> </td> -->
+			
+			<?php //Validacion del estado
+			 if($inmueble->estado==0){?> 
+			<td><a class="btn btn-success" href="?controller=inmueble&action=desactivar_estado_inmueble&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Activar</a> </td>
+			<?php } else { ?> <td><a class="btn btn-danger" href="?controller=inmueble&action=activar_estado_inmueble&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Desactivar</a> </td>
+ 			<?php } ?> 	
+			
 		</tr>		
 	</tbody>
 	<?php }	?>

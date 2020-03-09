@@ -40,9 +40,16 @@
 			<!-- <th scope="col"><a href=
 					"?controller=usuario&action=eliminar_administrador&id_usuario=<?php echo 
 					$usuario->id_usuario ?> " class="btn btn-danger">Eliminar</a></th> -->
-			<td>
+			<!-- <td>
 				<input <?php echo $usuario->estado==1 ? "checked" : "" ?> onchange="prueba_u(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $usuario->id_usuario ?>">
-			</td>
+			</td> -->
+
+			<?php //Validacion del estado
+			 if($usuario->estado==0){?> 
+			<td><a class="btn btn-success" href="?controller=usuario&action=activarEstadoLista&id_usuario=<?php echo $usuario->id_usuario ?>">Activar</a> </td>
+			<?php } else { ?> <td><a class="btn btn-danger" href="?controller=usuario&action=desactivarEstadoLista&id_usuario=<?php echo $usuario->id_usuario ?>">Desactivar</a> </td>
+ 			<?php } ?> 	
+			
 		</tr>
 	</tbody>
 	<?php }	?>

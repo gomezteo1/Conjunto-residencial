@@ -52,8 +52,8 @@
 								<td>
 									<input <?php echo $inmueble->estado==1 ? "checked" : "" ?> onchange="prueba_i(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $inmueble->codigo_inmueble ?>">
 								</td>
-
-								<!-- <td>
+		
+							<!-- <td>
 									<a onclick="alertEliminar()" class="btn btn-danger" href="?controller=inmueble&action=eliminar_inmueble&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Elimar</a> </td> -->
 							</tr>		
 						</tbody>
