@@ -31,7 +31,9 @@
 		//guardar cambios
 		public function modificar_inmueble($codigo_inmueble,$numero_matricula,$tipo,$torre,$numero,$metros,$estado){
 			Inmueble::modificar_inmueble($codigo_inmueble,$numero_matricula,$tipo,$torre,$numero,$metros,$estado);
-			header('Location: ../index.php?controller=inmueble&action=index');
+			session_start();
+			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 header('Location: ../index.php?controller=inmueble&action=index');
 		}
 			
 		public function eliminar_inmueble(){

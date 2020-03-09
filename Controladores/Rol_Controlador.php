@@ -32,7 +32,9 @@
 		
 		public function modificar_rol($id_rol,$rol,$estado){
 			Rol::modificar_rol($id_rol,$rol,$estado);
-			header('Location: ../index.php?controller=rol&action=index');
+			session_start();
+			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 header('Location: ../index.php?controller=rol&action=index');
 		}
 			
 		public function cambiar_estado_rol(){

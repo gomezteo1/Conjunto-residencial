@@ -38,7 +38,9 @@
        
       public function modificar_usuario_inmueble($id_usuario_inmueble,$id_usuario,$codigo_inmueble){
         Usuario_Inmueble::modificar_usuario_inmueble($id_usuario_inmueble,$id_usuario,$codigo_inmueble);
-         header('Location: ../index.php?controller=usuario_inmueble&action=index');
+        session_start();
+			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 header('Location: ../index.php?controller=usuario_inmueble&action=index');
       }
       
       public function eliminar_usuario_inmueble($id_usuario_inmueble){

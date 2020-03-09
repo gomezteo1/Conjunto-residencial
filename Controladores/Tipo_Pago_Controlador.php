@@ -28,6 +28,8 @@
 			//guardar canbios 
 			public function modificar_tipo_pago($codigo_tipo_pago,$tipo_pago,$descripcion){
 				Tipo_pago::modificar_tipo_pago($codigo_tipo_pago,$tipo_pago,$descripcion);
+				session_start();
+				$_SESSION['modificar'] = "Se han modificado los datos con éxito";
 				header('Location: ../index.php?controller=tipo_pago&action=index');
 			}
 

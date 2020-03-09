@@ -46,7 +46,10 @@
 		//guardar cambios
 		public function modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo){
 			Abono::modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo);
-			header('Location: ../index.php');
+			
+			// session_start();
+			//  $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			//  header('Location: ../index.php?controller=abono&action=index');
 		}
 				
 		public function eliminar_abono(){

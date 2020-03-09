@@ -418,8 +418,15 @@ if(!isset($_SESSION['acceso']['id_rol']) && !isset($_SESSION['acceso'])){ ?>
 		<?php endif; ?>		
 
 	});
+</script>
 
+<script>
+	$(function (){
+	
+		<?php if(isset($_SESSION["modificar"]) != null): ?>	
+		swal.fire('<?= $_SESSION["modificar"] ?>','','success',);
+		<?php $_SESSION["modificar"] = null; ?>
+		<?php endif; ?>		
 
-		
-
+	});
 </script>

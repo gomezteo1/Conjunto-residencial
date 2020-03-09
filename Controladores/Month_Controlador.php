@@ -32,7 +32,9 @@
        
       public function modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha){
         Month::modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha);
-         header('Location: ../index.php?controller=month&action=index');
+        session_start();
+			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 header('Location: ../index.php?controller=month&action=index');
       }
         
       public function eliminar_month($codigo_month){

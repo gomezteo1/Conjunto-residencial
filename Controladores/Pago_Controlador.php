@@ -52,7 +52,9 @@
        
       public function modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar){
         Pago::modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar);
-         header('Location: ../index.php?controller=pago&action=index');
+        session_start();
+			  $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			  header('Location: ../index.php?controller=pago&action=index');
       }
       
       public function eliminar_pago($codigo_pago){

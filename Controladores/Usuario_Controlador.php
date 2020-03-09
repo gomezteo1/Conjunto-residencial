@@ -114,7 +114,9 @@ class Usuario_Controlador
 	 	
 	public function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion){
 		Usuario::modificar_usuario($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion);
-		header('Location: ../index.php');
+		session_start();
+		$_SESSION['modificar'] = "Se han modificado los datos con éxito";
+		header('Location: ../index.php?controller=usuario&action=index');
 	
 	}
 

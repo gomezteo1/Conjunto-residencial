@@ -26,7 +26,9 @@ class Tipo_Documento_Controlador
 		
 		public function modificar_tipo_documento($id_tipo_documento,$documento){
 			Tipo_Documento::modificar_tipo_documento($id_tipo_documento,$documento);
-			header('Location: ../index.php?controller=tipo_documento&action=index');
+			session_start();
+			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 header('Location: ../index.php?controller=tipo_documento&action=index');
 		}
 			
 		public function eliminar_tipo_documento(){
