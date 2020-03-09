@@ -49,7 +49,12 @@
 				Cuenta_cobro::registrar_cuenta_cobro($cuenta_cobro);
 				//header('location: /index.php');
 				// return "jeje";
-				header('Location: ../index.php?controller=cuenta_cobro&action=index');
+
+				//PENDIENTE ♂yÄ{|}~⌂Çüéâäàåç♪ëèïîìÄÅÉæÆô
+				// session_start();
+				// $_SESSION['guardar'] = "Agregado con éxito";
+				// header('Location: ../index.php?controller=cuenta_cobro&action=index');
+				
 			}
 				//Mostar vista para modificar el inmueble
 			public function formulario_modificar(){
