@@ -95,6 +95,21 @@ class Inmueble
         $update = $db->prepare("UPDATE inmueble SET estado='1' WHERE codigo_inmueble=$codigo_inmueble");
         $update->execute();                
 	}
+
+	public static function desactivarEstadoLista($codigo_inmueble){ 
+        require_once('../conexion.php');
+        $db = Db::getConnect();
+        $update = $db->prepare("UPDATE inmueble SET estado='0' WHERE codigo_inmueble=$codigo_inmueble");
+        $update->execute();                
+    }
+
+    public static function activarEstadoLista($codigo_inmueble){ 
+        require_once('conexion.php');
+        $db = Db::getConnect();
+        $update = $db->prepare("UPDATE inmueble SET estado='1' WHERE codigo_inmueble=$codigo_inmueble");
+        $update->execute();                
+    }
+
 //-----Buscar---------------------------------------------------------	
 	public static function buscar_inmueble($dato){
 		$lista_inmuebles =[];

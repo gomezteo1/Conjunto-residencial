@@ -22,16 +22,27 @@
 			<td><?php echo $inmueble->metros;?></td>
 			<td><?php echo $inmueble->estado==1?'Activo':'Inactivo'; ?></td>
 			<td><a class="btn btn-secondary" href="?controller=inmueble&action=formulario_modificar&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Actualizar</a> </td>
-			<td>
-				<input <?php echo $inmueble->estado==1 ? "checked" : "" ?> onchange="prueba_i(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $inmueble->codigo_inmueble ?>">
+
+			<?php if($inmueble->estado==0){?>
+				<td>
+				<button class="btn btn-success">
+					<a href=
+					"?controller=inmueble&action=activarEstadoLista&codigo_inmueble=<?php echo
+				 	$inmueble->codigo_inmueble ?> ">Activar 
+				 	</a>
+				 </button>
+			</td>		
+
+			<?php } else{?> 
+			 <td >
+				<button class="btn btn-danger">
+					<a href=
+					"?controller=inmueble&action=desactivarEstadoLista&codigo_inmueble=<?php echo
+				 	$inmueble->codigo_inmueble ?> "> Desactivar
+				 	</a>
+				 </button>
 			</td>
-			
-			<?php //Validacion del estado
-			 if($inmueble->estado==0){?> 
-			<td><a class="btn btn-success" href="?controller=inmueble&action=desactivar_estado_inmueble&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Activar</a> </td>
-			<?php } else { ?> <td><a class="btn btn-danger" href="?controller=inmueble&action=activar_estado_inmueble&codigo_inmueble=<?php echo $inmueble->codigo_inmueble ?>">Desactivar</a> </td>
- 			<?php } ?> 	
-			
+			<?php	}  ?>
 		</tr>		
 	</tbody>
 	<?php }	?>

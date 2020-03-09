@@ -73,7 +73,7 @@ if(isset($_SESSION['acceso']) &&  $_SESSION['acceso']['id_rol']==1){
 		'tipo_documento'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_tipo_documento','eliminar'],
 		'cuenta_cobro'=>['index','formulario_cuenta_cobro','formulario_modificar','eliminar_cuenta_cobro'],
 		'pago'=>['index','formulario_registrar','formulario_modificar','eliminar_pago'],
-		'inmueble'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_inmueble','eliminar','activar_estado_inmueble','desactivar_estado_inmueble'],
+		'inmueble'=>['index','activarEstadoLista','desactivarEstadoLista','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_inmueble','eliminar','activar_estado_inmueble','desactivar_estado_inmueble'],
 		'tipo_pago'=>['index','formulario_registrar','formulario_modificar','eliminar_tipo_pago'],
 		'abono'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_abono','eliminar'],
 		'reporte'=>['index'],'reportea'=>['index'],'reportec'=>['index'],

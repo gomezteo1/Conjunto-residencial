@@ -86,28 +86,22 @@ class Usuario_Controlador
 
 		}
 	}
-public function activar_estado_usuario($id_usuario){
+	public function activar_estado_usuario($id_usuario){
 		require_once('../Modelos/Usuario.php');
 		return Usuario::activar_estado_usuario($id_usuario);
 	}		
 //-------------------------------------------------------------------------
 
-public function desactivarEstadoLista($id_usuario){
-	require_once('../Modelos/Usuario.php');
-	return Usuario::desactivarEstadoLista($id_usuario);
+	public function desactivarEstadoLista(){
+		require_once('Modelos/Usuario.php');
+		Usuario::desactivarEstadoLista($_GET['id_usuario']);
+		//header('Location: index.php?controller=usuario&action=index');
 	}
-	
-public function activarEstadoLista($id_usuario){
-	require_once('../Modelos/Usuario.php');
-	return Usuario::activarEstadoLista($id_usuario);
-}		
-
-
-
-
-
-
-
+	public function activarEstadoLista(){
+		require_once('Modelos/Usuario.php');
+		Usuario::activarEstadoLista($_GET['id_usuario']);
+		//header('Location: index.php?controller=usuario&action=index');
+	}		
 	public function registrar_usuario($usuario){
 		Usuario::registrar_usuario($usuario);
 		//echo $usuario->id_usuario, $usuario->nombres, $usuario->apellidos, $usuario->id_tipo_documento, $usuario->numero_documento, $usuario->id_rol, $usuario->telefono, $usuario->fecha_nacimiento, $usuario->estado, $usuario->clave, $usuario->correo, $usuario->correo_recuperacion;
@@ -212,15 +206,15 @@ if(isset($llenar_select_usuario))
  			echo $usuario_controlador->activar_estado_usuario($_POST['id_usuario']);
 		 }
 		//Desactivar desde la lista-------------------------------
-		 if($_POST['action'] == 'desactivarEstadoLista'){
-			$usuario_controlador = new Usuario_Controlador();
-			echo $usuario_controlador->desactivarEstadoLista($_POST['id_usuario']);
-		}
+		//  if($_POST['action'] == 'desactivarEstadoLista'){
+		// 	$usuario_controlador = new Usuario_Controlador();
+		// 	echo $usuario_controlador->desactivarEstadoLista($_POST['id_usuario']);
+		// }
 
-		if($_POST['action'] == 'activarEstadoLista'){
-			$usuario_controlador = new Usuario_Controlador();
-			echo $usuario_controlador->activarEstadoLista($_POST['id_usuario']);
-		}
+		// if($_POST['action'] == 'activarEstadoLista'){
+		// 	$usuario_controlador = new Usuario_Controlador();
+		// 	echo $usuario_controlador->activarEstadoLista($_POST['id_usuario']);
+		// }
 		//----------------------------------------------------------
  		if($_POST['action']=='registrar_usuario'){
 			require_once('../Modelos/Usuario.php');

@@ -59,6 +59,16 @@
 		}
 
 	}
+	public function desactivarEstadoLista(){
+		require_once('Modelos/Inmueble.php');
+		Inmueble::desactivarEstadoLista($_GET['codigo_inmueble']);
+		//header('Location: index.php?controller=usuario&action=index');
+	}
+	public function activarEstadoLista(){
+		require_once('Modelos/Usuario.php');
+		Inmueble::activarEstadoLista($_GET['codigo_inmueble']);
+		//header('Location: index.php?controller=usuario&action=index');
+	}	
 
 	public function activar_estado_inmueble($codigo_inmueble){
 		require_once('../Modelos/Inmueble.php');

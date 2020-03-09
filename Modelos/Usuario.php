@@ -159,7 +159,7 @@ class Usuario{
     }
 
     public static function activarEstadoLista($id_usuario){ 
-        require_once('../conexion.php');
+        require_once('conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET estado='1' WHERE id_usuario=$id_usuario");
         $update->execute();                
