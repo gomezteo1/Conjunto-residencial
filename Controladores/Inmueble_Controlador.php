@@ -16,6 +16,8 @@
 		//guardar
 		public function registrar_inmueble($inmueble){
 			Inmueble::registrar_inmueble($inmueble);
+			session_start();
+			 $_SESSION['guardar'] = "Agregado con éxito";
 			header('Location: ../index.php?controller=inmueble&action=index');
 		}
 		

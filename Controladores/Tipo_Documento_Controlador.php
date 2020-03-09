@@ -13,6 +13,8 @@ class Tipo_Documento_Controlador
 
 		public function registrar_tipo_documento($tipo_documento){
 			Tipo_Documento::registrar_tipo_documento($tipo_documento);
+			session_start();
+			$_SESSION['guardar'] = "Agregado con éxito";
 			header('Location: ../index.php?controller=tipo_documento&action=index');
 		}
 		

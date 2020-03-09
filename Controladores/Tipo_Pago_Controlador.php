@@ -15,6 +15,8 @@
 			  //guardar  
 			public function registrar_tipoPago($tipo_pago){
 				Tipo_pago::registrar_tipoPago($tipo_pago);
+				session_start();
+				 $_SESSION['guardar'] = "Agregado con éxito";
 				header('Location: ../index.php?controller=tipo_pago&action=index');
 			}//guardar
 			

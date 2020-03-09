@@ -19,6 +19,8 @@
        
       public function registrar_month($month){
         Month::registrar_month($month);
+        session_start();
+			  $_SESSION['guardar'] = "Agregado con éxito";
         header('Location: ../index.php?controller=month&action=index');
            
       }

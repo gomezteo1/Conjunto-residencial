@@ -107,6 +107,8 @@ class Usuario_Controlador
 		//echo $usuario->id_usuario, $usuario->nombres, $usuario->apellidos, $usuario->id_tipo_documento, $usuario->numero_documento, $usuario->id_rol, $usuario->telefono, $usuario->fecha_nacimiento, $usuario->estado, $usuario->clave, $usuario->correo, $usuario->correo_recuperacion;
 		//var_dump($usuario);
 		//exit();
+		session_start();
+		$_SESSION['guardar'] = "Agregado con éxito";
 		header('Location: ../index.php');
 	} 
 	 	

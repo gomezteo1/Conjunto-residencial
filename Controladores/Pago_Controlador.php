@@ -36,6 +36,8 @@
         require_once('../Modelos/Cuenta_cobro.php');
         Cuenta_cobro::UpMora();
         Pago::registrar_pago($pago);
+        session_start();
+			  $_SESSION['guardar'] = "Agregado con éxito";
         header('Location: ../index.php?controller=pago&action=index');
            
       }

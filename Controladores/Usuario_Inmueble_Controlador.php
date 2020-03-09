@@ -25,6 +25,8 @@
        
       public function registrar_usuario_inmueble($usuario_inmueble){
         Usuario_Inmueble::registrar_usuario_inmueble($usuario_inmueble);
+        session_start();
+			  $_SESSION['guardar'] = "Agregado con éxito";
         header('Location: ../index.php?controller=usuario_inmueble&action=index');
            
       }

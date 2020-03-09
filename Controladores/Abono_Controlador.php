@@ -29,7 +29,10 @@
 		//guardar
 		public function registrar_abono($abono){
 			Abono::registrar_abono($abono);
-			//header('Location: ../index.php');
+			session_start();
+			 $_SESSION['guardar'] = "Agregado con éxito";
+			 header('Location: ../index.php?controller=abono&action=index');
+			
 		}
 		
 	//------------------------------------------------------	
