@@ -15,7 +15,12 @@
 
 		public function registrar_rol($rol){
 			Rol::registrar_rol($rol);
+			session_start();
+			 $_SESSION['guardar'] = "Agregado con éxito";
 			header('Location: ../index.php?controller=rol&action=index');
+		
+			 
+		
 		}
 		
 		public function formulario_modificar(){

@@ -9,6 +9,10 @@ session_start();
 	<title>Zamasoft</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta charset="UTF-8">
+
+	<link rel="stylesheet" href="dist/sweetalert2.css">
+	<link rel="stylesheet" href="dist/sweetalert2.min.css">
+	
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="iconos/css/fontello.css">
 	<link rel="stylesheet" href="css/menu.css">
@@ -399,3 +403,23 @@ if(!isset($_SESSION['acceso']['id_rol']) && !isset($_SESSION['acceso'])){ ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="js/mCustomScrollbar.js"></script>
+
+<script src="node_modules\sweetalert2\dist\sweetalert2.all.js"></script>
+<script src="node_modules\sweetalert2\dist\sweetalert2.all.min.js"></script>
+<script src="node_modules\sweetalert2\dist\sweetalert2.js"></script>
+<script src="node_modules\sweetalert2\dist\sweetalert2.min.js"></script>
+	
+<script>
+	$(function (){
+	
+		<?php if(isset($_SESSION["guardar"]) != null): ?>	
+		swal.fire('<?= $_SESSION["guardar"] ?>','','success',);
+		<?php $_SESSION["guardar"] = null; ?>
+		<?php endif; ?>		
+
+	});
+
+
+		
+
+</script>
