@@ -4,11 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactanos</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Erica+One);
+
+        ::selection {
+            background: transparent;
+        }
+        @-webkit-keyframes bounce {
+            100% {
+            
+                text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3); }
+        }
+
+
+        h2 {
+            cursor: default;
+            position: absolute;
+            top: -190px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100px;
+            margin: auto;
+            display: block;
+            -webkit-animation: bounce .3s ease infinite alternate;
+            font-family: 'sans-serif';
+
+            font-size: 70px;
+            color: #000000;
+            text-align: center;
+            line-height: 100px;
+            text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .6);
+        }
+
+    </style>
 </head>
 <body><br><br><br>
     <div class="container">
         <div class="jumbotron text-center">
-        <h1>Contactanos</h1>
+        <h2>Contactanos</h2>
         <!-- <p>Resize this responsive page to see the effect!</p> -->
     </div>
 
@@ -17,8 +51,8 @@
 			<div class="container-footer-all">
 				<div class="container-body">
 					<div class="colum1">
-                        <h1>Mas informacion de la compañia</h1>
-                        <p>Esta compañia se dedica a la venta de inmuebles y alquiler de inmuebles 
+                        <h1>Mas informacion del Conjunto Residencial</h1>
+                        <p>Este conjunto residencial se dedica a la venta de inmuebles y alquiler de inmuebles 
                         </p>
                     </div>
 					<div class="colum2">
