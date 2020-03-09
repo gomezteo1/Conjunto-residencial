@@ -42,9 +42,11 @@ h1 {
     <br>
     <div class="container">
         <div class="row">
+            
             <div class="col-3">
                  <div class="h-75 jumbotron text-center">
-                    <h1>Acerca de Nosotros</h1>
+                     
+                    <h1>Imagenes del lugar</h1>
                 </div>
             </div> 
             <div class="col-1"></div>
