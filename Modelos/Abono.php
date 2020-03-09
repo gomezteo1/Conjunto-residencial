@@ -126,16 +126,16 @@ class Abono
 			$updateP=$db->prepare("UPDATE pago  SET
 			monto_cancelado = monto_cancelado - $abonoViejo  + $abono
 			WHERE codigo_pago='$codigo_pago'");
-		if($updateP->execute()){
-			$updateC=$db->prepare("UPDATE cuenta_cobro ccc
-			inner join pago p on ccc.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
-			SET p.monto_a_pagar = ( $abonoViejo + p.monto_a_pagar - $abono)
-			WHERE p.codigo_pago='$codigo_pago'");
-			$updateC->execute();
-		}
-				
+			if($updateP->execute()){
+
+				$updateC=$db->prepare("UPDATE cuenta_cobro ccc
+				inner join pago p on ccc.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
+				SET p.monto_a_pagar = ( $abonoViejo + p.monto_a_pagar - $abono)
+				WHERE p.codigo_pago='$codigo_pago'");
+				$updateC->execute();
 			}
 		}
+	}
 	
 		public static function buscar_pago($codigo_abono){
 			$db=Db::getConnect();

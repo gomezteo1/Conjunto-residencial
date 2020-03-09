@@ -101,19 +101,18 @@
 													<span class="sub-text">* Campos obligatorio</span>
 													<div class="clearfix"></div>
 												</div><!-- end row -->
-											</form><!-- end form -->
-											<!-- <input  class="btn btn-primary" aling="center" type='submit' id="button-Mabono" name="button-Mabono" value='Guardar'>
-							 -->
+											
 											<p class="text-center">
-										<button id="button-Mcc button-Mabono " value='Guardar' name="button-Mcc button-Mabono" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
+										<button id="button-Mabono" name="button-Mabono"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
 											<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar CC</div>
+										<div class="mdl-tooltip" for="btn-addProduct">Agregar Abono</div>
 									</p>
 
 								</div>
 							</div><!--End row -->
 							</form>
+							<div class="mostrar"></div>
 						</div>
 						<!-- Popup end -->
 							
