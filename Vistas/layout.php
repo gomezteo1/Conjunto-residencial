@@ -430,3 +430,16 @@ if(!isset($_SESSION['acceso']['id_rol']) && !isset($_SESSION['acceso'])){ ?>
 
 	});
 </script>
+
+<script>
+/**/ 
+$(function (){
+	
+	<?php if(isset($_SESSION["buscar"]) != null): ?>	
+	swal.fire('<?= $_SESSION["buscar"] ?>','','success',);
+	<?php $_SESSION["buscar"] = null; ?>
+	<?php endif; ?>		
+
+});
+
+</script>

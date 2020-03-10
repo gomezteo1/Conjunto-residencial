@@ -119,6 +119,7 @@ class Inmueble
 		OR numero like '%$dato%' or 
 		numero_matricula like '%$dato%' 
 		OR torre like '%$dato%' or estado like '%$dato%'
+		OR metros like '%$dato%' 
 		");
 		foreach ($sql->fetchAll() as $inmueble) {
 			$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'], $inmueble['numero_matricula'], $inmueble['tipo'], $inmueble['torre'], $inmueble['numero'], $inmueble['metros'] ,$inmueble['estado']);

@@ -67,6 +67,7 @@
 //---------------------------------------------------------		
 		public function error(){
 			header('Vistas/error.php');
+		
 		} 
 		
     }

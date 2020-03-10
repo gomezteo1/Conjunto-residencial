@@ -283,7 +283,8 @@ class Cuenta_cobro
         OR c.fecha like '%$dato%' OR c.nit like '%$dato%' 
         OR u.nombres like '%$dato%' OR u.apellidos like '%$dato%' 
         OR i.torre like '%$dato%' OR i.numero like '%$dato%' 
-        OR i.numero_matricula like '%$dato%'
+        OR i.numero_matricula like '%$dato%' OR m.mes like '%$dato%'
+        OR m.tarifa like '%$dato%' OR c.estado like '%$dato%' 
         ");
  
         foreach ($sql->fetchAll() as $cuenta_cobro){

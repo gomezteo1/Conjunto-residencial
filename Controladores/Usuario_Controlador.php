@@ -147,9 +147,12 @@ class Usuario_Controlador
 	} 
 
 	public function cerrarSesion(){
-		session_start();
-		session_destroy();
-		header('Location: ./index.php');
+		
+		// session_start();
+		// $_SESSION['Opcion'] = "¿Desea cerrar la sesión?";
+		// header('Location: ./index.php');
+		// session_destroy();
+		
 		
 	}  
  //--------------------------------------------------------------

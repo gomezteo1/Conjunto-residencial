@@ -90,7 +90,7 @@ class Month
 		$sql=$db->query("SELECT *,  concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes FROM month
 		WHERE codigo_month like '%$dato%' 
 		OR mes like '%$dato%' or porcentaje like '%$dato%' 
-		OR fecha like '%$dato%'
+		OR fecha like '%$dato%' OR tarifa like '%$dato%'
 		");
 		
 		// carga en la $lista_productos cada registro desde la base de datos

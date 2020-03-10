@@ -177,10 +177,10 @@ class Abono
 		FROM usuario u 
 		inner join pago p on u.id_usuario = p.id_usuario 
 		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
-		WHERE (u.nombres like '%$dato%'
-		or u.apellidos like '%$dato%')
-		or a.codigo_abono like '%$dato%'  
-		or a.fecha like '%$dato%' or p.monto_a_pagar like '%$dato%' ");
+		WHERE (u.nombres like '%$dato%'    or u.apellidos like '%$dato%')
+		or (a.codigo_abono like '%$dato%'  or a.fecha like '%$dato%') 
+		or (p.monto_a_pagar like '%$dato%' or a.deuda like '%$dato%') 
+		or a.abono like '%$dato%' or a.saldo like '%$dato%'  ");
 		
 		// carga en la $lista_inmuebles cada registro desde la base de datos
 		   foreach ($sql->fetchAll() as $abono){

@@ -190,6 +190,7 @@
 										</li>
 											<li class="full-width">
 											<?php  
+											 //echo'<a href="?controller=usuario&action=cerrarSesion"><div class="navLateral-body-cl">
 											echo'<a href="destruir_sesion.php"><div class="navLateral-body-cl">
 											</div>
 											<div class="navLateral-body-cr">
