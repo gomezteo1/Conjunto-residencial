@@ -171,16 +171,17 @@ class Abono
 	}
 	
 	public static function buscar_abono($dato){
+		$datos = trim($dato);
 		$lista_abonos =[];
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas, concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos 
 		FROM usuario u 
 		inner join pago p on u.id_usuario = p.id_usuario 
 		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
-		WHERE (u.nombres like '%$dato%'    or u.apellidos like '%$dato%')
-		or (a.codigo_abono like '%$dato%'  or a.fecha like '%$dato%') 
-		or (p.monto_a_pagar like '%$dato%' or a.deuda like '%$dato%') 
-		or a.abono like '%$dato%' or a.saldo like '%$dato%'  ");
+		WHERE (u.nombres like '%$datos%'    or u.apellidos like '%$datos%')
+		or (a.codigo_abono like '%$datos%'  or a.fecha like '%$datos%') 
+		or (p.monto_a_pagar like '%$datos%' or a.deuda like '%$datos%') 
+		or a.abono like '%$datos%' or a.saldo like '%$datos%'  ");
 		
 		// carga en la $lista_inmuebles cada registro desde la base de datos
 		   foreach ($sql->fetchAll() as $abono){

@@ -72,11 +72,12 @@ class Tipo_pago
             return $tipo_pago;
         } 
          public static function buscar_pago($dato){
+            $datos = trim($dato);
             $listar_tipo_pagos =[];
             $db=Db::getConnect();
             $sql=$db->query("SELECT * FROM tipo_pago
-            WHERE codigo_tipo_pago like '%$dato%' 
-            OR tipo_pago like '%$dato%' or descripcion like '%$dato%'
+            WHERE codigo_tipo_pago like '%$datos%' 
+            OR tipo_pago like '%$datos%' or descripcion like '%$datos%'
             ");
             
             // carga en la $lista_productos cada registro desde la base de datos

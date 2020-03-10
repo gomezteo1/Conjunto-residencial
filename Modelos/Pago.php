@@ -122,6 +122,7 @@ class Pago
             return $pago;
         } 
          public static function buscar_pago($dato){
+            $datos = trim($dato);
             $listar_pagos =[];
             $db=Db::getConnect();
             $sql=$db->query("SELECT p.*, concat(u.nombres,'', u.apellidos)as xx,
@@ -130,10 +131,10 @@ class Pago
             inner join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
             inner join usuario u on p.id_usuario = u.id_usuario 
             inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-            WHERE u.nombres like trim('%$dato%') Or u.apellidos like trim('%$dato%') 
-            Or t.tipo_pago like trim('%$dato%') Or p.fecha like trim('%$dato%')
-            Or p.monto_cancelado like trim('%$dato%') Or p.monto_a_pagar like trim('%$dato%')
-            Or p.codigo_pago like trim('%$dato%')  Or c.codigo_cuenta_cobro like trim('%$dato%') 
+            WHERE u.nombres like '%$datos%' Or u.apellidos like '%$datos%' 
+            Or t.tipo_pago like  '%$datos%' Or p.fecha like '%$datos%'
+            Or p.monto_cancelado like '%$datos%' Or p.monto_a_pagar like '%$datos%'
+            Or p.codigo_pago like '%$datos%'  Or c.codigo_cuenta_cobro like '%$datos%' 
             ");
             
             // carga en la $lista_productos cada registro desde la base de datos

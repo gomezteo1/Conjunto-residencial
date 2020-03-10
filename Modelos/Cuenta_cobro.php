@@ -278,6 +278,7 @@ class Cuenta_cobro
     // }
 
     public static function buscar_cuenta_cobro($dato){
+    $datos = trim($dato);   
     $lista_cuenta_cobros =[];
     $db=Db::getConnect();
     $sql=$db->query("SELECT Distinct c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
@@ -292,13 +293,13 @@ class Cuenta_cobro
         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
         left join month m on c.codigo_month = m.codigo_month 
-        WHERE c.numero_cuenta like '%$dato%' OR c.nit like '%$dato%' 
-        OR c.monto_por_cancelar like '%$dato%' OR c.porMora like '%$dato%' 
-        OR c.fecha like '%$dato%' OR c.nit like '%$dato%' 
-        OR u.nombres like '%$dato%' OR u.apellidos like '%$dato%' 
-        OR i.torre like '%$dato%' OR i.numero like '%$dato%' 
-        OR i.numero_matricula like '%$dato%' OR m.mes like '%$dato%'
-        OR m.tarifa like '%$dato%' OR c.estado like '%$dato%' 
+        WHERE c.numero_cuenta like '%$datos%' OR c.nit like '%$datos%' 
+        OR c.monto_por_cancelar like '%$datos%' OR c.porMora like '%$datos%' 
+        OR c.fecha like '%$datos%' OR c.nit like '%$datos%' 
+        OR u.nombres like '%$datos%' OR u.apellidos like '%$datos%' 
+        OR i.torre like '%$datos%' OR i.numero like '%$datos%' 
+        OR i.numero_matricula like '%$dato%' OR m.mes like '%$datos%'
+        OR m.tarifa like '%$datos%' OR c.estado like '%$datos%' 
         ");
  
         foreach ($sql->fetchAll() as $cuenta_cobro){

@@ -112,14 +112,15 @@ class Inmueble
 
 //-----Buscar---------------------------------------------------------	
 	public static function buscar_inmueble($dato){
+		$datos = trim($dato);
 		$lista_inmuebles =[];
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT * FROM inmueble
-		WHERE tipo like '%$dato%' 
-		OR numero like '%$dato%' or 
-		numero_matricula like '%$dato%' 
-		OR torre like '%$dato%' or estado like '%$dato%'
-		OR metros like '%$dato%' 
+		WHERE tipo like '%$datos%' 
+		OR numero like '%$datos%' or 
+		numero_matricula like '%$datos%' 
+		OR torre like '%$datos%' or estado like '%$datos%'
+		OR metros like '%$datos%' 
 		");
 		foreach ($sql->fetchAll() as $inmueble) {
 			$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'], $inmueble['numero_matricula'], $inmueble['tipo'], $inmueble['torre'], $inmueble['numero'], $inmueble['metros'] ,$inmueble['estado']);

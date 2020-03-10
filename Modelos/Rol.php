@@ -1,6 +1,7 @@
 <?php
+$datos;
 class Rol
-{
+{	
 	//atributos
 	public $id_rol;
 	public $rol;
@@ -77,11 +78,12 @@ class Rol
 	
 	public static function buscar_rol($dato){
 		$lista_roles =[];
+		$datos = trim($dato);
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT * FROM rol
-		WHERE estado like '%$dato%' 
-		OR rol like '%$dato%'
-		OR id_rol like '%$dato%' 
+		WHERE estado like '%$datos%' 
+		OR rol like '%$datos%'
+		OR id_rol like '%$datos%' 
 		");
 		
 		foreach ($sql->fetchAll() as $rol) {

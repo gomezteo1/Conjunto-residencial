@@ -99,15 +99,16 @@ class Usuario_Inmueble
             return $usuario_inmueble;
         } 
          public static function buscar_usuario_inmueble($dato){
+            $datos = trim($dato);
             $listar_usuario_inmuebles =[];
             $db=Db::getConnect();
             $sql=$db->query("SELECT DISTINCT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM 
             usuario_inmueble ui 
             inner join usuario u on ui.id_usuario = u.id_usuario 
             inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-          WHERE (u.nombres like '%$dato%' 
-          or u.apellidos like '%$dato%')or i.numero like '%$dato%' 
-          or i.torre like '%$dato%'
+          WHERE (u.nombres like '%$datos%' 
+          or u.apellidos like '%$datos%')or i.numero like '%$datos%' 
+          or i.torre like '%$datos%'
           
           
           ");

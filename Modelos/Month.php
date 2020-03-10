@@ -85,12 +85,13 @@ class Month
 	}
 	
 	public static function buscar_month($dato){
+		$datos = trim($dato);
 		$lista_months =[];	
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT *,  concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes FROM month
-		WHERE codigo_month like '%$dato%' 
-		OR mes like '%$dato%' or porcentaje like '%$dato%' 
-		OR fecha like '%$dato%' OR tarifa like '%$dato%'
+		WHERE codigo_month like '%$datos%' 
+		OR mes like '%$datos%' or porcentaje like '%$datos%' 
+		OR fecha like '%$datos%' OR tarifa like '%$datos%'
 		");
 		
 		// carga en la $lista_productos cada registro desde la base de datos

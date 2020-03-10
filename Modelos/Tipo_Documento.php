@@ -67,12 +67,13 @@ public static function listar_todos(){
 	}
 	
 	public static function buscar_documento($dato){
+		$datos = trim($dato);
 		$lista_tipo_documentos =[];
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT * FROM tipo_documento
-		WHERE id_tipo_documento like '%$dato%' 
+		WHERE id_tipo_documento like '%$datos%' 
 		
-		OR documento like '%$dato%'
+		OR documento like '%$datos%'
 		");
 		
 		foreach ($sql->fetchAll() as $tipo_documento) {
