@@ -234,6 +234,20 @@ class Cuenta_cobro
         $codigo_cuenta_cobroDb=$select->fetchAll();
         return $codigo_cuenta_cobroDb; 
     }
+    
+    public static function desactivarEstadoLista($codigo_cuenta_cobro){ 
+        require_once('../conexion.php');
+        $db = Db::getConnect();
+        $update = $db->prepare("UPDATE cuenta_cobro SET estado='0' WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
+        $update->execute();                
+    }
+
+    public static function activarEstadoLista($codigo_cuenta_cobro){ 
+        require_once('conexion.php');
+        $db = Db::getConnect();
+        $update = $db->prepare("UPDATE cuenta_cobro SET estado='1' WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
+        $update->execute();                
+    }
 
     public static function desactivar_estado_cuenta_cobro($codigo_cuenta_cobro){ 
         require_once('../conexion.php');

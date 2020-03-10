@@ -56,6 +56,18 @@
 				// header('Location: ../index.php?controller=cuenta_cobro&action=index');
 				
 			}
+
+			public function desactivarEstadoLista(){
+				require_once('Modelos/Cuenta_cobro.php');
+				Cuenta_cobro::desactivarEstadoLista($_GET['codigo_cuenta_cobro']);
+				//header('Location: index.php?controller=usuario&action=index');
+			}
+			public function activarEstadoLista(){
+				require_once('Modelos/Cuenta_cobro.php');
+				Cuenta_cobro::activarEstadoLista($_GET['codigo_cuenta_cobro']);
+				//header('Location: index.php?controller=usuario&action=index');
+			}		
+
 				//Mostar vista para modificar el inmueble
 			public function formulario_modificar(){
 				require_once('Modelos/Cuenta_cobro.php');				
