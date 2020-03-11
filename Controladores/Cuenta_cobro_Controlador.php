@@ -78,8 +78,9 @@
 			//guardar cambios
 			public function modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario,$codigo_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado){
 				Cuenta_cobro::modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario,$codigo_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado);
-				//header('Location: ../index.php');
-				header('Location: ../index.php?controller=cuenta_cobro&action=index');
+				session_start();
+				$_SESSION['modificar'] = "Se han modificado los datos con éxito";
+				header('Location: ../index.php?controller=cuenta_cobro&action=index');;
 			}
 		
 			//--------------------------------------------------------------
