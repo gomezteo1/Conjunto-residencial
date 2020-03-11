@@ -75,7 +75,7 @@
 										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp;Otros Datos</legend><br>
 										</div>
 										
-										<div>
+										<div hidden>
 											<?php
 												$llenar_select_rol="si";
 												require("Controladores/Rol_Controlador.php");
