@@ -87,11 +87,9 @@
 										<span class="mdl-textfield__error">Fecha Invalida</span>
 									</div>
 
-										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="estado" name="estado" required>
-												<label class="mdl-textfield__label" for="estado">Estado</label>
-												<span class="mdl-textfield__error">Estado invalido</span>
+										
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="estado" name="estado" hidden>
+											
 											</div>
 										</div>
 
@@ -184,13 +182,6 @@ $(document).ready(function(){
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes ingresar la fecha!',
-					})
-					return false;
-			}else if($('#estado').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes ingresar su estado!',
 					})
 					return false;
 			}else if($('#clave').val()==""){
