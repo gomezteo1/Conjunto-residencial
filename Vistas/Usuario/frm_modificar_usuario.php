@@ -34,7 +34,7 @@
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
 									    </div>
 
-									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" hidden > 
+									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" hidden> 
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -75,6 +75,14 @@
 										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp;Otros Datos</legend><br>
 										</div>
 										
+										<div>
+											<?php
+												$llenar_select_rol="si";
+												require("Controladores/Rol_Controlador.php");
+											?>
+										</div>
+										
+
 										
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
@@ -98,41 +106,33 @@
 												<span class="mdl-textfield__error">Estado invalido</span>
 											</div>
 										</div>
-<!-- Esta es la clave buena
+<!--------------------------------------------------------------------------------------------
+
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="password" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave" value="<?php echo $usuario->clave  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave" value="<?php echo $usuario->clave  ?>">
 												<label class="mdl-textfield__label" for="clave">Clave</label>
 												<span class="mdl-textfield__error">Clave invalido</span>
 											</div>
-										</div>-->
-<a href="controller=usuario&action=cambiarClaveUsu&&id_usuario=<?php $usuairo['id_usuairo']?>"
-></a>				
+										</div>--->
 
-
-
-
-
-
-
+	<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
 <!--------------------------------------------------------------------------------------------_----->
-
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@-_.]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
 												<label class="mdl-textfield__label" for="correo">Correo</label>
 												<span class="mdl-textfield__error">Correo invalido</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@-_. ]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion" value="<?php echo $usuario->correo_recuperacion  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion" value="<?php echo $usuario->correo_recuperacion  ?>">
 												<label class="mdl-textfield__label" for="correo_recuperacion">Correo Recuperación</label>
 												<span class="mdl-textfield__error">Correo R.invalido</span>
 											</div>
 										</div>
-
 									</div>
 									<p class="text-center">
 										<button id="button-Musuario" name="button-Musuario" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">

@@ -112,8 +112,8 @@ class Usuario_Controlador
 		header('Location: ../index.php');
 	} 
 	 	
-	public function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion){
-		Usuario::modificar_usuario($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion);
+	public function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $correo, $correo_recuperacion){
+		Usuario::modificar_usuario($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion);
 		session_start();
 		$_SESSION['modificar'] = "Se han modificado los datos con éxito";
 		header('Location: ../index.php?controller=usuario&action=index');
@@ -125,6 +125,8 @@ class Usuario_Controlador
 	public function modificar_administrador($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion){
 		Usuario::modificar_administrador($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion);
 		//echo"$id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave,$correo, $correo_recuperacion";
+		session_start();
+		$_SESSION['modificar'] = "Se han modificado los datos con éxito";
 		header('Location: ../index.php?controller=usuario&action=index');
 	}
 	
@@ -240,7 +242,7 @@ if(isset($llenar_select_usuario))
 			//hasta aca
 			//echo "usuario";
 			//var_dump($usuario);
-			$usuario_controlador->modificar_usuario($_POST['id_usuario'], $_POST['nombres'], $_POST['apellidos'], $_POST['slctipo_documento'], $_POST['numero_documento'], '', $_POST['telefono'], $_POST['fecha_nacimiento'], '', md5($_POST['clave']), $_POST['correo'],  $_POST['correo_recuperacion']);
+			$usuario_controlador->modificar_usuario($_POST['id_usuario'], $_POST['nombres'], $_POST['apellidos'], $_POST['slctipo_documento'], $_POST['numero_documento'],$_POST['slcrol'], $_POST['telefono'], $_POST['fecha_nacimiento'], $_POST['estado'], $_POST['correo'], $_POST['correo_recuperacion']);
 		}
 		
 		if(($_POST['action']=='modificar_administrador')){

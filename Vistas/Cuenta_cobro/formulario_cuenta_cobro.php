@@ -105,11 +105,10 @@
 			</div>
 			</form>
 			<div class="row justify-content-center">
-				<button class="btn btn-dark" name="btnagregar" id="btnagregar">agregar</button>
+				<button class="btn btn-dark" name="btnagregar"  id="btnagregar">agregar</button>
 
 				<button class=" btn btn-success"name="btnguardar" id="btnguardar">
-			
-Guardar</button>
+				Guardar</button>
 </div>
 			<div class="mostrar"></div>
 		</div>

@@ -119,9 +119,9 @@ class Usuario{
         $insert->execute();  
     }
    
-    public static function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono,$fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion){ 
+    public static function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono,$fecha_nacimiento, $estado, $correo, $correo_recuperacion){ 
         $db=Db::getConnect();
-        $update = $db->prepare("UPDATE usuario SET nombres ='$nombres', apellidos ='$apellidos', id_tipo_documento =$id_tipo_documento, numero_documento =$numero_documento, telefono ='$telefono', fecha_nacimiento ='$fecha_nacimiento', estado ='$estado', clave ='$clave', correo ='$correo', correo_recuperacion ='$correo_recuperacion' WHERE id_usuario=$id_usuario");
+        $update = $db->prepare("UPDATE usuario SET nombres ='$nombres', apellidos ='$apellidos', id_tipo_documento =$id_tipo_documento, numero_documento =$numero_documento, id_rol =$id_rol, telefono ='$telefono', fecha_nacimiento ='$fecha_nacimiento', estado ='$estado', correo ='$correo', correo_recuperacion ='$correo_recuperacion' WHERE id_usuario=$id_usuario");
         $update->execute();
     }// el rol sobra
 
