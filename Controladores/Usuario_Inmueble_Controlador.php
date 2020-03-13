@@ -5,7 +5,7 @@
 
       public function select_usuario_inmueble(){
           $usuario_inmuebles=Usuario_Inmueble::select_usuario_inmueble();
-          require_once('Vistas/Usuario_Inmueble/select_usuario_inmuebles.php');
+          require_once('Vistas/Usuario_Inmueble/select_usuario_inmueble.php');
     }
 
       public function index(){
@@ -81,7 +81,7 @@
   {
     require_once('Modelos/Usuario_Inmueble.php');
     $usuario_inmuebles=Usuario_Inmueble::listar_todos();
-    require_once('Vistas/Usuario_Inmueble/select_usuario_inmuebles.php');
+    require_once('Vistas/Usuario_Inmueble/select_usuario_inmueble.php');
   }
 
  

@@ -31,8 +31,7 @@ $(function() { //funtion jquiery
         e.preventDefault(); //evitar submint
         numeroCuenta = $('#numero_cuenta').val()
         nit = $('#nit').val()
-        usuario = $('#slcusuario').val();
-        slcinmueble = $('#slcinmueble').val();
+        usuario_inmueble = $('#slcusuario_inmueble').val();
         slcmonth = $('#slcmonth').val();
         fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
@@ -43,9 +42,8 @@ $(function() { //funtion jquiery
 
             numero_cuenta: numero_cuenta.value,
             nit,
-            slcusuario: slcusuario.value,
-            nombre: slcusuario.options[slcusuario.selectedIndex].label,
-            slcinmueble,
+            slcusuario_inmueble: slcusuario_inmueble.value,
+            //nombre: slcusuario.options[slcusuario.selectedIndex].label,
             slcmonth,
             fecha,
             monto_por_cancelar
@@ -72,12 +70,11 @@ const actualizar = () => {
           </div>
         <div class="col-5">
           <p>Cuenta: ${cuenta.numero_cuenta}</p>
-          <p>Nombre: ${cuenta.nombre}</p>
+          <p>inmuble: ${cuenta.slcusuario_inmueble}</p>
           <p>Nit: ${cuenta.nit}</p>
         </div>
         <div class="col-4">
-          <p>inmuble: ${cuenta.slcinmueble}</p>
-          <p>mes: ${cuenta.slcmonth}</p>
+        <p>mes: ${cuenta.slcmonth}</p>
           <p>pagar: ${cuenta.monto_por_cancelar}</p>
         </div>
         <div class="col-1">

@@ -15,7 +15,7 @@
 		public static function getConnect(){
 			if (!isset(self::$instance)) {
 				$pdo_options[PDO::ATTR_ERRMODE]=PDO::ERRMODE_EXCEPTION;
-				self::$instance= new PDO('mysql:host=localhost;dbname=proyecto_w','root','',$pdo_options);
+				self::$instance= new PDO('mysql:host=localhost;dbname=proyecto_cc','root','',$pdo_options);
 			}
 			return self::$instance;
 			

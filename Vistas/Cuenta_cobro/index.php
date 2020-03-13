@@ -35,6 +35,7 @@
 								<td><b>#</b></td>
 								<td><b>#Cuenta</b></td>
 								<td><b>Nit</b></td>
+								<td><b>#UsuarioInmueble</b></td>
 								<td><b>Usuario</b></td>
 								<td><b>Inmueble</b></td>
 								<td><b>Documento</b></td>
@@ -52,6 +53,7 @@
 									<td><?php echo $cuenta_cobro->codigo_cuenta_cobro; ?></td>
 									<td><?php echo $cuenta_cobro->numero_cuenta; ?></td>
 									<td><?php echo $cuenta_cobro->nit; ?></td>
+									<td><?php echo $cuenta_cobro->id_usuario_inmueble?></td>
 									<td><?php echo $cuenta_cobro->nombreUsuario;?></td>
 									<td><?php echo $cuenta_cobro->nombreInmueble; ?></td>
 									<td><?php echo $cuenta_cobro->nombreDocumento; ?></td>
@@ -75,6 +77,7 @@
 									<td><b>#</b></td>
 									<td><b>#Cuenta</b></td>
 									<td><b>Nit</b></td>
+									<td><b>#UsuarioInmueble</b></td>
 									<td><b>Usuario</b></td>
 									<td><b>Inmueble</b></td>
 									<td><b>Documento</b></td>

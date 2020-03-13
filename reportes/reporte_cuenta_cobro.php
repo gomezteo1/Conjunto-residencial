@@ -94,16 +94,18 @@ class PDF extends FPDF{
           $db=Db::getConnect();
       
       
-          $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
-          c.id_usuario, c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, c.porMora, c.estado,
-          concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
-          concat(i.numero,'',i.torre) as inmueble, m.mes as mes
-          FROM cuenta_cobro c
-          left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
-          left join usuario u on u.id_usuario = c.id_usuario 
-          left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
-          left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-          left join month m on c.codigo_month = m.codigo_month
+          $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, 
+          c.codigo_month, c.porMora, c.estado, c.fecha, 
+          concat('$','',c.monto_por_cancelar) as monto_por_cancelars, 
+          concat(u.nombres,'', u.apellidos)as nombre,
+          u.numero_documento as documento,
+          concat(i.numero,'',i.torre) as inmueble, 
+          m.mes as mes
+          FROM usuario u 
+            left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+            left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+            left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
+            left join month m on c.codigo_month = m.codigo_month 
           where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
           $registro=0;
 
@@ -159,15 +161,14 @@ class PDF extends FPDF{
          $db=Db::getConnect();
       
       
-         $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
-         c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
+         $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, 
+         c.codigo_month, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
          concat(u.nombres,'  ', u.apellidos)as nombre, u.numero_documento as numero_documento,
          concat(i.numero,'',i.torre) as inmueble, m.mes as mes
-         FROM cuenta_cobro c
-         left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
-         left join usuario u on u.id_usuario = c.id_usuario 
+         FROM usuario u 
          left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
          left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+         left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
          left join month m on c.codigo_month = m.codigo_month
          where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
          
@@ -198,15 +199,14 @@ function TablaColores3($body2){
    $db=Db::getConnect();
 
 
-   $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.codigo_inmueble, c.codigo_month, 
-   c.id_usuario, c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
+   $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month, 
+   c.fecha, c.monto_por_cancelar, c.porMora, c.estado,
    concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as numero_documento,
    concat(i.numero,'',i.torre) as inmueble, m.mes as mes
-   FROM cuenta_cobro c
-   left join pago p on c.codigo_cuenta_cobro = p.codigo_cuenta_cobro 
-   left join usuario u on u.id_usuario = c.id_usuario 
+   FROM usuario u 
    left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
    left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+   left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
    left join month m on c.codigo_month = m.codigo_month
    where C.codigo_cuenta_cobro='$codigo_cuenta_cobro'");
    

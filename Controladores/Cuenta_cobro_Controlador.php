@@ -76,8 +76,8 @@
 			}
 					
 			//guardar cambios
-			public function modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario,$codigo_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado){
-				Cuenta_cobro::modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario,$codigo_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado);
+			public function modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado){
+				Cuenta_cobro::modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario_inmueble,$codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado);
 				session_start();
 				$_SESSION['modificar'] = "Se han modificado los datos con éxito";
 				header('Location: ../index.php?controller=cuenta_cobro&action=index');;
@@ -131,8 +131,8 @@
 				$cuenta_cobro= new cuenta_cobro('',
 				$cuenta->numero_cuenta,
 				$cuenta->nit,
-				$cuenta->slcusuario,
-				$cuenta->slcinmueble,
+				$cuenta->id_usuario_inmueble,
+			
 				$cuenta->slcmonth,
 				$cuenta->fecha,
 				$cuenta->monto_por_cancelar
@@ -183,10 +183,10 @@
 				require_once('../conexion.php');
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
 				$cuenta_cobro= new Cuenta_cobro($_POST['codigo_cuenta_cobro'], $_POST['numero_cuenta'], $_POST['nit'],
-				$_POST['slcusuario'],$_POST['slcinmueble'],$_POST['slcmonth'],$_POST['fecha'],$_POST['monto_por_cancelar'],
+				$_POST['slcusuario_inmueble'],$_POST['slcmonth'],$_POST['fecha'],$_POST['monto_por_cancelar'],
 				$_POST['porMora'],'');
 				$cuenta_cobro_controlador->modificar_cuenta_cobro($_POST['codigo_cuenta_cobro'],$_POST['numero_cuenta'],
-				$_POST['nit'],$_POST['slcusuario'],$_POST['slcinmueble'],$_POST['slcmonth'],$_POST['fecha'],
+				$_POST['nit'],$_POST['slcusuario_inmueble'],$_POST['slcmonth'],$_POST['fecha'],
 				$_POST['monto_por_cancelar'],$_POST['porMora'],'');
 			}
 		}
@@ -219,7 +219,7 @@
 				require_once('../Modelos/Cuenta_cobro.php');
 				require_once('../conexion.php');
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
-				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','','');
+				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
 				$cuenta_cobro_controlador->buscar_cuenta_cobro($_POST['dato_buscar']);
 			}
 
@@ -227,7 +227,7 @@
 				require_once('../Modelos/Cuenta_cobro.php');
 				require_once('../conexion.php');
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
-				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','','');
+				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
 				$cuenta_cobro_controlador->consultar_tipo_cc($_POST['dato_buscar']);
 			}
 		}

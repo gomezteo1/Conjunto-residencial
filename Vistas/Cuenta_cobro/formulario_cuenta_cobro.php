@@ -48,22 +48,22 @@
 											</div>
 										</div>
 										<div>
-								
-										<div class="form-group col-sm-6">
-																			
-											<?php $llenar_select_usuario="si";
-											require_once("Controladores/Usuario_Controlador.php");
-											?>
-										</div><!-- end form-group -->
-																			
-										<div class="form-group col-sm-6">
+
+										<div class="form-group col-sm-8">
 																	
 										</div><!-- end form-group -->
-										<div class="form-group col-sm-6">
-											<?php $llenar_select_inmueble="si";
-											require_once("Controladores/Inmueble_Controlador.php");
+
+										<div class="form-group col-sm-12">
+																			
+											<?php $llenar_select_usuario_inmueble="si";
+											require_once("Controladores/Usuario_Inmueble_Controlador.php");
 											?>
 										</div><!-- end form-group -->
+																			
+										<div class="form-group col-sm-8">
+																	
+										</div><!-- end form-group -->
+									
 
 										<div class="form-group col-sm-6">
 											<?php $llenar_select_month="si";
