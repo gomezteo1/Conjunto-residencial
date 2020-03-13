@@ -82,7 +82,7 @@ class PDF extends FPDF{
    
    
       $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo 	
-      from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+      from abonos_pago a inner join pago p on a.codigo_pago = p.codigo_pago
       left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
       inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
       inner join usuario u on ui.id_usuario = u.id_usuario
@@ -118,7 +118,7 @@ $db=Db::getConnect();
 
 
 $sql=$db->query("SELECT DISTINCT u.numero_documento as numero_documento
-	from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+	from abonos_pago a inner join pago p on a.codigo_pago = p.codigo_pago
 			left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
             inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
             inner join usuario u on ui.id_usuario = u.id_usuario
@@ -165,7 +165,7 @@ $fill=false;
     $db=Db::getConnect();
     $codigo_abono = $_GET['codigo_abono'];
     $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos 
-    	from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+    	from abonos_pago a inner join pago p on a.codigo_pago = p.codigo_pago
 			left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
             inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
             inner join usuario u on ui.id_usuario = u.id_usuario

@@ -36,20 +36,14 @@ $(function() { //funtion jquiery
         fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
 
-
-
         detalleCuentasCobro.push({
-
             numero_cuenta: numero_cuenta.value,
             nit,
             slcusuario_inmueble: slcusuario_inmueble.value,
-            //nombre: slcusuario.options[slcusuario.selectedIndex].label,
+            nombre: slcusuario.options[slcusuario.selectedIndex].label,
             slcmonth,
             fecha,
             monto_por_cancelar
-
-
-
         });
 
         actualizar();
@@ -68,12 +62,12 @@ const actualizar = () => {
           <div class="col-2 align-self-end">
                 
           </div>
-        <div class="col-5">
+        <div class="col-5" >
           <p>Cuenta: ${cuenta.numero_cuenta}</p>
-          <p>inmuble: ${cuenta.slcusuario_inmueble}</p>
           <p>Nit: ${cuenta.nit}</p>
+          <p>Usuario e Inmueble: ${cuenta.slcusuario_inmueble}</p>
         </div>
-        <div class="col-4">
+        <div class="col-4" >
         <p>mes: ${cuenta.slcmonth}</p>
           <p>pagar: ${cuenta.monto_por_cancelar}</p>
         </div>
@@ -108,7 +102,6 @@ $(function() { //funtion para guardar en Db
             cuenta_cobro: 'cuenta_cobro',
             detalleCuentasCobro: JSON.stringify(detalleCuentasCobro)
         }
-
         $.ajax({
             type: 'POST',
             url: 'Controladores/Cuenta_cobro_Controlador.php',

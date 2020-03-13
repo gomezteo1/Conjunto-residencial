@@ -60,7 +60,7 @@ class Abono
         $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono, a.codigo_pago  
 		,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos 
 		,concat('$','',a.saldo) as saldos
-		from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+		from abonos_pago a inner join pago p on a.codigo_pago = p.codigo_pago
 		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
 		inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
 		inner join usuario u on ui.id_usuario = u.id_usuario
@@ -180,7 +180,7 @@ class Abono
 		$lista_abonos =[];
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas, concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos 
-		from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+		from abonos_pago a inner join pago p on a.codigo_pago = p.codigo_pago
 		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
 		inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
 		inner join usuario u on ui.id_usuario = u.id_usuario
