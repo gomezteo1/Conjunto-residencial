@@ -37,17 +37,13 @@
 										
 										
 
+										
 										<?php
 											$llenar_select_cuenta_cobro="si";
 											require("Controladores/Cuenta_cobro_Controlador.php"
 											);
 										?>		
-
-										<!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="date" id="fecha" name="fecha" required>
-											<label class="mdl-textfield__label"  for="fecha"></label>
-											<span class="mdl-textfield__error">Fecha Invalida</span>
-										</div>	 -->
+										
 
 										<?php
 														

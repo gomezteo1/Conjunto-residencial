@@ -200,7 +200,7 @@ $(function(){ //Función Jquery
            //dataType: "json",
            data:{action:metodo,dato_buscar:dato_buscar},
             success:function(data){	
-document.getElementById('resultado_busqueda').innerHTML=data;				
+			document.getElementById('resultado_busqueda').innerHTML=data;				
 			}
 		});	
 	});		

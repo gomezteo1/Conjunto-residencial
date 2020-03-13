@@ -40,9 +40,3 @@ if ($_GET['controller'] == 'pago' ){
  	
 }?>
 
-
-
-
-
-
-

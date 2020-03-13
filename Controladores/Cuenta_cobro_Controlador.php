@@ -3,10 +3,10 @@
 
 		public function __construct(){}
 
-		public function select_cuenta_cobro(){
-			//$pagos=Pago::select_pago();
-			require_once('Vistas/Cuenta_cobro/select_cuenta_cobro.php');
-	  }
+			// public function select_cuenta_cobro(){
+			// 	$cuenta_cobros=Cuenta_cobro::select_cuenta_cobro();
+			// 	require_once('Vistas/Cuenta_cobro/select_cuenta_cobro.php');
+			// }
 
 			public function index(){
 				$cuenta_cobros=Cuenta_cobro::listar_todos();
@@ -95,8 +95,8 @@
 			
 			}
 
-			public function consultar_tipo_cc($dato){
-				$cuenta_cobros = Cuenta_cobro::buscar_tipo_cc($dato);
+			public function consultar_tipo_cuenta_cobro($dato){
+				$cuenta_cobros = Cuenta_cobro::buscar_tipo_cuenta_cobro($dato);
 			}
 
 			//--------------------------------------------------------------------
@@ -137,7 +137,6 @@
 				$cuenta->numero_cuenta,
 				$cuenta->nit,
 				$cuenta->id_usuario_inmueble,
-			
 				$cuenta->slcmonth,
 				$cuenta->fecha,
 				$cuenta->monto_por_cancelar
@@ -196,17 +195,7 @@
 			}
 		}
 		
-		//eliminar 
-			// 	  if (isset($_POST['action'])){
-			// 		if(($_POST['action']=='eliminar_cuenta_cobro')) {	
-			// 			$cuenta_cobro_controlador->eliminar_cuenta_cobro($_GET['codigo_cuenta_cobro']);			
-			// 		}
-			// }
-
-	
- 
-     
-		if (isset($_POST['action'])){
+			if (isset($_POST['action'])){
 			
 
 			if($_POST['action'] == 'desactivar_estado'){
@@ -233,7 +222,7 @@
 				require_once('../conexion.php');
 				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
 				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
-				$cuenta_cobro_controlador->consultar_tipo_cc($_POST['dato_buscar']);
+				$cuenta_cobro_controlador->consultar_tipo_cuenta_cobro($_POST['dato_buscar']);
 			}
 		}
 
