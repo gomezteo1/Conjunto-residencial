@@ -3,6 +3,11 @@
 
 		public function __construct(){}
 
+		public function select_cuenta_cobro(){
+			//$pagos=Pago::select_pago();
+			require_once('Vistas/Cuenta_cobro/select_cuenta_cobro.php');
+	  }
+
 			public function index(){
 				$cuenta_cobros=Cuenta_cobro::listar_todos();
 				require_once('Vistas/Cuenta_cobro/index.php');

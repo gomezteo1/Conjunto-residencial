@@ -34,11 +34,8 @@
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
 									    </div>
 
-										<?php
-											$llenar_select_usuario="si";
-											require("Controladores/Usuario_Controlador.php"
-												);
-										?>		
+										
+										
 
 										<?php
 											$llenar_select_cuenta_cobro="si";

@@ -36,11 +36,7 @@
 
 									    <input value="<?php echo $pago->codigo_pago ?>" name="codigo_pago" id="codigo_pago" class="w3-input" type="number" hidden> 
 
-										<?php
-											$llenar_select_usuario="si";
-											require("Controladores/Usuario_Controlador.php"
-												);
-										?>		
+										
 
 										<?php
 											$llenar_select_cuenta_cobro="si";

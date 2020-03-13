@@ -50,8 +50,8 @@
           require_once('Vistas/Pago/formulario_modificar.php');
       }
        
-      public function modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar){
-        Pago::modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar);
+      public function modificar_pago($codigo_pago,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar){
+        Pago::modificar_pago($codigo_pago,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar);
         session_start();
 			  $_SESSION['modificar'] = "Se han modificado los datos con éxito";
 			  header('Location: ../index.php?controller=pago&action=index');
@@ -103,7 +103,7 @@
          require_once('../Modelos/Pago.php');
          require_once('../conexion.php');
          $pago_controlador=new Pago_Controlador();
-         $pago= new pago('', $_POST['slcusuario'], $_POST['slccuenta_cobro'], '', $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
+         $pago= new pago('',  $_POST['slccuenta_cobro'], '', $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
          $pago_controlador->registrar_pago($pago);
      }
     
@@ -114,7 +114,7 @@
          require_once('../conexion.php');
 
          $pago_controlador=new Pago_Controlador();
-         $pago_controlador->modificar_pago($_POST['codigo_pago'], $_POST['slcusuario'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
+         $pago_controlador->modificar_pago($_POST['codigo_pago'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
      }
     
  }
@@ -137,7 +137,7 @@
         require_once('../Modelos/Pago.php');
         require_once('../conexion.php');
         $pago_controlador=new Pago_Controlador();
-        $pago= new Pago('','','','','','','');
+        $pago= new Pago('','','','','','');
       $pago_controlador->buscar_pago($_POST['dato_buscar']);
   }
       if($_POST['action']=='consultar_valor') {
