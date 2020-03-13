@@ -2,9 +2,7 @@
 class Abono
 {
 	public $codigo_abono;
-	//public $id_cuentaCobro;
 	public $codigo_pago;
-	// public $id_usuario;
 	public $fecha;
 	public $deuda;
 	public $abono;
@@ -14,7 +12,6 @@ class Abono
 	{
 		$this->codigo_abono=$codigo_abono;
 		$this->codigo_pago=$codigo_pago;
-		
 		$this->fecha=$fecha;
 		$this->deuda=$deuda;
 		$this->abono=$abono;
@@ -37,9 +34,14 @@ class Abono
 	public static function listar_todos(){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha as fechas ,concat('$','',a.deuda) as deudas  ,concat('$','',a.abono) as abonos ,concat('$','',a.saldo) as saldos
-		FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
+        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono, a.codigo_pago, a.fecha as fechas , concat('$','',a.deuda) as deudas, concat('$','',a.abono) as abonos ,concat('$','',a.saldo) as saldos
+		from abonos_pago a 
+		left join pago p on a.codigo_pago = p.codigo_pago
+		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+		left join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+		left join usuario u on ui.id_usuario = u.id_usuario
+		left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+		left join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
 		where ((datediff(a.fecha,now())*-1) <= 30)
          and ((datediff(a.fecha,now())*-1) >=0)");
 
@@ -58,8 +60,13 @@ class Abono
         $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono, a.codigo_pago  
 		,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos 
 		,concat('$','',a.saldo) as saldos
-		FROM usuario u left join pago p on u.id_usuario = p.id_usuario 
-        inner join abonos_pago a on p.codigo_pago=a.codigo_pago where u.id_usuario='$id_usuario'");
+		from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+		inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+		inner join usuario u on ui.id_usuario = u.id_usuario
+		inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+		inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
+		 where u.id_usuario='$id_usuario'");
 
         foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
@@ -76,10 +83,8 @@ class Abono
         $insert=$db->prepare('INSERT INTO abonos_pago   
         VALUES(:codigo_abono, :codigo_pago,  :fecha, :deuda, :abono, :saldo)');
         $insert->bindValue('codigo_abono',$abono->codigo_abono);
-        // $insert->bindValue('id_cuentaCobro',$abono->id_cuentaCobro);//Puede ser codigo_pago
 		$insert->bindValue('codigo_pago',$abono->codigo_pago);
-		//$insert->bindValue('id_usuario',$abono->id_usuario);
-        $insert->bindValue('fecha',date("y-m-d"));
+		$insert->bindValue('fecha',date("y-m-d"));
         $insert->bindValue('deuda',$abono->deuda);
         $insert->bindValue('abono',$abono->abono);
         $insert->bindValue('saldo',$abono->saldo);
@@ -175,9 +180,12 @@ class Abono
 		$lista_abonos =[];
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas, concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos 
-		FROM usuario u 
-		inner join pago p on u.id_usuario = p.id_usuario 
-		inner join abonos_pago a on p.codigo_pago=a.codigo_pago
+		from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+		inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+		inner join usuario u on ui.id_usuario = u.id_usuario
+		inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+		inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
 		WHERE (u.nombres like '%$datos%'    or u.apellidos like '%$datos%')
 		or (a.codigo_abono like '%$datos%'  or a.fecha like '%$datos%') 
 		or (p.monto_a_pagar like '%$datos%' or a.deuda like '%$datos%') 

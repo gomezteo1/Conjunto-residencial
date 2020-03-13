@@ -81,8 +81,14 @@ class PDF extends FPDF{
       $db=Db::getConnect();
    
    
-      $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-      LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago where codigo_abono='$codigo_abono'");
+      $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,a.deuda ,a.abono,a.saldo 	
+      from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+      left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+      inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+      inner join usuario u on ui.id_usuario = u.id_usuario
+      inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+      inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago 
+      where codigo_abono='$codigo_abono'");
       
       //carga en la lista cada registro de la base de datos 
       foreach ($sql->fetchAll() as $abono){
@@ -112,8 +118,12 @@ $db=Db::getConnect();
 
 
 $sql=$db->query("SELECT DISTINCT u.numero_documento as numero_documento
-FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago 
+	from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+			left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+            inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+            inner join usuario u on ui.id_usuario = u.id_usuario
+            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+            inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
 where codigo_abono='$codigo_abono'"); 
 //carga en la lista cada registro de la base de datos 
 foreach ($sql->fetchAll() as $abono){
@@ -154,8 +164,14 @@ $fill=false;
 
     $db=Db::getConnect();
     $codigo_abono = $_GET['codigo_abono'];
-    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos FROM usuario u inner join pago p on u.id_usuario = p.id_usuario 
-      LEFT join abonos_pago a on p.codigo_pago=a.codigo_pago where codigo_abono='$codigo_abono'");
+    $sql=$db->query("SELECT DISTINCT concat(u.nombres,'',u.apellidos) as nombre ,a.codigo_abono ,a.codigo_pago ,a.fecha ,concat('$','',a.deuda) as deudas ,concat('$','',a.abono) as abonos,concat('$','',a.saldo) as saldos 
+    	from abonos a inner join pago p on a.codigo_pago = p.codigo_pago
+			left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+            inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+            inner join usuario u on ui.id_usuario = u.id_usuario
+            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+            inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
+             where codigo_abono='$codigo_abono'");
     $registro=0;
     //carga en la lista cada registro de la base de datos 
     foreach ($sql->fetchAll() as $abono){

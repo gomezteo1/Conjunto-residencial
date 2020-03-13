@@ -93,9 +93,12 @@ $db=Db::getConnect();
 $codigo_pago = $_GET['codigo_pago'];
 $sql=$db->query("SELECT DISTINCT u.nombres as nombre,p.codigo_pago,p.codigo_cuenta_cobro,
   p.fecha,t.tipo_pago,concat('$','',p.monto_cancelado) as monto_cancelados ,concat('$','',p.monto_a_pagar) as monto_a_pagars 
-  FROM tipo_pago t 
-  LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
-  Left join usuario u on p.id_usuario=u.id_usuario 
+  FROM pago p
+            left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+            inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+            inner join usuario u on ui.id_usuario = u.id_usuario
+            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+            inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
   where codigo_pago='$codigo_pago'");
 $registro=0;
 //carga en la lista cada registro de la base de datos 
@@ -145,9 +148,12 @@ function TablaColores2($body){
 
 
    $sql=$db->query("SELECT DISTINCT concat(u.nombres,' ',u.apellidos) as nombre
-   FROM tipo_pago t 
-   LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
-   Left join usuario u on p.id_usuario=u.id_usuario 
+    FROM pago p
+            left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+            inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+            inner join usuario u on ui.id_usuario = u.id_usuario
+            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+            inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
    where codigo_pago='$codigo_pago'");
    
    //carga en la lista cada registro de la base de datos 
@@ -176,9 +182,12 @@ for($i=0;$i<count($body2);$i++)
 $codigo_pago = $_GET['codigo_pago'];
 $db=Db::getConnect();
 $sql=$db->query("SELECT DISTINCT u.numero_documento as numero_documento 
-  FROM tipo_pago t 
-  LEFT join pago p on t.codigo_tipo_pago = p.codigo_tipo_pago 
-  Left join usuario u on p.id_usuario=u.id_usuario 
+  FROM pago p
+            left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+            inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+            inner join usuario u on ui.id_usuario = u.id_usuario
+            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+            inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
   where codigo_pago='$codigo_pago'");
 
 //carga en la lista cada registro de la base de datos 

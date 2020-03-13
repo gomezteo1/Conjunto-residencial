@@ -149,7 +149,7 @@ class Pago
             
             // carga en la $lista_productos cada registro desde la base de datos
             foreach ($sql->fetchAll() as $pago) {
-              $itempago= new Pago($pago['codigo_pago'],$pago['id_usuario'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelados'],$pago['monto_a_pagars']);
+              $itempago= new Pago($pago['codigo_pago'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelados'],$pago['monto_a_pagars']);
             $itempago->nombreUsuario=$pago['xx'];
             $itempago->nombreTipoPago=$pago['tipo_pago'];
               

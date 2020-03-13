@@ -13,7 +13,6 @@
 				<p class="text-condensedLight">
 					Inicio de Abono 
 					<a align="left" class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
-
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
