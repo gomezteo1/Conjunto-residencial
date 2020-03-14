@@ -31,7 +31,7 @@ $(function() { //funtion jquiery
         e.preventDefault(); //evitar submint
         numeroCuenta = $('#numero_cuenta').val()
         nit = $('#nit').val()
-        usuario_inmueble = $('#slcusuario_inmueble').val();
+        slcusuario_inmueble = $('#slcusuario_inmueble').val();
         slcmonth = $('#slcmonth').val();
         fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
@@ -39,11 +39,10 @@ $(function() { //funtion jquiery
         detalleCuentasCobro.push({
             numero_cuenta: numero_cuenta.value,
             nit,
-            slcusuario_inmueble: slcusuario_inmueble.value,
-            nombre: slcusuario.options[slcusuario.selectedIndex].label,
+            slcusuario_inmueble,
             slcmonth,
-            fecha,
             monto_por_cancelar
+            // nombre: slcusuario.options[slcusuario.selectedIndex].label,
         });
 
         actualizar();

@@ -131,14 +131,14 @@
 
 			foreach($detalleCuentasCobro as $cuenta )
 			{
-				echo $cuenta->fecha;
-
-				$cuenta_cobro= new cuenta_cobro('',
+				
+				$cuenta_cobro= new cuenta_cobro(
+				'',
 				$cuenta->numero_cuenta,
 				$cuenta->nit,
-				$cuenta->id_usuario_inmueble,
+				$cuenta->slcusuario_inmueble,
 				$cuenta->slcmonth,
-				$cuenta->fecha,
+				'',
 				$cuenta->monto_por_cancelar
 				,'1.5'
 				,'0');

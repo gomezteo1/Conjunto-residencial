@@ -143,14 +143,13 @@ class Cuenta_cobro
     //print_r($cuenta_cobro);
     $db=Db::getConnect();
     $insert=$db->prepare('INSERT INTO cuenta_cobro VALUES( 
-        :codigo_cuenta_cobro, :numero_cuenta, :nit, :id_usuario, :codigo_inmueble, 
+        :codigo_cuenta_cobro, :numero_cuenta, :nit, :id_usuario_inmueble, 
         :codigo_month, :fecha, :monto_por_cancelar, :porMora, :estado)');
             
         $insert->bindValue('codigo_cuenta_cobro',$cuenta_cobro->codigo_cuenta_cobro);
         $insert->bindValue('numero_cuenta',$cuenta_cobro->numero_cuenta);
         $insert->bindValue('nit',$cuenta_cobro->nit);
         $insert->bindValue('id_usuario_inmueble',$cuenta_cobro->id_usuario_inmueble);
-       
         $insert->bindValue('codigo_month',$cuenta_cobro->codigo_month);
         $insert->bindValue('fecha',date("y-m-d"));
         $insert->bindValue('monto_por_cancelar',$cuenta_cobro->monto_por_cancelar);

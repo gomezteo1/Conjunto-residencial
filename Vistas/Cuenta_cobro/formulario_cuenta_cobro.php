@@ -53,8 +53,7 @@
 																	
 										</div><!-- end form-group -->
 
-										<div class="form-group col-sm-12">
-																			
+										<div class="form-group col-sm-12 col-12">
 											<?php $llenar_select_usuario_inmueble="si";
 											require_once("Controladores/Usuario_Inmueble_Controlador.php");
 											?>
@@ -105,7 +104,7 @@
 			</div>
 			</form>
 			<div class="row justify-content-center">
-				<button class="btn btn-dark" name="btnagregar"  id="btnagregar">agregar</button>
+				<button class="btn btn-dark" name="btnagregar"  id="btnagregar">Agregar</button>
 
 				<button class=" btn btn-success"name="btnguardar" id="btnguardar">
 				Guardar</button>
