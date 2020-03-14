@@ -83,7 +83,7 @@ class Pago
     public static function registrar_pago($pago){
         $db=Db::getConnect();
         $insert=$db->prepare('INSERT INTO pago   
-        VALUES(:codigo_pago, :id_usuario, :codigo_cuenta_cobro, :fecha, :codigo_tipo_pago, :monto_cancelado, :monto_a_pagar)');
+        VALUES(:codigo_pago, :codigo_cuenta_cobro, :fecha, :codigo_tipo_pago, :monto_cancelado, :monto_a_pagar)');
         $insert->bindValue('codigo_pago',$pago->codigo_pago);
         $insert->bindValue('codigo_cuenta_cobro',$pago->codigo_cuenta_cobro);
         $insert->bindValue('fecha',date("y-m-d"));
