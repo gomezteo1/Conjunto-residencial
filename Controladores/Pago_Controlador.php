@@ -119,6 +119,20 @@
     
  }
 
+// if (!isset($_POST['codigo_cuenta_cobro'])){
+
+//      // Para eliminar producto
+//      $query ="SELECT * FROM pagos WHERE codigo_cuenta_cobro='". $_POST["codigo_cuenta_cobro"]."'";
+//      $user_count = $db_handle->
+//      if(){
+
+//         require_once('Modelos/Pago.php');
+//         require_once('conexion.php');
+
+//         $pago_controlador=new Pago_Controlador();
+//         $pago_controlador->eliminar_pago($_GET['codigo_pago']);
+//     } 
+//  }
  // Acciones que se solicitan por GET: Eliminar
  if (isset($_GET['action'])){
 

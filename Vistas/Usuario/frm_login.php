@@ -10,7 +10,7 @@
 			<p class="text-center" style="font-size: 80px;">
 				<i class="zmdi zmdi-account-circle"></i>
 			</p>
-			<p class="text-center text-condensedLight">Ingresa con su cuenta</p>
+			<p class="text-center text-condensedLight">Ingresa/e Con Su Cuenta</p>
 			<form class="login100-form validate-form" action="Controladores/Usuario_Controlador.php" method="POST">
 												<input type="hidden" name="action" value="login_usuario">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -28,7 +28,7 @@
 				<br><br>
 				<div class="form-group last col-12">
 					<span class="txt1">
-						Olvido su contraseña?
+						¿Olvido Su Contraseña?
 					</span>
 					<a class="txt2" href="?controller=usuario&action=frm_recuperar_clave">
 						Recuperar
@@ -50,7 +50,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el correo!',
+					text: 'Debes Ingresar El Correo!',
 					})
 					return false;
 			}
@@ -58,7 +58,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la contraseña!',
+					text: 'Debes Ingresar La Clave!',
 					})
 					return false;
 			}

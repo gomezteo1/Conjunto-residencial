@@ -11,7 +11,7 @@
 						<!--Inquilino-->
 						<?php if( $_SESSION['acceso']['id_rol']>=3){?>
 						<div class="card-head" align="center">
-							<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> Hemos recibido su solicitud, esta siendo revisada por administración, esto puede llevar unos días, muchas gracias por esperar.</p>
+							<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> Hemos recibido Su Solicitud, Está Siendo Revisada Ror Administración, Esto Puede Llevar Unos Días, Muchas Gracias Por Esperar.</p>
 							<a href="destruir_sesion.php">Salir</a>
 							</mark>
 						</div>
@@ -19,8 +19,8 @@
 						<!-- Los otros roles-->
 						<?php } else{?>
 						<div class="card-head" align="center">
-							<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> El menu esta a la izquierda </p>
-							<p class="text-condensedLight noLink">Por favor elija una opción.</p>
+							<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> El Menu Está A La Izquierda </p>
+							<p class="text-condensedLight noLink">Por Favor Elija Una Opción.</p>
 							</mark>
 						</div>
 				
@@ -43,8 +43,8 @@
 			</div>
 			<div class="card">
 					<div class="card-head" align="center">
-					<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> Tienes una notificación, a la derecha encontraras un menu de notificaciones  </p>
-					<p class="text-condensedLight noLink">Por favor revisala.</p>
+					<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> Tienes Una Notificación, A La Derecha Encontraras Un Menu De Notificaciones  </p>
+					<p class="text-condensedLight noLink">Por Favor Revisala.</p>
 					</mark>
 					</div>
 				

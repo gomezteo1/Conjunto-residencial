@@ -31,7 +31,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 									    <input value="<?php echo $inmueble->codigo_inmueble ?>" name="codigo_inmueble" id="codigo_inmueble" class="w3-input" type="codigo_inmueble" hidden > 
@@ -39,40 +39,40 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero_matricula" name="numero_matricula" value="<?php echo $inmueble->matricula ?>">
-												<label class="mdl-textfield__label" for="numero_matricula"># matricula</label>
-												<span class="mdl-textfield__error">Numero de matricula equivocado</span>
+												<label class="mdl-textfield__label" for="Numero Matricula">Numero Matricula</label>
+												<span class="mdl-textfield__error">Numero De Matricula Equivocado</span>
 											</div>
 										</div>
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="tipo" name="tipo" value="<?php echo $inmueble->tipo ?>">
-												<label class="mdl-textfield__label" for="tipo">Tipo de inmueble</label>
-												<span class="mdl-textfield__error">Tipo de inmueble invalido</span>
+												<label class="mdl-textfield__label" for="tipo">Tipo De Inmueble</label>
+												<span class="mdl-textfield__error">Tipo De Inmueble Invalido</span>
 											</div>
 										</div>
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="torre" name="torre" value="<?php echo $inmueble->torre ?>">
-												<label class="mdl-textfield__label" for="torre">Tipo de inmueble</label>
-												<span class="mdl-textfield__error">Torre invalida</span>
+												<label class="mdl-textfield__label" for="torre">Torre</label>
+												<span class="mdl-textfield__error">Torre Invalida</span>
 											</div>
 										</div>
 										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero" name="numero" value="<?php echo $inmueble->numero ?>">
-												<label class="mdl-textfield__label" for="numero"># Inmueble</label>
-												<span class="mdl-textfield__error">Numero de inmueble equivocado</span>
+												<label class="mdl-textfield__label" for="numero">Numero Inmueble</label>
+												<span class="mdl-textfield__error">Numero De Inmueble Invalido</span>
 											</div>
 										</div>
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="metros" name="metros" value="<?php echo $inmueble->metros ?>">
-												<label class="mdl-textfield__label" for="metros">Metros cuadrados</label>
-												<span class="mdl-textfield__error">Tipo de inmueble invalido</span>
+												<label class="mdl-textfield__label" for="metros">Metros Cuadrados</label>
+												<span class="mdl-textfield__error">Tipo De Inmueble Invalido</span>
 											</div>
 										</div>
 
@@ -111,7 +111,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el numero de la matricula!',
+					text: 'Debes Ingresar El Numero De La Matricula!',
 					})
 					return false;
 			}
@@ -119,7 +119,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el tipo de inmueble!',
+					text: 'Debes Ingresar El Tipo De Inmueble!',
 					})
 					return false;
 			}
@@ -127,7 +127,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la torre!',
+					text: 'Debes Ingresar La Torre!',
 					})
 					return false;
 			}
@@ -135,7 +135,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el numero del inmueble!',
+					text: 'Debes Ingresar El Numero Del Inmueble!',
 					})
 					return false;
 			}
@@ -143,13 +143,13 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar los metros del inmueble!',
+					text: 'Debes Ingresar Los Metros Del Inmueble!',
 					})
 					return false;
 			}else
 				swal({
 					title: "Hecho!",
-					text: "Se ha actualizado correctamente",
+					text: "Se Ha Actualizado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

@@ -31,7 +31,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" hidden> 
@@ -53,7 +53,7 @@
 										</div>
 
 										<div class="mdl-cell mdl-cell--12-col">
-										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Tipo de documento</legend><br>
+										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Tipo De Documento</legend><br>
 										</div>
 
 										<div>
@@ -66,8 +66,8 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero_documento" name="numero_documento" value="<?php echo $usuario->numero_documento  ?>">
-												<label class="mdl-textfield__label" for="numero_documento"># documento</label>
-												<span class="mdl-textfield__error">Numero de documento equivocado</span>
+												<label class="mdl-textfield__label" for="numero_documento">Numero Documento</label>
+												<span class="mdl-textfield__error">Numero De Documento Invalido</span>
 											</div>
 										</div>
 										
@@ -115,8 +115,8 @@
 												<span class="mdl-textfield__error">Clave invalido</span>
 											</div>
 										</div>--->
-
-	<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
+																	
+										<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
 <!--------------------------------------------------------------------------------------------_----->
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
@@ -170,7 +170,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el nombre(s)!',
+					text: 'Debes Ingresar El/Los Nombre(s)!',
 					})
 					return false;
 			}
@@ -178,7 +178,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar los apellidos!',
+					text: 'Debes Ingresar Los Apellidos!',
 					})
 					return false;
 			}
@@ -186,56 +186,49 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el numero de documento!',
+					text: 'Debes Ingresar El Numero De Dsocumento!',
 					})
 					return false;
 			}else if($('#telefono').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el telefono!',
+					text: 'Debes Ingresar El Telefono!',
 					})
 					return false;
 			}else if($('#fecha_nacimiento').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
-					})
-					return false;
-			}else if($('#estado').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes ingresar su estado!',
+					text: 'Debes Ingresar La Fecha!',
 					})
 					return false;
 			}else if($('#clave').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la contraseña!',
+					text: 'Debes Ingresar La Clave!',
 					})
 					return false;
 			}else if($('#correo').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el correo!',
+					text: 'Debes Ingresar El Correo!',
 					})
 					return false;
 			}else if($('#correo_recuperacion').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el correo alternativo!',
+					text: 'Debes Ingresar El Correo Alternativo!',
 					})
 					return false;
 			}
 			else
 				swal({
 						title: "Hecho!",
-						text: "Se ha actualizado correctamente",
+						text: "Se Ha Actualizado Correctamente",
 						icon: "success",
 						button: "Continuar",
 					});

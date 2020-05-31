@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Cuenta de cobro M</title>
+	<title>Cuenta de Cobro M</title>
 </head>
 <body>
 		
@@ -32,7 +32,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 										<input hidden readonly name='codigo_cuenta_cobro' id='codigo_cuenta_cobro' value="<?php echo $_GET['codigo_cuenta_cobro'] ?>"  type="text">
@@ -67,7 +67,7 @@
 											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $cuenta_cobro->fecha ?>">
-												<label class="mdl-textfield__label"  for="fecha_"></label>
+												<label class="mdl-textfield__label"  for="Fecha_"></label>
 												<span class="mdl-textfield__error">Fecha </span>
 											</div>	
 											
@@ -75,7 +75,7 @@
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->monto_por_cancelar ?>" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="monto_por_cancelar" name="monto_por_cancelar" required>
-												<label class="mdl-textfield__label" for="monto_por_cancelar"></label>
+												<label class="mdl-textfield__label" for="Monto Por Cancelar"></label>
 												<span class="mdl-textfield__error">Monto por Cancelar</span>
 											</div>
 											</div>
@@ -83,22 +83,10 @@
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="porMora" name="porMora" required>
-												<label class="mdl-textfield__label" for="porMora"></label>
+												<label class="mdl-textfield__label" for="Mora"></label>
 												<span class="mdl-textfield__error">Mora</span>
 											</div>
 											</div>
-
-											
-
-
-										
-										
-
-
-
-
-									
-								
 
 									</div>
 									<p class="text-center">
@@ -159,7 +147,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes Ingresar la Fecha!',
 					})
 					return false;
 			}
@@ -167,7 +155,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto cancelado!',
+					text: 'Debes Ingresar el Monto Cancelado!',
 					})
 					return false;
 			}
@@ -175,14 +163,14 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto a pagar!',
+					text: 'Debes Ingresar el Monto a Pagar!',
 					})
 					return false;
 			}
 			else
 				swal({
 					title: "Hecho!",
-					text: "Se ha actualizado correctamente",
+					text: "Se ha Actualizado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

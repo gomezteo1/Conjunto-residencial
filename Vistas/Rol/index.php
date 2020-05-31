@@ -28,7 +28,7 @@
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
-								<td><b>#Rol</b></td>
+								<td><b>Serial Rol</b></td>
 								<td><b>Rol</b></td>
 							</tr>		
 						</thead>
@@ -44,7 +44,7 @@
 						<?php }	?>
 						<tfoot>
 							<tr>
-								<td><b>#Rol</b></td>
+								<td><b>Serial Rol</b></td>
 								<td><b>Rol</b></td>
 							</tr>		
 						</tfoot>

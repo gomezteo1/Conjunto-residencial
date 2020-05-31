@@ -10,7 +10,8 @@
 @-webkit-keyframes bounce {
     100% {
        
-        text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3); }
+        text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3); 
+    }
 }
 
 
@@ -24,8 +25,7 @@ h1 {
     height: 100px;
     margin: auto;
     display: block;
-    -webkit-animation: bounce .3s ease infinite alternate;
-    font-family: 'sans-serif';
+     font-family: 'sans-serif';
     font-size: 70px;
     color: #000000;
     text-align: center;
@@ -36,7 +36,7 @@ h1 {
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca de</title>
+    <title>Acerca De</title>
 </head>
 <body>
     <br>
@@ -46,7 +46,7 @@ h1 {
             <div class="col-3">
                  <div class="h-75 jumbotron text-center">
                      
-                    <h1>Imagenes del lugar</h1>
+                    <h1>Imagenes Del Lugar</h1>
                 </div>
             </div> 
             <div class="col-1"></div>
@@ -69,11 +69,11 @@ h1 {
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                            <span class="sr-only">Anterior</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                            <span class="sr-only">Siguiente</span>
                         </a>
                     </div>
                 </div>

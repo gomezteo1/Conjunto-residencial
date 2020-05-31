@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
 	<title>Mes</title>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 		<div id="registrar-month">	
@@ -38,44 +31,32 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 										
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="mes" name="mes" required>
-												<label class="mdl-textfield__label" for="mes">mes</label>
-												<span class="mdl-textfield__error">Mes invalido</span>
+												<label class="mdl-textfield__label" for="Mes">Mes</label>
+												<span class="mdl-textfield__error">Mes Invalido</span>
 											</div>
 
 										</div>
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="tarifa" name="tarifa" required>
-												<label class="mdl-textfield__label" for="tarifa">Tarifa</label>
-												<span class="mdl-textfield__error">tarifa equivocada</span>
+												<label class="mdl-textfield__label" for="Tarifa">Tarifa</label>
+												<span class="mdl-textfield__error">Farifa Invalido</span>
 											</div>
 										</div>
 										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="porcentaje" name="porcentaje" required>
-												<label class="mdl-textfield__label" for="porcentaje"># porcentaje</label>
-												<span class="mdl-textfield__error"> porcentaje equivocado</span>
+												<label class="mdl-textfield__label" for="Porcentaje">Porcentaje</label>
+												<span class="mdl-textfield__error">Porcentaje Invalido</span>
 											</div>
 										</div>
-										
-
-										
-										
-
-									<!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="date" id="fecha" name="fecha">
-										<label class="mdl-textfield__label"  for="fecha"></label>
-										<span class="mdl-textfield__error">Fecha Invalida</span>
-									</div> -->
-
-										
 									</div>
 									<p class="text-center">
 										<button id="button-Rmonth" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -110,7 +91,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el mes!',
+					text: 'Debes Ingresar El Mes!',
 					})
 					return false;
 			}
@@ -118,7 +99,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la tarifa!',
+					text: 'Debes Ingresar La Tarifa!',
 					})
 					return false;
 			}
@@ -126,14 +107,14 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes Ingresar La Fecha!',
 					})
 					return false;
 			}
 			else
 				swal({
 					title: "Hecho!",
-					text: "Se ha registrado correctamente",
+					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

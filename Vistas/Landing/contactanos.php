@@ -13,7 +13,8 @@
         @-webkit-keyframes bounce {
             100% {
             
-                text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3); }
+                text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3);  
+            }
         }
 
 
@@ -27,7 +28,6 @@
             height: 100px;
             margin: auto;
             display: block;
-            -webkit-animation: bounce .3s ease infinite alternate;
             font-family: 'sans-serif';
 
             font-size: 70px;
@@ -51,8 +51,8 @@
 			<div class="container-footer-all">
 				<div class="container-body">
 					<div class="colum1">
-                        <h1>Mas informacion del Conjunto Residencial</h1>
-                        <p>Este conjunto residencial se dedica a la venta de inmuebles y alquiler de inmuebles 
+                        <h1>Mas Información del Conjunto Residencial</h1>
+                        <p>El conjunto residencial se dedica a la venta de inmuebles, alquiler de inmuebles y al pago de la administración
                         </p>
                     </div>
 					<div class="colum2">
@@ -82,9 +82,9 @@
 							<h1>Informacion Contactos</h1>
 							<div class="row2">
 								<img src="icon/house.png">
-								<label>prado centro 
-								medellin
-								colombia
+								<label>Prado Centro 
+								Medellín
+								Colombia
 								</label>
 							</div>
 							<div class="row2">

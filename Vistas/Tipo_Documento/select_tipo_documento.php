@@ -4,7 +4,7 @@ if ($_GET['controller'] == 'usuario' ){
 <div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slctipo_documento" id="slctipo_documento">
-			<option selected hidden disabled >Selecione un tipo de documento</option>
+			<option selected hidden disabled >Selecione Un Tipo De Documento</option>
 			<?php
 			foreach ($tipo_documentos as $tipo_documento){?>
 				
@@ -26,7 +26,7 @@ if ($_GET['controller'] == 'usuario' ){
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slctipo_documento" id="slctipo_documento">
-			<option selected hidden disabled >Selecione un tipo de documento</option>
+			<option selected hidden disabled >Selecione Un Tipo De Documento</option>
 			<?php
 			foreach ($tipo_documentos as $tipo_documento){?>
 				

@@ -5,8 +5,8 @@
 	</head>
 <body>
 	<div id="registrar-cuenta_cobro">								
-		<form name="frmcuenta_cobro" id="frmcuenta_cobro" method="POST" action="" 
-		data-toggle="validator" class="popup-form">
+		<form name="frmcuenta_cobro" id="frmcuenta_cobro" method="POST" action="" onsubmit="return Levanto(); " 
+		data-toggle="validator" class="popup-form" >
 		<div id="prueba"></div>  
 		
 			<section class="full-width header-well">
@@ -15,7 +15,7 @@
 				</div>
 				<div class="full-width header-well-text">
 					<p class="text-condensedLight">
-						Registrar cuenta cobro
+						Registrar Cuenta Cobro
 					</p>
 				</div>
 			</section>
@@ -26,25 +26,25 @@
 						<div class="mdl-cell mdl-cell--12-col">
 							<div class="full-width panel mdl-shadow--2dp">
 								<div class="full-width panel-tittle bg-primary text-center tittles">
-									cuenta cobro
+								Cuenta Cobro
 								</div>
 								<div class="full-width panel-content">
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-											<legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+											<legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="numero_cuenta" id="numero_cuenta" required>
-												<label class="mdl-textfield__label" for="numero_cuenta">numero cuenta</label>
-												<span class="mdl-textfield__error">numero cuenta invalido</span>
+												<label class="mdl-textfield__label" for="Numero Cuenta">Numero Cuenta</label>
+												<span class="mdl-textfield__error">Numero Cuenta Invalido</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="nit" id="nit" required>
-												<label class="mdl-textfield__label" for="nit">NIT</label>
-												<span class="mdl-textfield__error">Nit invalido</span>
+												<label class="mdl-textfield__label" for="Nit">NIT</label>
+												<span class="mdl-textfield__error">Nit Invalido</span>
 											</div>
 										</div>
 										<div>
@@ -85,18 +85,24 @@
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="monto_por_cancelar" name="monto_por_cancelar" required>
-												<label class="mdl-textfield__label" for="monto_por_cancelar"></label>
+												<label class="mdl-textfield__label" for="Monto Por Cancelar"></label>
 												<span class="mdl-textfield__error">Monto por Cancelar</span>
 											</div>
 										</div>
+
+
 									</div>
 								
-										</div>
+							</div>
+								<!-- <div onmouseout="Levanto();">	 -->
 									<center>
 										<div id="detalle_cuenta_cobro">
-										aqui ira el detalle
+										Detalle
 										</div>
 									</center>
+								<!-- </div> -->
+								
+							
 							</div>
 						</div>
 					</div>
@@ -115,8 +121,10 @@
 
 
 </body>
-<!-- <script src="./zamasoft(1)/js/cuenta_cobro.js"></script> -->
-<!-- <script src="js/jquery-3.2.1.min.js"></script>	 -->
+
+<script>
+								
+</script>
 </html>
 
 

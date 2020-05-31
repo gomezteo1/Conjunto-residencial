@@ -31,7 +31,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 										
@@ -54,8 +54,8 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_cancelado" name="monto_cancelado" required>
-												<label class="mdl-textfield__label" for="monto_cancelado"># monto_cancelado</label>
-												<span class="mdl-textfield__error">Numero de monto_cancelado equivocado</span>
+												<label class="mdl-textfield__label" for="Monto Cancelado"> Monto</label>
+												<span class="mdl-textfield__error">Numero de Monto Cancelado Invalido</span>
 											</div>
 										</div>
 										
@@ -63,8 +63,8 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar" required>
-												<label class="mdl-textfield__label" for="monto_cancelado"># monto a pagar </label>
-												<span class="mdl-textfield__error">Numero de monto a pagar equivocado</span>
+												<label class="mdl-textfield__label" for="Monto a Pagar">Monto a Pagar </label>
+												<span class="mdl-textfield__error">Numero de Monto a Pagar Invalido</span>
 											</div>
 										</div>
 									
@@ -73,12 +73,15 @@
 
 										
 									</div>
+									<div onmouseover="items_pagos()">
 									<p class="text-center">
 										<button id="button-Rpago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 												<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addPago">Agregar pago</div>
+										
+										<div class="mdl-tooltip" for="btn-addPago">Agregar Pago</div>
 									</p>
+									<div>
 								
 								
 							</div>
@@ -96,7 +99,34 @@
 
 </html>
 
+<script type="text/javascript">
+	
+var Lista = [];
 
+function items_pagos($codigo_cuenta_cobro){
+
+
+	if($pago=="1"){
+
+		button-Rpago
+
+		var datos = {"codigo_cuenta_cobro":$codigo_cuenta_cobro};
+		 if(!Lista.includes(datos)){
+            //Si no está un, entonces lo insertamos
+            	Lista.push( datos );
+        	}
+        else{
+            //De lo contrario
+            console.log("Ese ya está");
+        }
+	}
+
+
+}
+
+
+
+</script>
 
 <!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
@@ -108,7 +138,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes Ingresar la Fecha!',
 					})
 					return false;
 			}
@@ -116,7 +146,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto cancelado!',
+					text: 'Debes Ingresar el Monto Cancelado!',
 					})
 					return false;
 			}
@@ -124,14 +154,14 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto a pagar!',
+					text: 'Debes Ingresar el Monto a Pagar!',
 					})
 					return false;
 			}
 			else
 				swal({
 					title: "Hecho!",
-					text: "Se ha registrado correctamente",
+					text: "Se ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

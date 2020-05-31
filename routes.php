@@ -25,10 +25,10 @@
 				require_once('Modelos/Pago.php');
 				$controller=new Pago_Controlador();
 				break;
-				case 'landing':
-					require_once('Modelos/Usuario.php');
-					$controller=new Landing_Controlador();
-					break;	
+			case 'landing':
+				require_once('Modelos/Usuario.php');
+				$controller=new Landing_Controlador();
+				break;	
 			case 'inmueble':
 				require_once('Modelos/Inmueble.php');
 				$controller=new Inmueble_Controlador();

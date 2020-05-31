@@ -29,7 +29,7 @@
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
-								<td><b>#Mes</b></td>
+								<td><b>Serial Mes</b></td>
 								<td><b>Mes</b></td>
 								<td><b>Tarifa</b></td>
 								<td><b>Porcentaje</b></td>
@@ -52,7 +52,7 @@
 						<?php } ?>
 						<tfoot>
 							<tr>
-								<td><b>#Mes</b></td>
+								<td><b>Serial Mes</b></td>
 								<td><b>Mes</b></td>
 								<td><b>Tarifa</b></td>
 								<td><b>Porcentaje</b></td>

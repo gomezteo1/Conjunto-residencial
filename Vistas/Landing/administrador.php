@@ -46,7 +46,7 @@
 													<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>Cuenta de cobro
+														<i class="zmdi zmdi-balance"></i>Cuenta De Cobro
 													</div>
 												</a>
 											</li>
@@ -55,7 +55,7 @@
 													<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>Tipo de pago
+														<i class="zmdi zmdi-balance"></i>Tipo De Pago
 													</div>
 												</a>
 											</li>
@@ -125,7 +125,7 @@
 												<div class="navLateral-body-cl">
 												</div>
 												<div class="navLateral-body-cr">
-													<i class="zmdi zmdi-balance"></i>Tipos de documento
+													<i class="zmdi zmdi-balance"></i>Tipos De Documento
 												</div>
 											</a>
 										</li>
@@ -149,7 +149,7 @@
 													<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>Usuario e Inmueble
+														<i class="zmdi zmdi-balance"></i>Usuario E Inmueble
 													</div>
 												</a>
 											</li>

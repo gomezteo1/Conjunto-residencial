@@ -1,7 +1,7 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 	<thead>
 		<tr>
-			<td><b>#Inmueble</b></td>
+			<td><b>Serial Inmueble</b></td>
 			<td><b>Numero de matricula</b></td>
 			<td><b>Tipo</b></td>
 			<td><b>Torre</b></td>
@@ -48,7 +48,7 @@
 	<?php }	?>
 	<tfoot>
 		<tr>
-			<td><b>#Inmueble</b></td>
+			<td><b>Serial Inmueble</b></td>
 			<td><b>Numero de matricula</b></td>
 			<td><b>Tipo</b></td>
 			<td><b>Torre</b></td>

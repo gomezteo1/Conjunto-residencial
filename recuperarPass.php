@@ -26,7 +26,7 @@ try {
     $mail->Port       = 587;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom($usuario['correo_recuperacion'], 'Conjunto Residencial Juan del Corral
+    $mail->setFrom($usuario['correo_recuperacion'], 'Conjunto Residencial Juan Del Corral
     -Zamasoft');
     $mail->addAddress($usuario['correo_recuperacion']);     // Add a recipient
     //$mail->addAddress('ellen@example.com');               // Name is optional
@@ -40,7 +40,7 @@ try {
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Recuperacion de clave';
+    $mail->Subject = 'Recuperación De Clave';
     $mail->Body    = 
       '<body>
         <div class="row"> 
@@ -58,7 +58,7 @@ try {
                 <h3 style="color:#; font-size:20px"><strong>&nbsp;&nbsp; Contraseña restablecida </strong></h3>
                 <br><br>
                 <p></p>Ahora puede usar su nueva contraseña para iniciar sesión de nuevo
-                en el  sistema.</p>
+                en el sistema.</p>
 
                 <p>Estimado:  '.''.$usuario['nombres'].''.$usuario['apellidos'].''.'<br> su contraseña es <strong>: '.''.$usuario['clave'].''.'</strong></p>
 

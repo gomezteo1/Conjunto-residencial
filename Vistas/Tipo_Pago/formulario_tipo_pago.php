@@ -25,27 +25,27 @@
 					<div class="mdl-cell mdl-cell--12-col">
 						<div class="full-width panel mdl-shadow--2dp">
 							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Tipo Pago
+								Tipo De Pago
 							</div>
 							<div class="full-width panel-content">
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="tipo_pago" name="tipo_pago" required>
-												<label class="mdl-textfield__label" for="tipo_pago">Tipo pago</label>
-												<span class="mdl-textfield__error">Tipo pago invalido</span>
+												<label class="mdl-textfield__label" for="Tipo De Pago">Tipo De Pago</label>
+												<span class="mdl-textfield__error">Tipo De Pago Invalido</span>
 											</div>
 										</div>
 										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="descripcion" name="descripcion" required>
-												<label class="mdl-textfield__label" for="descripcion">Descripcion</label>
-												<span class="mdl-textfield__error">Descripcion invalido</span>
+												<label class="mdl-textfield__label" for="Descripción">Descripción</label>
+												<span class="mdl-textfield__error">Descripción Invalida</span>
 											</div>
 										</div>
 
@@ -53,10 +53,10 @@
 
 									</div>
 									<p class="text-center">
-										<button id="button-RTipo_pago" type="submit" class="btn-primary" value="res-registrar-tipo_pago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
+										<button id="button-RTipo_pago button-Mcc" value="res-registrar-tipo_pago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-tipo-pago">Agregar tipo de pago</div>
+										<div class="mdl-tooltip" for="btn-tipo-pago">Agregar Tipo De Pago</div>
 									</p>
 								
 							</div>
@@ -85,7 +85,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el tipo de pago!',
+					text: 'Debes Ingresar El Tipo De Pago!',
 					})
 					return false;
 			}
@@ -93,7 +93,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la descripcion!',
+					text: 'Debes Ingresar La Descripción!',
 					})
 					return false;
 			}

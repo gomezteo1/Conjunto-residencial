@@ -2,8 +2,8 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 		<thead>
 			<tr>
-				<td><b># Abono</b></td>
-				<td><b>Monto a pagar</b></td>
+				<td><b>Serial Abono</b></td>
+				<td><b>Pago</b></td>
 				<td><b>Nombre</b></td>
 				<td><b>Fecha</b></td>
 				<td><b>Deuda</b></td>
@@ -30,8 +30,8 @@
 		<?php } ?>
 		<tfoot>
 			<tr>
-				<td><b># Abono</b></td>
-				<td><b>Monto a pagar</b></td>
+				<td><b>Serial Abono</b></td>
+				<td><b>Pago</b></td>
 				<td><b>Nombre</b></td>
 				<td><b>Fecha</b></td>
 				<td><b>Deuda</b></td>

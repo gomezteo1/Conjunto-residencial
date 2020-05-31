@@ -28,7 +28,7 @@
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
-								<td><b>#Usuario</b></td>
+								<td><b>Serial Usuario</b></td>
 								<td><b>Nombre</b></td>
 								<td><b>Apellido</b></td>			
 								<td><b>Tipo Documento</b></td>
@@ -76,7 +76,7 @@
 						<?php }	?>
 						<tfoot>
 							<tr>
-								<td><b>#Usuario</b></td>
+								<td><b>Serial Usuario</b></td>
 								<td><b>Nombre</b></td>
 								<td><b>Apellido</b></td>			
 								<td><b>Tipo Documento</b></td>

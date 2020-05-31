@@ -1,7 +1,7 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 	<thead>
 		<tr>
-			<td><b>#Usuario</b></td>
+			<td><b>Serial Usuario</b></td>
 			<td><b>Nombre</b></td>
 			<td><b>Apellido</b></td>			
 			<td><b>Tipo Documento</b></td>
@@ -11,7 +11,6 @@
 			<td><b>Fecha Nacimiento</b></td>
 			<td><b>Estado</b></td>			
 			<td><b>Correo</b></td>
-			<!--<td>Email recuperacion</th>-->
 			<td><b>Cambiar Clave</b></td>			
 			<td colspan="1" align="center"><b>Acciones</b></td>
 		</tr>		
@@ -70,7 +69,7 @@
 	<?php }	?>
 	<tfoot>
 		<tr>
-			<td><b>#Usuario</b></td>
+			<td><b>Serial Usuario</b></td>
 			<td><b>Nombre</b></td>
 			<td><b>Apellido</b></td>			
 			<td><b>Tipo Documento</b></td>

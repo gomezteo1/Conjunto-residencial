@@ -30,13 +30,13 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="documento" name="documento" required>
-												<label class="mdl-textfield__label" for="documento">documento</label>
-												<span class="mdl-textfield__error">Documento invalido</span>
+												<label class="mdl-textfield__label" for="Documento">Documento</label>
+												<span class="mdl-textfield__error">Documento Invalido</span>
 											</div>
 										</div>
 										
@@ -78,14 +78,14 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el documento!',
+					text: 'Debes Ingresar El Documento!',
 					})
 					return false;
 			}
 			else
 				swal({
 					title: "Hecho!",
-					text: "Se ha registrado correctamente",
+					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

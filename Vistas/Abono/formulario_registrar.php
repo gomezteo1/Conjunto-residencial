@@ -30,7 +30,7 @@
 						<input type='hidden' name='action' value='registrar_abono'>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--12-col">
-			                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Registrar Abono</legend><br>
+			                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 			                        </div>
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -38,16 +38,16 @@
 															$llenar_select_pago="si";
 																require("Controladores/Pago_Controlador.php");
 															?>
-											<label class="mdl-textfield__label" for="DNICompany"></label>
-											<span class="mdl-textfield__error">Invalid number</span>
+											<label class="mdl-textfield__label" for="Serial Pago"></label>
+											<span class="mdl-textfield__error">Serial Pago</span>
 										</div>
 									</div>
 
 									<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 															<?php
-															$llenar_select_usuario="si";
-																require("Controladores/Usuario_Controlador.php");
+															// $llenar_select_usuario="si";
+															// 	require("Controladores/Usuario_Controlador.php");
 															?>
 											<label class="mdl-textfield__label" for="NameCompany"></label>
 											<span class="mdl-textfield__error">Invalid name</span>
@@ -64,7 +64,7 @@
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="deuda" name="deuda" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
-											<label class="mdl-textfield__label" for="deuda"></label>
+											<label class="mdl-textfield__label" for="Deuda"></label>
 											<span class="mdl-textfield__error">Deuda Invalida</span>
 										</div>
 									</div>
@@ -83,8 +83,8 @@
 									
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abonoAnt" name="abonoAnt" readonly
-											<label class="mdl-textfield__label" for="abonoAnt"> Abonos Anteriores</label>
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abonoAnt" name="abonoAnt" readonly>
+											<label class="mdl-textfield__label" for="Abono Anteriores"> Abonos Anteriores</label>
 											
 										</div>
 									</div>
@@ -93,8 +93,8 @@
 
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="saldo" name="saldo" readonly
-											<label class="mdl-textfield__label" for="abono">Saldo</label>
+											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="saldo" name="saldo" readonly>
+											<label class="mdl-textfield__label" for="Saldo">Saldo</label>
 											<span class="mdl-textfield__error">Saldo Invalido</span>
 										</div>
 									</div>
@@ -119,19 +119,6 @@
 
 		<a href="#" class="scrollup"><i class="fa fa-arrow-circle-up"></i></a>
 </body>		
-		<!-- jQuery Library -->
-		<!-- <script src="js/jquery-3.2.1.min.js"></script>	 -->
-		<!-- Popper js -->
-		<!-- <script src="js/popper.min.js"></script> -->
-		<!-- Bootstrap Js -->
-		<!-- <script src="js/bootstrap.min.js"></script> -->
-		<!-- Form Validator -->
-		<!-- <script src="js/validator.min.js"></script> -->
-		<!-- Contact Form Js -->
-		<!-- <script src="js/contact-form.js"></script> -->
-	
-		<!-- <script src="js/abono.js"></script> -->
-
 </html>
 
 
@@ -146,7 +133,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes seleccionar el usuario!',
+					text: 'Debes Seleccionar El Usuario!',
 					})
 					return false;
 			}
@@ -154,7 +141,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes seleccionar un pago!',
+					text: 'Debes Seleccionar Un Pago!',
 					})
 					return false;
 			}
@@ -162,7 +149,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes Ingresar La Fecha!',
 					})
 					return false;
 			}
@@ -170,7 +157,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la deuda!',
+					text: 'Debes Ingresar La Deuda!',
 					})
 					return false;
 			}
@@ -178,20 +165,20 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar un valor a abonar!',
+					text: 'Debes Ingresar Un Valor A Abonar!',
 					})
 					return false;
 			}if($('#saldo').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el saldo!',
+					text: 'Debes Ingresar El Saldo!',
 					})
 					return false;
 			}else
 				swal({
 					title: "Hecho!",
-					text: "Se ha registrado correctamente",
+					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

@@ -1,9 +1,4 @@
 <?php
-	/**
-	* Conexión a la base de datos
-	* Autor: Elivar Largo
-	* Sitio Web: wwww.ecodeup.com
-	*/
 	class Db
 	{
 		private static $instance=NULL;
@@ -20,5 +15,5 @@
 			return self::$instance;
 			
 		}
-	} // es proyecto_z tiene la nueva bd 
+	} 
 ?>

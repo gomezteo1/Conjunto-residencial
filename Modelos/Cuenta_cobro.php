@@ -11,8 +11,8 @@ class Cuenta_cobro
     public $monto_por_cancelar;
     public $porMora;
     public $estado;
-    
-    //construtor de la clase 
+
+    //construtor de la clase
     function __construct($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario_inmueble,
     $codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado)
     {
@@ -26,9 +26,9 @@ class Cuenta_cobro
         $this->monto_por_cancelar=$monto_por_cancelar;
         $this->estado=$estado;
     }
- 
+
  //------------------------------------------------------------------------------
-    //funtion para obtener todos los produuctos 
+    //funtion para obtener todos los produuctos
     public static function Obtener_cuenta_cobro($id){
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT * FROM cuenta_cobro where codigo_cuenta_cobro='$id'");
@@ -38,61 +38,72 @@ class Cuenta_cobro
             $lista_cuenta_cobros= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'],
             $cuenta_cobro['numero_cuenta'],$cuenta_cobro['nit'],$cuenta_cobro['id_usuario_inmueble'],$cuenta_cobro['codigo_month'],$cuenta_cobro['fecha'],
            $cuenta_cobro['monto_por_cancelar'],$cuenta_cobro['porMora'],$cuenta_cobro['estado']);
-        
+
         return $lista_cuenta_cobros;
     }
 
     public function Obtener_monto_cancelado($idCuenta){
         $db=Db::getConnect();
-        $sql=$db->query("SELECT SUM(abono) as totabono  FROM abonos_pago WHERE id_cuentaCobro='$idCuenta'"); 
+        $sql=$db->query("SELECT SUM(abono) as totabono  FROM abonos_pago WHERE id_cuentaCobro='$idCuenta'");
         $cuenta_cobro=$sql->fetch();
-        $totalAbono=$cuenta_cobro['totabono'];           
-        return $totalAbono;        
+        $totalAbono=$cuenta_cobro['totabono'];
+        return $totalAbono;
      }
- //------------------------------------------------------------------------------    
-   
- 
+ //------------------------------------------------------------------------------
+
+
 
     // public static function listar_todos(){
     //     $lista_cuenta_cobros=[];
     //     $db=Db::getConnect();
     //     $sql=$db->query('SELECT * FROM cuenta_cobro');
 
-    //     //carga en la lista _factuura cada registro 
+    //     //carga en la lista _factuura cada registro
     //     foreach ($sql->fetchAll() as $cuenta_cobro) {
     //         $lista_cuenta_cobros[]= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'],$cuenta_cobro['numero_cuenta'],$cuenta_cobro['nit'],$cuenta_cobro['id_usuario'],$cuenta_cobro['codigo_inmueble'],$cuenta_cobro['codigo_month'],$cuenta_cobro['fecha'],$cuenta_cobro['monto_por_cancelar'],$cuenta_cobro['porMora'],$cuenta_cobro['estado']);
     //     }
     //     return $lista_cuenta_cobros;
     // }
-    
+
     /*Luego trabajamos con la de abajo*/
- 
+
         // Codigo maestro para las fechas
         // SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
         // and ((datediff(fecha,now())*-1) >=0)
-       
+
         //  Codigo maestro para las fechas
         // SELECT (datediff(fecha,now())*-1), fecha FROM `cuenta_cobro` where  ((datediff(fecha,now())*-1) <= 30)
         // and ((datediff(fecha,now())*-1) >=0)
 
 
     // Listar todos con inner join
-    public static function listar_todos(){ 
+    public static function listar_todos(){
         $lista_cuenta_cobros=[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month, 
+        $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
         c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, concat('%','',c.porMora) as mora, c.estado,
         concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
-        concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'($',m.tarifa,')') as mes
-        FROM usuario u 
+        concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'($',m.tarifa,')') as mes,
+
+        concat(concat(concat(concat(concat(concat(
+        concat('El Valor Es $', c.monto_por_cancelar),
+        concat(', La Mora Es Del %', c.porMora)),
+        concat(',Sus Datos Son: ', u.nombres)),
+        concat(' ', u.apellidos)),
+        concat(', Apt', i.numero)),
+        concat('', i.torre)),
+        concat(',Generada ', c.fecha))
+        as pagos 
+
+        FROM usuario u
         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
         left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
-        left join month m on c.codigo_month = m.codigo_month 
+        left join month m on c.codigo_month = m.codigo_month
         /*Validacion con la profe magn */
         where ((datediff(c.fecha,now())*-1) <= 30)
-         and ((datediff(c.fecha,now())*-1) >=0)
-      
+        and ((datediff(c.fecha,now())*-1) >=0)
+        order by c.fecha asc
         ");
         foreach ($sql->fetchAll() as $cuenta_cobro){
             $itemcuenta_cobross = new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'],$cuenta_cobro['codigo_month'],  $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'],$cuenta_cobro['mora'], $cuenta_cobro['estado']);
@@ -100,52 +111,55 @@ class Cuenta_cobro
             $itemcuenta_cobross->nombreInmueble=$cuenta_cobro['inmueble'];
             $itemcuenta_cobross->nombreMes=$cuenta_cobro['mes'];
             $itemcuenta_cobross->nombreDocumento=$cuenta_cobro['documento'];
+            $itemcuenta_cobross->nombrePagos=$cuenta_cobro['pagos'];
+
             
+
             $lista_cuenta_cobros[]= $itemcuenta_cobross;
         }
         return $lista_cuenta_cobros;
-    }    
+    }
 
 
 
-    public static function listar_cuenta_cobro_usuario($id_usuario_inmueble){ 
+    public static function listar_cuenta_cobro_usuario($id_usuario_inmueble){
         $lista_cuenta_cobros=[];
         $db=Db::getConnect();
-
-        $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month, 
+        $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
         c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, concat('%','',c.porMora) as mora, c.estado,
         concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
         concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'($', m.tarifa,')') as mes
-
-        
-        FROM usuario u 
+        FROM usuario u
         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+        left join usuario_inmueble ui on ui.id_usuario = u.nombre
         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
         left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
-        left join month m on c.codigo_month = m.codigo_month 
+        left join month m on c.codigo_month = m.codigo_month
         /*Validacion con la profe magn */
         where c.id_usuario_inmueble='$id_usuario_inmueble' order by c.fecha");
- 
+
         foreach ($sql->fetchAll() as $cuenta_cobro){
-            $itemcuenta_cobro= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'], $cuenta_cobro['codigo_month'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'], $cuenta_cobro['mora'], $cuenta_cobro['estado']);
+            $itemcuenta_cobro= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'], $cuenta_cobro['codigo_month'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'], $cuenta_cobro['mora'], $cuenta_cobro['estado'],$cuenta_cobro['nombre']);
             $itemcuenta_cobro->nombreUsuario=$cuenta_cobro['nombre'];
             $itemcuenta_cobro->nombreInmueble=$cuenta_cobro['inmueble'];
             $itemcuenta_cobro->nombreMes=$cuenta_cobro['mes'];
             $itemcuenta_cobro->nombreDocumento=$cuenta_cobro['documento'];
-            
+
             $lista_cuenta_cobros[]= $itemcuenta_cobro;
         }
         return $lista_cuenta_cobros;
-    }    
+    }
 
- //la funcion de registrar 
+
+
+ //la funcion de registrar
  public static function registrar_cuenta_cobro($cuenta_cobro){
     //print_r($cuenta_cobro);
     $db=Db::getConnect();
-    $insert=$db->prepare('INSERT INTO cuenta_cobro VALUES( 
-        :codigo_cuenta_cobro, :numero_cuenta, :nit, :id_usuario_inmueble, 
+    $insert=$db->prepare('INSERT INTO cuenta_cobro VALUES(
+        :codigo_cuenta_cobro, :numero_cuenta, :nit, :id_usuario_inmueble,
         :codigo_month, :fecha, :monto_por_cancelar, :porMora, :estado)');
-            
+
         $insert->bindValue('codigo_cuenta_cobro',$cuenta_cobro->codigo_cuenta_cobro);
         $insert->bindValue('numero_cuenta',$cuenta_cobro->numero_cuenta);
         $insert->bindValue('nit',$cuenta_cobro->nit);
@@ -159,37 +173,14 @@ class Cuenta_cobro
             echo "Registro exitoso.";
         }else{
             echo "Problemas en el registro.";
-         } 
+         }
         }
 
 
-
-//           public static function registrar_cuenta_cobro($cuenta_cobro){
-//             $db=Db::getConnect();
-//             $insert=$db->prepare('INSERT INTO cuenta_cobro( 
-//             codigo_cuenta_cobro, numero_cuenta, nit, id_usuario, codigo_inmueble, codigo_month, fecha,
-//             monto_por_cancelar, porMora, estado)     
-//             VALUES(:codigo_abono, :codigo_pago,  :fecha, :deuda, :abono, :saldo)');
-//             $insert->bindValue('codigo_abono',$abono->codigo_abono);
-//             // $insert->bindValue('id_cuentaCobro',$abono->id_cuentaCobro);//Puede ser codigo_pago
-//             $insert->bindValue('codigo_pago',$abono->codigo_pago);
-//             //$insert->bindValue('id_usuario',$abono->id_usuario);
-//             $insert->bindValue('fecha',date("y-m-d"));
-//             $insert->bindValue('deuda',$abono->deuda);
-//             $insert->bindValue('abono',$abono->abono);
-//             $insert->bindValue('saldo',$abono->saldo);
-//     // echo "INSERT INTO cuenta_cobro(codigo_cuenta_cobro,numero_cuenta,nit,id_usuario,codigo_inmueble,codigo_month,fecha,porMora,monto_por_cancelar,estado)VALUES('',$cuenta_cobro->numero_cuenta,$cuenta_cobro->nit, $cuenta_cobro->id_usuario, $cuenta_cobro->codigo_inmueble, $cuenta_cobro->codigo_month, '$cuenta_cobro->fecha'
-//     // ,$cuenta_cobro->monto_por_cancelar,'','')";
-//     $insert->execute();
-// }
-
-    //la función para actualizar 
-
-    //la función para actualizar 
     public static function modificar_cuenta_cobro($codigo_cuenta_cobro,$numero_cuenta,$nit,$id_usuario_inmueble,
     $codigo_month,$fecha,$monto_por_cancelar,$porMora,$estado){
         $db=Db::getConnect();
-        $update=$db->prepare("UPDATE cuenta_cobro SET 
+        $update=$db->prepare("UPDATE cuenta_cobro SET
         numero_cuenta='$numero_cuenta',
         nit='$nit',
         id_usuario_inmueble='$id_usuario_inmueble',
@@ -201,22 +192,22 @@ class Cuenta_cobro
         WHERE codigo_cuenta_cobro='$codigo_cuenta_cobro'");
         $update->execute();
     }
-    
-    
-    //la función para eliminar 
+
+
+    //la función para eliminar
     public static function eliminar_cuenta_cobro($codigo_cuenta_cobro){
         $db=Db::getConnect();
-        $update=$db->prepare("DELETE FROM cuenta_cobro 
+        $update=$db->prepare("DELETE FROM cuenta_cobro
         WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
         $update->execute();
     }
-    
+
 
     public static function Obtener_ultima_cuenta_cobro(){
         //buscar
         $db=Db::getConnect();
         $select=$db->prepare("SELECT DISTINCT codigo_cuenta_cobro,codigo_month
-        FROM cuenta_cobro 
+        FROM cuenta_cobro
         order by codigo_cuenta_cobro  desc
         LIMIT 1;");
         $select->execute();
@@ -227,49 +218,49 @@ class Cuenta_cobro
       // esta es de la notificacion
       public static function notificar_cuenta_cobro_propietario($id_usuario_inmueble){
         $db=Db::getConnect();
-        $select=$db->prepare("SELECT DISTINCT * FROM cuenta_cobro 
+        $select=$db->prepare("SELECT DISTINCT * FROM cuenta_cobro
         where id_usuario_inmueble = '$id_usuario_inmueble'");
         $select->execute();
         $codigo_cuenta_cobroDb=$select->fetchAll();
-        return $codigo_cuenta_cobroDb; 
+        return $codigo_cuenta_cobroDb;
     }
-    
-    public static function desactivarEstadoLista($codigo_cuenta_cobro){ 
+
+    public static function desactivarEstadoLista($codigo_cuenta_cobro){
         require_once('../conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE cuenta_cobro SET estado='0' WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
-        $update->execute();                
+        $update->execute();
     }
 
-    public static function activarEstadoLista($codigo_cuenta_cobro){ 
+    public static function activarEstadoLista($codigo_cuenta_cobro){
         require_once('conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE cuenta_cobro SET estado='1' WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
-        $update->execute();                
+        $update->execute();
     }
 
-    public static function desactivar_estado_cuenta_cobro($codigo_cuenta_cobro){ 
+    public static function desactivar_estado_cuenta_cobro($codigo_cuenta_cobro){
         require_once('../conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE cuenta_cobro SET estado='0' WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
-        $update->execute();                
+        $update->execute();
     }
 
-    public static function activar_estado_cuenta_cobro($codigo_cuenta_cobro){ 
+    public static function activar_estado_cuenta_cobro($codigo_cuenta_cobro){
         require_once('../conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE cuenta_cobro SET estado='1' WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
-        $update->execute();                
+        $update->execute();
     }
 
     // public static function buscar_cuenta_cobro($dato){
     //     $lista_cuenta_cobros =[];
     //     $db=Db::getConnect();
     //     $sql=$db->query("SELECT DISTINCT * FROM cuenta_cobro
-    //     WHERE numero_cuenta like '%$dato%' 
+    //     WHERE numero_cuenta like '%$dato%'
     //     OR nit like '%$dato%'
     //     ");
-    //       //carga en la lista _factuura cada registro 
+    //       //carga en la lista _factuura cada registro
     //   foreach ($sql->fetchAll() as $cuenta_cobro) {
     //     $lista_cuenta_cobros[]= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'],$cuenta_cobro['numero_cuenta'],$cuenta_cobro['nit'],$cuenta_cobro['id_usuario'],$cuenta_cobro['codigo_inmueble'],$cuenta_cobro['codigo_month'],$cuenta_cobro['fecha'],$cuenta_cobro['monto_por_cancelar'],$cuenta_cobro['porMora'],$cuenta_cobro['estado']);
     // }
@@ -277,47 +268,47 @@ class Cuenta_cobro
     // }
 
     public static function buscar_cuenta_cobro($dato){
-    $datos = trim($dato);   
+    $datos = trim($dato);
     $lista_cuenta_cobros =[];
     $db=Db::getConnect();
-    $sql=$db->query("SELECT Distinct c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month, 
+    $sql=$db->query("SELECT Distinct c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
         c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, concat('%','',c.porMora) as mora, c.estado,
-        i.torre, i.numero, i.numero_matricula, 
-        u.nombres, u.apellidos, 
-        concat(u.nombres,'',u.apellidos) as nombre, concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'( $',m.tarifa,')') as mes  
-        
-       FROM usuario u 
+        i.torre, i.numero, i.numero_matricula,
+        u.nombres, u.apellidos,
+        concat(u.nombres,'',u.apellidos) as nombre, concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'( $',m.tarifa,')') as mes
+
+       FROM usuario u
         left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
         left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
         left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
-        left join month m on c.codigo_month = m.codigo_month 
-        
-        WHERE c.numero_cuenta like '%$datos%' OR c.nit like '%$datos%' 
-        OR c.monto_por_cancelar like '%$datos%' OR c.porMora like '%$datos%' 
-        OR c.fecha like '%$datos%' OR c.nit like '%$datos%' 
-        OR u.nombres like '%$datos%' OR u.apellidos like '%$datos%' 
-        OR i.torre like '%$datos%' OR i.numero like '%$datos%' 
+        left join month m on c.codigo_month = m.codigo_month
+
+        WHERE c.numero_cuenta like '%$datos%' OR c.nit like '%$datos%'
+        OR c.monto_por_cancelar like '%$datos%' OR c.porMora like '%$datos%'
+        OR c.fecha like '%$datos%' OR c.nit like '%$datos%'
+        OR u.nombres like '%$datos%' OR u.apellidos like '%$datos%'
+        OR i.torre like '%$datos%' OR i.numero like '%$datos%'
         OR i.numero_matricula like '%$dato%' OR m.mes like '%$datos%'
-        OR m.tarifa like '%$datos%' OR c.estado like '%$datos%' 
+        OR m.tarifa like '%$datos%' OR c.estado like '%$datos%'
         ");
- 
+
         foreach ($sql->fetchAll() as $cuenta_cobro){
             $itemcuenta_cobro= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'], $cuenta_cobro['codigo_month'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'], $cuenta_cobro['mora'], $cuenta_cobro['estado']);
             $itemcuenta_cobro->nombreUsuario=$cuenta_cobro['nombre'];
             $itemcuenta_cobro->nombreInmueble=$cuenta_cobro['inmueble'];
             $itemcuenta_cobro->nombreMes=$cuenta_cobro['mes'];
-           
+
             $lista_cuenta_cobros[]= $itemcuenta_cobro;
         }
         return $lista_cuenta_cobros;
-    }    
-   
-    
+    }
+
+
     //---------------------------------------------------------------------
     //recien agregadas
     public function modificar_cuenta_cobroMora($codigo_cuenta_cobro,$mora){
         $db=Db::getConnect();
-        $update=$db->prepare("UPDATE cuenta_cobro SET 
+        $update=$db->prepare("UPDATE cuenta_cobro SET
         porMora='$mora'
         WHERE codigo_cuenta_cobro='$codigo_cuenta_cobro'");
         $update->execute();
@@ -332,7 +323,7 @@ class Cuenta_cobro
               Cuenta_cobro::modificar_cuenta_cobroMora($cuenta_cobro->codigo_cuenta_cobro,1.5);
           }
         }
-      
+
   }
 //Recien agregadas------------------------------------------------------------
 
@@ -340,7 +331,3 @@ class Cuenta_cobro
 }
 
 ?>
-
-
-
-

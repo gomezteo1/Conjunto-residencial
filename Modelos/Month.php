@@ -22,11 +22,16 @@ class Month
 	public static function listar_todos(){
 		$lista_months  =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT DISTINCT *, concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes FROM month");
+		$sql=$db->query("SELECT DISTINCT *, concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes, 
+		concat(concat(concat('La Tarifa de este mes  ', mes),'  es  '),tarifa) as xx 
+		
+		FROM month");
 
 		// carga en la $lista_productos cada registro desde la base de datos
 		foreach ($sql->fetchAll() as $month) {
-			$lista_months []= new Month($month['codigo_month'],$month['mes'],$month['tarifas'],$month['porcentajes'],$month['fecha']);
+			$tumesesitoOficial= new Month($month['codigo_month'],$month['mes'],$month['tarifas'],$month['porcentajes'],$month['fecha']);
+			$tumesesitoOficial->elmesesito=$month['xx'];
+			$lista_months[]=$tumesesitoOficial;
 		}
 		return $lista_months;
     }

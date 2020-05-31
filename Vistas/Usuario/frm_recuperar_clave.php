@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Recuperar Password</title>
+		<title>Recuperar Clave</title>
 		
 	</head>
 	
@@ -37,7 +37,7 @@
 							<div style="margin-top:10px" class="form-group">
 								<div class="col-sm-12 controls">
 									<button id="buttonR" class="btn btn-primary" value="resRegistrar">Recuperar
-                                        Contraseña</button>
+                                        Clave</button>
                                     <div id="resRegistrar" style="width:100%; margin:0px; padding:0px;">
                                     </div>
 								</div>
@@ -46,14 +46,14 @@
 							<div class="form-group">
 								<div class="col-md-12 control">
 									<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-										No tiene una cuenta! 
-										<a href="?controller=usuario&action=frm_registrar_usuario">Registrate aquí</a>
+										¿No tiene Una Cuenta? 
+										<a href="?controller=usuario&action=frm_registrar_usuario">¡Registrate Aqui!</a>
 									</div>
 								</div>
 							</div>    
 						</form>
 					</div>
-					<?php //echo resultBlock($errors); ?>
+					
 					</div>                     
 				</div>  
 			</div>
@@ -64,8 +64,6 @@
 </html>
 
 
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -75,7 +73,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el correo alternativo!',
+					text: 'Debes Ingresar El Correo Alternativo!',
 					})
 					return false;
 			}

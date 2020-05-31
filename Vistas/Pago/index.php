@@ -30,9 +30,9 @@ require_once('conexion.php');
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
-								<td><b>#Pago</b></td>
+								<td><b>Serial Pago</b></td>
 								<td><b>Nombre</b></td>
-								<td><b>#Cuenta Cobro</b></td>
+								<td><b>Serial Cuenta Cobro</b></td>
 								<td><b>Fecha</b></td>
 								<td><b>Tipo Pago</b></td>
 								<td><b>Monto Cancelado</b></td>
@@ -59,9 +59,9 @@ require_once('conexion.php');
 						<?php }	?>
 						<tfoot>
 							<tr>
-								<td><b>#Pago</b></td>
+								<td><b>Serial Pago</b></td>
 								<td><b>Nombre</b></td>
-								<td><b>#Cuenta Cobro</b></td>
+								<td><b>Serial Cuenta Cobro</b></td>
 								<td><b>Fecha</b></td>
 								<td><b>Tipo Pago</b></td>
 								<td><b>Monto Cancelado</b></td>

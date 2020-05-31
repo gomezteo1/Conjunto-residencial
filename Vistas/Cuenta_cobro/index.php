@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 
-	<title>Inicio Cuentas de cobro</title>
+	<title>Inicio Cuentas De Cobro</title>
 	<!-- Esto es del toogle-->
 
 </head>
@@ -32,10 +32,10 @@
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
-								<td><b>#</b></td>
-								<td><b>#Cuenta</b></td>
+								<td><b>Serial</b></td>
+								<td><b>Numero Cuenta</b></td>
 								<td><b>Nit</b></td>
-								<td><b>#UsuarioInmueble</b></td>
+								<td><b>Usuario e Inmueble</b></td>
 								<td><b>Usuario</b></td>
 								<td><b>Inmueble</b></td>
 								<td><b>Documento</b></td>
@@ -74,10 +74,10 @@
 							<?php } ?>
 							<tfoot>
 								<tr>
-									<td><b>#</b></td>
-									<td><b>#Cuenta</b></td>
+									<td><b>Serial</b></td>
+									<td><b>Numero Cuenta</b></td>
 									<td><b>Nit</b></td>
-									<td><b>#UsuarioInmueble</b></td>
+									<td><b>Usuario e Inmueble</b></td>
 									<td><b>Usuario</b></td>
 									<td><b>Inmueble</b></td>
 									<td><b>Documento</b></td>

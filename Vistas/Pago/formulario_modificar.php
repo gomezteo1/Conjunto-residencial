@@ -31,7 +31,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 									    <input value="<?php echo $pago->codigo_pago ?>" name="codigo_pago" id="codigo_pago" class="w3-input" type="number" hidden> 
@@ -46,7 +46,7 @@
 
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $pago->fecha ?>">
-											<label class="mdl-textfield__label"  for="fecha_"></label>
+											<label class="mdl-textfield__label"  for="Fecha_"></label>
 											<span class="mdl-textfield__error">Fecha Invalida</span>
 										</div>	
 
@@ -59,8 +59,8 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_cancelado" name="monto_cancelado" value="<?php echo $pago->monto_cancelado ?>">
-												<label class="mdl-textfield__label" for="monto_cancelado"># monto_cancelado</label>
-												<span class="mdl-textfield__error">Numero de monto_cancelado equivocado</span>
+												<label class="mdl-textfield__label" for="Monto Cancelado">Numero Monto Cancelado</label>
+												<span class="mdl-textfield__error">Numero Monto Cancelado Equivocado</span>
 											</div>
 										</div>
 										
@@ -68,8 +68,8 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>">
-												<label class="mdl-textfield__label" for="monto_cancelado"># monto a pagar </label>
-												<span class="mdl-textfield__error">Numero de monto a pagar equivocado</span>
+												<label class="mdl-textfield__label" for="Monto A Pagar">Numero Monto A Pagar </label>
+												<span class="mdl-textfield__error">Numero Monto A Pagar Equivocado</span>
 											</div>
 										</div>
 										
@@ -128,7 +128,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes Ingresar La Fecha!',
 					})
 					return false;
 			}
@@ -136,7 +136,7 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto cancelado!',
+					text: 'Debes Ingresar El Monto Cancelado!',
 					})
 					return false;
 			}
@@ -144,14 +144,14 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto a pagar!',
+					text: 'Debes Ingresar El Montos A Pagar!',
 					})
 					return false;
 			}
 			else
 				swal({
 					title: "Hecho!",
-					text: "Se ha actualizado correctamente",
+					text: "Se Ha Actualizado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

@@ -24,7 +24,7 @@ require_once('conexion.php');
 				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 					<thead>
 						<tr>
-							<td><b>#Usuario</b></td>
+							<td><b>Serial Usuario</b></td>
 							<td><b>Nombre</b></td>
 							<td><b>Apellido</b></td>			
 							<td><b>Tipo Documento</b></td>
@@ -69,7 +69,7 @@ require_once('conexion.php');
 					<?php }	?>
 					<tfoot>
 							<tr>
-								<td><b>#Usuario</b></td>
+								<td><b>Serial Usuario</b></td>
 								<td><b>Nombre</b></td>
 								<td><b>Apellido</b></td>			
 								<td><b>Tipo Documento</b></td>

@@ -26,8 +26,8 @@ require_once('conexion.php');
 			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">		<thead>
 						<tr>
-							<td><b>#</b></td>
-							<td><b>Numero cuenta</b></td>
+							<td><b>Serial</b></td>
+							<td><b>Numero Cuenta</b></td>
 							<td><b>Nit</b></td>
 							<td><b>Usuario</b></td>
 							<td><b>Inmueble</b></td>
@@ -61,8 +61,8 @@ require_once('conexion.php');
 					<?php } ?>
 					<tfoot>
 						<tr>
-							<td><b>#</b></td>
-							<td><b>Numero cuenta</b></td>
+							<td><b>Serial</b></td>
+							<td><b>Numero Cuenta</b></td>
 							<td><b>Nit</b></td>
 							<td><b>Usuario</b></td>
 							<td><b>Inmueble</b></td>
