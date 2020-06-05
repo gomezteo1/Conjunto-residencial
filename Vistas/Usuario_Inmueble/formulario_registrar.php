@@ -14,7 +14,7 @@
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Asignar Inmuebles a Usuarios
+					Asignar Inmuebles A Usuarios
 				</p>
 			</div>
 		</section>
@@ -31,7 +31,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 										<?php

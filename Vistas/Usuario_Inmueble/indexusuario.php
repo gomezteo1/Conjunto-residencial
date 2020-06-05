@@ -24,7 +24,7 @@
 				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 					<thead>
 						<tr>
-							<td><b>#Usuario Inmueble</b></td>
+							<td><b>Serial Usuario Inmueble</b></td>
 							<td><b>Usuario</b></td>
 							<td><b>Inmueble</b>	</td>
 							<!--<td colspan=4>Acciones</td>-->
@@ -45,7 +45,7 @@
 					<?php }	?>
 					<tfoot>
 							<tr>
-								<td><b>#Usuario Inmueble</b></td>
+								<td><b>Serial Usuario Inmueble</b></td>
 								<td><b>Usuario</b></td>
 								<td><b>Inmueble</b></td>
 							

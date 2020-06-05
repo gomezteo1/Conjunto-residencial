@@ -226,7 +226,7 @@ $body=array('');
 
 $body2=array('');
 
-$header=array('#Cuenta','Fecha','Deuda','Abono','Saldo');
+$header=array('Serial Cuenta','Fecha','Deuda','Abono','Saldo');
 
 $pdf->AliasNbPages();
 //Primera página

@@ -14,7 +14,7 @@
 			</div>
 			<div class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Modificar Asignación de Inmueble
+					Modificar Asignación De Inmueble
 				</p>
 			</div>
 		</section>
@@ -25,13 +25,13 @@
 					<div class="mdl-cell mdl-cell--12-col">
 						<div class="full-width panel mdl-shadow--2dp">
 							<div class="full-width panel-tittle bg-primary text-center tittles">
-								Asignarle un inmueble al usuruario
+								Asignarle Un inmueble Al Usuario
 							</div>
 							<div class="full-width panel-content">
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 									    <input value="<?php echo $usuario_inmueble->id_usuario_inmueble ?>" name="id_usuario_inmueble" id="id_usuario_inmueble" class="w3-input" type="number" hidden> 

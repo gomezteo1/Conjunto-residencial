@@ -249,7 +249,7 @@ $body=array('');
 
 $body2=array('');
 
-$header=array('#Cuenta','Nit','Inmueble','Fecha','Monto Pagar','Estado');
+$header=array('Serial Cuenta','Nit','Inmueble','Fecha','Monto Pagar','Estado');
 
 $pdf->AliasNbPages();
 //Primera página

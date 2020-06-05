@@ -11,7 +11,7 @@
 			</div>
 			<div align="left" class="full-width header-well-text">
 				<p class="text-condensedLight">
-				Inmueble y su Usuario
+				Inmueble Y Su Usuario
 				<a class="btn btn-outline-primary" href="?controller=usuario_inmueble&action=formulario_registrar">Registrar</a>
 
 				</p>
@@ -28,7 +28,7 @@
 					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
-								<td><b>#Usuario Inmueble</b></td>
+								<td><b>Serial Usuario Inmueble</b></td>
 								<td><b>Usuario</b></td>
 								<td><b>Inmueble</b></td>
 								<td colspan=2><b>Acciones</b></td>
@@ -48,7 +48,7 @@
 						<?php }	?>
 						<tfoot>
 							<tr>
-								<td><b>#Usuario Inmueble</b></td>
+								<td><b>Serial Usuario Inmueble</b></td>
 								<td><b>Usuario</b></td>
 								<td><b>Inmueble</b></td>
 								<td colspan=2><b>Acciones</b></td>
@@ -57,10 +57,22 @@
 					</table>
 				</div>
 			</div>
-		</div>		
+		</div>	
+		<button data-toggle="modal" 
+				style="
+					position: relative;
+  					left: 450px;
+					 border: 1px solid #E1E1E1;
+					 border-radius: 100%;"
+				data-target="#exampleModaliu ">
+					<img src="image/info.png"  >
+		</button>	
 	</div>
+
+
 </body>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 
 <script>

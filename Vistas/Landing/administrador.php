@@ -231,3 +231,6 @@
 					</div>
 				</div>
 				<br>
+
+<!-------------------Ayudas en linea--------------------------->
+				<?php require_once('modales.php'); ?>

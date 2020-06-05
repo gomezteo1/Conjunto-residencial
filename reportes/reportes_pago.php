@@ -99,7 +99,7 @@ $sql=$db->query("SELECT DISTINCT u.nombres as nombre,p.codigo_pago,p.codigo_cuen
             inner join usuario u on ui.id_usuario = u.id_usuario
             inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
             inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-  where codigo_pago='$codigo_pago'");
+            where codigo_pago='$codigo_pago'");
 $registro=0;
 //carga en la lista cada registro de la base de datos 
 foreach ($sql->fetchAll() as $pago){
@@ -226,7 +226,7 @@ $body=array('');
 
 $body2=array('');
 
-$header=array('#Pago','#Cuenta','Fecha','Tipo Pago','Monto Cancelado','Monto a Pagar');
+$header=array('Serial Pago','Serial Cuenta','Fecha','Tipo Pago','Monto Cancelado','Monto a Pagar');
 
 $pdf->AliasNbPages();
 //Primera página

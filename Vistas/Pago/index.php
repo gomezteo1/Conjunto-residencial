@@ -73,6 +73,15 @@ require_once('conexion.php');
 				</div>
 			</div>
 		</div>		
+		<button data-toggle="modal" 
+				style="
+					position: relative;
+  					left: 450px;
+					 border: 1px solid #E1E1E1;
+					 border-radius: 100%;"
+				data-target="#exampleModalp ">
+					<img src="image/info.png"  >
+		</button>		
 	</div>
 </body>
 <script>

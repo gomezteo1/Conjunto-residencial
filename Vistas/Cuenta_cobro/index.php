@@ -92,8 +92,19 @@
 					</table>
 				</div>	
 			</div>
-		</div>		
+		</div>	
+		<button data-toggle="modal" 
+				style="
+					position: relative;
+  					left: 450px;
+					 border: 1px solid #E1E1E1;
+					 border-radius: 100%;"
+				data-target="#exampleModalcc ">
+					<img src="image/info.png"  >
+		</button>	
+		
 	</div>
+	
 </body>
 <script
 	  src="https://code.jquery.com/jquery-3.4.1.js"

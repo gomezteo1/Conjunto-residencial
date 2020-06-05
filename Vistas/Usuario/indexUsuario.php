@@ -88,6 +88,7 @@ require_once('conexion.php');
 				</table>
 			</div>
 		</div>
+	
 	</div>
 </body>
 
