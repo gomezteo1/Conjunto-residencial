@@ -17,7 +17,7 @@
 		public function registrar_inmueble($inmueble){
 			Inmueble::registrar_inmueble($inmueble);
 			session_start();
-			 $_SESSION['guardar'] = "Agregado con éxito";
+			 $_SESSION['guardar'] = "Agregado Con Éxito";
 			header('Location: ../index.php?controller=inmueble&action=index');
 		}
 		
@@ -32,7 +32,7 @@
 		public function modificar_inmueble($codigo_inmueble,$numero_matricula,$tipo,$torre,$numero,$metros,$estado){
 			Inmueble::modificar_inmueble($codigo_inmueble,$numero_matricula,$tipo,$torre,$numero,$metros,$estado);
 			session_start();
-			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			 header('Location: ../index.php?controller=inmueble&action=index');
 		}
 			

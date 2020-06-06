@@ -26,7 +26,7 @@
       public function registrar_usuario_inmueble($usuario_inmueble){
         Usuario_Inmueble::registrar_usuario_inmueble($usuario_inmueble);
         session_start();
-			  $_SESSION['guardar'] = "Agregado con éxito";
+			  $_SESSION['guardar'] = "Agregado Con Éxito";
         header('Location: ../index.php?controller=usuario_inmueble&action=index');
 
       }
@@ -39,7 +39,7 @@
       public function modificar_usuario_inmueble($id_usuario_inmueble,$id_usuario,$codigo_inmueble){
         Usuario_Inmueble::modificar_usuario_inmueble($id_usuario_inmueble,$id_usuario,$codigo_inmueble);
         session_start();
-			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			 header('Location: ../index.php?controller=usuario_inmueble&action=index');
       }
 

@@ -12,7 +12,7 @@
 							<figcaption>
 								<span>
 									Perfil<br>
-									<small><?php  echo "Bienvenido   ".$_SESSION['acceso']['nombres']."   elija su opción"; ?></small>
+									<small><?php  echo "Bienvenido   ".$_SESSION['acceso']['nombres']."   Seleccioné Una Opción"; ?></small>
 								</span>
 							</figcaption>
 						</figure>
@@ -74,7 +74,7 @@
 													<div class="navLateral-body-cl">
 													</div>
 													<div class="navLateral-body-cr">
-														<i class="zmdi zmdi-balance"></i>Month
+														<i class="zmdi zmdi-balance"></i>Mes y Tarifa
 													</div>
 												</a>
 											</li>

@@ -5,7 +5,7 @@
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcusuario" id="slcusuario">
-			<option selected hidden disabled >Selecione Un Usuario</option>
+			<option selected hidden disabled >Seleccioné Un Usuario</option>
 			<?php
 			foreach ($usuarios as $usuario){?>
 				
@@ -23,7 +23,7 @@
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcusuario" id="slcusuario">
-			<option selected hidden disabled >Selecione Un Usuario</option>
+			<option selected hidden disabled >Seleccioné Un Usuario</option>
 			<?php
 			foreach ($usuarios as $usuario){?>
 				

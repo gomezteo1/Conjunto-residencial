@@ -4,7 +4,7 @@ if($_GET['controller'] == 'cuenta_cobro'){ ?>
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcusuario_inmueble" class="name" id="slcusuario_inmueble">
-			<option selected hidden disabled >Usuario</option>
+			<option selected hidden disabled >Seleccioné Usuario E Inmueble</option>
 			<?php
 			foreach ($usuario_inmuebles as $usuario_inmueble){?>
 
@@ -25,7 +25,7 @@ else{
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcusuario_inmueble" id="slcusuario_inmueble">
-			<option selected hidden disabled >Selecione un usuario e inmueble</option>
+			<option selected hidden disabled >Seleccioné Usuario E Inmueble</option>
 			<?php
 			foreach ($usuario_inmuebles as $usuario_inmueble){?>
 

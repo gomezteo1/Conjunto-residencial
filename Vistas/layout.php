@@ -72,7 +72,7 @@ session_start();
 											<small>Cuenta Cobro Pagada</small>
 										</p>
 									</div>
-						        <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notification</div> 
+						        <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notificación</div> 
 						    </a>
 						    <?php } else{ ?>
 								<a href="#" class="Notification" id="notifation-unread-1">
@@ -105,7 +105,7 @@ session_start();
 							<figcaption>
 								<span>
 									Perfil<br>
-									<small><?php  echo "Bienvenido   ".$_SESSION['acceso']['nombres']."   elija su opción"; ?></small>
+									<small><?php  echo "Bienvenido   ".$_SESSION['acceso']['nombres']."  Seleccioné Una Opción"; ?></small>
 								</span>
 							</figcaption>
 						</figure>

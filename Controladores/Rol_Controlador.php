@@ -16,7 +16,7 @@
 		public function registrar_rol($rol){
 			Rol::registrar_rol($rol);
 			session_start();
-			 $_SESSION['guardar'] = "Agregado con éxito";
+			 $_SESSION['guardar'] = "Agregado Con Éxito";
 			header('Location: ../index.php?controller=rol&action=index');
 		
 			 
@@ -33,7 +33,7 @@
 		public function modificar_rol($id_rol,$rol,$estado){
 			Rol::modificar_rol($id_rol,$rol,$estado);
 			session_start();
-			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			 header('Location: ../index.php?controller=rol&action=index');
 		}
 			

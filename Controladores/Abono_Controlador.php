@@ -30,7 +30,7 @@
 		public function registrar_abono($abono){
 			Abono::registrar_abono($abono);
 			session_start();
-			 $_SESSION['guardar'] = "Agregado con éxito";
+			 $_SESSION['guardar'] = "Agregado Con Éxito";
 			 header('Location: ../index.php?controller=abono&action=index');
 			
 		}
@@ -47,7 +47,7 @@
 		public function modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo){
 			Abono::modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo);
 			session_start();
-			$_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			header('Location: ../index.php?controller=abono&action=index');
 		}
 				

@@ -11,7 +11,7 @@
 				<figcaption>
 					<span>
 						Perfil<br>
-						<small><?php  echo "Bienvenido   ".$_SESSION['acceso']['nombres']."   elija su opción"; ?></small>
+						<small><?php  echo "Bienvenido   ".$_SESSION['acceso']['nombres']."   Seleccioné Una opción"; ?></small>
 					</span>
 				</figcaption>
 			</figure>

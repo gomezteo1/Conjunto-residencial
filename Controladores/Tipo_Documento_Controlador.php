@@ -14,7 +14,7 @@ class Tipo_Documento_Controlador
 		public function registrar_tipo_documento($tipo_documento){
 			Tipo_Documento::registrar_tipo_documento($tipo_documento);
 			session_start();
-			$_SESSION['guardar'] = "Agregado con éxito";
+			$_SESSION['guardar'] = "Agregado Con Éxito";
 			header('Location: ../index.php?controller=tipo_documento&action=index');
 		}
 		
@@ -27,7 +27,7 @@ class Tipo_Documento_Controlador
 		public function modificar_tipo_documento($id_tipo_documento,$documento){
 			Tipo_Documento::modificar_tipo_documento($id_tipo_documento,$documento);
 			session_start();
-			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			 header('Location: ../index.php?controller=tipo_documento&action=index');
 		}
 			

@@ -20,7 +20,7 @@
       public function registrar_month($month){
         Month::registrar_month($month);
         session_start();
-			  $_SESSION['guardar'] = "Agregado con éxito";
+			  $_SESSION['guardar'] = "Agregado Con Éxito";
         header('Location: ../index.php?controller=month&action=index');
            
       }
@@ -33,7 +33,7 @@
       public function modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha){
         Month::modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha);
         session_start();
-			 $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			 header('Location: ../index.php?controller=month&action=index');
       }
         

@@ -65,8 +65,6 @@
 		</button>		
 	</div>
 </body>
-
-
 <script>
 $(function(){ //Función Jquery
   	$('#btnbuscar').click(function(e) {

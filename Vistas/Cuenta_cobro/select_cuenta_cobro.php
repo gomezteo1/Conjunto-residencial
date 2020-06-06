@@ -4,7 +4,7 @@ if ($_GET['controller'] == 'pago' ){
 <div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slccuenta_cobro" id="slccuenta_cobro">
-			<option selected hidden disabled >Selecione Una Cuenta De Cobro</option>
+			<option selected hidden disabled >Seleccioné Una Cuenta De Cobro</option>
 			<?php
 			foreach ($cuenta_cobros as $cuenta_cobro){?>
 				
@@ -25,7 +25,7 @@ if ($_GET['controller'] == 'pago' ){
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slccuenta_cobro" id="slccuenta_cobro">
-			<option selected hidden disabled >Selecione Una Cuenta De Cobro</option>
+			<option selected hidden disabled >Seleccioné Una Cuenta De Cobro</option>
 			<?php
 			foreach ($cuenta_cobros as $cuenta_cobro){?>
 				<option <?php echo $pago->codigo_cuenta_cobro==$cuenta_cobro->codigo_cuenta_cobro ?'selected':'' ?> value="<?php echo $cuenta_cobro->codigo_cuenta_cobro; ?>">

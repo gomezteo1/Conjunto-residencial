@@ -164,28 +164,13 @@ $(document).ready(function(){
 					})
 					return false;
 			}
-			else if($('#apellidos').length()<=10 && length()>=2){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Diez Caracteres',
-					})
-					return false;
-			}
+			
 
 			else if($('#numero_documento').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Numero De Documento!',
-					})
-					return false;
-			}
-			else if($('#numero_documento').length()<=13 && length()>=6){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Entre Seis Y Diez Caracteres Minimos',
 					})
 					return false;
 			}
@@ -197,14 +182,7 @@ $(document).ready(function(){
 					})
 					return false;
 			}
-			else if($('#telefono').length()<=13 && length()>=7){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
-					})
-					return false;
-			}
+			
 			else if($('#fecha_nacimiento').val()==""){
 				Swal.fire({
 					icon: 'error',
@@ -220,26 +198,12 @@ $(document).ready(function(){
 					text: 'Debes Ingresar La Contraseña!',
 					})
 					return false;
-			}else if($('#clave').length()<=20 && length()>=7){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
-					})
-					return false;
 			}
 			else if($('#correo').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Correo!',
-					})
-					return false;
-			}else if($('#correo').length()<=30 && length()>=10){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
 					})
 					return false;
 			}
@@ -251,14 +215,7 @@ $(document).ready(function(){
 					})
 					return false;
 			}
-			else if($('#correo_recuperacion').length()<=30 && length()>=10){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
-					})
-					return false;
-			}
+			
 			else
 				swal({
 						title: "Hecho!",
@@ -268,5 +225,77 @@ $(document).ready(function(){
 					});
 		});
 	});
-</script> 
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+		$('#button-Rusuario').click(function(){
+			 if($('#nombre').length()<=6 && length()>=10){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar Diez Caracteres',
+					})
+					return false;}
+			// }else if($('#apellidos').length()<=10 && length()>=2){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar Diez Caracteres',
+			// 		})
+			// 		return false;
+			// }
+		
+			// else if($('#numero_documento').length()<=13 && length()>=6){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar Entre Seis Y Diez Caracteres Minimos',
+			// 		})
+			// 		return false;
+			// }
+			
+			// else if($('#telefono').length()<=13 && length()>=7){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
+			// 		})
+			// 		return false;
+			// }
+			// else if($('#clave').length()<=20 && length()>=7){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
+			// 		})
+			// 		return false;
+			// }
+			// else if($('#correo').length()<=30 && length()>=10){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
+			// 		})
+			// 		return false;
+			// }
+			// else if($('#correo_recuperacion').length()<=30 && length()>=10){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar Entre Siete Y Diez Caracteres Minimos',
+			// 		})
+			// 		return false;
+			// }
+			else
+				swal({
+						title: "Hecho!",
+						text: "Se Ha Registrado Correctamente",
+						icon: "success",
+						button: "Continuar",
+					});
+		});
+	});
+</script>
 

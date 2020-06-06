@@ -68,16 +68,16 @@ $(function() { //funtion jquery
             nombre: nombreSelect,
             mes: mesSlect,
             numero_cuenta: numero_cuenta.value,
-
             nit,
             slcusuario_inmueble,
-            // -> esta es la nueva variable slcusuario,
             slcmonth,
             monto_por_cancelar
         });
         actualizar();
     });
 });
+
+
 const actualizar = () => {
     let todo = '<div class="row justify-content-center">';
 

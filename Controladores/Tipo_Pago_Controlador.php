@@ -16,7 +16,7 @@
 			public function registrar_tipoPago($tipo_pago){
 				Tipo_pago::registrar_tipoPago($tipo_pago);
 				session_start();
-				 $_SESSION['guardar'] = "Agregado con éxito";
+				 $_SESSION['guardar'] = "Agregado Con Éxito";
 				header('Location: ../index.php?controller=tipo_pago&action=index');
 			}//guardar
 			
@@ -29,7 +29,7 @@
 			public function modificar_tipo_pago($codigo_tipo_pago,$tipo_pago,$descripcion){
 				Tipo_pago::modificar_tipo_pago($codigo_tipo_pago,$tipo_pago,$descripcion);
 				session_start();
-				$_SESSION['modificar'] = "Se han modificado los datos con éxito";
+				$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 				header('Location: ../index.php?controller=tipo_pago&action=index');
 			}
 

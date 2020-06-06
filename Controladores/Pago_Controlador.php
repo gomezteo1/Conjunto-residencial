@@ -37,7 +37,7 @@
         Cuenta_cobro::UpMora();
         Pago::registrar_pago($pago);
         session_start();
-			  $_SESSION['guardar'] = "Agregado con éxito";
+			  $_SESSION['guardar'] = "Agregado Con Éxito";
         header('Location: ../index.php?controller=pago&action=index');
            
       }
@@ -53,7 +53,7 @@
       public function modificar_pago($codigo_pago,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar){
         Pago::modificar_pago($codigo_pago,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar);
         session_start();
-			  $_SESSION['modificar'] = "Se han modificado los datos con éxito";
+			  $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 			  header('Location: ../index.php?controller=pago&action=index');
       }
       

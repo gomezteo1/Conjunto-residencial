@@ -108,14 +108,14 @@ class Usuario_Controlador
 		//var_dump($usuario);
 		//exit();
 		session_start();
-		$_SESSION['guardar'] = "Agregado con éxito";
+		$_SESSION['guardar'] = "Agregado Con Éxito";
 		header('Location: ../index.php');
 	} 
 	 	
 	public function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $correo, $correo_recuperacion){
 		Usuario::modificar_usuario($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion);
 		session_start();
-		$_SESSION['modificar'] = "Se han modificado los datos con éxito";
+		$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 		header('Location: ../index.php');
 	
 	}
@@ -126,7 +126,7 @@ class Usuario_Controlador
 		Usuario::modificar_administrador($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion);
 		//echo"$id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave,$correo, $correo_recuperacion";
 		session_start();
-		$_SESSION['modificar'] = "Se han modificado los datos con éxito";
+		$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 		header('Location: ../index.php');
 	}
 	

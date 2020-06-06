@@ -4,7 +4,7 @@ if ($_GET['controller'] == 'cuenta_cobro' ){
 <div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcmonth" id="slcmonth">
-			<option selected hidden disabled >Selecione Un Mes</option>
+			<option selected hidden disabled >Seleccioné Un Mes Y Tarifa</option>
 			<?php
 			foreach ($months as $month){?>
 				<option <?php echo isset($cuenta_cobro) && $cuenta_cobro->codigo_month==$month->codigo_month ?'
@@ -24,7 +24,7 @@ if ($_GET['controller'] == 'cuenta_cobro' ){
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcmonth" id="slcmonth">
-			<option selected hidden disabled >Selecione Un Mes</option>
+			<option selected hidden disabled >Seleccioné Un Mes Y Tarifa</option>
 			<?php
 			foreach ($months as $month){?>
 				
