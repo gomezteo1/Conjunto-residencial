@@ -4,6 +4,11 @@
 	<title>Usuario</title>
 </head>
 <body>
+	<?php 	
+			$fechaHoy = strtotime("now");
+			$fechaMin = strtotime("-18 Year"); ;
+
+	?>
 		<div id="registrar-usuario">	
 		<form action="Controladores/Usuario_Controlador.php" method="POST" id="res-registrar-usuario" onSubmit="return validar();">
 		
@@ -82,7 +87,7 @@
 										</div>
 											
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+											<input class="mdl-textfield__input"  type="date" id="fecha_nacimiento" name="fecha_nacimiento">
 											<label class="mdl-textfield__label"  for="Fecha Nacimiento"></label>
 											<span class="mdl-textfield__error">Fecha Invalida</span>
 										</div>
@@ -143,9 +148,18 @@
 </body>
 </html>
 
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function(){
+
+	var dateNow = new Date();
+	var validDate = [dateNow.getFullYear()-15, ("0" + dateNow.getMonth()).slice(-2),("0" + dateNow.getDate()).slice(-2)].join('-');
+	document.getElementById('fecha_nacimiento').setAttribute('max',validDate);
+	
+
 		$('#button-Rusuario').click(function(){
 
 			if($('#nombres').val()==""){
@@ -237,7 +251,8 @@ $(document).ready(function(){
 					title: 'Error',
 					text: 'Debes Ingresar Diez Caracteres',
 					})
-					return false;}
+					return false;
+					}
 			// }else if($('#apellidos').length()<=10 && length()>=2){
 			// 	Swal.fire({
 			// 		icon: 'error',
