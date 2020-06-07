@@ -19,22 +19,20 @@ class Abono
 	}
 //---------------------Listar------------------------------------------
 
-/*	public static function listar_todos(){
-		$lista_abonos =[];
-		$db=Db::getConnect();
-		$sql=$db->query('SELECT * FROM abonos_pago');
 
-		// carga en la $lista_inmuebles cada registro desde la base de datos
-		foreach ($sql->fetchAll() as $abono) {
-			$lista_abonos[]= new Abono($abono['codigo_abono'],$abono['id_cuentaCobro'],$abono['id_usuario'],$abono['fecha'],$abono['deuda'],$abono['abono'],$abono['saldo']);
-		}
-		return $lista_abonos;
-	}
-*/
-	public static function listar_todos(){ 
+public static function listar_todos(){ 
         $lista_abonos =[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT a.*, concat(u.nombres,'',u.apellidos) as nombre, concat('$','',p.monto_a_pagar) as monto, a.codigo_abono, a.codigo_pago, a.fecha as fechas , concat('$','',a.deuda) as deudas, concat('$','',a.abono) as abonos ,concat('$','',a.saldo) as saldos
+        $sql=$db->query("SELECT DISTINCT a.*, 
+		concat(u.nombres,'',u.apellidos) as nombre, 
+		concat('$','',p.monto_a_pagar) as monto, 
+		concat('$','',a.deuda) as deudas, 
+		concat('$','',a.abono) as abonos ,
+		concat('$','',a.saldo) as saldos,
+		a.fecha as fechas ,
+		a.codigo_abono, 
+		a.codigo_pago
+		
 		from abonos_pago a 
 		left join pago p on a.codigo_pago = p.codigo_pago
 		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
@@ -49,8 +47,7 @@ class Abono
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fechas'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
             $itemabono->nombrePago=$abono['monto'];
-              
-            $lista_abonos[]= $itemabono;
+			$lista_abonos[]= $itemabono;
         }
         return $lista_abonos;
     }
@@ -71,7 +68,8 @@ class Abono
         foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
             $itemabono->nombreUsuario=$abono['nombre'];
-            $itemabono->nombrePago=$abono['monto'];
+			$itemabono->nombrePago=$abono['monto'];
+			
               
             $lista_abonos[]= $itemabono;
         }

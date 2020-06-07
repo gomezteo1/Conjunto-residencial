@@ -87,31 +87,61 @@
 $(document).ready(function(){
 		$('#button-Rmonth').click(function(){
 
-			if($('#mes').val()==""){
+			var mesRango = $('#mes').val();
+			var tarifaRango = $('#tarifa').val();
+			var fechaRango = $('#fecha').val();
+			var porcentajeRango = $('#porcentaje').val();
+			
+			if(mesRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Mes!',
 					})
 					return false;
-			}
-			else if($('#tarifa').val()==""){
+			}else if(mesRango.length<=4 || mesRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Mes Debe Tener 5 A 9 Caracteres',
+				})
+				return false;
+			}else if(tarifaRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar La Tarifa!',
 					})
 					return false;
-			}
-			else if($('#fecha').val()==""){
+			}else if(tarifaRango.length<=5 || tarifaRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'La Tarifa Debe Tener 6 A 9 Caracteres',
+				})
+				return false;
+			}else if(porcentajeRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Porcentaje!',
+					})
+					return false;
+			}else if(porcentajeRango.length<=0 || porcentajeRango.length>=4) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Porcentaje Debe Tener 1 A 3 Caracteres',
+				})
+				return false;
+			}else if(fecha==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar La Fecha!',
 					})
 					return false;
-			}
-			else
+			}else
 				swal({
 					title: "Hecho!",
 					text: "Se Ha Registrado Correctamente",

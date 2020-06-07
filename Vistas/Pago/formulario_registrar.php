@@ -67,11 +67,6 @@
 												<span class="mdl-textfield__error">Numero de Monto a Pagar Invalido</span>
 											</div>
 										</div>
-									
-										
-
-
-										
 									</div>
 									<div onmouseover="items_pagos()">
 									<p class="text-center">
@@ -132,40 +127,59 @@ function items_pagos($codigo_cuenta_cobro){
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#button-Rpago').click(function(){
+	$('#button-Rpago').click(function(){
+			var monto_canceladoRango = $('#monto_cancelado').val();
+			var monto_a_pagarRango = $('#monto_a_pagar').val();
+			// var slcccRango = $('#slccuenta_cobro').val();
+			// var slctipo_pagoRango = $('#slctipo_pago').val();
+			
 
-			if($('#fecha').val()==""){
+			// if(slctipo_pagoRango==""){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar El Tipo Pago!',
+			// 		})
+			// 		return false;
+			// }
+			// else 
+			if(monto_canceladoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar la Fecha!',
+					text: 'Debes Ingresar El Monto Cancelado!',
 					})
 					return false;
-			}
-			else if($('#monto_cancelado').val()==""){
+			}else if(monto_canceladoRango.length<=3 || monto_canceladoRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Monto Cancelado Debe Tener 4 A 9 Caracteres',
+				})
+				return false;
+			}else if(monto_a_pagarRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar el Monto Cancelado!',
+					text: 'Debes Ingresar el Monto A Pagar!',
 					})
 					return false;
-			}
-			else if($('#monto_a_pagar').val()==""){
+			}else if(monto_a_pagarRango.length<=3 || monto_a_pagarRango.length>=10) {
 				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar el Monto a Pagar!',
-					})
-					return false;
-			}
-			else
+				icon: 'error',
+				title: 'Error',
+				text: 'El Monto A Pagar Debe Tener 4 A 9 Caracteres',
+				})
+				return false;
+			}else{
 				swal({
 					title: "Hecho!",
 					text: "Se ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
-		});
+			}
+		}); 
 	});
 
 	

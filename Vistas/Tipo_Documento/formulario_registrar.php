@@ -74,15 +74,24 @@
 $(document).ready(function(){
 		$('#button-Rtipo_documento').click(function(){
 
-			if($('#documento').val()==""){
+		var documentoRango = $('#documento').val();
+	
+			if(documentoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar El Documento!',
+					text: 'Debes Ingresar El Tipo De Documento!',
 					})
 					return false;
 			}
-			else
+			else if(documentoRango.length<=7 || documentoRango.length>=25) {
+					Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Tipo Documento Debe Tener 8 A 24 Caracteres',
+					})
+					return false;
+			}else
 				swal({
 					title: "Hecho!",
 					text: "Se Ha Registrado Correctamente",

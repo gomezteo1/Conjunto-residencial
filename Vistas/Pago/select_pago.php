@@ -9,8 +9,8 @@ if ($_GET['controller'] == 'abono' ){
 			foreach ($pagos as $pago){?>
 				
 			<option <?php echo isset($abono) && $abono->codigo_pago==$pago->codigo_pago ?'
-				selected':''; ?> value="<?php echo $pago->codigo_pago; ?>">
-				<?php echo $pago->codigo_pago;?>
+				selected':''; ?> value="<?php echo $pago->codigo_pago; ?>" nombre="<?php echo  $pago->Datos;  ?>" >
+				<?php echo $pago->Datos;?>
 						</option>			
 
 			<?php } ?>

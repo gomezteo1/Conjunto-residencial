@@ -43,24 +43,7 @@
 										</div>
 									</div>
 
-									<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-															<?php
-															// $llenar_select_usuario="si";
-															// 	require("Controladores/Usuario_Controlador.php");
-															?>
-											<label class="mdl-textfield__label" for="NameCompany"></label>
-											<span class="mdl-textfield__error">Invalid name</span>
-										</div>
-									</div> -->
-
-									<!-- <div class="mdl-cell mdl-cell--12-col">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="date" id="fecha" name="fecha" >
-											<label class="mdl-textfield__label"  for="fecha"></label>
-											<span class="mdl-textfield__error">Fecha Invalida</span>
-										</div>
-									</div> -->
+								
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="deuda" name="deuda" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
@@ -81,13 +64,13 @@
 									</div>
 
 									
-									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+									<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abonoAnt" name="abonoAnt" readonly>
 											<label class="mdl-textfield__label" for="Abono Anteriores"> Abonos Anteriores</label>
 											
 										</div>
-									</div>
+									</div> -->
 
 
 
@@ -128,53 +111,62 @@
 $(document).ready(function(){
 		$('#button-Rabono').click(function(){
 			// alert('llega')
-
-			if($('#slcusuario').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Seleccionar El Usuario!',
-					})
-					return false;
-			}
-			else if($('#slcpago').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Seleccionar Un Pago!',
-					})
-					return false;
-			}
-			else if($('#fecha').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar La Fecha!',
-					})
-					return false;
-			}
-			else if($('#deuda').val()==""){
+			var deudaRango = $('#deuda').val();
+			var abonoRango = $('#abono').val();
+			var saldoRango = $('#saldo').val();
+			
+			if(deudaRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar La Deuda!',
 					})
 					return false;
-			}
-			else if($('#abono').val()==""){
+			}else if(deudaRango==0) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'No hay Deuda',
+				})
+				return false;
+			 }
+			//else if(deudaRango.length<=5 || deudaRango.length>=13) {
+			// 	Swal.fire({
+			// 	icon: 'error',
+			// 	title: 'Error',
+			// 	text: 'La Deuda Debe Tener 6 A 13 Caracteres',
+			// 	})
+			// 	return false;
+			// }
+			else if(abonoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar Un Valor A Abonar!',
 					})
 					return false;
-			}if($('#saldo').val()==""){
+			}else if(abonoRango.length<=3 || abonoRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Abono Debe Tener De 4 A 9 Caracteres',
+				})
+				return false;
+			}
+			else if(saldoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Saldo!',
 					})
 					return false;
+			}else if(saldoRango.length<=-1 || saldoRango.length>=3) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Saldo No Puede Ser Menor A Cero',
+				})
+				return false;
 			}else
 				swal({
 					title: "Hecho!",

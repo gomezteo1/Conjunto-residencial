@@ -30,7 +30,14 @@ class Pago
         $listar_pagos =[];
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT p.*, concat('$','',monto_cancelado) as monto_cancelados, concat('$','',monto_a_pagar) as monto_a_pagars,
-        concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago  
+        concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago,
+
+        concat(concat(concat(concat('Datos ',u.nombres,' ',u.apellidos),'  Inmueble',
+		concat(i.numero,'',i.torre)),
+		concat('  $','',p.monto_cancelado)),'  ',
+
+		concat('-   $','',p.monto_a_pagar))
+		as datosPersonales
           
         FROM pago p
             left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
@@ -47,7 +54,7 @@ class Pago
             $itempago= new Pago($pago['codigo_pago'],$pago['codigo_cuenta_cobro'],$pago['fecha'],$pago['codigo_tipo_pago'],$pago['monto_cancelados'],$pago['monto_a_pagars']);
             $itempago->nombreUsuario=$pago['xx'];
             $itempago->nombreTipoPago=$pago['tipo_pago'];
-              
+            $itempago->Datos=$pago['datosPersonales'];   
             $listar_pagos[]= $itempago;
         }
         return $listar_pagos;

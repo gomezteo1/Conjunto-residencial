@@ -156,76 +156,132 @@
 
 
 </html>
-
-
-
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
-
+//fecha
 $(document).ready(function(){
-		$('#button-Madministrador').click(function(){
 
-			if($('#nombres').val()==""){
-				Swal.fire({
+	var dateNow = new Date();
+	var validDate = [dateNow.getFullYear()-15, ("0" + dateNow.getMonth()).slice(-2),("0" + dateNow.getDate()).slice(-2)].join('-');
+	document.getElementById('fecha_nacimiento').setAttribute('max',validDate);
+	
+	$('#button-Rusuario').click(function(){
+			var nombreRango = $('#nombres').val();
+			var apellidoRango = $('#apellidos').val()
+			var numeroDocumentoRango = $('#numero_documento').val()
+			var telefonoRango = $('#telefono').val()
+			var claveRango = $('#clave').val()
+			var correoRango = $('#correo').val()
+			var correoRecuperacionRango = $('#correo_recuperacion').val()
+			
+			if(nombreRango==""){
+					Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El/Los Nombre(s)!',
 					})
 					return false;
+			}else if(nombreRango.length<=4 || nombreRango.length>=17) {
+					Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Nombre Debe Tener 5 A 17 Caracteres',
+					})
+					return false;
 			}
-			else if($('#apellidos').val()==""){
+			else if(apellidoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar Los Apellidos!',
 					})
 					return false;
-			}
-			else if($('#numero_documento').val()==""){
+			}else if(apellidoRango.length <=5 || apellidoRango.length>=17){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar El Numero De Dsocumento!',
+					text: 'Apellido Debe Tener 6 A 17 Caracteres',
 					})
 					return false;
-			}else if($('#telefono').val()==""){
+			}else if(numeroDocumentoRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Numero De Documento!',
+					})
+					return false;
+			}
+			if(numeroDocumentoRango.length <=5 || numeroDocumentoRango.length>=13){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Numero Documetno Debe Tener 6 A 13 Caracteres',
+					})
+					return false;
+			}
+			else if(telefonoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Telefono!',
 					})
 					return false;
+			}else if(telefonoRango.length <=6 || telefonoRango.length>=10){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Telefono Debe Tener 7 A 10 Caracteres',
+					})
+					return false;
 			}else if($('#fecha_nacimiento').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar La Fecha!',
+					text: 'Debes ingresar La Fecha!',
 					})
 					return false;
-			}else if($('#clave').val()==""){
+			}else if(claveRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar La Clave!',
+					text: 'Debes Ingresar La Contraseña!',
 					})
 					return false;
-			}else if($('#correo').val()==""){
+			}else if(claveRango.length <=9 || claveRango.length>=20){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'La Clave Debe Tener 10 A 20 Caracteres',
+					})
+					return false;
+			}else if(correoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Correo!',
 					})
 					return false;
-			}else if($('#correo_recuperacion').val()==""){
+			}else if(correoRango.length <=14 || correoRango.length>=30){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Correo Debe Tener 15 A 30 Caracteres',
+					})
+					return false;
+			}else if(correoRecuperacionRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Correo Alternativo!',
 					})
 					return false;
-			}
-			else
+			}else if(correoRecuperacionRango.length <=14 || correoRecuperacionRango.length>=30){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Correo Alternativo Debe Tener 15 A 30 Caracteres',
+					})
+					return false;
+			}else
 				swal({
 						title: "Hecho!",
 						text: "Se Ha Actualizado Correctamente",
@@ -234,8 +290,4 @@ $(document).ready(function(){
 					});
 		});
 	});
-
-	
-
 </script>
-

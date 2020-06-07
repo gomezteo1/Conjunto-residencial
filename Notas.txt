@@ -1,21 +1,21 @@
+ªBarrido
+ª Validar 
+    ªla edad  
+    ªtelefono
+    ªnumero documento con los tamaños correctos
+    ªNo se puedan insertar valores negativos en los numeros 
+    ªpago y abonos
 
-* No se puedan insertar valores negativos en los numeros 
-
-* Validar 
--la edad 
--telefono
--numero documento con los tamaños correctos
-
-* Revisar la mora-- 
-
-*  Cuando se llamen las cuentas de cobro, pagos hacer subconsulta de los nombres y las fechas de las que se genero el pago
+* Validar los select con vacios     
+* Cuando se llamen las cuentas de cobro, pagos hacer subconsulta de los nombres y las fechas de las que se genero el pago
     * Traer los datos a la vista de pagos
     * Traer los datos a la vista de abonos
-
-* hacer card  body de la cuenta de cobro  
-
-
-
+* Falta ayudas en linea
+* Validacion del login 
+* Validación de los datos repetidos
+* Hacer card  body de la cuenta de cobro  
+* Que salga la alerta de que se registro la cuenta de cobro
+* Revisar la mora 
 
 Ultimas instancias
 * si nos dan más tiempo datables

@@ -22,7 +22,7 @@ class Month
 	public static function listar_todos(){
 		$lista_months  =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT DISTINCT *, concat('$','',tarifa) as tarifas, concat('%','',porcentaje) as porcentajes, 
+		$sql=$db->query("SELECT DISTINCT *, concat('%','',tarifa) as tarifas, concat('$','',porcentaje) as porcentajes, 
 		concat(concat(concat('La Tarifa de este mes  ', mes),'  es  '),tarifa) as xx 
 		
 		FROM month");

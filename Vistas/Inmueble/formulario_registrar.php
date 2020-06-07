@@ -105,45 +105,82 @@
 $(document).ready(function(){
 		$('#button-Rinmueble').click(function(){
 
-			if($('#numero_matricula').val()==""){
+			var numeroMatriculaRango = $('#numero_matricula').val();
+			var tipoRango = $('#tipo').val();
+			var torreRango = $('#torre').val();
+			var numeroRango = $('#numero').val();
+			var metrosRango = $('#metros').val();
+	
+			if(numeroMatriculaRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Numero De La Matricula!',
-					})
-					return false;
-			}
-			else if($('#tipo').val()==""){
+				})
+				return false;
+			}else if(numeroMatriculaRango.length<=5 || numeroMatriculaRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'La Matricula Debe Tener 6 A 9 Caracteres',
+				})
+				return false;
+			}else if(tipoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar El TIpo De Inmueble!',
+					text: 'Debes Ingresar El Tipo De Apartamento!',
 					})
 					return false;
-			}
-			if($('#torre').val()==""){
+			}else if(tipoRango.length<=7 || tipoRango.length>=25) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Tipo De Apartamento Debe Tener 8 A 24 Caracteres',
+				})
+				return false;
+			}else if(torreRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar La Torre!',
 					})
 					return false;
-			}
-			else if($('#numero').val()==""){
+			}else if(torreRango.length<=0 || torreRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'La Torre Debe Tener 1 A 9 Caracteres',
+				})
+				return false;
+			}else if(numeroRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Numero Del Inmueble!',
 					})
 					return false;
-			}
-			else if($('#metros').val()==""){
+			}else if(numeroRango.length<=2 || numeroRango.length>=5) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Numero De Inmueble Debe Tener 3 A 4 Caracteres',
+				})
+				return false;
+			}else if(metrosRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar Los Metros Del Inmueble!',
 					})
 					return false;
+			}else if(metrosRango.length<=0 || metrosRango.length>=4) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'Los Metros Del Inmueble Debe Tener 1 A 4 Caracteres',
+				})
+				return false;
 			}else
 				swal({
 					title: "Hecho!",
