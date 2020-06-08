@@ -158,8 +158,9 @@ $(function() { //funtion para guardar en Db
             datatype: "json",
             data: datos,
             success: function(data) {
-                console.log(data);
+                // alert("Registro Éxitoso");
                 /*document.getElementById('prueba').innerHTML=data*/
+                alert("Registro Éxitoso");
             }
         });
     })

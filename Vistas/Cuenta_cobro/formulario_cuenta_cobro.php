@@ -119,6 +119,16 @@ $(document).ready(function(){
 			var numeroCuentaRango = $('#numero_cuenta').val();
 			var nitRango = $('#nit').val();
 			var montoPorCancelarRango = $('#monto_por_cancelar').val();
+			// var mesRango = $("#slcmonth option[value="+ value +"]").attr("selected",true);
+			
+			// if(mesRango==""){
+			// 	Swal.fire({
+			// 		icon: 'error',
+			// 		title: 'Error',
+			// 		text: 'Debes Ingresar El Numero De La Cuenta!',
+			// 	})
+			// 	return false;
+			// }else 
 			if(numeroCuentaRango==""){
 				Swal.fire({
 					icon: 'error',
@@ -126,7 +136,8 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Numero De La Cuenta!',
 				})
 				return false;
-			}else if(numeroCuentaRango.length<=5 || numeroCuentaRango.length>=13) {
+			}
+			else if(numeroCuentaRango.length<=5 || numeroCuentaRango.length>=13) {
 				Swal.fire({
 				icon: 'error',
 				title: 'Error',
