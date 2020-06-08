@@ -41,7 +41,7 @@ public static function listar_todos(){
 		left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
 		left join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
 		where ((datediff(a.fecha,now())*-1) <= 30)
-         and ((datediff(a.fecha,now())*-1) >=0)");
+         and ((datediff(a.fecha,now())*-1) >=0) order by a.fecha desc");
 
 		foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fechas'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
@@ -63,7 +63,8 @@ public static function listar_todos(){
 		inner join usuario u on ui.id_usuario = u.id_usuario
 		inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
 		inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-		 where u.id_usuario='$id_usuario'");
+		 where u.id_usuario='$id_usuario'
+		 order by a.fecha desc");
 
         foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fecha'],$abono['deudas'],$abono['abonos'],$abono['saldos']);

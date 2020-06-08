@@ -32,11 +32,10 @@ class Pago
         $sql=$db->query("SELECT DISTINCT p.*, concat('$','',monto_cancelado) as monto_cancelados, concat('$','',monto_a_pagar) as monto_a_pagars,
         concat(u.nombres,'', u.apellidos)as xx, t.tipo_pago,
 
-        concat(concat(concat(concat('Datos ',u.nombres,' ',u.apellidos),'  Inmueble',
+        concat(concat(concat(concat(concat('Datos ',u.nombres,' ',u.apellidos),'  Inmueble',
 		concat(i.numero,'',i.torre)),
 		concat('  $','',p.monto_cancelado)),'  ',
-
-		concat('-   $','',p.monto_a_pagar))
+        concat('-   $','',p.monto_a_pagar)),' Fecha Generada: ', p.fecha)
 		as datosPersonales
           
         FROM pago p
@@ -47,6 +46,7 @@ class Pago
             inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
             where ((datediff(p.fecha,now())*-1) <= 30)
          and ((datediff(p.fecha,now())*-1) >=0)
+         order by p.fecha desc   
           ");
 
         //carga en la lista cada registro de la base de datos 
@@ -72,7 +72,8 @@ class Pago
             inner join usuario u on ui.id_usuario = u.id_usuario
             inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
             inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-            where c.id_usuario_inmueble='$id_usuario_inmueble'");
+            where c.id_usuario_inmueble='$id_usuario_inmueble'
+            order by p.fecha desc");
 
         //carga en la lista cada registro de la base de datos 
         foreach ($sql->fetchAll() as $pago){

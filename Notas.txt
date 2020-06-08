@@ -1,15 +1,15 @@
 ªBarrido
 ª Validar 
-    ªla edad  
-    ªtelefono
-    ªnumero documento con los tamaños correctos
+    ªLa edad  
+    ªTelefono
+    ªNumero documento con los tamaños correctos
     ªNo se puedan insertar valores negativos en los numeros 
-    ªpago y abonos
-
-* Validar los select con vacios     
-* Cuando se llamen las cuentas de cobro, pagos hacer subconsulta de los nombres y las fechas de las que se genero el pago
-    * Traer los datos a la vista de pagos
-    * Traer los datos a la vista de abonos
+    ªPago y Abonos
+    ªValidar los select con vacios     
+    ªCuando se llamen las cuentas de cobro, pagos hacer subconsulta de los nombres y las fechas de las que se genero el pago
+    ªTraer los datos a la vista de pagos
+    ªTraer los datos a la vista de abonos
+    * Cuando se cambie el estado del usuario que no lo deje loguear
 * Falta ayudas en linea
 * Validacion del login 
 * Validación de los datos repetidos

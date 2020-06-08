@@ -103,7 +103,7 @@ class Cuenta_cobro
         /*Validacion con la profe magn */
         where ((datediff(c.fecha,now())*-1) <= 30)
         and ((datediff(c.fecha,now())*-1) >=0)
-        order by c.fecha asc
+        order by c.fecha desc
         ");
         foreach ($sql->fetchAll() as $cuenta_cobro){
             $itemcuenta_cobross = new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'],$cuenta_cobro['codigo_month'],  $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'],$cuenta_cobro['mora'], $cuenta_cobro['estado']);
@@ -136,7 +136,7 @@ class Cuenta_cobro
         left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
         left join month m on c.codigo_month = m.codigo_month
         /*Validacion con la profe magn */
-        where c.id_usuario_inmueble='$id_usuario_inmueble' order by c.fecha");
+        where c.id_usuario_inmueble='$id_usuario_inmueble' order by c.fecha desc");
 
         foreach ($sql->fetchAll() as $cuenta_cobro){
             $itemcuenta_cobro= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'], $cuenta_cobro['codigo_month'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'], $cuenta_cobro['mora'], $cuenta_cobro['estado'],$cuenta_cobro['nombre']);

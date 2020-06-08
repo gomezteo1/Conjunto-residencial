@@ -117,21 +117,15 @@ class Usuario{
         
         }
         $insert->execute();  
-    }
-   
-    public static function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono,$fecha_nacimiento, $estado, $correo, $correo_recuperacion){ 
+    }public static function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono,$fecha_nacimiento, $estado, $correo, $correo_recuperacion){ 
         $db=Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET nombres ='$nombres', apellidos ='$apellidos', id_tipo_documento =$id_tipo_documento, numero_documento =$numero_documento, id_rol =$id_rol, telefono ='$telefono', fecha_nacimiento ='$fecha_nacimiento', estado ='$estado', correo ='$correo', correo_recuperacion ='$correo_recuperacion' WHERE id_usuario=$id_usuario");
         $update->execute();
-    }// el rol sobra
-
-    public static function modificar_administrador($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono,$fecha_nacimiento, $estado, $correo, $correo_recuperacion){ 
+    }public static function modificar_administrador($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono,$fecha_nacimiento, $estado, $correo, $correo_recuperacion){ 
         $db=Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET nombres ='$nombres', apellidos ='$apellidos', id_tipo_documento =$id_tipo_documento, numero_documento =$numero_documento, id_rol =$id_rol, telefono ='$telefono', fecha_nacimiento ='$fecha_nacimiento', estado ='$estado', correo ='$correo', correo_recuperacion ='$correo_recuperacion' WHERE id_usuario=$id_usuario");
         $update->execute();
-    }
-
-    public static function eliminar_usuario($id_usuario){ 
+    }public static function eliminar_usuario($id_usuario){ 
         $db = Db::getConnect();
         $delete = $db->prepare("DELETE FROM usuario WHERE id_usuario=$id_usuario");
         $delete->execute();                
@@ -142,9 +136,7 @@ class Usuario{
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET estado='0' WHERE id_usuario=$id_usuario");
         $update->execute();                
-    }
-
-    public static function activar_estado_usuario($id_usuario){ 
+    }public static function activar_estado_usuario($id_usuario){ 
         require_once('../conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET estado='1' WHERE id_usuario=$id_usuario");
@@ -156,9 +148,7 @@ class Usuario{
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET estado='0' WHERE id_usuario=$id_usuario");
         $update->execute();                
-    }
-
-    public static function activarEstadoLista($id_usuario){ 
+    }public static function activarEstadoLista($id_usuario){ 
         require_once('conexion.php');
         $db = Db::getConnect();
         $update = $db->prepare("UPDATE usuario SET estado='1' WHERE id_usuario=$id_usuario");
@@ -181,23 +171,20 @@ class Usuario{
         $usuarioDb=$select->fetch();
         $usuario= new Usuario($usuarioDb['id_usuario'], $usuarioDb['nombres'], $usuarioDb['apellidos'], $usuarioDb['id_tipo_documento'], $usuarioDb['numero_documento'], $usuarioDb['id_rol'], $usuarioDb['telefono'], $usuarioDb['fecha_nacimiento'], $usuarioDb['estado'], $usuarioDb['clave'], $usuarioDb['correo'], $usuarioDb['correo_recuperacion']);
         return $usuario; 
-    }
-    public static function obtenerPorReferencia($correo_recuperacion){
+    }public static function obtenerPorReferencia($correo_recuperacion){
         //buscar
         $db = Db::getConnect();
         $select = $db->prepare("SELECT * FROM usuario  WHERE correo_recuperacion ='$correo_recuperacion'");
         $select->execute();
         $usuario = $select->fetch();
         return  $usuario;
-    } 
-    public static function  obtenerPorpId($id_usuario){
+    }public static function  obtenerPorpId($id_usuario){
         $db = Db::getConnect();
         $select = $db->prepare("SELECT * FROM usuario  WHERE id_usuario ='$id_usuario'");
         $select->execute();
         $usuario = $select->fetch();
         return  $usuario;
-    }
-    public static function obtenerPorId($id_usuario){   
+    }public static function obtenerPorId($id_usuario){   
         //buscar
         $db = Db::getConnect();
         $select = $db->prepare("SELECT * FROM usuario  WHERE id_usuario ='$id_usuario'");
@@ -226,11 +213,7 @@ class Usuario{
             $listar_usuarios[]= $itemusuario;
             }
         return $listar_usuarios;
-    }
-
-
-
-    public static function buscar_tipo_usuario($id_usuario){
+    }public static function buscar_tipo_usuario($id_usuario){
         //buscar
         $db=Db::getConnect();
         $sql=$db->prepare("SELECT DISTINCT u.*, r.rol as rol, t.documento as documento FROM usuario u 
