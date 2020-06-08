@@ -1,53 +1,3 @@
-//$(function(){ //Función Jquery
-//  $('#slcmonth').change(function(e) {//slcmonht
-// e.preventDefault(); //Evitar submit
-// metodo="consultar_tarifa";// consultar el m`precio del mes
-// dato_buscar=$('#slcmonth').val(); // slcmonht
-// alert(dato_buscar);
-// $.ajax({
-//  type:'POST',
-// url:'Controladores/Month_Controlador.php', //controlador --monht
-//datatype: "jeison",
-//  data:{action:metodo,dato_buscar:dato_buscar},
-//  success:function(data){
-//  $('#txttarifa').val(data);//tarifa del monht
-//}
-//});
-// });
-// });
-/*
- function calcular_total()
- {
-   var valor_unitario=0,catidad=0;
-   valor_unitario=document.getElementById('txtprecio').value;
-   catidad=document.getElementById('txtcantidad').value;
-   document.getElementById('txtvalor_total').value = valor_unitario*catidad;
- }
-*/
-
-// function Levanto() {
-
-//     monto_por_cancelar = docment.getElementById('monto_por_cancelar').value;
-
-//     if (monto_por_cancelar >= 0 || monto_por_cancelar <= -999999999) {
-
-//         alert('Cochino jajajajajaa');
-//         $(objetoDOM).attr("disabled"); //desabilita boton
-//         $('#detalle_cuenta_cobro').attr("disabled", true);
-//         return false;
-
-//     } else {
-
-//         $(objetoDOM).removeAttr("disabled"); //habilita boton
-//         $('#    detalle_cuenta_cobrooton').attr("disabled", true);
-//     }
-// }
-
-
-
-
-
-
 const detalleCuentasCobro = [];
 
 $(function() { //funtion jquery
@@ -63,16 +13,77 @@ $(function() { //funtion jquery
         fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
 
-        detalleCuentasCobro.push({
-            nombre: nombreSelect,
-            mes: mesSlect,
-            numero_cuenta: numero_cuenta.value,
-            nit,
-            slcusuario_inmueble,
-            slcmonth,
-            monto_por_cancelar
-        });
-        actualizar();
+
+
+        if (numeroCuenta == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Numero De La Cuenta!',
+            })
+            return false;
+        } else if (numeroCuenta.length <= 5 || numeroCuenta.length >= 13) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta Debe Tener 6 A 13 Caracteres',
+            })
+            return false;
+        } else if (nit == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Nit!',
+            })
+            return false;
+        } else if (nit.length <= 7 || nit.length >= 25) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Nit Debe Tener 8 A 24 Caracteres',
+            })
+            return false;
+        } else if (slcusuario_inmueble == undefined || slcusuario_inmueble == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar Los Datos De La Cuenta!',
+            })
+            return false;
+        } else if (slcmonth == undefined || slcmonth == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Mes De La Cuenta!',
+            })
+            return false;
+        } else if (monto_por_cancelar == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Monto!',
+            })
+            return false;
+        } else if (monto_por_cancelar.length <= 0 || monto_por_cancelar.length >= 9) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto Debe Tener 1 A 8 Caracteres',
+            })
+            return false;
+        } else {
+            detalleCuentasCobro.push({
+                nombre: nombreSelect,
+                mes: mesSlect,
+                numero_cuenta: numero_cuenta.value,
+                nit,
+                slcusuario_inmueble,
+                slcmonth,
+                monto_por_cancelar
+            });
+            actualizar();
+
+        }
     });
 });
 //Que si el array no esta completo me saque un false 
@@ -140,12 +151,11 @@ const eliminarCuenta = (id) => {
     actualizar();
 };
 
-
-
-
 /* para guardar */
 $(function() { //funtion para guardar en Db
+
     $('#btnguardar').click(function(e) {
+
         e.preventDefault();
         datos = {
             cuenta_cobro: 'cuenta_cobro',
@@ -159,8 +169,16 @@ $(function() { //funtion para guardar en Db
             success: function(data) {
                 // alert("Registro Éxitoso");
                 /*document.getElementById('prueba').innerHTML=data*/
-                alert("Registro Éxitoso");
+                // alert("Registro Éxitoso");
+                // swal({
+                //     title: "Hecho!",
+                //     text: "Se Ha Registrado Correctamente",
+                //     icon: "success",
+                //     button: "Continuar",
+                // });
+                // alert(swal);
             }
+
         });
     })
 })

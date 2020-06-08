@@ -100,7 +100,8 @@
 			</form>
 			<div class="row justify-content-center">
 				<button class="btn btn-dark" name="btnagregar"  id="btnagregar">Agregar</button>
-
+				
+				
 				<button class=" btn btn-success" name="btnguardar" id="btnguardar">
 				Guardar</button>
 </div>
@@ -115,100 +116,19 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#btnagregar').click(function(){
-			var numeroCuentaRango = $('#numero_cuenta').val();
-			var nitRango = $('#nit').val();
-			var montoPorCancelarRango = $('#monto_por_cancelar').val();
-			var mesRango = $("#slcmonth").val();
+		$('#btnguardar').click(function(){
+			// 	swal({
+			// 	title: "Hecho!",
+			// 	text: "Se Ha Registrado Correctamente",
+			// 	icon: "success",
+			// 	button: "Continuar",
+			// });
+			alert("Registro Éxitoso.");
 			
-			var inmuebleNRango = $("#nombre").val();
-			var inmuebleRango = $("#slcusuario_inmueble").val();
-			
-			if(inmuebleNRango==undefined || inmuebleNRango=="" ){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Los Datos De La Cuenta!',
-				})
-				return false;
-			}	
-			else if(inmuebleRango==undefined || inmuebleRango=="" ){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Los Datos De La Cuenta!',
-				})
-				return false;
-			}
-			else if(mesRango==undefined || mesRango=="" ){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar El Mes De La Cuenta!',
-				})
-				return false;
-			}else if(numeroCuentaRango==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar El Numero De La Cuenta!',
-				})
-				return false;
-			}
-			else if(numeroCuentaRango.length<=5 || numeroCuentaRango.length>=13) {
-				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'El Numero De Cuenta Debe Tener 6 A 13 Caracteres',
-				})
-				return false;
-			}else if(nitRango==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar El Nit!',
-					})
-					return false;
-			}else if(nitRango.length<=7 || nitRango.length>=25) {
-				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'El Nit Debe Tener 8 A 24 Caracteres',
-				})
-				return false;
-			}else if(montoPorCancelarRango==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar El Monto!',
-					})
-					return false;
-			}else if(montoPorCancelarRango.length<=0 || montoPorCancelarRango.length>=9) {
-				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'El Monto Debe Tener 1 A 8 Caracteres',
-				})
-				return false;
-			}
 		});
 	});
 </script>
-<!-- Falta que saque la alerta al guardar -->						
 
-<!-- <script>
-	$(document).ready(function(){
-	$('#btnguardar').click(function(){
-		swal({
-			title: "Hecho!",
-			text: "Se Ha Registrado Correctamente La Cuenta De Cobro",
-			icon: "success",
-			button: "Continuar",
-		});
-	});
-});	
-
-</script> -->
 
 
 </html>

@@ -181,13 +181,14 @@ $(document).ready(function(){
 				text: 'Los Metros Del Inmueble Debe Tener 1 A 4 Caracteres',
 				})
 				return false;
-			}else
+			}else{
 				swal({
 					title: "Hecho!",
 					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
+			}
 		});
 	});
 

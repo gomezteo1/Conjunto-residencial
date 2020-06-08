@@ -319,7 +319,7 @@ class Cuenta_cobro
         $fechaActual= date("Y-m-d");
         foreach(Cuenta_cobro::listar_todos() as $cuenta_cobro){
           if($cuenta_cobro->fecha<$fechaActual and $cuenta_cobro->estado==0){
-              //echo "ENTRO";
+              
               Cuenta_cobro::modificar_cuenta_cobroMora($cuenta_cobro->codigo_cuenta_cobro,1.5);
           }
         }

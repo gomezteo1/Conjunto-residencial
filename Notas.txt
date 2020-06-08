@@ -9,17 +9,16 @@
     ªCuando se llamen las cuentas de cobro, pagos hacer subconsulta de los nombres y las fechas de las que se genero el pago
     ªTraer los datos a la vista de pagos
     ªTraer los datos a la vista de abonos
-    
-    * Cuando se cambie el estado del usuario que no lo deje loguear
-    * Falta ayudas en linea
+    ª Falta ayudas en linea del inicio
 
+    
     * Validacion del login 
     * Validación de los datos repetidos
+    * Hacer card  body de la cuenta de cobro  
+    * Que salga la alerta de que se registro la cuenta de cobro
+    * Revisar la mora 
 
-
-* Hacer card  body de la cuenta de cobro  
-* Que salga la alerta de que se registro la cuenta de cobro
-* Revisar la mora 
-
-Ultimas instancias
-* si nos dan más tiempo datables
+    Ultimas instancias
+    * si nos dan más tiempo datables
+    * Cuando se cambie el estado del usuario que no lo deje loguear
+    
