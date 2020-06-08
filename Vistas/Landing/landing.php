@@ -22,8 +22,17 @@
 							<mark><p class="text-condensedLight noLink" >Bienvenido(a)  <strong> <?php  echo "".$_SESSION['acceso']['nombres']."".'   '."".$_SESSION['acceso']['apellidos']; ?></strong> El Menu Está A La Izquierda </p>
 							<p class="text-condensedLight noLink">Por Favor Elija Una Opción.</p>
 							</mark>
-						</div>
-				
+										<button data-toggle="modal" 
+												style="
+													position: relative;
+													left: 450px;
+													border: 1px solid #E1E1E1;
+													border-radius: 100%;"
+												data-target="#exampleModalInicio ">
+													<img src="image/info.png"  >
+										</button>		
+							</div>
+					
 						<?php } ?>
 					</div>
 				</div>

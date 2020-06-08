@@ -194,7 +194,7 @@
 											echo'<a href="destruir_sesion.php"><div class="navLateral-body-cl">
 											</div>
 											<div class="navLateral-body-cr">
-											<i class="zmdi zmdi-power bg-danger"></i>Cerrar Sesion
+											<i class="zmdi zmdi-power bg-danger"></i>Cerrar Sesión
 											</div></a>';
 											?>		
 											</li>
