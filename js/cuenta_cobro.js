@@ -57,7 +57,6 @@ $(function() { //funtion jquery
         nit = $('#nit').val()
         slcusuario_inmueble = $('#slcusuario_inmueble').val();
         var nombreSelect = $("select#slcusuario_inmueble option:selected").attr("nombre");
-
         //--> esta es la que contiene el texto slcusuario = $('#slcusuario_inmueble').text();
         slcmonth = $('#slcmonth').val();
         var mesSlect = $("select#slcmonth option:selected").attr("fecha");
@@ -76,17 +75,17 @@ $(function() { //funtion jquery
         actualizar();
     });
 });
-
+//Que si el array no esta completo me saque un false 
 
 const actualizar = () => {
     let todo = '<div class="row justify-content-center">';
 
     for (const [index, cuenta] of detalleCuentasCobro.entries()) {
-
+        console.log(cuenta);
+        // if (cuenta) {}
         todo +=
             `
-            
-        <div class="container">
+            <div class="container">
             <div class="row">
                 <div class="">
                     <div class="col-4" align="left">

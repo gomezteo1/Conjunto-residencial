@@ -114,8 +114,16 @@ $(document).ready(function(){
 			var deudaRango = $('#deuda').val();
 			var abonoRango = $('#abono').val();
 			var saldoRango = $('#saldo').val();
+			var pagoRango = $('#slcpago').val();
 			
-			if(deudaRango==""){
+			if(pagoRango ==undefined || pagoRango =="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Pago!',
+				})
+				return false;
+			}else if(deudaRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -129,16 +137,7 @@ $(document).ready(function(){
 				text: 'No hay Deuda',
 				})
 				return false;
-			 }
-			//else if(deudaRango.length<=5 || deudaRango.length>=13) {
-			// 	Swal.fire({
-			// 	icon: 'error',
-			// 	title: 'Error',
-			// 	text: 'La Deuda Debe Tener 6 A 13 Caracteres',
-			// 	})
-			// 	return false;
-			// }
-			else if(abonoRango==""){
+			 }else if(abonoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',

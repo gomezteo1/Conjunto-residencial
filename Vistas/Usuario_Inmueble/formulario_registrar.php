@@ -70,6 +70,42 @@
 	</div>
 
 
+	<script type="text/javascript">
+
+$(document).ready(function(){
+		$('#button-Rusuario_inmueble').click(function(){
+			
+			var usuarioRango = $("#slcusuario").val();
+			var inmuebleRango = $("#slcinmueble").val();
+			
+			if(usuarioRango==undefined || usuarioRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Usuario!',
+				})
+				return false;
+			}	
+			else if(inmuebleRango==undefined || inmuebleRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Asociar El Inmueble!',
+				})
+				return false;
+			}
+			else{
+				swal({
+						title: "Hecho!",
+						text: "Se Ha Registrado Correctamente",
+						icon: "success",
+						button: "Continuar",
+					});
+				}	
+		});
+	});
+</script>
+
 </body>
 </html>
 

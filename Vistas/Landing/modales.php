@@ -5,7 +5,7 @@
 								<div class="modal-content modal-modificado1">
 									<div class="modal-body">
 										<div id="cierre_caja4"><a data-dismiss="modal" aria-label="Close" style="background: white; outline: none !important; margin-left: 93%"><i class="icon-cancel-circle" style="color: #FC7323; font-size: 21px;margin-top: 2%; cursor: pointer;"></i></a>
-											<p class="Nota">Nota: </p>
+											<p class="Nota">Nota: En este moduló</p>
 										</div>
 									</div>
 								</div>

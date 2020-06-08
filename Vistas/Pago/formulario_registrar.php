@@ -130,20 +130,24 @@ $(document).ready(function(){
 	$('#button-Rpago').click(function(){
 			var monto_canceladoRango = $('#monto_cancelado').val();
 			var monto_a_pagarRango = $('#monto_a_pagar').val();
-			// var slcccRango = $('#slccuenta_cobro').val();
-			// var slctipo_pagoRango = $('#slctipo_pago').val();
+			var cuentaCobroRango = $('#slccuenta_cobro').val();
+			var tipoPagoRango = $('#slctipo_pago').val();
 			
-
-			// if(slctipo_pagoRango==""){
-			// 	Swal.fire({
-			// 		icon: 'error',
-			// 		title: 'Error',
-			// 		text: 'Debes Ingresar El Tipo Pago!',
-			// 		})
-			// 		return false;
-			// }
-			// else 
-			if(monto_canceladoRango==""){
+			if(cuentaCobroRango==undefined || cuentaCobroRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar La Cuenta De Cobro!',
+				})
+				return false;
+			}else if(tipoPagoRango==undefined || tipoPagoRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Tipo De Pago!',
+				})
+				return false;
+			}else if(monto_canceladoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
