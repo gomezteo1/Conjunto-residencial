@@ -41,12 +41,12 @@
 			//header('Location: index.php');
 		}
 
-		public function buscar_inmueble($dato){
-			//echo "buscar_inmueble";
-			$inmuebles = Inmueble::buscar_inmueble($dato);
-			require_once('../Vistas/Inmueble/listar_inmuebles.php');
+		// public function buscar_inmueble($dato){
+		// 	//echo "buscar_inmueble";
+		// 	$inmuebles = Inmueble::buscar_inmueble($dato);
+		// 	require_once('../Vistas/Inmueble/listar_inmuebles.php');
 
-		}
+		// }
 
 		public function desactivar_estado_inmueble($codigo_inmueble,$on){
 		require_once('../Modelos/Inmueble.php');

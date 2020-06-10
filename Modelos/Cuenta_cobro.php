@@ -267,41 +267,41 @@ class Cuenta_cobro
     // return $lista_cuenta_cobros;
     // }
 
-    public static function buscar_cuenta_cobro($dato){
-    $datos = trim($dato);
-    $lista_cuenta_cobros =[];
-    $db=Db::getConnect();
-    $sql=$db->query("SELECT Distinct c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
-        c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, concat('%','',c.porMora) as mora, c.estado,
-        i.torre, i.numero, i.numero_matricula,
-        u.nombres, u.apellidos,
-        concat(u.nombres,'',u.apellidos) as nombre, concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'( $',m.tarifa,')') as mes
+    // public static function buscar_cuenta_cobro($dato){
+    // $datos = trim($dato);
+    // $lista_cuenta_cobros =[];
+    // $db=Db::getConnect();
+    // $sql=$db->query("SELECT  c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
+    //     c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, concat('%','',c.porMora) as mora, c.estado,
+    //     i.torre, i.numero, i.numero_matricula,
+    //     u.nombres, u.apellidos,
+    //     concat(u.nombres,'',u.apellidos) as nombre, concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'( $',m.tarifa,')') as mes
 
-       FROM usuario u
-        left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
-        left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-        left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
-        left join month m on c.codigo_month = m.codigo_month
+    //    FROM usuario u
+    //     left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+    //     left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+    //     left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
+    //     left join month m on c.codigo_month = m.codigo_month 
 
-        WHERE c.numero_cuenta like '%$datos%' OR c.nit like '%$datos%'
-        OR c.monto_por_cancelar like '%$datos%' OR c.porMora like '%$datos%'
-        OR c.fecha like '%$datos%' OR c.nit like '%$datos%'
-        OR u.nombres like '%$datos%' OR u.apellidos like '%$datos%'
-        OR i.torre like '%$datos%' OR i.numero like '%$datos%'
-        OR i.numero_matricula like '%$dato%' OR m.mes like '%$datos%'
-        OR m.tarifa like '%$datos%' OR c.estado like '%$datos%'
-        ");
+    //     WHERE c.numero_cuenta like '%$datos%' OR c.nit like '%$datos%'
+    //     OR c.monto_por_cancelar like '%$datos%' OR c.porMora like '%$datos%'
+    //     OR c.fecha like '%$datos%' OR c.nit like '%$datos%'
+    //     OR u.nombres like '%$datos%' OR u.apellidos like '%$datos%'
+    //     OR i.torre like '%$datos%' OR i.numero like '%$datos%'
+    //     OR i.numero_matricula like '%$dato%' OR m.mes like '%$datos%'
+    //     OR m.tarifa like '%$datos%' OR c.estado like '%$datos%'
+    //     ");
 
-        foreach ($sql->fetchAll() as $cuenta_cobro){
-            $itemcuenta_cobro= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'], $cuenta_cobro['codigo_month'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'], $cuenta_cobro['mora'], $cuenta_cobro['estado']);
-            $itemcuenta_cobro->nombreUsuario=$cuenta_cobro['nombre'];
-            $itemcuenta_cobro->nombreInmueble=$cuenta_cobro['inmueble'];
-            $itemcuenta_cobro->nombreMes=$cuenta_cobro['mes'];
+    //     foreach ($sql->fetchAll() as $cuenta_cobro){
+    //         $itemcuenta_cobro= new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'], $cuenta_cobro['codigo_month'], $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'], $cuenta_cobro['mora'], $cuenta_cobro['estado']);
+    //         $itemcuenta_cobro->nombreUsuario=$cuenta_cobro['nombre'];
+    //         $itemcuenta_cobro->nombreInmueble=$cuenta_cobro['inmueble'];
+    //         $itemcuenta_cobro->nombreMes=$cuenta_cobro['mes'];
 
-            $lista_cuenta_cobros[]= $itemcuenta_cobro;
-        }
-        return $lista_cuenta_cobros;
-    }
+    //         $lista_cuenta_cobros[]= $itemcuenta_cobro;
+    //     }
+    //     return $lista_cuenta_cobros;
+    // }
 
 
     //---------------------------------------------------------------------

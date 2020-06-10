@@ -28,7 +28,7 @@ class Inmueble
 	public static function listar_todos(){
 		$lista_inmuebles =[];
 		$db=Db::getConnect();
-		$sql=$db->query('SELECT DISTINCT * FROM inmueble WHERE estado !=0 ');
+		$sql=$db->query('SELECT DISTINCT * FROM inmueble ');
 		foreach ($sql->fetchAll() as $inmueble) {
 			$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'],$inmueble['numero_matricula'],$inmueble['tipo'],$inmueble['torre'],$inmueble['numero'], $inmueble['metros'] , $inmueble['estado']);
 		}
@@ -111,22 +111,22 @@ class Inmueble
     }
 
 //-----Buscar---------------------------------------------------------	
-	public static function buscar_inmueble($dato){
-		$datos = trim($dato);
-		$lista_inmuebles =[];
-		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM inmueble
-		WHERE tipo like '%$datos%' 
-		OR numero like '%$datos%' or 
-		numero_matricula like '%$datos%' 
-		OR torre like '%$datos%' or estado like '%$datos%'
-		OR metros like '%$datos%' 
-		");
-		foreach ($sql->fetchAll() as $inmueble) {
-			$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'], $inmueble['numero_matricula'], $inmueble['tipo'], $inmueble['torre'], $inmueble['numero'], $inmueble['metros'] ,$inmueble['estado']);
-		}
-		return $lista_inmuebles;
-	}
+	// public static function buscar_inmueble($dato){
+	// 	$datos = trim($dato);
+	// 	$lista_inmuebles =[];
+	// 	$db=Db::getConnect();
+	// 	$sql=$db->query("SELECT * FROM inmueble
+	// 	WHERE tipo like '%$datos%' 
+	// 	OR numero like '%$datos%' or 
+	// 	numero_matricula like '%$datos%' 
+	// 	OR torre like '%$datos%' or estado like '%$datos%'
+	// 	OR metros like '%$datos%' 
+	// 	");
+	// 	foreach ($sql->fetchAll() as $inmueble) {
+	// 		$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'], $inmueble['numero_matricula'], $inmueble['tipo'], $inmueble['torre'], $inmueble['numero'], $inmueble['metros'] ,$inmueble['estado']);
+	// 	}
+	// 	return $lista_inmuebles;
+	// }
 	/*
 	public static function buscar_precio($inm_id){
 		//buscar

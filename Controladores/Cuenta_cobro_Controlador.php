@@ -89,11 +89,11 @@
 			}
 
 			//--------------------------------------------------------------
-			public function buscar_cuenta_cobro($dato){
-				$cuenta_cobros = Cuenta_cobro::buscar_cuenta_cobro($dato);
-				require_once('../Vistas/Cuenta_cobro/listar_cuenta_cobros.php');
+			// public function buscar_cuenta_cobro($dato){
+			// 	$cuenta_cobros = Cuenta_cobro::buscar_cuenta_cobro($dato);
+			// 	require_once('../Vistas/Cuenta_cobro/listar_cuenta_cobros.php');
 
-			}
+			// }
 
 			public function consultar_tipo_cuenta_cobro($dato){
 				$cuenta_cobros = Cuenta_cobro::buscar_tipo_cuenta_cobro($dato);

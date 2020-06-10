@@ -56,12 +56,12 @@
 			header('Location: index.php');
 		}
 
-		public function buscar_abono($dato){
-			//echo "buscar_abono";
-			$abonos = Abono::buscar_abono($dato);
-			require_once('../Vistas/Abono/listar_abonos.php');
+		// public function buscar_abono($dato){
+		// 	//echo "buscar_abono";
+		// 	$abonos = Abono::buscar_abono($dato);
+		// 	require_once('../Vistas/Abono/listar_abonos.php');
 
-		}
+		// }
 		
 		public function consultar_valor($dato){
 			$deuda = Abono::buscar_valor($dato);

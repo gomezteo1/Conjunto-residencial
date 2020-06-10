@@ -15,9 +15,7 @@
 					<a align="left" class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
-				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
-					<img src="./image/buscar.png" class="btn-outline">
-				</button>
+				<img src="./image/buscar.png" class="btn-outline">
 			</div>
 		</section>
 		<div class=""></div>
@@ -25,7 +23,7 @@
 			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 			
 		<div id="resultado_busqueda">
-			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+			<table id="mytable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 				<thead>
 					<tr>
 						<td><b>Serial Abono</b></td>
@@ -71,6 +69,21 @@
 		</div>
 	</div>
 	</div>
+	<script>
+		// Write on keyup event of keyword input element
+		$(document).ready(function(){
+		$("#txtbuscar").keyup(function(){
+		_this = this;
+		// Show only matching TR, hide rest of them
+		$.each($("#mytable tbody tr"), function() {
+		if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+		$(this).hide();
+		else
+		$(this).show();
+		});
+		});
+		});
+		</script>
 		<button data-toggle="modal" 
 				style="
 					position: relative;

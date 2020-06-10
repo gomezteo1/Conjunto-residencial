@@ -61,10 +61,10 @@
         Pago::eliminar_pago($codigo_pago);
         //header('Location: index.php');
       }
-      public function buscar_pago($dato){
-        $pagos = Pago::buscar_Pago($dato);
-        require_once('../Vistas/Pago/listar_pagos.php');
-      }
+      // public function buscar_pago($dato){
+      //   $pagos = Pago::buscar_Pago($dato);
+      //   require_once('../Vistas/Pago/listar_pagos.php');
+      // }
 
       public function consultar_pago($dato){
       $deuda = Pago::consultar_valor($dato);

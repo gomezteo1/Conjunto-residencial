@@ -143,16 +143,16 @@ public static function listar_todos(){
 		}
 	}
 	
-		public static function buscar_pago($codigo_abono){
-			$db=Db::getConnect();
-			$select=$db->prepare("SELECT * from pago WHERE codigo_pago='$codigo_abono'");
-			$select->execute();
-			$abonoDb=$select->fetch();
-			return $abonoDb['monto_cancelado'];	
+		// public static function buscar_pago($codigo_abono){
+		// 	$db=Db::getConnect();
+		// 	$select=$db->prepare("SELECT * from pago WHERE codigo_pago='$codigo_abono'");
+		// 	$select->execute();
+		// 	$abonoDb=$select->fetch();
+		// 	return $abonoDb['monto_cancelado'];	
 	
 	
 	
-			}
+		// 	}
 
 	//la función para eliminar 
 	public static function eliminar_abono($codigo_abono){

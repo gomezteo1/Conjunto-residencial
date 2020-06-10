@@ -102,31 +102,31 @@ class Usuario_Inmueble
             $usuario_inmueble= new Usuario_Inmueble($usuario_inmuebleDb['id_usuario_inmueble'], $usuario_inmuebleDb['id_usuario'], $usuario_inmuebleDb['codigo_inmueble']);
             return $usuario_inmueble;
         }
-         public static function buscar_usuario_inmueble($dato){
-            $datos = trim($dato);
-            $listar_usuario_inmuebles =[];
-            $db=Db::getConnect();
-            $sql=$db->query("SELECT DISTINCT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM
-            usuario_inmueble ui
-            inner join usuario u on ui.id_usuario = u.id_usuario
-            inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-          WHERE (u.nombres like '%$datos%'
-          or u.apellidos like '%$datos%')or i.numero like '%$datos%'
-          or i.torre like '%$datos%'
+        //  public static function buscar_usuario_inmueble($dato){
+        //     $datos = trim($dato);
+        //     $listar_usuario_inmuebles =[];
+        //     $db=Db::getConnect();
+        //     $sql=$db->query("SELECT DISTINCT ui.*, concat(u.nombres,'', u.apellidos)as xx, concat(i.numero,'', i.torre)as zz  FROM
+        //     usuario_inmueble ui
+        //     inner join usuario u on ui.id_usuario = u.id_usuario
+        //     inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+        //   WHERE (u.nombres like '%$datos%'
+        //   or u.apellidos like '%$datos%')or i.numero like '%$datos%'
+        //   or i.torre like '%$datos%'
 
 
-          ");
-            // carga en la $lista_productos cada registro desde la base de datos
-            foreach ($sql->fetchAll() as $usuario_inmueble){
-              $itemusuario_inmueble= new Usuario_Inmueble($usuario_inmueble['id_usuario_inmueble'], $usuario_inmueble['id_usuario'],
-                  $usuario_inmueble['codigo_inmueble']);
-              $itemusuario_inmueble->nombreUsuario=$usuario_inmueble['xx'];
-              $itemusuario_inmueble->nombreInmueble=$usuario_inmueble['zz'];
+        //   ");
+        //     // carga en la $lista_productos cada registro desde la base de datos
+        //     foreach ($sql->fetchAll() as $usuario_inmueble){
+        //       $itemusuario_inmueble= new Usuario_Inmueble($usuario_inmueble['id_usuario_inmueble'], $usuario_inmueble['id_usuario'],
+        //           $usuario_inmueble['codigo_inmueble']);
+        //       $itemusuario_inmueble->nombreUsuario=$usuario_inmueble['xx'];
+        //       $itemusuario_inmueble->nombreInmueble=$usuario_inmueble['zz'];
 
-              $listar_usuario_inmuebles[]= $itemusuario_inmueble;
-            }
-            return  $listar_usuario_inmuebles;
-        }
+        //       $listar_usuario_inmuebles[]= $itemusuario_inmueble;
+        //     }
+        //     return  $listar_usuario_inmuebles;
+        // }
 
 
 

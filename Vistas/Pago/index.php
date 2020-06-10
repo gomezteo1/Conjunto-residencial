@@ -18,16 +18,14 @@ require_once('conexion.php');
 					<a class="btn btn-outline-primary" href="?controller=pago&action=formulario_registrar">Registrar</a>
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
-				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
-				<img src="./image/buscar.png" class="btn-outline">			
-					</button>
+				<img src="./image/buscar.png" class="btn-outline">
 			</div>
 		</section>
 		<div class=""></div>
 		<div class="mdl-grid">
 			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
 				<div id="resultado_busqueda">
-					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+					<table id="mytable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 						<thead>
 							<tr>
 								<td><b>Serial Pago</b></td>
@@ -84,8 +82,24 @@ require_once('conexion.php');
 		</button>		
 	</div>
 </body>
-<script>
 
+<script>
+ // Write on keyup event of keyword input element
+ $(document).ready(function(){
+ $("#txtbuscar").keyup(function(){
+ _this = this;
+ // Show only matching TR, hide rest of them
+ $.each($("#mytable tbody tr"), function() {
+ if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+ $(this).hide();
+ else
+ $(this).show();
+ });
+ });
+});
+</script>
+
+<script>
 $(function(){ //Función Jquery
   	$('#btnbuscar').click(function(e) {
     e.preventDefault(); //Evitar submit

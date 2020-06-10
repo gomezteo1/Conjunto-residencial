@@ -47,11 +47,11 @@
         Usuario_Inmueble::eliminar_usuario_inmueble($id_usuario_inmueble);
         //header('Location: index.php');
       }
-      public function buscar_usuario_inmueble($dato){
-        echo "buscar_usuario_inmueble";
-        $usuario_inmuebles = Usuario_Inmueble::buscar_Usuario_Inmueble($dato);
-        require_once('../Vistas/Usuario_Inmueble/listar_usuario_inmuebles.php');
-      }
+      // public function buscar_usuario_inmueble($dato){
+      //   echo "buscar_usuario_inmueble";
+      //   $usuario_inmuebles = Usuario_Inmueble::buscar_Usuario_Inmueble($dato);
+      //   require_once('../Vistas/Usuario_Inmueble/listar_usuario_inmuebles.php');
+      // }
 
 
       public function consultar_usuario_inmueble($dato){

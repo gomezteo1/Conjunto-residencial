@@ -47,11 +47,11 @@
 			header('Location: index.php');
 		}
 //---------------------------------------------------------
-		public function buscar_rol($dato){
-			$roles = Rol::buscar_rol($dato);
-		require_once('../Vistas/Rol/listar_roles.php');
+		// public function buscar_rol($dato){
+		// 	$roles = Rol::buscar_rol($dato);
+		// require_once('../Vistas/Rol/listar_roles.php');
 
-		}
+		// }
 		
 		public function consultar_tipo_rol($dato){
 			$rol = Rol::consultar_tipo_rol($dato);

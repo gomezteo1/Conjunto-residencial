@@ -45,10 +45,10 @@
 			//}
 			
 
-			public function buscar_pago($dato){
-			  $tipo_pagos = Tipo_pago::buscar_pago($dato);
-			  require_once('../Vistas/Tipo_Pago/listar_tipo_pagos.php');
-			}
+			// public function buscar_pago($dato){
+			//   $tipo_pagos = Tipo_pago::buscar_pago($dato);
+			//   require_once('../Vistas/Tipo_Pago/listar_tipo_pagos.php');
+			// }
 
 			public function consultar_tipo_pago($dato){
 			$tipo_pago = Tipo_pago::consultar_tipo_pago($dato);

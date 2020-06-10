@@ -41,11 +41,11 @@
         Month::eliminar_month($codigo_moth);
         //header('Location: index.php');
       }
-      public function buscar_month($dato){
-        //echo "buscar_month";
-        $months = Month::buscar_Month($dato);
-        require_once('../Vistas/Month/listar_months.php');
-      }
+      // public function buscar_month($dato){
+      //   //echo "buscar_month";
+      //   $months = Month::buscar_Month($dato);
+      //   require_once('../Vistas/Month/listar_months.php');
+      // }
 
       public function consultar_month($dato){
       $deuda = Month::consultar_valor($dato);

@@ -158,10 +158,10 @@ class Usuario_Controlador
 		
 	}  
  //--------------------------------------------------------------
-	public function buscar_usuario($dato){
-		$usuarios = Usuario::buscar_usuario($dato);
-		require_once('../Vistas/Usuario/listar_usuarios.php');
-	}
+	// public function buscar_usuario($dato){
+	// 	$usuarios = Usuario::buscar_usuario($dato);
+	// 	require_once('../Vistas/Usuario/listar_usuarios.php');
+	// }
 		
 	public function consultar_tipo_usuario($dato){
 			$usuario = Usuario::buscar_tipo_usuario($dato);

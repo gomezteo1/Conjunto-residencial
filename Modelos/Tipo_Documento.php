@@ -66,21 +66,21 @@ public static function listar_todos(){
 		return $tipo_documento;
 	}
 	
-	public static function buscar_documento($dato){
-		$datos = trim($dato);
-		$lista_tipo_documentos =[];
-		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM tipo_documento
-		WHERE id_tipo_documento like '%$datos%' 
+	// public static function buscar_documento($dato){
+	// 	$datos = trim($dato);
+	// 	$lista_tipo_documentos =[];
+	// 	$db=Db::getConnect();
+	// 	$sql=$db->query("SELECT * FROM tipo_documento
+	// 	WHERE id_tipo_documento like '%$datos%' 
 		
-		OR documento like '%$datos%'
-		");
+	// 	OR documento like '%$datos%'
+	// 	");
 		
-		foreach ($sql->fetchAll() as $tipo_documento) {
-			$lista_tipo_documentos[]= new Tipo_Documento($tipo_documento['id_tipo_documento'], $tipo_documento['documento']);
-		}
-		return $lista_tipo_documentos;
-    }	
+	// 	foreach ($sql->fetchAll() as $tipo_documento) {
+	// 		$lista_tipo_documentos[]= new Tipo_Documento($tipo_documento['id_tipo_documento'], $tipo_documento['documento']);
+	// 	}
+	// 	return $lista_tipo_documentos;
+    // }	
 	
 	public static function buscar_tipo_documento($id_tipo_documento){
 		//buscar
