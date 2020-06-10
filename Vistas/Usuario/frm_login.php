@@ -41,30 +41,40 @@
 </body>
 </html>
 <!----VALIDACION PERFECTA FULL HD 4K----->
+
+
+
 <script type="text/javascript">
 
 $(document).ready(function(){
 		$('#Login').click(function(){
-
-			if($('#correo').val()==""){
+			var correoRango = $('#correo').val();
+			var claveRango = $('#clave').val();
+		
+			if(correoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Correo!',
 					})
 					return false;
-			}
-			else if($('#clave').val()==""){
+			}else if(correoRango.indexOf('@', 0) == -1 || correoRango.indexOf('.', 0) == -1) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Correo Electrónico Introducido No Es Correcto.!',
+					})
+					return false;
+			}else if(claveRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar La Clave!',
 					})
 					return false;
+			}else{
+					return true;
 			}
-			
-			else
-				return true;
 		});
 	});
 
