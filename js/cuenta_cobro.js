@@ -54,7 +54,7 @@ $(function() { //funtion jquery
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Debes Ingresar El Mes De La Cuenta!',
+                text: 'Debes Ingresar El Mes Y Tarifa De La Cuenta!',
             })
             return false;
         } else if (monto_por_cancelar == "") {
@@ -84,16 +84,14 @@ $(function() { //funtion jquery
             actualizar();
 
         }
+
     });
 });
 //Que si el array no esta completo me saque un false 
 
 const actualizar = () => {
-    let todo = '<div class="row justify-content-center">';
-
+    let todo = '<div class="row justify-content-left">';
     for (const [index, cuenta] of detalleCuentasCobro.entries()) {
-        console.log(cuenta);
-        // if (cuenta) {}
         todo +=
             `
             <div class="container">
@@ -153,10 +151,10 @@ const eliminarCuenta = (id) => {
 
 /* para guardar */
 $(function() { //funtion para guardar en Db
-
     $('#btnguardar').click(function(e) {
-
         e.preventDefault();
+
+
         datos = {
             cuenta_cobro: 'cuenta_cobro',
             detalleCuentasCobro: JSON.stringify(detalleCuentasCobro)
@@ -167,16 +165,12 @@ $(function() { //funtion para guardar en Db
             datatype: "json",
             data: datos,
             success: function(data) {
-                // alert("Registro Éxitoso");
-                /*document.getElementById('prueba').innerHTML=data*/
-                // alert("Registro Éxitoso");
-                // swal({
-                //     title: "Hecho!",
-                //     text: "Se Ha Registrado Correctamente",
-                //     icon: "success",
-                //     button: "Continuar",
-                // });
-                // alert(swal);
+                swal.fire({
+                    title: "Hecho!",
+                    text: "Se Ha Registrado Correctamente",
+                    icon: "success",
+                    button: "Continuar",
+                });
             }
 
         });

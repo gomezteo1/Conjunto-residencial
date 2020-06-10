@@ -100,37 +100,18 @@
 			</form>
 			<div class="row justify-content-center">
 				<button class="btn btn-dark" name="btnagregar"  id="btnagregar">Agregar</button>
+				<br>
 				
-				
-				<button class=" btn btn-success" name="btnguardar" id="btnguardar">
-				Guardar</button>
-</div>
+				<button class=" btn btn-success"  name="btnguardar" id="btnguardar">
+				Guardar
+				</button>
+				</div>
 			<div class="mostrar"></div>
 		</div>
 	</div>
 
 
 </body>
-
-
-<script type="text/javascript">
-
-$(document).ready(function(){
-		$('#btnguardar').click(function(){
-			// 	swal({
-			// 	title: "Hecho!",
-			// 	text: "Se Ha Registrado Correctamente",
-			// 	icon: "success",
-			// 	button: "Continuar",
-			// });
-			alert("Registro Éxitoso.");
-			
-		});
-	});
-</script>
-
-
-
 </html>
 
 
