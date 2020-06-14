@@ -57,7 +57,7 @@
 
 									</div>
 									<p class="text-center">
-										<button id="button-Mrol" name="button-Mrol" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
+									<button id="button-Rrol" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="btn-addRol">Modificar Rol</div>
@@ -77,26 +77,32 @@
 </body>
 </html>
 
-
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#button-Mrol').click(function(){
+		$('#button-Rrol').click(function(){
 
-			if($('#rol').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar El Rol!',
-					})
-					return false;
-			}
-			else
+	var rolRango = $('#rol').val();
+	
+	if(rolRango==""){
+		Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'Debes Ingresar El Rol!',
+			})
+			return false;
+	}
+	else if(rolRango.length<=7 || rolRango.length>=25) {
+			Swal.fire({
+			icon: 'error',
+			title: 'Error',
+			text: 'El Rol Debe Tener 8 A 24 Caracteres',
+			})
+			return false;
+	}else
 				swal({
 					title: "Hecho!",
-					text: "Se Ha Actualizado Correctamente",
+					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
@@ -106,4 +112,3 @@ $(document).ready(function(){
 	
 
 </script>
-

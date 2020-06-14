@@ -74,10 +74,6 @@
 </body>
 </html>
 
-
-
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
 
 $(document).ready(function(){

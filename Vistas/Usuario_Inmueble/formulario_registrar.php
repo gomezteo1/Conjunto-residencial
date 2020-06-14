@@ -70,7 +70,7 @@
 	</div>
 
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
 $(document).ready(function(){
 		$('#button-Rusuario_inmueble').click(function(){

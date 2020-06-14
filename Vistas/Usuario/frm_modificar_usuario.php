@@ -135,11 +135,11 @@
 										</div>
 									</div>
 									<p class="text-center">
-										<button id="button-Musuario" name="button-Musuario" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar usuario</div>
-									</p>
+											<button id="button-Rusuario"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" on>
+												<i class="zmdi zmdi-plus"></i>
+											</button>
+											<div class="mdl-tooltip" for="btn-addProduct">Modificar Usuario</div>
+										</p>
 								
 							</div>
 						</div>
@@ -155,7 +155,7 @@
 </body>
 
 
-</html>
+
 <script type="text/javascript">
 //fecha
 $(document).ready(function(){
@@ -166,12 +166,13 @@ $(document).ready(function(){
 	
 	$('#button-Rusuario').click(function(){
 			var nombreRango = $('#nombres').val();
-			var apellidoRango = $('#apellidos').val()
-			var numeroDocumentoRango = $('#numero_documento').val()
-			var telefonoRango = $('#telefono').val()
-			var claveRango = $('#clave').val()
-			var correoRango = $('#correo').val()
-			var correoRecuperacionRango = $('#correo_recuperacion').val()
+			var apellidoRango = $('#apellidos').val();
+			var tipoDocumentoRango = $('#slctipo_documento').val();
+			var numeroDocumentoRango = $('#numero_documento').val();
+			var telefonoRango = $('#telefono').val();
+			var claveRango = $('#clave').val();
+			var correoRango = $('#correo').val();
+			var correoRecuperacionRango = $('#correo_recuperacion').val();
 			
 			if(nombreRango==""){
 					Swal.fire({
@@ -187,8 +188,7 @@ $(document).ready(function(){
 					text: 'Nombre Debe Tener 5 A 17 Caracteres',
 					})
 					return false;
-			}
-			else if(apellidoRango==""){
+			}else if(apellidoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -202,6 +202,13 @@ $(document).ready(function(){
 					text: 'Apellido Debe Tener 6 A 17 Caracteres',
 					})
 					return false;
+			}else if(tipoDocumentoRango==undefined || tipoDocumentoRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Tipo De Documento!',
+				})
+				return false;
 			}else if(numeroDocumentoRango==""){
 				Swal.fire({
 					icon: 'error',
@@ -209,16 +216,14 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Numero De Documento!',
 					})
 					return false;
-			}
-			if(numeroDocumentoRango.length <=5 || numeroDocumentoRango.length>=13){
+			}else if(numeroDocumentoRango.length <=5 || numeroDocumentoRango.length>=13){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Numero Documetno Debe Tener 6 A 13 Caracteres',
+					text: 'Numero Documento Debe Tener 6 A 13 Caracteres',
 					})
 					return false;
-			}
-			else if(telefonoRango==""){
+			}else if(telefonoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -281,13 +286,17 @@ $(document).ready(function(){
 					text: 'El Correo Alternativo Debe Tener 15 A 30 Caracteres',
 					})
 					return false;
-			}else
+			}else{
 				swal({
 						title: "Hecho!",
-						text: "Se Ha Actualizado Correctamente",
+						text: "Se Ha Registrado Correctamente",
 						icon: "success",
 						button: "Continuar",
 					});
+				}		
 		});
 	});
 </script>
+
+</html>
+

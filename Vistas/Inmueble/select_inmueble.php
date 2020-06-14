@@ -33,7 +33,7 @@ else if($_GET['controller'] == 'usuario_inmueble' ){
 				<option <?php 
 					echo  isset($usuario_inmueble) && $usuario_inmueble->codigo_inmueble==$inmueble->codigo_inmueble ?'
 				selected':''; ?> value="<?php echo $inmueble->codigo_inmueble; ?>">
-					<?php echo $inmueble->numero;?>
+					<?php echo $inmueble->numero,' ,Torre: ',$inmueble->torre;?>
 				</option>		
 			<?php } ?>
 		</select>

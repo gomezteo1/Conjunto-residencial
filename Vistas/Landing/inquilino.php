@@ -81,10 +81,7 @@
 				<div class="mdl-tooltip" for="btn-menu">Ocultar / Mostrar MENU</div>
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
-						<!--<li class="btn-Notification" id="notifications">
-							<i class="zmdi zmdi-notifications"></i>
-							<div class="mdl-tooltip" for="notifications">Notificación</div>
-						</li>-->
+					
 						<li class="btn-exit" id="btn-exit">
 							<i class="zmdi zmdi-power"></i>
 							<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>

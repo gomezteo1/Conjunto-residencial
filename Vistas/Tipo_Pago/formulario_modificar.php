@@ -57,7 +57,7 @@
 
 									</div>
 									<p class="text-center">
-										<button id="button-MTipo_pago button-Mcc" name="button-Mcc" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary button-RPago " value="res-registrar-tipo_pago" type="submit">
+									<button id="button-RTipo_pago" value="res-registrar-tipo_pago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="btn-tipo-pago">Modificar Tipo De Pago</div>
@@ -79,13 +79,16 @@
 </body>
 </html>
 
-<!----VALIDACION PERFECTA FULL HD 4K----->
+
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#button-MTipo_pago').click(function(){
+		$('#button-RTipo_pago').click(function(){
 
-			if($('#tipo_pago').val()==""){
+		var tipoPagoRango = $('#tipo_pago').val();
+		var descripcionRango = $('#descripcion').val()
+
+			if(tipoPagoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -93,7 +96,15 @@ $(document).ready(function(){
 					})
 					return false;
 			}
-			else if($('#descripcion').val()==""){
+			else if(tipoPagoRango.length<=4 || tipoPagoRango.length>=17) {
+					Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Tipo Pago Debe Tener 5 A 17 Caracteres',
+					})
+					return false;
+			}
+			else if(descripcionRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -101,10 +112,18 @@ $(document).ready(function(){
 					})
 					return false;
 			}
+			else if(descripcionRango.length<=4 || descripcionRango.length>=41) {
+					Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Descripcion Debe Tener 5 A 40 Caracteres',
+					})
+					return false;
+			}
 			else
 				swal({
 					title: "Hecho!",
-					text: "Se Ha Actualizado Correctamente",
+					text: "Se ha registrado correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
@@ -114,4 +133,3 @@ $(document).ready(function(){
 	
 
 </script>
-

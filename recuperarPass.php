@@ -20,10 +20,12 @@ try {
     $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     //$mail->Username   = 'trabajophp123456@gmail.com';                     // SMTP username
-    $mail->Username   = 'juancamilo1143164715@gmail.com';                     // SMTP username
-    $mail->Password   = '1143164715';                               // SMTP password
+    $mail->Username   = 'zamasoft000@gmail.com';                     // SMTP username
+    $mail->Password   = 'mas12/12';                               // SMTP password
     $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
-    $mail->Port       = 587;                                    // TCP port to connect to
+    $mail->Port       = 587;           
+    $mail->CharSet = 'UTF-8';                                    // TCP port to connect to
+    // TCP port to connect to
 
     //Recipients
     $mail->setFrom($usuario['correo_recuperacion'], 'Conjunto Residencial Juan Del Corral

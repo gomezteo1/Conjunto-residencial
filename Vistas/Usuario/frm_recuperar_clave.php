@@ -63,11 +63,11 @@
 	</body>
 </html>
 
-
+<!-- 
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#action').click(function(){
+		$('#buttonR').click(function(){
 
 			if($('#correo_recuperacion').val()==""){
 				Swal.fire({
@@ -78,9 +78,9 @@ $(document).ready(function(){
 					return false;
 			}
 			else
-				swal({
+				Swal.fire({
 						title: "Hecho!",
-						text: "Se ha actualizado correctamente",
+						text: "Se Ha Enviado La Clave Al Correo",
 						icon: "info",
 						button: "Continuar",
 					});
@@ -89,5 +89,5 @@ $(document).ready(function(){
 
 	
 
-</script>
+</script> -->
 

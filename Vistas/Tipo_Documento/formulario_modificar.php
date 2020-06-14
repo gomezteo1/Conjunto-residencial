@@ -45,7 +45,7 @@
 										</div>
 									</div>
 									<p class="text-center">
-										<button id="button-Mtipo_documento" name="button-Mtipo_documento" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
+									<button id="button-Rtipo_documento" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 											<i class="zmdi zmdi-plus"></i>
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Modificar Documento</div>
@@ -65,28 +65,32 @@
 </body>
 </html>
 
-
-
-
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#button-Mtipo_documento').click(function(){
+		$('#button-Rtipo_documento').click(function(){
 
-			if($('#documento').val()==""){
+		var documentoRango = $('#documento').val();
+	
+			if(documentoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes Ingresar El Documento!',
+					text: 'Debes Ingresar El Tipo De Documento!',
 					})
 					return false;
 			}
-			else
+			else if(documentoRango.length<=7 || documentoRango.length>=25) {
+					Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Tipo Documento Debe Tener 8 A 24 Caracteres',
+					})
+					return false;
+			}else
 				swal({
 					title: "Hecho!",
-					text: "Se Ha Actualizado Correctamente",
+					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});

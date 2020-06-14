@@ -82,23 +82,5 @@ h1 {
     </div>
 
 
-
-    <!-- <div class="container container ">
-        <div class="row">
-            <div class="col-4">  
-                <h3>¿Quienes Somos?</h3>
-                <p>Lorem ipsum dolor..</p>
-            </div>
-            <div class="col-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor..</p>
-            </div>
-            <div class="col-4">
-                <h3>Column 3</h3>
-                <p>Lorem ipsum dolor..</p>
-            </div>
-        </div>
-    </div> -->
-
 </body>
 </html>

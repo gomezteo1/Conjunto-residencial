@@ -53,10 +53,10 @@
 
 									</div>
 									<p class="text-center">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" id="ModificarA" name="ModificarA">
-											<i class="zmdi zmdi-plus"></i>
+									<button id="button-Rusuario_inmueble" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
+												<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar Usuario Inmueble</div>
+										<div class="mdl-tooltip" for="btn-addProduct">Modificar Usuario Inmueble</div>
 									</p>
 								
 							</div>
@@ -71,6 +71,42 @@
 
 
 </body>
+<script type="text/javascript">
+
+$(document).ready(function(){
+		$('#button-Rusuario_inmueble').click(function(){
+			
+			var usuarioRango = $("#slcusuario").val();
+			var inmuebleRango = $("#slcinmueble").val();
+			
+			if(usuarioRango==undefined || usuarioRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Usuario!',
+				})
+				return false;
+			}	
+			else if(inmuebleRango==undefined || inmuebleRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Asociar El Inmueble!',
+				})
+				return false;
+			}
+			else{
+				swal({
+						title: "Hecho!",
+						text: "Se Ha Registrado Correctamente",
+						icon: "success",
+						button: "Continuar",
+					});
+				}	
+		});
+	});
+</script>
+
 </html>
 
 

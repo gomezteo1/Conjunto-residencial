@@ -123,7 +123,6 @@ function items_pagos($codigo_cuenta_cobro){
 
 </script>
 
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
 
 $(document).ready(function(){

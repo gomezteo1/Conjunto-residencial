@@ -1,5 +1,3 @@
-console.log('fuck');
-
 $('#buttonR').unbind('click').click(function() {
     var myId = $(this).val();
     //console.log(myId);
@@ -10,9 +8,9 @@ $('#buttonR').unbind('click').click(function() {
             var informacion = $('#registrar form#' + myId).serialize();
             var metodo = $('#registrar form#' + myId).attr('method');
             var peticion = $('#registrar form#' + myId).attr('action');
-            console.log(informacion);
-            console.log(metodo);
-            console.log(peticion);
+            // console.log(informacion);
+            // console.log(metodo);
+            // console.log(peticion);
 
             $.ajax({
                 type: metodo,
