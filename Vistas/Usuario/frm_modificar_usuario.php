@@ -65,7 +65,7 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero_documento" name="numero_documento" value="<?php echo $usuario->numero_documento  ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_documento" name="numero_documento" value="<?php echo $usuario->numero_documento  ?>">
 												<label class="mdl-textfield__label" for="numero_documento">Numero Documento</label>
 												<span class="mdl-textfield__error">Numero De Documento Invalido</span>
 											</div>
@@ -87,7 +87,7 @@
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="telefono" name="telefono" value="<?php echo $usuario->telefono  ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="telefono" name="telefono" value="<?php echo $usuario->telefono  ?>">
 												<label class="mdl-textfield__label" for="telefono">Telefono</label>
 												<span class="mdl-textfield__error">Telefono invalido</span>
 											</div>
@@ -244,11 +244,11 @@ $(document).ready(function(){
 					text: 'El Telefono No Debe Tener Caracteres Negativos',
 				})
 				return false;
-			}else if(telefonoRango.length <=6 || telefonoRango.length>=10){
+			}else if(telefonoRango.length <=6 || telefonoRango.length>=13){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Telefono Debe Tener 7 A 10 Caracteres',
+					text: 'Telefono Debe Tener 7 A 12 Caracteres',
 					})
 					return false;
 			}else if($('#fecha_nacimiento').val()==""){

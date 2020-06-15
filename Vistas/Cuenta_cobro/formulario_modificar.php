@@ -190,11 +190,11 @@ $(document).ready(function(){
                 text: 'El Monto No Debe Tener Caracteres Negativos',
             })
             return false;
-        } else if (monto_por_cancelar.length <= 4 && monto_por_cancelar.length >= 9) {
+        } else if (monto_por_cancelar.length <= 6 && monto_por_cancelar.length >= 9) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'El Monto Debe Tener 3 A 8 Caracteres',
+                text: 'El Monto Debe Tener 6 A 8 Caracteres',
             })
             return false;
         } else {

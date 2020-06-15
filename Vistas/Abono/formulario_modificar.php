@@ -179,14 +179,16 @@ $(document).ready(function(){
                 text: 'El Saldo No Debe Tener Caracteres Negativos',
 				})
 				return false;
-        	}else if(saldoRango.length<=-1 || saldoRango.length>=3) {
-				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'El Saldo No Puede Ser Menor A Cero',
-				})
-				return false;
-			}else{
+			}
+			//else if(saldoRango.length<=-1 || saldoRango.length>=3) {
+			// 	Swal.fire({
+			// 	icon: 'error',
+			// 	title: 'Error',
+			// 	text: 'El Saldo No Puede Ser Menor A Cero',
+			// 	})
+			// 	return false;
+			// }
+			else{
 				swal({
 					title: "Hecho!",
 					text: "Se Ha Registrado Correctamente",
