@@ -64,11 +64,11 @@ $(function() { //funtion jquery
                 text: 'Debes Ingresar El Monto!',
             })
             return false;
-        } else if (monto_por_cancelar.length <= 0 || monto_por_cancelar.length >= 9) {
+        } else if (monto_por_cancelar.length <= 4 && monto_por_cancelar.length >= 9) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'El Monto Debe Tener 1 A 8 Caracteres',
+                text: 'El Monto Debe Tener 3 A 8 Caracteres',
             })
             return false;
         } else {
@@ -101,7 +101,7 @@ const actualizar = () => {
                   <div class="card-body">
                     
                     
-                    <div class="col-sm-8">
+                    <div class="col-sm-8 ">
                         
                         <div class="hijo">
                             <h5 class="card-title tituloM  justify-content-right">Cuenta Cobro</h5>

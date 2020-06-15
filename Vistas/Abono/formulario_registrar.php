@@ -46,7 +46,7 @@
 								
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="deuda" name="deuda" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
+											<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="deuda" name="deuda" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
 											<label class="mdl-textfield__label" for="Deuda"></label>
 											<span class="mdl-textfield__error">Deuda Invalida</span>
 										</div>
@@ -54,7 +54,7 @@
 
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abono" name="abono"
+											<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="abono" name="abono"
 												onkeypress="calcular_total()"
 												onkeyup="calcular_total()"
 												onkeydown="calcular_total()">
@@ -65,7 +65,7 @@
 
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="saldo" name="saldo" readonly>
+											<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="saldo" name="saldo" readonly>
 											<label class="mdl-textfield__label" for="Saldo">Saldo</label>
 											<span class="mdl-textfield__error">Saldo Invalido</span>
 										</div>

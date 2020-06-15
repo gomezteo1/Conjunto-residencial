@@ -80,11 +80,11 @@ $(document).ready(function(){
 					})
 					return false;
 			}
-			else if(documentoRango.length<=7 || documentoRango.length>=25) {
+			else if(documentoRango.length<=7 || documentoRango.length>=30) {
 					Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Tipo Documento Debe Tener 8 A 24 Caracteres',
+					text: 'Tipo Documento Debe Tener 8 A 29 Caracteres',
 					})
 					return false;
 			}else

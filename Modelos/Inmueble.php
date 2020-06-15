@@ -64,6 +64,8 @@ class Inmueble
 		metros='$metros',
 		estado='$estado'
 		WHERE codigo_inmueble='$codigo_inmueble'");
+		// var_dump($update);
+		// exit();
 		$update->execute();
 	}
 	public static function eliminar_inmueble($codigo_inmueble){
@@ -109,36 +111,6 @@ class Inmueble
         $update = $db->prepare("UPDATE inmueble SET estado='1' WHERE codigo_inmueble=$codigo_inmueble");
         $update->execute();                
     }
-
-//-----Buscar---------------------------------------------------------	
-	// public static function buscar_inmueble($dato){
-	// 	$datos = trim($dato);
-	// 	$lista_inmuebles =[];
-	// 	$db=Db::getConnect();
-	// 	$sql=$db->query("SELECT * FROM inmueble
-	// 	WHERE tipo like '%$datos%' 
-	// 	OR numero like '%$datos%' or 
-	// 	numero_matricula like '%$datos%' 
-	// 	OR torre like '%$datos%' or estado like '%$datos%'
-	// 	OR metros like '%$datos%' 
-	// 	");
-	// 	foreach ($sql->fetchAll() as $inmueble) {
-	// 		$lista_inmuebles[]= new Inmueble($inmueble['codigo_inmueble'], $inmueble['numero_matricula'], $inmueble['tipo'], $inmueble['torre'], $inmueble['numero'], $inmueble['metros'] ,$inmueble['estado']);
-	// 	}
-	// 	return $lista_inmuebles;
-	// }
-	/*
-	public static function buscar_precio($inm_id){
-		//buscar
-		$db=Db::getConnect();
-		$select=$db->prepare("SELECT * FROM inmueble WHERE inm_id=$inm_id");
-		$select->execute();
-		$inmuebleDb=$select->fetch();
-		return $inmuebleDb['precio'];
-		
-		//return 122;
-		//echo 3332;
-	}*/
 
 }
 ?>

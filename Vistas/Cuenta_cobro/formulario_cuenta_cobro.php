@@ -23,8 +23,8 @@
 		box-sizing: border-box;
 		transition:  500ms ease-out;  
 		position: relative;
- 		left: 330px;	
-		bottom: 60px;
+ 		left: 250px;	
+		bottom: 70px;
 
 		}
 		.tituloM {
@@ -79,14 +79,14 @@
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="numero_cuenta" id="numero_cuenta" required>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" name="numero_cuenta"  id="numero_cuenta" required>
 												<label class="mdl-textfield__label" for="Numero Cuenta">Numero Cuenta</label>
 												<span class="mdl-textfield__error">Numero Cuenta Invalido</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" name="nit" id="nit" required>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" name="nit" id="nit"  required>
 												<label class="mdl-textfield__label" for="Nit">NIT</label>
 												<span class="mdl-textfield__error">Nit Invalido</span>
 											</div>
@@ -122,7 +122,7 @@
 										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="monto_por_cancelar" name="monto_por_cancelar" required>
+												<input class="mdl-textfield__input" type="number" pattern="^[0-9]" min="0" step="1" id="monto_por_cancelar"  name="monto_por_cancelar" required>
 												<label class="mdl-textfield__label" for="Monto Por Cancelar"></label>
 												<span class="mdl-textfield__error">Monto por Cancelar</span>
 											</div>

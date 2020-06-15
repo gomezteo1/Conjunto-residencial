@@ -5,15 +5,15 @@
 </head>
 
 <body>
-
-				<div class="full-width header-well-icon">
-					<i class="zmdi zmdi-balance"></i>
-				</div>
-				<div class="full-width header-well-text">
-					<p class="text-condensedLight">
-						Modificar Abono
-					</p>
-				</div>
+<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-washing-machine"></i>
+			</div>
+			<div class="full-width header-well-text" align="left">
+				<p class="text-condensedLight">
+					Modificar Abono
+				</p>
+			</div>
 		</section>
 		<div class="full-width divider-menu-h"></div>
 		<div class="mdl-grid">
@@ -32,7 +32,7 @@
 								
 								<div class="mdl-cell mdl-cell--12-col">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" id="codigo_abono" name="codigo_abono" value="<?php echo $abono->codigo_abono ?>" readonly>
+										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="codigo_abono" name="codigo_abono" value="<?php echo $abono->codigo_abono ?>" readonly>
 										<label class="mdl-textfield__label"  for="Serial Abono"></label>
 										<span class="mdl-textfield__error">Serial A. Invalido</span>
 									</div>
@@ -59,7 +59,7 @@
 								</div> 
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="deuda" name="deuda" value="<?php echo $abono->dueda ?>" placeholder="Aqui Estará Su Deuda al Seleccionar El Codigo De Pago" readonly>
+										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="deuda" name="deuda" value="<?php echo $abono->dueda ?>" placeholder="Aqui Estará Su Deuda al Seleccionar El Codigo De Pago" readonly>
 										<label class="mdl-textfield__label" for="Deuda"></label>
 										<span class="mdl-textfield__error">Deuda Invalida</span>
 									</div>
@@ -67,7 +67,7 @@
 
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abono" name="abono" value="<?php echo $abono->abono ?>" placeholder="Digite el Valor a Abonar"
+										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="abono" name="abono" value="<?php echo $abono->abono ?>" placeholder="Digite el Valor a Abonar"
 											onkeypress="calcular_total()"
 											onkeyup="calcular_total()"
 											onkeydown="calcular_total()">
@@ -79,7 +79,7 @@
 
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="saldo" name="saldo"  value="<?php echo $abono->saldo ?>" readonly>
+										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="saldo" name="saldo"  value="<?php echo $abono->saldo ?>" readonly>
 										<label class="mdl-textfield__label" for="Saldo">Saldo</label>
 										<span class="mdl-textfield__error">Saldo Invalido</span>
 									</div>

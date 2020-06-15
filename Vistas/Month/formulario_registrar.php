@@ -44,7 +44,7 @@
 										</div>
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="tarifa" name="tarifa" required>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="tarifa" name="tarifa" required>
 												<label class="mdl-textfield__label" for="Tarifa">Tarifa</label>
 												<span class="mdl-textfield__error">Farifa Invalido</span>
 											</div>
@@ -52,7 +52,7 @@
 										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="porcentaje" name="porcentaje" required>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="porcentaje" name="porcentaje" required>
 												<label class="mdl-textfield__label" for="Porcentaje">Porcentaje</label>
 												<span class="mdl-textfield__error">Porcentaje Invalido</span>
 											</div>

@@ -38,7 +38,7 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero_matricula" name="numero_matricula" value="<?php echo $inmueble->matricula ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_matricula" name="numero_matricula" value="<?php echo $inmueble->numero_matricula ?>">
 												<label class="mdl-textfield__label" for="Numero Matricula">Numero Matricula</label>
 												<span class="mdl-textfield__error">Numero De Matricula Equivocado</span>
 											</div>
@@ -62,7 +62,7 @@
 										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero" name="numero" value="<?php echo $inmueble->numero ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero" name="numero" value="<?php echo $inmueble->numero ?>">
 												<label class="mdl-textfield__label" for="numero">Numero Inmueble</label>
 												<span class="mdl-textfield__error">Numero De Inmueble Invalido</span>
 											</div>
@@ -75,6 +75,7 @@
 												<span class="mdl-textfield__error">Tipo De Inmueble Invalido</span>
 											</div>
 										</div>
+										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="estado" name="estado" value="<?php echo $inmueble->estado ?>" hidden>
 
 									</div>
 									<p class="text-center">

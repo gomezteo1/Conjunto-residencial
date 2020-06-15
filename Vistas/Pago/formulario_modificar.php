@@ -58,7 +58,7 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_cancelado" name="monto_cancelado" value="<?php echo $pago->monto_cancelado ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_cancelado" name="monto_cancelado" value="<?php echo $pago->monto_cancelado ?>">
 												<label class="mdl-textfield__label" for="Monto Cancelado">Numero Monto Cancelado</label>
 												<span class="mdl-textfield__error">Numero Monto Cancelado Equivocado</span>
 											</div>
@@ -67,7 +67,7 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>">
 												<label class="mdl-textfield__label" for="Monto A Pagar">Deuda </label>
 												<span class="mdl-textfield__error">Numero Monto A Pagar Equivocado</span>
 											</div>
