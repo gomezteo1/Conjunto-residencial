@@ -82,7 +82,7 @@
 												
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="porMora" name="porMora" required>
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="float"  id="porMora" name="porMora" required>
 												<label class="mdl-textfield__label" for="Mora"></label>
 												<span class="mdl-textfield__error">Mora</span>
 											</div>
@@ -120,11 +120,18 @@ $(document).ready(function(){
         fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
 
-        if (numeroCuenta == "") {
+		if (numeroCuenta == "") {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
                 text: 'Debes Ingresar El Numero De La Cuenta!',
+            })
+            return false;
+        } else if (numeroCuenta <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta No Debe Tener Caracteres Negativos',
             })
             return false;
         } else if (numeroCuenta.length <= 5 || numeroCuenta.length >= 13) {
@@ -139,6 +146,13 @@ $(document).ready(function(){
                 icon: 'error',
                 title: 'Error',
                 text: 'Debes Ingresar El Nit!',
+            })
+            return false;
+        } else if (nit <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Nit No Debe Tener Caracteres Negativos',
             })
             return false;
         } else if (nit.length <= 7 || nit.length >= 25) {
@@ -169,14 +183,21 @@ $(document).ready(function(){
                 text: 'Debes Ingresar El Monto!',
             })
             return false;
-        } else if (monto_por_cancelar.length <= 0 || monto_por_cancelar.length >= 9) {
+        } else if (monto_por_cancelar <= 0) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'El Monto Debe Tener 1 A 8 Caracteres',
+                text: 'El Monto No Debe Tener Caracteres Negativos',
             })
             return false;
-        }else {
+        } else if (monto_por_cancelar.length <= 4 && monto_por_cancelar.length >= 9) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto Debe Tener 3 A 8 Caracteres',
+            })
+            return false;
+        } else {
             Swal.fire({
 				title: "Hecho!",
 				text: "Se Ha Registrado Correctamente",

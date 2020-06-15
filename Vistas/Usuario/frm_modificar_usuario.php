@@ -216,6 +216,13 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Numero De Documento!',
 					})
 					return false;
+			}else if (numeroDocumentoRango <= 0) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Numero Documento No Debe Tener Caracteres Negativos',
+				})
+				return false;
 			}else if(numeroDocumentoRango.length <=5 || numeroDocumentoRango.length>=13){
 				Swal.fire({
 					icon: 'error',
@@ -230,6 +237,13 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Telefono!',
 					})
 					return false;
+			}else if (telefonoRango <= 0) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Telefono No Debe Tener Caracteres Negativos',
+				})
+				return false;
 			}else if(telefonoRango.length <=6 || telefonoRango.length>=10){
 				Swal.fire({
 					icon: 'error',

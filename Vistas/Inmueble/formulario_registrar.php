@@ -116,7 +116,14 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Numero De La Matricula!',
 				})
 				return false;
-			}else if(numeroMatriculaRango.length<=5 || numeroMatriculaRango.length>=10) {
+			}else if (numeroMatriculaRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Matricula No Debe Tener Caracteres Negativos',
+            })
+            return false;
+        	}else if(numeroMatriculaRango.length<=5 || numeroMatriculaRango.length>=10) {
 				Swal.fire({
 				icon: 'error',
 				title: 'Error',
@@ -158,11 +165,18 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Numero Del Inmueble!',
 					})
 					return false;
-			}else if(numeroRango.length<=2 || numeroRango.length>=5) {
+			}else if (numeroRango <= 0) {
 				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'El Numero De Inmueble Debe Tener 3 A 4 Caracteres',
+					icon: 'error',
+					title: 'Error',
+					text: 'El Numero No Debe Tener Caracteres Negativos',
+				})
+				return false;
+        	}else if(numeroRango.length<=2 || numeroRango.length>=5) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Numero De Inmueble Debe Tener 3 A 4 Caracteres',
 				})
 				return false;
 			}else if(metrosRango==""){

@@ -162,7 +162,14 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Monto Cancelado!',
 					})
 					return false;
-			}else if(monto_canceladoRango.length<=3 || monto_canceladoRango.length>=10) {
+			}else if (monto_canceladoRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto Cancelado No Debe Tener Caracteres Negativos',
+            	})
+            	return false;
+        	}else if(monto_canceladoRango.length<=3 || monto_canceladoRango.length>=10) {
 				Swal.fire({
 				icon: 'error',
 				title: 'Error',
@@ -175,8 +182,15 @@ $(document).ready(function(){
 					title: 'Error',
 					text: 'Debes Ingresar el Monto A Pagar!',
 					})
-					return false;
-			}else if(monto_a_pagarRango.length<=3 || monto_a_pagarRango.length>=10) {
+				return false;
+			}else if (monto_a_pagarRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto A Pagar No Debe Tener Caracteres Negativos',
+				})
+				return false;
+       		}else if(monto_a_pagarRango.length<=3 || monto_a_pagarRango.length>=10) {
 				Swal.fire({
 				icon: 'error',
 				title: 'Error',

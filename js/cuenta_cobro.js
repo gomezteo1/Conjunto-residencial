@@ -22,6 +22,13 @@ $(function() { //funtion jquery
                 text: 'Debes Ingresar El Numero De La Cuenta!',
             })
             return false;
+        } else if (numeroCuenta <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta No Debe Tener Caracteres Negativos',
+            })
+            return false;
         } else if (numeroCuenta.length <= 5 || numeroCuenta.length >= 13) {
             Swal.fire({
                 icon: 'error',
@@ -34,6 +41,13 @@ $(function() { //funtion jquery
                 icon: 'error',
                 title: 'Error',
                 text: 'Debes Ingresar El Nit!',
+            })
+            return false;
+        } else if (nit <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Nit No Debe Tener Caracteres Negativos',
             })
             return false;
         } else if (nit.length <= 7 || nit.length >= 25) {
@@ -62,6 +76,13 @@ $(function() { //funtion jquery
                 icon: 'error',
                 title: 'Error',
                 text: 'Debes Ingresar El Monto!',
+            })
+            return false;
+        } else if (monto_por_cancelar <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto No Debe Tener Caracteres Negativos',
             })
             return false;
         } else if (monto_por_cancelar.length <= 4 && monto_por_cancelar.length >= 9) {

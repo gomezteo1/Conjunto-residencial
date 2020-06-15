@@ -126,6 +126,13 @@ $(document).ready(function(){
 					text: 'Debes Ingresar La Tarifa!',
 					})
 					return false;
+			}else if (tarifaRango <= 0) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'La Tarifa No Debe Tener Caracteres Negativos',
+				})
+				return false;
 			}else if(tarifaRango.length<=5 || tarifaRango.length>=10) {
 				Swal.fire({
 				icon: 'error',
@@ -140,6 +147,13 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Porcentaje!',
 					})
 					return false;
+			}else if (porcentajeRango <= 0) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Porcenaje No Debe Tener Caracteres Negativos',
+				})
+				return false;
 			}else if(porcentajeRango.length<=0 || porcentajeRango.length>=4) {
 				Swal.fire({
 				icon: 'error',
@@ -154,13 +168,14 @@ $(document).ready(function(){
 					text: 'Debes Ingresar La Fecha!',
 					})
 					return false;
-			}else
+			}else{
 				swal({
 					title: "Hecho!",
 					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
+			}	
 		});
 	});
 
