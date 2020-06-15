@@ -96,11 +96,11 @@ $(document).ready(function(){
 					})
 					return false;
 			}
-			else if(tipoPagoRango.length<=4 || tipoPagoRango.length>=17) {
+			else if(tipoPagoRango.length<=4 || tipoPagoRango.length>=25) {
 					Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Tipo Pago Debe Tener 5 A 17 Caracteres',
+					text: 'Tipo Pago Debe Tener 5 A 24 Caracteres',
 					})
 					return false;
 			}

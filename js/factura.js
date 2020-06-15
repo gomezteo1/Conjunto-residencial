@@ -15,21 +15,40 @@ $(function() { //Función Jquery
     });
 });
 
+// $(function() { //Función Jquery
+//     $('#slccuenta_cobro').change(function(e) {
+//         e.preventDefault(); //Evitar submit
+//         metodo = "consultar_cuenta_cobro";
+//         dato_buscar = $('#slccuenta_cobro').val();
+//         $.ajax({
+//             type: 'POST',
+//             url: 'Controladores/Cuenta_cobro_Controlador.php',
+//             //dataType: "json",
+//             data: { action: metodo, dato_buscar: dato_buscar },
+//             success: function(data) {
+//                 $('#consultar_cuenta_cobro').val(data);
+//             }
+//         });
+//     });
+// });
+
 $(function() { //Función Jquery
     $('#slccuenta_cobro').change(function(e) {
         e.preventDefault(); //Evitar submit
-        metodo = "consultar_cuenta_cobro";
+        metodo = "consultar_valor";
         dato_buscar = $('#slccuenta_cobro').val();
+
         $.ajax({
             type: 'POST',
-            url: 'Controladores/Cuenta_cobro.php',
+            url: 'Controladores/Cuenta_cobro_Controlador.php',
             //dataType: "json",
             data: { action: metodo, dato_buscar: dato_buscar },
             success: function(data) {
-                $('#consultar_cuenta_cobro').val(data);
+                $('#monto_por_cancelar').val(data);
             }
         });
     });
+
 });
 
 $(function() { //Función Jquery

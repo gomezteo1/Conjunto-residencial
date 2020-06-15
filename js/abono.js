@@ -11,6 +11,7 @@ $(function() { //Función Jquery
             success: function(data) {
                 $('#deuda').val(data);
             }
+
         });
     });
 

@@ -54,19 +54,27 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_cancelado" name="monto_cancelado" required>
-												<label class="mdl-textfield__label" for="Monto Cancelado"> Monto</label>
+												<label class="mdl-textfield__label" for="Monto Cancelado"> Numero Monto Cancelado</label>
 												<span class="mdl-textfield__error">Numero de Monto Cancelado Invalido</span>
 											</div>
 										</div>
-										
+										<!-- Esta se va a quedar mientras nos da la validacion-->
+										<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="monto_por_cancelar" name="monto_por_cancelar" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
+											<label class="mdl-textfield__label" for="monto_por_cancelar"></label>
+											<span class="mdl-textfield__error">monto_por_cancelar Invalida</span>
+										</div>
+									</div> -->
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar" required>
-												<label class="mdl-textfield__label" for="Monto a Pagar">Monto a Pagar </label>
+												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar">
+												<label class="mdl-textfield__label" for="Monto a Pagar">Deuda </label>
 												<span class="mdl-textfield__error">Numero de Monto a Pagar Invalido</span>
 											</div>
 										</div>
+										
 									</div>
 									<div onmouseover="items_pagos()">
 									<p class="text-center">
@@ -94,6 +102,7 @@
 
 </html>
 
+<script src="js/pago.js"></script>
 <script type="text/javascript">
 	
 var Lista = [];

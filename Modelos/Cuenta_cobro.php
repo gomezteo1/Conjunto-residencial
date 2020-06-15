@@ -336,6 +336,19 @@ class Cuenta_cobro
         }
 
   }
+
+  public static function consultar_valor($codigo_cuenta_cobro){
+    //buscar
+    $monto_por_cancelar=9;
+    $db=Db::getConnect();
+    $select=$db->prepare("SELECT DISTINCT * FROM cuenta_cobro 
+    WHERE codigo_cuenta_cobro=$codigo_cuenta_cobro");
+    $select->execute();
+    foreach ($select->fetchAll() as $cuenta_cobro) {
+        $monto_por_cancelar=$cuenta_cobro['monto_por_cancelar'];
+    }
+    return $monto_por_cancelar;
+  }
 //Recien agregadas------------------------------------------------------------
 
 

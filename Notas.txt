@@ -10,15 +10,11 @@
     ªTraer los datos a la vista de pagos
     ªTraer los datos a la vista de abonos
     ª Falta ayudas en linea del inicio
+    ª Hacer card  body de la cuenta de cobro  
+    ªQue salga la alerta de que se registro la cuenta de cobro
 
-    
+
     * Validacion del login 
     * Validación de los datos repetidos
-    * Hacer card  body de la cuenta de cobro  
-    * Que salga la alerta de que se registro la cuenta de cobro
     * Revisar la mora 
-
-    Ultimas instancias
-    * si nos dan más tiempo datables
-    * Cuando se cambie el estado del usuario que no lo deje loguear
     

@@ -299,7 +299,7 @@ if(!isset($_SESSION['acceso']['id_rol']) && !isset($_SESSION['acceso'])){ ?>
 <script src="js/pago.js"></script>
 <script src="js/tipo_documento.js"></script>
 <script src="js/rol.js"></script>
-<script src="js/factura.js"></script>
+<!-- <script src="js/factura.js"></script> -->
 <script src="js/usuario.js"></script>
 <script src="js/cuenta_cobro.js"></script>
 <script src="js/tipo_pago.js"></script>

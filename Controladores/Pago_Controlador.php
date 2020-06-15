@@ -69,7 +69,7 @@
       public function consultar_pago($dato){
       $deuda = Pago::consultar_valor($dato);
       return $deuda;
-    }
+      }
       
       public function llenar_select_pago(){
       require_once('Modelos/Pago.php');

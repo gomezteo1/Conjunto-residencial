@@ -68,7 +68,7 @@
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>">
-												<label class="mdl-textfield__label" for="Monto A Pagar">Numero Monto A Pagar </label>
+												<label class="mdl-textfield__label" for="Monto A Pagar">Deuda </label>
 												<span class="mdl-textfield__error">Numero Monto A Pagar Equivocado</span>
 											</div>
 										</div>

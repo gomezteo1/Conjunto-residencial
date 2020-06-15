@@ -99,6 +99,14 @@
 				$cuenta_cobros = Cuenta_cobro::buscar_tipo_cuenta_cobro($dato);
 			}
 
+			
+			public function consultar_pago($dato){
+			$monto_por_cancelar = Cuenta_cobro::consultar_valor($dato);
+			return $monto_por_cancelar;
+			}
+
+			 
+
 			//--------------------------------------------------------------------
 			public function error(){
 				header('Vistas/error.php');
@@ -160,35 +168,44 @@
 			}
 		}
 
-			if (isset($_POST['action'])){
+		if (isset($_POST['action'])){
 
 
-			if($_POST['action'] == 'desactivar_estado'){
-				$cuenta_cobro_controlador = new Cuenta_cobro_Controlador();
-				echo $cuenta_cobro_controlador->desactivar_estado_cuenta_cobro($_POST['codigo_cuenta_cobro'],$_POST['on']);
-			}
+				if($_POST['action'] == 'desactivar_estado'){
+					$cuenta_cobro_controlador = new Cuenta_cobro_Controlador();
+					echo $cuenta_cobro_controlador->desactivar_estado_cuenta_cobro($_POST['codigo_cuenta_cobro'],$_POST['on']);
+				}
 
-			if($_POST['action'] == 'activar_estado'){
-				$cuenta_cobro_controlador = new Cuenta_cobro_Controlador();
-				echo $cuenta_cobro_controlador->activar_estado_cuenta_cobro($_POST['codigo_cuenta_cobro']);
-			}
+				if($_POST['action'] == 'activar_estado'){
+					$cuenta_cobro_controlador = new Cuenta_cobro_Controlador();
+					echo $cuenta_cobro_controlador->activar_estado_cuenta_cobro($_POST['codigo_cuenta_cobro']);
+				}
 
 
-			if($_POST['action']=='Buscar'){
-				require_once('../Modelos/Cuenta_cobro.php');
-				require_once('../conexion.php');
-				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
-				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
-				$cuenta_cobro_controlador->buscar_cuenta_cobro($_POST['dato_buscar']);
-			}
+				if($_POST['action']=='Buscar'){
+					require_once('../Modelos/Cuenta_cobro.php');
+					require_once('../conexion.php');
+					$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
+					$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
+					$cuenta_cobro_controlador->buscar_cuenta_cobro($_POST['dato_buscar']);
+				}
 
-			if($_POST['action']=='consultar_cuenta_de_cobro'){
-				require_once('../Modelos/Cuenta_cobro.php');
-				require_once('../conexion.php');
-				$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
-				$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
-				$cuenta_cobro_controlador->consultar_tipo_cuenta_cobro($_POST['dato_buscar']);
-			}
+				if($_POST['action']=='consultar_valor') {
+					require_once('../Modelos/Cuenta_cobro.php');
+					require_once('../conexion.php');
+					$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
+					$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
+					echo $cuenta_cobro_controlador->consultar_pago($_POST['dato_buscar']);
+					
+				}
+
+				if($_POST['action']=='consultar_cuenta_de_cobro'){
+					require_once('../Modelos/Cuenta_cobro.php');
+					require_once('../conexion.php');
+					$cuenta_cobro_controlador=new Cuenta_cobro_Controlador();
+					$cuenta_cobro= new Cuenta_cobro('','','','','','','','','');
+					$cuenta_cobro_controlador->consultar_tipo_cuenta_cobro($_POST['dato_buscar']);
+				}
 		}
 
 ?>

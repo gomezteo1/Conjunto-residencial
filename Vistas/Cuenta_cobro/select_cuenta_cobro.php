@@ -10,7 +10,7 @@ if ($_GET['controller'] == 'pago' ){
 				
 				<option <?php 
 					echo  isset($pago) && $pago->codigo_cuenta_cobro==$cuenta_cobro->codigo_cuenta_cobro ?'
-				selected':''; ?> value="<?php echo $cuenta_cobro->codigo_cuenta_cobro; ?>" nombre="<?php echo  $cuenta_cobro->nombrePagos;  ?>">
+				selected':''; ?> value="<?php echo $cuenta_cobro->codigo_cuenta_cobro; ?>"  nombre="<?php echo  $cuenta_cobro->nombrePagos;  ?>">
 					<?php echo $cuenta_cobro->nombrePagos;?>
 				</option>		
 			<?php } ?>
