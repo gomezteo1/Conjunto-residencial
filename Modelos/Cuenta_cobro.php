@@ -80,10 +80,20 @@ class Cuenta_cobro
     public static function listar_todos(){
         $lista_cuenta_cobros=[];
         $db=Db::getConnect();
-        $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
-        c.fecha, concat('$','',c.monto_por_cancelar) as monto_por_cancelars, concat('%','',c.porMora) as mora, c.estado,
-        concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
-        concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'($',m.tarifa,')') as mes,
+        $sql=$db->query("SELECT DISTINCT 
+        c.codigo_cuenta_cobro, 
+        c.nit, 
+        c.numero_cuenta, 
+        c.id_usuario_inmueble, 
+        c.codigo_month,
+        c.fecha, 
+        concat('$','',c.monto_por_cancelar) as monto_por_cancelars, 
+        concat('%','',c.porMora) as mora, 
+        c.estado,
+        concat(u.nombres,'', u.apellidos)as nombre, 
+        u.numero_documento as documento,
+        concat(i.numero,'',i.torre) as inmueble, 
+        concat(m.mes,'($',m.tarifa,')') as mes,
 
         concat(concat(concat(concat(concat(concat(
         concat('El Valor Es $', c.monto_por_cancelar),
@@ -96,13 +106,13 @@ class Cuenta_cobro
         as pagos 
 
         FROM usuario u
-        left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
-        left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-        left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
-        left join month m on c.codigo_month = m.codigo_month
+        inner join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+        inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+        inner join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
+        inner join month m on c.codigo_month = m.codigo_month
         /*Validacion con la profe magn */
-        where ((datediff(c.fecha,now())*-1) <= 30)
-        and ((datediff(c.fecha,now())*-1) >=0)
+        -- where ((datediff(c.fecha,now())*-1) <= 30)
+        -- and ((datediff(c.fecha,now())*-1) >=0)
         order by c.fecha desc
         ");
         foreach ($sql->fetchAll() as $cuenta_cobro){
@@ -130,11 +140,11 @@ class Cuenta_cobro
         concat(u.nombres,'', u.apellidos)as nombre, u.numero_documento as documento,
         concat(i.numero,'',i.torre) as inmueble, concat(m.mes,'($', m.tarifa,')') as mes
         FROM usuario u
-        left join usuario_inmueble ui on u.id_usuario = ui.id_usuario
+        inner join usuario_inmueble ui on u.id_usuario = ui.id_usuario
         -- left join usuario u on ui.id_usuario = u.id_usuario
-        left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-        left join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
-        left join month m on c.codigo_month = m.codigo_month
+        inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+        inner join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
+        inner join month m on c.codigo_month = m.codigo_month
         /*Validacion con la profe magn */
         where c.id_usuario_inmueble='$id_usuario_inmueble' 
         order by c.fecha desc");

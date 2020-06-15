@@ -90,51 +90,51 @@ $(function() { //funtion jquery
 //Que si el array no esta completo me saque un false 
 
 const actualizar = () => {
-    let todo = '<div class="row justify-content-left">';
+    let todo = '<br><br><div class="container justify-content-left"><div class="row">  ';
     for (const [index, cuenta] of detalleCuentasCobro.entries()) {
         todo +=
             `
-            <div class="container">
-            <div class="row">
-                <div class="">
-                    <div class="col-4" align="left">
-                        <button class="btn btn-outline-danger" onClick="eliminarCuenta(${index})"><i class="zmdi zmdi-close-circle"></i></button>
-                    </div>
-
-                    <div class="col-12">
-                        <div>
-                            <p>Datos: ${cuenta.nombre} </p>
-                            <p hidden>${cuenta.slcusuario_inmueble} </p>
+            
+            <div class = "col-6 izquierda"   >
+            <br>
+                <div class="card carta">
+                  <div class="card-body">
+                    
+                    
+                    <div class="col-sm-8">
+                        
+                        <div class="hijo">
+                            <h5 class="card-title tituloM  justify-content-right">Cuenta Cobro</h5>
+                            <button class="btn btn-outline-danger botoncito" onClick="eliminarCuenta(${index})"><i class="zmdi zmdi-close-circle"></i></button>
                         </div>
+                        <div></div>
+                        <p class="card-text">Datos: ${cuenta.nombre} </p>
+                        <p class="card-text" hidden>${cuenta.slcusuario_inmueble} </p>
+                        <div>------</div>
                     </div> 
 
-                    <div class="col-12">
-                        <div class="col-6">
-                            <p>Cuenta:  ${cuenta.numero_cuenta}</p>
-                            <p>Nit:  ${cuenta.nit}</p>
-                        </div>
-                        <div class="col-6">
-                            <p>Mes:  ${cuenta.mes}</p>
-                            <p hidden >${cuenta.slcmonth} </p>
-                        </div>
-                        <div>
-                        
-                            <p>Pagar:  ${cuenta.monto_por_cancelar}</p>
-                            
-                        </div>
+                    <div class="col-sm-8">
+                    
+                        <p class="card-text">Cuenta:  ${cuenta.numero_cuenta}</p>
+                        <p class="card-text">Nit:  ${cuenta.nit}</p>
+                        <div>------</div>
+                        <p class="card-text">Mes:  ${cuenta.mes}</p>
+                        <p  class="card-text" hidden >${cuenta.slcmonth} </p>
+                        <div> ------ </div>
+                        <p class="card-text">Pagar:  ${cuenta.monto_por_cancelar}</p>
+                    
                     </div>    
-                </div>
-            </div>
-        </div>   
-                
-            
-                
 
                 
+                
+                   </div>
+                </div>
             </div>
-            `
+            
+         `
     }
-    todo += '</div><br>'
+    todo += '</div></div> '
+    todo += '<div class="row"><div class="col-12"></div></div > '
 
     $("#detalle_cuenta_cobro").html(todo)
 }
@@ -152,7 +152,6 @@ const eliminarCuenta = (id) => {
 /* para guardar */
 $(function() { //funtion para guardar en Db
     $('#btnguardar').click(function(e) {
-        e.preventDefault();
 
 
         datos = {

@@ -2,6 +2,50 @@
 <html lang="es">
 <head>
 	<title>Cuenta Cobro R</title>
+	<style>
+		.carta{
+		-webkit-box-shadow: 10px 10px 20px 4px rgba(0,0,0,0.52);
+		-moz-box-shadow: 10px 10px 20px 4px rgba(0,0,0,0.52);
+		box-shadow: 10px 10px 20px 4px rgba(0,0,0,0.52);
+		}
+		.izquierda{
+			text-align: left;
+		}
+		.botoncito{
+	
+		border: none;
+		background: #f2f2f2;
+		color: #2d567a;
+		padding: 10px;
+		font-size: 20px;
+		border-radius: 5px;
+		/* position: relative; */
+		box-sizing: border-box;
+		transition:  500ms ease-out;  
+		position: relative;
+ 		left: 330px;	
+		bottom: 60px;
+
+		}
+		.tituloM {
+			text-align: right;
+			
+			font-size: 30px;
+		}
+		.padre{
+			justify-content:center; 
+		}
+		.hijo{
+			
+			padding: 10px;
+  			margin: 10px;
+
+			  display:inline-block;
+			}
+
+
+
+	</style>
 	</head>
 <body>
 	<div id="registrar-cuenta_cobro">								
@@ -88,9 +132,10 @@
 									</div>
 							</div>
 								<center>
-										<div id="detalle_cuenta_cobro">
-										Detalle
+										<div class="col-12" id="detalle_cuenta_cobro">
+										
 										</div>
+										
 								</center>
 							</div>
 						</div>
@@ -106,6 +151,7 @@
 				Guardar
 				</button>
 				</div>
+				
 			<div class="mostrar"></div>
 		</div>
 	</div>

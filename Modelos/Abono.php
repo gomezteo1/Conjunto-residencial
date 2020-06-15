@@ -35,13 +35,14 @@ public static function listar_todos(){
 		
 		from abonos_pago a 
 		left join pago p on a.codigo_pago = p.codigo_pago
-		left join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
-		left join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
-		left join usuario u on ui.id_usuario = u.id_usuario
-		left join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
-		left join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-		where ((datediff(a.fecha,now())*-1) <= 30)
-         and ((datediff(a.fecha,now())*-1) >=0) order by a.fecha desc");
+		inner join cuenta_cobro c on p.codigo_cuenta_cobro = c.codigo_cuenta_cobro
+		inner join usuario_inmueble ui on c.id_usuario_inmueble = ui.id_usuario_inmueble 
+		inner join usuario u on ui.id_usuario = u.id_usuario
+		inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
+		inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
+		-- where ((datediff(a.fecha,now())*-1) <= 30)
+        --  and ((datediff(a.fecha,now())*-1) >=0) 
+		 order by a.fecha desc");
 
 		foreach ($sql->fetchAll() as $abono){
             $itemabono= new Abono($abono['codigo_abono'],$abono['codigo_pago'],$abono['fechas'],$abono['deudas'],$abono['abonos'],$abono['saldos']);
