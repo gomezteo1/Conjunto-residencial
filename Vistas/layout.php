@@ -246,6 +246,7 @@ session_start();
 					</div>
 				</div>
 				<br>
+				<?php require_once('Landing/modales.php'); ?>
 <?php } 
 if($_SESSION['acceso']['id_rol']==3){ ?>	
 	

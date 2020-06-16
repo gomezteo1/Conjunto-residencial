@@ -176,12 +176,13 @@
 							</div>
 						</div>
                         <!-----Inicio----------->
+						<?php if($_SESSION['acceso']['id_rol']==1){	?>
 						<div class="modal fade" id="exampleModalInicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9000;">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content modal-modificado1">
 									<div class="modal-body">
 										<div id="cierre_caja4"><a data-dismiss="modal" aria-label="Close" style="background: white; outline: none !important; margin-left: 93%"><i class="icon-cancel-circle" style="color: #FC7323; font-size: 21px;margin-top: 2%; cursor: pointer;"></i></a>
-											<p class="Nota">Nota: Inicio se puede:
+											<p class="Nota">Nota: En Administrador Inicio se puede:
 												<br>* Ingresar en Gestión de Usuario.
 												<br>* Ingresar en Gestión de Inmueble.
 												<br>* Ingresar en Gestión de Administración.
@@ -193,6 +194,25 @@
 								</div>
 							</div>
 						</div>
+						<?php }else if($_SESSION['acceso']['id_rol']==2){?> 
+						
+							<div class="modal fade" id="exampleModalInicio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9000;">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content modal-modificado1">
+									<div class="modal-body">
+										<div id="cierre_caja4"><a data-dismiss="modal" aria-label="Close" style="background: white; outline: none !important; margin-left: 93%"><i class="icon-cancel-circle" style="color: #FC7323; font-size: 21px;margin-top: 2%; cursor: pointer;"></i></a>
+											<p class="Nota">Nota: En Propietario Inicio se puede:
+												<br>* Ingresar en Gestión de Administración.
+												<br>* Ingresar en Gestión de Cuenta.
+												
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<?php }else{}?>
 						 <!-----Perfil----------->
 						 <div class="modal fade" id="exampleModalup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9000;">
 							<div class="modal-dialog" role="document">
