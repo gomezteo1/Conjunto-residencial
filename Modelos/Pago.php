@@ -60,7 +60,7 @@ class Pago
         return $listar_pagos;
     }
 
-    public static function listar_pago_usuario($id_usuario_inmueble){ 
+    public static function listar_pago_usuario($id_usuario){ 
         $listar_pagos =[];
         $db=Db::getConnect();
 
@@ -72,7 +72,7 @@ class Pago
             inner join usuario u on ui.id_usuario = u.id_usuario
             inner join inmueble i on ui.codigo_inmueble = i.codigo_inmueble
             inner join tipo_pago t on p.codigo_tipo_pago = t.codigo_tipo_pago
-            where c.id_usuario_inmueble='$id_usuario_inmueble'
+            where u.id_usuario='$id_usuario'
             order by p.fecha desc");
 
         //carga en la lista cada registro de la base de datos 

@@ -42,8 +42,9 @@ session_start();
 <body>
 	
 <?php if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==1){ ?>	
-<!-- //Layout Administrador-->
+	 <!--//Layout Administrador-->
 	<?php require_once('Vistas/Landing/administrador.php') ?> <?php } 
+
 	//Layout Propietarios
 	if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==2){
 		if(isset($_SESSION['acceso'])){ 
@@ -61,32 +62,33 @@ session_start();
 			            		$_SESSION['debe']=true;
 			            		foreach ($cuenta_cobros as $cuenta_cobro) {
 			            		//var_dump($cuenta_cobros);	
-			            		if($cuenta_cobro['estado']==1){ ?>	
-			            		<a href="#" class="Notification" id="notifation-unread-1">
-			           			 <div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-success"></i></div>
-									<div class="Notification-text">
-										<p>
-											<i class="zmdi zmdi-circle"></i>
-											<strong>Notificación Pago Realizado</strong> 
-											<br>
-											<small>Cuenta Cobro Pagada</small>
-										</p>
-									</div>
-						        <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notificación</div> 
-						    </a>
-						    <?php } else{ ?>
-								<a href="#" class="Notification" id="notifation-unread-1">
-			            		<div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-info"></i></div>
-								   <div class="Notification-text">
-						                <p>
-						                    <i class="zmdi zmdi-circle-o"></i>
-						                    <strong>Notificación De Cuenta Cobro </strong> 
-						                    <br>
-						                    <small>Cuenta De Cobro Pendiente</small>
-						                </p>
-						          </div>
-						        <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notificación</div> 
-						        </a>
+			            		if($cuenta_cobro['estado']==0){ ?>	
+									<a href="#" class="Notification" id="notifation-unread-1">
+											<div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-info"></i></div>
+												<div class="Notification-text">
+														<p>
+															<i class="zmdi zmdi-circle-o"></i>
+															<strong>Notificación Cuenta Cobro </strong> 
+															<br>
+															<small>Cuenta Cobro Pendiente</small>
+														</p>
+												</div>
+											<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notification</div> 
+										</a>
+									 <?php } else { ?>
+									<a href="#" class="Notification" id="notifation-unread-1">
+										<div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-success"></i></div>
+											<div class="Notification-text">
+												<p>
+													<i class="zmdi zmdi-circle"></i>
+													<strong>Notificación Pago Realizado</strong> 
+													<br>
+													<small>Cuenta Cobro Pagada</small>
+												</p>
+											</div>
+										<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notification</div> 
+									</a>
+
 						    <?php  } } } ?>
 				</section>
 			</section>

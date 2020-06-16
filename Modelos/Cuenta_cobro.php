@@ -132,7 +132,7 @@ class Cuenta_cobro
 
 
 
-    public static function listar_cuenta_cobro_usuario($id_usuario_inmueble){
+    public static function listar_cuenta_cobro_usuario($id_usuario){
         $lista_cuenta_cobros=[];
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT c.codigo_cuenta_cobro, c.nit, c.numero_cuenta, c.id_usuario_inmueble, c.codigo_month,
@@ -146,7 +146,7 @@ class Cuenta_cobro
         inner join cuenta_cobro c on ui.id_usuario_inmueble = c.id_usuario_inmueble
         inner join month m on c.codigo_month = m.codigo_month
         /*Validacion con la profe magn */
-        where c.id_usuario_inmueble='$id_usuario_inmueble' 
+        where u.id_usuario='$id_usuario' 
         order by c.fecha desc");
 
         foreach ($sql->fetchAll() as $cuenta_cobro){
@@ -227,10 +227,12 @@ class Cuenta_cobro
         return $codigo_cuenta_cobroDb;
     }
       // esta es de la notificacion
-      public static function notificar_cuenta_cobro_propietario($id_usuario_inmueble){
+      public static function notificar_cuenta_cobro_propietario($id_usuario){
         $db=Db::getConnect();
-        $select=$db->prepare("SELECT DISTINCT * FROM cuenta_cobro
-        where id_usuario_inmueble = '$id_usuario_inmueble'");
+        $select=$db->prepare("SELECT c.estado FROM cuenta_cobro c 
+        inner join usuario_inmueble ui on (c.id_usuario_inmueble=ui.id_usuario_inmueble)
+        inner join usuario u on (ui.id_usuario = u.id_usuario)
+        where u.id_usuario = '$id_usuario'");
         $select->execute();
         $codigo_cuenta_cobroDb=$select->fetchAll();
         return $codigo_cuenta_cobroDb;
