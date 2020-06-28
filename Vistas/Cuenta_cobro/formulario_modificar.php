@@ -39,15 +39,15 @@
 									
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->numero_cuenta ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_cuenta" name="numero_cuenta" required>
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->numero_cuenta ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_cuenta" name="numero_cuenta">
 												<label class="mdl-textfield__label" for="Numero Cuenta"></label>
 												<span class="mdl-textfield__error">Numero Cuenta</span>
 											</div>
 											</div>
 
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->nit ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="nit" name="nit" required>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->nit ?>" type="text" id="nit" name="nit">
 												<label class="mdl-textfield__label" for="Nit"></label>
 												<span class="mdl-textfield__error">Nit</span>
 											</div>
@@ -74,7 +74,7 @@
 											
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->monto_por_cancelar ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_por_cancelar" name="monto_por_cancelar" required>
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->monto_por_cancelar ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_por_cancelar" name="monto_por_cancelar">
 												<label class="mdl-textfield__label" for="Monto Por Cancelar"></label>
 												<span class="mdl-textfield__error">Monto por Cancelar</span>
 											</div>
@@ -82,7 +82,7 @@
 												
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="float"  id="porMora" name="porMora" required>
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="float"  id="porMora" name="porMora">
 												<label class="mdl-textfield__label" for="Mora"></label>
 												<span class="mdl-textfield__error">Mora</span>
 											</div>
@@ -148,13 +148,13 @@ $(document).ready(function(){
                 text: 'Debes Ingresar El Nit!',
             })
             return false;
-        } else if (nit <= 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El Nit No Debe Tener Caracteres Negativos',
-            })
-            return false;
+        // } else if (nit <= 0) {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Error',
+        //         text: 'El Nit No Debe Tener Caracteres Negativos',
+        //     })
+        //     return false;
         } else if (nit.length <= 7 || nit.length >= 25) {
             Swal.fire({
                 icon: 'error',

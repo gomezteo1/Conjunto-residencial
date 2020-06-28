@@ -3,7 +3,7 @@ const detalleCuentasCobro = [];
 $(function() { //funtion jquery
     $('#btnagregar').click(function(e) {
         e.preventDefault(); //evitar submint
-        numeroCuenta = $('#numero_cuenta').val()
+        numeroCuenta = $('#numero_cuenta').val();
         nit = $('#nit').val()
         slcusuario_inmueble = $('#slcusuario_inmueble').val();
         var nombreSelect = $("select#slcusuario_inmueble option:selected").attr("nombre");
@@ -43,13 +43,14 @@ $(function() { //funtion jquery
                 text: 'Debes Ingresar El Nit!',
             })
             return false;
-        } else if (nit <= 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El Nit No Debe Tener Caracteres Negativos',
-            })
-            return false;
+            // } else if (nit <= 0) {
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Error',
+            //         text: 'El Nit No Debe Tener Caracteres Negativos',
+            //     })
+            //     return false;
+            // } 
         } else if (nit.length <= 7 || nit.length >= 25) {
             Swal.fire({
                 icon: 'error',

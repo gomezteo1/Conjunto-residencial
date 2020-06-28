@@ -8,7 +8,7 @@ if ($_GET['controller'] == 'cuenta_cobro' ){
 			<?php
 			foreach ($months as $month){?>
 				<option <?php echo isset($cuenta_cobro) && $cuenta_cobro->codigo_month==$month->codigo_month ?'
-				selected':'';?> value="<?php echo $month->codigo_month; ?>"fecha="<?php echo  $month->elmesesito;  ?>">
+				selected':'';?> value="<?php echo $month->codigo_month; ?>" fecha="<?php echo  $month->elmesesito;  ?>">
 					<?php echo $month->elmesesito;?>
 				</option>
 

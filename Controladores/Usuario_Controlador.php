@@ -17,6 +17,11 @@ class Usuario_Controlador
 		require_once('Vistas/Usuario/index.php');
 	} 
 
+	public function validarCorreo(){
+		$correo=Usuario::validarCorreo();
+	}
+
+
 	public function indexUsuario(){ //este me lleva al usuario individual
 		$usuarios=Usuario::listar_usuario($_GET['id_usuario']);
 		require_once('Vistas/Usuario/indexUsuario.php');

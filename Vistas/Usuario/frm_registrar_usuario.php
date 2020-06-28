@@ -75,7 +75,7 @@
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input min="7" max="10" class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="telefono" name="telefono" >
+												<input  class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="telefono" name="telefono" >
 												<label class="mdl-textfield__label" for="Telefono">Telefono</label>
 												<span class="mdl-textfield__error">Telefono Invalido</span>
 											</div>
@@ -94,26 +94,42 @@
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="clave" name="clave" >
+												<input class="mdl-textfield__input" type="password" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="clave" name="clave" >
 												<label class="mdl-textfield__label" for="clave">Clave</label>
 												<span class="mdl-textfield__error">Clave invalida</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo" name="correo" >
+												<input class="mdl-textfield__input" type="email" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo" name="correo" >
 												<label class="mdl-textfield__label" for="Correo">Correo</label>
 												<span class="mdl-textfield__error">Correo invalido</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓ@*\/\-_.]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion">
+												<input class="mdl-textfield__input" type="email" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓ@*\/\-_.]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion">
 												<label class="mdl-textfield__label" for="Correo R.invalido">Correo Recuperación</label>
 												<span class="mdl-textfield__error">Correo R.invalido</span>
 											</div>
 										</div>
-
+									
+										<div align="left" class=" form-group mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+											<label  align="left">Terminos y Condiciones</label><br>
+											<div data-toggle="radio">
+												<a href="htpp://www.google.com">hola</a>
+												<input type="checkbox"  name="politica" id="politica"  autocomplete="on">
+											</div>
+										</div>
+										<!-- <button data-toggle="modal" 
+											style="
+												position: relative;
+												left: 450px;
+												border: 1px solid #E1E1E1;
+												border-radius: 100%;"
+											data-target="#exampleModalPolitica ">
+												<img src="image/info.png"  >
+										</button>	 -->
 									</div>
 									 <!-- <div onclick="validar()">  -->
 										<p class="text-center">
@@ -138,7 +154,18 @@
 </body>
 </html>
 
-
+<script type="text/javascript">
+	//Validacion del checkbox de las normas
+		$(document).ready(function() {
+			$("#button-Rusuario").on("click", function() {
+				var condiciones = $("#politica").is(":checked");
+				if (!condiciones) {
+					alert("Debe aceptar las condiciones");
+					event.preventDefault();
+				}
+			});
+		});
+</script>
 
 
 <script type="text/javascript">
@@ -148,6 +175,34 @@ $(document).ready(function(){
 	var dateNow = new Date();
 	var validDate = [dateNow.getFullYear()-15, ("0" + dateNow.getMonth()).slice(-2),("0" + dateNow.getDate()).slice(-2)].join('-');
 	document.getElementById('fecha_nacimiento').setAttribute('max',validDate);
+
+	$('#correo').change(function(){
+		var cadena=$('#correo').val()
+		$.ajax({
+						type:"POST",
+						url:"?controller=usuario&action=validarCorreo&correo="+cadena+"",
+						data:cadena,
+						success:function(r){
+							 var Resp =r.split("--HayRegistro--")
+							 console.log(Resp.length)
+
+							if(Resp.length==2){
+								Swal.fire({
+								icon: 'error',
+								title: 'Error',
+								text: 'Este correo ya se encuentra registrado',
+								})
+								$('#button-Rusuario').prop( "disabled", true );
+							}
+							else{
+								$('#button-Rusuario').prop( "disabled", false );
+							}
+						}
+					});
+
+	})
+
+
 	
 	$('#button-Rusuario').click(function(){
 			var nombreRango = $('#nombres').val();
@@ -264,7 +319,7 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Correo!',
 					})
 					return false;
-			}else if(correoRango.length <=14 || correoRango.length>=30){
+			}else if(correoRango.length <=14 || correoRango.length>=38){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -278,7 +333,7 @@ $(document).ready(function(){
 					text: 'Debes Ingresar El Correo Alternativo!',
 					})
 					return false;
-			}else if(correoRecuperacionRango.length <=14 || correoRecuperacionRango.length>=30){
+			}else if(correoRecuperacionRango.length <=14 || correoRecuperacionRango.length>=38){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
@@ -292,35 +347,7 @@ $(document).ready(function(){
 						icon: "success",
 						button: "Continuar",
 					});
-				}		
+				}
 		});
 	});
 </script>
-
-<!-- <script type="text/javascript">
-			//Validaciones de rango
-$(document).ready(function(){
-		$('#button-Rusuario').click(function(){
-		
-		dvar nombreRango = $('#nombres').val();
-			
-
-		if(nombreRango.length){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar Diez Caracteres',
-					})
-					return false;
-			}
-			// else
-			// 	swal({
-			// 			title: "Hecho!",
-			// 			text: "Se Ha Registrado Correctamente",
-			// 			icon: "success",
-			// 			button: "Continuar",
-			// 		});
-		});
-	});
-</script> -->
-

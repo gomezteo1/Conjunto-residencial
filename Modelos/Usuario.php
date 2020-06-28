@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 class Usuario{
   
     //atributos
@@ -81,10 +83,34 @@ class Usuario{
         return $listar_usuarios;
     } 
 
+    public static function validarCorreo(){
+        $db=DB::getConnect(); // coon   
+        error_reporting(0);
+            $correo = htmlentities($_GET['correo']);
+                    $qcorreo = $db->query("SELECT correo FROM usuario WHERE correo='$correo'");
+                    //echo $correo;
+                    $verficarcorreo = $qcorreo->fetchAll(PDO::FETCH_OBJ);
+                   
+                    if(!empty($verficarcorreo)){
+                        Echo"--HayRegistro--";
+                    }
+    }
+
     //Registrar
     public static function registrar_usuario($usuario){
         $db=DB::getConnect();
-        if(isset($_SESSION['usuario']['rol'])){
+        error_reporting(0);
+            $correo = htmlentities($_POST['correo']);
+            $correo_recuperacion = htmlentities($_POST['correo_recuperacion']);
+                    $qcorreo = $db->query("SELECT correo FROM usuario WHERE correo='$correo' AND correo_recuperacion='$correo_recuperacion'");
+                    //echo $correo;
+                    $verficarcorreo = $qcorreo->fetchAll(PDO::FETCH_OBJ);
+                    print_r($verficarcorreo);
+                    if(!empty($verficarcorreo)){
+                        return;
+                        echo '¡Vaya!, esto ya tiene un registro ';
+          
+        }if(isset($_SESSION['usuario']['rol'])){
         $insert=$db->prepare("INSERT INTO usuario VALUES(:id_usuario, :nombres, :apellidos, :id_tipo_documento, :numero_documento, :id_rol, :telefono, :fecha_nacimiento, :estado, :clave, :correo, :correo_recuperacion)"); 
         $insert->bindValue('id_usuario',$usuario->id_usuario);
         $insert->bindValue('nombres',$usuario->nombres);

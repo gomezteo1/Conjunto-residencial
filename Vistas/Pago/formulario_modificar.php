@@ -67,7 +67,7 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>" readonly>
 												<label class="mdl-textfield__label" for="Monto A Pagar">Deuda </label>
 												<span class="mdl-textfield__error">Numero Monto A Pagar Equivocado</span>
 											</div>
@@ -105,7 +105,16 @@ $(document).ready(function(){
 			var monto_a_pagarRango = $('#monto_a_pagar').val();
 			var cuentaCobroRango = $('#slccuenta_cobro').val();
 			var tipoPagoRango = $('#slctipo_pago').val();
-			if(cuentaCobroRango==undefined || cuentaCobroRango=="" ){
+
+			if(monto_a_pagarRango < monto_canceladoRango){
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Monto No Puede Ser Superior A La Deuda',
+				})
+				return false;
+			}
+			else if(cuentaCobroRango==undefined || cuentaCobroRango=="" ){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',

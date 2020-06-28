@@ -7,8 +7,9 @@
 		switch($controller){
 			case 'usuario':
 	 			require_once('Modelos/Usuario.php');
-	 			$controller = new Usuario_Controlador();
- 				break;
+				 $controller = new Usuario_Controlador();
+				 
+				 break;
 			case 'rol':
 				require_once('Modelos/Rol.php');
 				$controller= new Rol_Controlador();
@@ -68,7 +69,7 @@ if(isset($_SESSION['acceso']) &&  $_SESSION['acceso']['id_rol']==1){
 	//array con los controladores y sus respectivas acciones
 	$controllers= array(
 		'landing'=>['landing'],
-		'usuario' => ['index','indexUsuario','indexUsuario','activarEstadoLista','desactivarEstadoLista','frm_modificar_usuario','frm_registrar_usuario','frm_modificar_administrador','frm_login','frm_singup','eliminar_administrador','cerrarSesion','desactivar_estado_usuario','activar_estado_usuario','frm_cambiarClaveAdm','frm_cambiarClaveUsu'],
+		'usuario' => ['validarCorreo','index','indexUsuario','indexUsuario','activarEstadoLista','desactivarEstadoLista','frm_modificar_usuario','frm_registrar_usuario','frm_modificar_administrador','frm_login','frm_singup','eliminar_administrador','cerrarSesion','desactivar_estado_usuario','activar_estado_usuario','frm_cambiarClaveAdm','frm_cambiarClaveUsu'],
 		'rol'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_rol','eliminar','cambiar_estado_rol'],
 		'tipo_documento'=>['index','formulario_registrar','formulario_modificar','registrar','modificar','eliminar_tipo_documento','eliminar'],
 		'cuenta_cobro'=>['index','activarEstadoLista','desactivarEstadoLista','formulario_cuenta_cobro','formulario_modificar','eliminar_cuenta_cobro'],
@@ -96,7 +97,7 @@ if(isset($_SESSION['acceso']) &&  $_SESSION['acceso']['id_rol']==1){
 					}
 	else {$controllers= array(
 						'landing' =>['landing','acercaDe','contactanos','inicio'],
-						'usuario' => ['frm_registrar_usuario','frm_login','frm_recuperar_clave']);
+						'usuario' => ['frm_registrar_usuario','frm_login','frm_recuperar_clave','validarCorreo']);
 	}	
 	//verifica que el controlador enviado desde index.php esté dentro del arreglo controllers
 	if(isset($controller))

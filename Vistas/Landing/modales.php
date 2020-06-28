@@ -34,6 +34,21 @@
 								</div>
 							</div>
 						</div>
+						<div class="modal fade" id="exampleModalPolitica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9000;">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content modal-modificado1">
+									<div class="modal-body">
+										<div id="cierre_caja4"><a data-dismiss="modal" aria-label="Close" style="background: white; outline: none !important; margin-left: 93%"><i class="icon-cancel-circle" style="color: #FC7323; font-size: 21px;margin-top: 2%; cursor: pointer;"></i></a>
+											<p class="Nota">Nota: Norma jdasdasdsad
+													<br>* Listar todos los Usuario. <a href=""></a>
+													<br>* Crear un Usuario. <a href=""></a>
+												
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
                         <!-----Inmueble----------->
 						<div class="modal fade" id="exampleModali" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9000;">
 							<div class="modal-dialog" role="document">

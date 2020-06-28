@@ -23,7 +23,7 @@ class Month
 		$lista_months  =[];
 		$db=Db::getConnect();
 		$sql=$db->query("SELECT DISTINCT *, concat('%','',tarifa) as tarifas, concat('$','',porcentaje) as porcentajes, 
-		concat(concat(concat('La Tarifa de este mes  ', mes),'  es  '),tarifa) as xx 
+		concat(concat(concat('La tarifa del mes:  ', mes),'  es:  '),tarifa) as xx 
 		
 		FROM month");
 

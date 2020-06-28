@@ -34,7 +34,7 @@
 								<td><b>Serial</b></td>
 								<td><b>Numero Cuenta</b></td>
 								<td><b>Nit</b></td>
-								<td><b>Usuario e Inmueble</b></td>
+								<td><b>Serial Usuario e Inmueble</b></td>
 								<td><b>Usuario</b></td>
 								<td><b>Inmueble</b></td>
 								<td><b>Documento</b></td>
@@ -76,7 +76,7 @@
 									<td><b>Serial</b></td>
 									<td><b>Numero Cuenta</b></td>
 									<td><b>Nit</b></td>
-									<td><b>Usuario e Inmueble</b></td>
+									<td><b>Serial Usuario e Inmueble</b></td>
 									<td><b>Usuario</b></td>
 									<td><b>Inmueble</b></td>
 									<td><b>Documento</b></td>

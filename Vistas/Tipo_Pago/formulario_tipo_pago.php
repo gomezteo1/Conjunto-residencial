@@ -34,7 +34,7 @@
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="tipo_pago" name="tipo_pago" required>
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="tipo_pago" name="tipo_pago">
 												<label class="mdl-textfield__label" for="Tipo De Pago">Tipo De Pago</label>
 												<span class="mdl-textfield__error">Tipo De Pago Invalido</span>
 											</div>
@@ -42,7 +42,7 @@
 										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="textarea" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="descripcion" name="descripcion" required>
+												<input class="mdl-textfield__input" type="textarea" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="descripcion" name="descripcion">
 												<label class="mdl-textfield__label" for="Descripción">Descripción</label>
 												<span class="mdl-textfield__error">Descripción Invalida</span>
 											</div>

@@ -82,8 +82,8 @@ class Cuenta_cobro
         $db=Db::getConnect();
         $sql=$db->query("SELECT DISTINCT 
         c.codigo_cuenta_cobro, 
+        c.numero_cuenta,
         c.nit, 
-        c.numero_cuenta, 
         c.id_usuario_inmueble, 
         c.codigo_month,
         c.fecha, 
@@ -116,7 +116,7 @@ class Cuenta_cobro
         order by c.fecha desc
         ");
         foreach ($sql->fetchAll() as $cuenta_cobro){
-            $itemcuenta_cobross = new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['nit'], $cuenta_cobro['numero_cuenta'], $cuenta_cobro['id_usuario_inmueble'],$cuenta_cobro['codigo_month'],  $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'],$cuenta_cobro['mora'], $cuenta_cobro['estado']);
+            $itemcuenta_cobross = new Cuenta_cobro($cuenta_cobro['codigo_cuenta_cobro'], $cuenta_cobro['numero_cuenta'],$cuenta_cobro['nit'], $cuenta_cobro['id_usuario_inmueble'],$cuenta_cobro['codigo_month'],  $cuenta_cobro['fecha'], $cuenta_cobro['monto_por_cancelars'],$cuenta_cobro['mora'], $cuenta_cobro['estado']);
             $itemcuenta_cobross->nombreUsuario=$cuenta_cobro['nombre'];
             $itemcuenta_cobross->nombreInmueble=$cuenta_cobro['inmueble'];
             $itemcuenta_cobross->nombreMes=$cuenta_cobro['mes'];
