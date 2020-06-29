@@ -1,148 +1,222 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	
-	<title>Formulario</title>
-	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
-	<link href="favicon.html" rel="icon">	
-	
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/contact-form.css" type="text/css">	
-
-	<style type="text/css">
-		.ww{ position: relative; box-shadow: 5px 5px 10px black; /*box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);*/ padding: 10px; background: white;}
-	</style> -->
+	<title>Cuenta de Cobro M</title>
 </head>
 <body>
-	<section id="contact-form-section" class="form-content-wrap">
-		<div class="container">
-			<div class="row">
-				<div class="tab-content">
-					<div class="col-sm-12">
-						<div class="item-wrap ww">
-							<div class="row ">
-								
-								<div class="col-sm-12 ">
-									<div class="item-content colBottomMargin">
-										<div class="item-info">
-											<h2 class="item-title text-center">Formulario</h2>
-											
-										</div><!--End item-info -->
-										
-								   </div><!--End item-content -->
-								</div><!--End col -->
-								<div class="col-md-12">
-								<form action="Controladores/Cuenta_cobro_Controlador.php" method="POST" data-toggle="validator" class="popup-form">
-								<input type='hidden' name='action' value='modificar_cuenta_cobro'>                 
-								<input hidden readonly name='codigo_cuenta_cobro' id='codigo_cuenta_cobro' value="<?php echo $_GET['codigo_cuenta_cobro'] ?>"  type="text">
-							    
-								<div class="row">
-													<div id="msgContactSubmit" class="hidden"></div>
-													
-													<div class="form-group col-sm-6"> 
-														<div class="help-block with-errors"></div>
-														<input name="numero_cuenta" id="numero_cuenta" placeholder="Numero Cuenta*"
-														value="<?php echo $cuenta_cobro->numero_cuenta;?>" class="w3-input" type="text" required data-error="Por favor ingresar el tipo pago"> 
-														</div><!-- end form-group -->
-
-													<div class="form-group col-sm-6">
-														<div class="help-block with-errors"></div>
-														<input name="nit" id="nit" placeholder="Nit*" value="<?php echo $cuenta_cobro->nit; ?>" class="w3-input" type="text" required data-error="Por favor escribir la descricion de tipo pago"> 
-                                       </div><!-- end form-group -->
-                                       
-      <div class="form-group col-sm-6">
-                                       <?php
-      $llenar_select_usuario="si";
-      require_once("Controladores/Usuario_Controlador.php");
-      ?>
-      </div><!-- end form-group -->
-      <div class="form-group col-sm-6">
-                                       <?php
-      $llenar_select_inmueble="si";
-      require_once("Controladores/Inmueble_Controlador.php");
-      ?>
-      </div><!-- end form-group -->
-
-      <div class="form-group col-sm-6">
-                                       <?php
-      $llenar_select_month="si";
-      require_once("Controladores/Month_Controlador.php");
-      ?>
-      </div><!-- end form-group -->
-
-      <div class="form-group col-sm-6">
-                                       <?php
-      $llenar_select_tipo_pago="si";
-      require_once("Controladores/Tipo_pago_Controlador.php");
-      ?>
-      </div><!-- end form-group -->
-                                        <div class="form-group col-sm-6">
-														<div class="help-block with-errors"></div>
-														<input name="fecha" id="fecha" placeholder="Fecha del pago*" value="<?php echo $cuenta_cobro->fecha; ?>" class="w3-input" type="date" required data-error="Por favor escribir la fecha de pago"> 
-                                       </div><!-- end form-group -->
-
-                                       <div class="form-group col-sm-6">
-														<div class="help-block with-errors"></div>
-														<input value="<?php echo $cuenta_cobro->codigo_mora ?>" name="codigo_mora" id="codigo_mora" placeholder="Mora*" value='<?php echo $cuenta_cobro->codigo_mora; ?>' class="w3-input" type="number" required data-error="Por favor escribir el monto por pagar"> 
-                                       </div><!-- end form-group -->
-
-                                       
-										<div class="form-group col-sm-6">
-														<div class="help-block with-errors"></div>
-														<input type="number" id="monto_por_cancelar" name="monto_por_cancelar" placeholder="Total*" value='<?php echo $cuenta_cobro->monto_por_cancelar; ?>' class="w3-input" type="number" required data-error="Por favor escribir el monto por pagar">                                       </div><!-- end form-group -->
-										</div><!-- end form-group -->
-
-										<div class="form-group last col-sm-6">
-										<input algin="center" type='submit' value='Guardar'>
-													  
-													
-
-                                                    </div><!-- end form-group -->	
-                                            <br>
-                                            <br>
-													<span class="sub-text">* Campos requeridos</span>
-													<div class="clearfix"></div>
-												</div><!-- end row -->
-											</form><!-- end form -->
-							
-								</div>
-							</div><!--End row -->
-							
-						
-								
-							
-							<!-- Popup end -->
-							
-						</div><!-- end item-wrap -->
-					</div><!--End col -->
-				</div><!--End tab-content -->
-			</div><!--End row -->
-		</div><!--End container -->
-	</section>
-	
-<div class="colBottomMargin">
-		&nbsp;<div class="colBottomMargin">&nbsp;</div>
-	</div>	
-	
-	<a href="#" class="scrollup"><i class="fa fa-arrow-circle-up"></i></a>
 		
-	<!-- jQuery Library -->
-	<script src="js/jquery-3.2.1.min.js"></script>	
-	<!-- Popper js -->
-	<script src="js/popper.min.js"></script>
-	<!-- Bootstrap Js -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Form Validator -->
-	<script src="js/validator.min.js"></script>
-	<!-- Contact Form Js -->
-	<script src="js/contact-form.js"></script>
-	
-</body>
+<form action="Controladores/Cuenta_cobro_Controlador.php" method="POST" data-toggle="validator" class="popup-form">
+	<input type='hidden' name='action' value='modificar_cuenta_cobro'>                 
+
+		
+		<section class="full-width header-well">
+			<div class="full-width header-well-icon">
+				<i class="zmdi zmdi-washing-machine"></i>
+			</div>
+			<div class="full-width header-well-text" align="left">
+				<p class="text-condensedLight">
+					Modificar Cuenta Cobro
+				</p>
+			</div>
+		</section>
+		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+			
+			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
+				<div class="mdl-grid">
+					<div class="mdl-cell mdl-cell--12-col">
+						<div class="full-width panel mdl-shadow--2dp">
+							<div class="full-width panel-tittle bg-primary text-center tittles">
+								 Modificar Cuenta Cobro
+							</div>
+							<div class="full-width panel-content">
+								
+									<div class="mdl-grid">
+										<div class="mdl-cell mdl-cell--12-col">
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
+									    </div>
+
+										<input hidden readonly name='codigo_cuenta_cobro' id='codigo_cuenta_cobro' value="<?php echo $_GET['codigo_cuenta_cobro'] ?>"  type="text">
+									
+										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->numero_cuenta ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_cuenta" name="numero_cuenta">
+												<label class="mdl-textfield__label" for="Numero Cuenta"></label>
+												<span class="mdl-textfield__error">Numero Cuenta</span>
+											</div>
+											</div>
+
+											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">-
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->nit ?>" type="text" id="nit" name="nit">
+												<label class="mdl-textfield__label" for="Nit"></label>
+												<span class="mdl-textfield__error">Nit</span>
+											</div>
+											</div>
+									
+											<div class="form-group col-sm-12">
+												<?php $llenar_select_usuario_inmueble="si";
+												require_once("Controladores/Usuario_Inmueble_Controlador.php");
+												?>
+											</div><!-- end form-group -->
+											
+											<div class="form-group col-sm-8">
+												<?php $llenar_select_month="si";
+												require_once("Controladores/Month_Controlador.php");
+												?>
+											</div><!-- end form-group -->
+											
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $cuenta_cobro->fecha ?>">
+												<label class="mdl-textfield__label"  for="Fecha_"></label>
+												<span class="mdl-textfield__error">Fecha </span>
+											</div>	
+											
+											
+											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->monto_por_cancelar ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_por_cancelar" name="monto_por_cancelar">
+												<label class="mdl-textfield__label" for="Monto Por Cancelar"></label>
+												<span class="mdl-textfield__error">Monto por Cancelar</span>
+											</div>
+											</div>
+												
+											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
+											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="float"  id="porMora" name="porMora">
+												<label class="mdl-textfield__label" for="Mora"></label>
+												<span class="mdl-textfield__error">Mora</span>
+											</div>
+											</div>
+
+									</div>
+									<p class="text-center">
+										<button id="button-Mcc" value='Guardar' name="button-Mcc" value="res-registrar-cuenta_cobro" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
+											<i class="zmdi zmdi-plus"></i>
+										</button>
+										<div class="mdl-tooltip" for="btn-addProduct">Modificar CC</div>
+									</p>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+			<div class="mostrar"></div>
+		</div>
+
+<script>
+
+
+$(document).ready(function(){
+    $('#button-Mcc').click(function(e) {
+    
+        numeroCuenta = $('#numero_cuenta').val()
+        nit = $('#nit').val()
+        slcusuario_inmueble = $('#slcusuario_inmueble').val();
+        var nombreSelect = $("select#slcusuario_inmueble option:selected").attr("nombre");
+        slcmonth = $('#slcmonth').val();
+        var mesSlect = $("select#slcmonth option:selected").attr("fecha");
+        fecha = $('#fecha').val()
+        monto_por_cancelar = $('#monto_por_cancelar').val();
+
+		if (numeroCuenta == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Numero De La Cuenta!',
+            })
+            return false;
+        } else if (numeroCuenta <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta No Debe Tener Caracteres Negativos',
+            })
+            return false;
+        } else if (numeroCuenta.length <= 5 || numeroCuenta.length >= 13) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta Debe Tener 6 A 13 Caracteres',
+            })
+            return false;
+        } else if (nit == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Nit!',
+            })
+            return false;
+        // } else if (nit <= 0) {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         title: 'Error',
+        //         text: 'El Nit No Debe Tener Caracteres Negativos',
+        //     })
+        //     return false;
+        } else if (nit.length <= 7 || nit.length >= 25) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Nit Debe Tener 8 A 24 Caracteres',
+            })
+            return false;
+        } else if (slcusuario_inmueble == undefined || slcusuario_inmueble == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar Los Datos De La Cuenta!',
+            })
+            return false;
+        } else if (slcmonth == undefined || slcmonth == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Mes Y Tarifa De La Cuenta!',
+            })
+            return false;
+        } else if (monto_por_cancelar == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Monto!',
+            })
+            return false;
+        } else if (monto_por_cancelar <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto No Debe Tener Caracteres Negativos',
+            })
+            return false;
+        } else if (monto_por_cancelar.length <= 6 && monto_por_cancelar.length >= 9) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto Debe Tener 6 A 8 Caracteres',
+            })
+            return false;
+        } else {
+            Swal.fire({
+				title: "Hecho!",
+				text: "Se Ha Registrado Correctamente",
+				icon: "success",
+				button: "Continuar",
+            });
+        }
+
+    });
+});
+</script>
+	</body>
 </html>
+
+
+
+
+
+
+
+
+

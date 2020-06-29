@@ -38,7 +38,7 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
 									    <input value="<?php echo $_GET['id_usuario']  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" readonly> 
@@ -109,14 +109,14 @@ $(document).ready(function(){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la nueva clave!',
+					text: 'Debes Ingresar La Nueva Clave!',
 					})
 					return false;
 			}
 			else
 				swal({
 						title: "Hecho!",
-						text: "Se ha actualizado correctamente",
+						text: "Se Ha Actualizado Correctamente",
 						icon: "success",
 						button: "Continuar",
 					});

@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<!-- <meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/> -->
 	<title>Usuario</title>
-	<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 </head>
 <body>
 		
@@ -38,10 +31,10 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
-									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" hidden > 
+									    <input value="<?php echo $usuario->id_usuario  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" hidden> 
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -60,7 +53,7 @@
 										</div>
 
 										<div class="mdl-cell mdl-cell--12-col">
-										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Tipo de documento</legend><br>
+										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Tipo De Documento</legend><br>
 										</div>
 
 										<div>
@@ -72,9 +65,9 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="numero_documento" name="numero_documento" value="<?php echo $usuario->numero_documento  ?>">
-												<label class="mdl-textfield__label" for="numero_documento"># documento</label>
-												<span class="mdl-textfield__error">Numero de documento equivocado</span>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_documento" name="numero_documento" value="<?php echo $usuario->numero_documento  ?>">
+												<label class="mdl-textfield__label" for="numero_documento">Numero Documento</label>
+												<span class="mdl-textfield__error">Numero De Documento Invalido</span>
 											</div>
 										</div>
 										
@@ -82,11 +75,19 @@
 										    <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp;Otros Datos</legend><br>
 										</div>
 										
+										<div hidden>
+											<?php
+												$llenar_select_rol="si";
+												require("Controladores/Rol_Controlador.php");
+											?>
+										</div>
+										
+
 										
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="telefono" name="telefono" value="<?php echo $usuario->telefono  ?>">
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="telefono" name="telefono" value="<?php echo $usuario->telefono  ?>">
 												<label class="mdl-textfield__label" for="telefono">Telefono</label>
 												<span class="mdl-textfield__error">Telefono invalido</span>
 											</div>
@@ -105,48 +106,40 @@
 												<span class="mdl-textfield__error">Estado invalido</span>
 											</div>
 										</div>
-<!-- Esta es la clave buena
+<!--------------------------------------------------------------------------------------------
+
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="password" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave" value="<?php echo $usuario->clave  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave" value="<?php echo $usuario->clave  ?>">
 												<label class="mdl-textfield__label" for="clave">Clave</label>
 												<span class="mdl-textfield__error">Clave invalido</span>
 											</div>
-										</div>-->
-<a href="controller=usuario&action=cambiarClaveUsu&&id_usuario=<?php$usuairo['id_usuairo']?>"
-></a>				
-
-
-
-
-
-
-
+										</div>--->
+																	
+										<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
 <!--------------------------------------------------------------------------------------------_----->
-
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
 												<label class="mdl-textfield__label" for="correo">Correo</label>
 												<span class="mdl-textfield__error">Correo invalido</span>
 											</div>
 										</div>
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion" value="<?php echo $usuario->correo_recuperacion  ?>">
+												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo_recuperacion" name="correo_recuperacion" value="<?php echo $usuario->correo_recuperacion  ?>">
 												<label class="mdl-textfield__label" for="correo_recuperacion">Correo Recuperación</label>
 												<span class="mdl-textfield__error">Correo R.invalido</span>
 											</div>
 										</div>
-
 									</div>
 									<p class="text-center">
-										<button id="button-Musuario" name="button-Musuario" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
-											<i class="zmdi zmdi-plus"></i>
-										</button>
-										<div class="mdl-tooltip" for="btn-addProduct">Agregar usuario</div>
-									</p>
+											<button id="button-Rusuario"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" on>
+												<i class="zmdi zmdi-plus"></i>
+											</button>
+											<div class="mdl-tooltip" for="btn-addProduct">Modificar Usuario</div>
+										</p>
 								
 							</div>
 						</div>
@@ -161,110 +154,163 @@
 
 </body>
 
-<script src="js/usuario.js"></script>
-<script src="js/jquery-3.2.1.min.js"></script>	
-		<!-- Popper js -->
-		<script src="js/popper.min.js"></script>
-		<!-- Bootstrap Js -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Form Validator -->
-		<script src="js/validator.min.js"></script>
-		<!-- Contact Form Js -->
-		<script src="js/contact-form.js"></script>
-	
-		<script src="js/abono.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</html>
 
 
-
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
-
+//fecha
 $(document).ready(function(){
-		$('#button-Madministrador').click(function(){
 
-			if($('#nombres').val()==""){
-				Swal.fire({
+	var dateNow = new Date();
+	var validDate = [dateNow.getFullYear()-15, ("0" + dateNow.getMonth()).slice(-2),("0" + dateNow.getDate()).slice(-2)].join('-');
+	document.getElementById('fecha_nacimiento').setAttribute('max',validDate);
+	
+	$('#button-Rusuario').click(function(){
+			var nombreRango = $('#nombres').val();
+			var apellidoRango = $('#apellidos').val();
+			var tipoDocumentoRango = $('#slctipo_documento').val();
+			var numeroDocumentoRango = $('#numero_documento').val();
+			var telefonoRango = $('#telefono').val();
+			var claveRango = $('#clave').val();
+			var correoRango = $('#correo').val();
+			var correoRecuperacionRango = $('#correo_recuperacion').val();
+			
+			if(nombreRango==""){
+					Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el nombre(s)!',
+					text: 'Debes Ingresar El/Los Nombre(s)!',
 					})
 					return false;
-			}
-			else if($('#apellidos').val()==""){
-				Swal.fire({
+			}else if(nombreRango.length<=4 || nombreRango.length>=17) {
+					Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar los apellidos!',
+					text: 'Nombre Debe Tener 5 A 17 Caracteres',
 					})
 					return false;
-			}
-			else if($('#numero_documento').val()==""){
+			}else if(apellidoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el numero de documento!',
+					text: 'Debes Ingresar Los Apellidos!',
 					})
 					return false;
-			}else if($('#telefono').val()==""){
+			}else if(apellidoRango.length <=5 || apellidoRango.length>=17){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el telefono!',
+					text: 'Apellido Debe Tener 6 A 17 Caracteres',
+					})
+					return false;
+			}else if(tipoDocumentoRango==undefined || tipoDocumentoRango=="" ){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Tipo De Documento!',
+				})
+				return false;
+			}else if(numeroDocumentoRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Numero De Documento!',
+					})
+					return false;
+			}else if (numeroDocumentoRango <= 0) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Numero Documento No Debe Tener Caracteres Negativos',
+				})
+				return false;
+			}else if(numeroDocumentoRango.length <=5 || numeroDocumentoRango.length>=13){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Numero Documento Debe Tener 6 A 13 Caracteres',
+					})
+					return false;
+			}else if(telefonoRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Telefono!',
+					})
+					return false;
+			}else if (telefonoRango <= 0) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Telefono No Debe Tener Caracteres Negativos',
+				})
+				return false;
+			}else if(telefonoRango.length <=6 || telefonoRango.length>=13){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Telefono Debe Tener 7 A 12 Caracteres',
 					})
 					return false;
 			}else if($('#fecha_nacimiento').val()==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes ingresar La Fecha!',
 					})
 					return false;
-			}else if($('#estado').val()==""){
+			}else if(claveRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar su estado!',
+					text: 'Debes Ingresar La Contraseña!',
 					})
 					return false;
-			}else if($('#clave').val()==""){
+			}else if(claveRango.length <=9 || claveRango.length>=20){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la contraseña!',
+					text: 'La Clave Debe Tener 10 A 20 Caracteres',
 					})
 					return false;
-			}else if($('#correo').val()==""){
+			}else if(correoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el correo!',
+					text: 'Debes Ingresar El Correo!',
 					})
 					return false;
-			}else if($('#correo_recuperacion').val()==""){
+			}else if(correoRango.length <=14 || correoRango.length>=30){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el correo alternativo!',
+					text: 'El Correo Debe Tener 15 A 30 Caracteres',
 					})
 					return false;
-			}
-			else
+			}else if(correoRecuperacionRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar El Correo Alternativo!',
+					})
+					return false;
+			}else if(correoRecuperacionRango.length <=14 || correoRecuperacionRango.length>=30){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Correo Alternativo Debe Tener 15 A 30 Caracteres',
+					})
+					return false;
+			}else{
 				swal({
 						title: "Hecho!",
-						text: "Se ha actualizado correctamente",
+						text: "Se Ha Registrado Correctamente",
 						icon: "success",
 						button: "Continuar",
 					});
+				}		
 		});
 	});
-
-	
-
 </script>
+
+</html>
 

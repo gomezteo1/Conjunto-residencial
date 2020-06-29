@@ -4,7 +4,7 @@
       public function __construct(){}
 
       public function select_pago(){
-          $pagos=Pago::select_pago();
+          //$pagos=Pago::select_pago();
           require_once('Vistas/Pago/select_pagos.php');
     }
 
@@ -23,35 +23,53 @@
           require_once('Vistas/Pago/formulario_registrar.php');
         } 
        
+      
+      //----------------------------------------------- Los pagos
+      // public function registrar_pago($pago){
+      //   Pago::registrar_pago($pago);
+      //   header('Location: ../index.php?controller=pago&action=index');
+           
+      // }
+      
+      // Este Modelo me da error 
       public function registrar_pago($pago){
+        require_once('../Modelos/Cuenta_cobro.php');
+        Cuenta_cobro::UpMora();
         Pago::registrar_pago($pago);
+        session_start();
+			  $_SESSION['guardar'] = "Agregado Con Éxito";
         header('Location: ../index.php?controller=pago&action=index');
            
       }
+      // Este Modelo me da error 
+      //--------------------------------------------------------------
       public function formulario_modificar(){
           require_once('Modelos/Pago.php');
+          // require_once('Modelos/Usuario.php');
           $pago=Pago::Obtener_por_codigo_pago($_GET['codigo_pago']);
           require_once('Vistas/Pago/formulario_modificar.php');
       }
        
-      public function modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar){
-        Pago::modificar_pago($codigo_pago,$id_usuario,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar);
-         header('Location: ../index.php?controller=pago&action=index');
+      public function modificar_pago($codigo_pago,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar){
+        Pago::modificar_pago($codigo_pago,$codigo_cuenta_cobro,$fecha,$codigo_tipo_pago,$monto_cancelado,$monto_a_pagar);
+        session_start();
+			  $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
+			  header('Location: ../index.php?controller=pago&action=index');
       }
       
       public function eliminar_pago($codigo_pago){
         Pago::eliminar_pago($codigo_pago);
         //header('Location: index.php');
       }
-      public function buscar_pago($dato){
-        $pagos = Pago::buscar_Pago($dato);
-        require_once('../Vistas/Pago/listar_pagos.php');
-      }
+      // public function buscar_pago($dato){
+      //   $pagos = Pago::buscar_Pago($dato);
+      //   require_once('../Vistas/Pago/listar_pagos.php');
+      // }
 
       public function consultar_pago($dato){
       $deuda = Pago::consultar_valor($dato);
       return $deuda;
-    }
+      }
       
       public function llenar_select_pago(){
       require_once('Modelos/Pago.php');
@@ -85,7 +103,7 @@
          require_once('../Modelos/Pago.php');
          require_once('../conexion.php');
          $pago_controlador=new Pago_Controlador();
-         $pago= new pago($_POST['codigo_pago'], $_POST['slcusuario'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
+         $pago= new pago('',  $_POST['slccuenta_cobro'], '', $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
          $pago_controlador->registrar_pago($pago);
      }
     
@@ -96,11 +114,25 @@
          require_once('../conexion.php');
 
          $pago_controlador=new Pago_Controlador();
-         $pago_controlador->modificar_pago($_POST['codigo_pago'], $_POST['slcusuario'],$_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
+         $pago_controlador->modificar_pago($_POST['codigo_pago'], $_POST['slccuenta_cobro'], $_POST['fecha'], $_POST['slctipo_pago'], $_POST['monto_cancelado'], $_POST['monto_a_pagar']);
      }
     
  }
 
+// if (!isset($_POST['codigo_cuenta_cobro'])){
+
+//      // Para eliminar producto
+//      $query ="SELECT * FROM pagos WHERE codigo_cuenta_cobro='". $_POST["codigo_cuenta_cobro"]."'";
+//      $user_count = $db_handle->
+//      if(){
+
+//         require_once('Modelos/Pago.php');
+//         require_once('conexion.php');
+
+//         $pago_controlador=new Pago_Controlador();
+//         $pago_controlador->eliminar_pago($_GET['codigo_pago']);
+//     } 
+//  }
  // Acciones que se solicitan por GET: Eliminar
  if (isset($_GET['action'])){
 
@@ -119,7 +151,7 @@
         require_once('../Modelos/Pago.php');
         require_once('../conexion.php');
         $pago_controlador=new Pago_Controlador();
-        $pago= new Pago('','','','','','','');
+        $pago= new Pago('','','','','','');
       $pago_controlador->buscar_pago($_POST['dato_buscar']);
   }
       if($_POST['action']=='consultar_valor') {

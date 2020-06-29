@@ -1,19 +1,18 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 	<thead>
 		<tr>
-			<td>#Usuario</td>
-			<td>Nombre</td>
-			<td>Apellido</td>			
-			<td>Tipo Documento</td>
-			<td>Numero Documento</td>
-			<td>Rol</td>	
-			<td>Telefono</td>
-			<td>Fecha_nacimiento</td>
-			<td>Estado</td>			
-			<td>Email</td>
-			<td>Cambiar Clave</td>			
-			<!--<td>Email recuperacion</th>-->
-			<td colspan="4" align="center">Acciones</td>
+			<td><b>Serial Usuario</b></td>
+			<td><b>Nombre</b></td>
+			<td><b>Apellido</b></td>			
+			<td><b>Tipo Documento</b></td>
+			<td><b>Numero Documento</b></td>
+			<td><b>Rol</b></td>	
+			<td><b>Telefono</b></td>
+			<td><b>Fecha Nacimiento</b></td>
+			<td><b>Estado</b></td>			
+			<td><b>Correo</b></td>
+			<td><b>Cambiar Clave</b></td>			
+			<td colspan="1" align="center"><b>Acciones</b></td>
 		</tr>		
 	</thead>
 	<?php foreach($usuarios as $usuario){ ?>
@@ -40,10 +39,49 @@
 			<!-- <th scope="col"><a href=
 					"?controller=usuario&action=eliminar_administrador&id_usuario=<?php echo 
 					$usuario->id_usuario ?> " class="btn btn-danger">Eliminar</a></th> -->
-			<td>
+			<!-- <td>
 				<input <?php echo $usuario->estado==1 ? "checked" : "" ?> onchange="prueba_u(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $usuario->id_usuario ?>">
+			</td> -->
+
+		
+			<?php if($usuario->estado==0){?>
+				<td>
+				<button class="btn btn-success">
+					<a href=
+					"?controller=usuario&action=activarEstadoLista&id_usuario=<?php echo
+				 	$usuario->id_usuario ?> ">Activar 
+				 	</a>
+				 </button>
+			</td>		
+
+			<?php } else{?> 
+			 <td >
+				<button class="btn btn-danger">
+					<a href=
+					"?controller=usuario&action=desactivarEstadoLista&id_usuario=<?php echo
+				 	$usuario->id_usuario ?> "> Desactivar
+				 	</a>
+				 </button>
 			</td>
+			<?php	}  ?>
 		</tr>
 	</tbody>
 	<?php }	?>
+	<tfoot>
+		<tr>
+			<td><b>Serial Usuario</b></td>
+			<td><b>Nombre</b></td>
+			<td><b>Apellido</b></td>			
+			<td><b>Tipo Documento</b></td>
+			<td><b>Numero Documento</b></td>
+			<td><b>Rol</b></td>	
+			<td><b>Telefono</b></td>
+			<td><b>Fecha Nacimiento</b></td>
+			<td><b>Estado</b></td>			
+			<td><b>Correo</b></td>
+			<!--<td>Email recuperacion</th>-->
+			<td><b>Cambiar Clave</b></td>			
+			<td colspan="1" align="center"><b>Acciones</b></td>
+		</tr>		
+	</tfoot>
 </table>

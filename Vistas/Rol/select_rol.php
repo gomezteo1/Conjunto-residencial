@@ -6,7 +6,7 @@ if ($_GET['controller'] == 'usuario' ){
 <div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcrol" id="slcrol">
-			<option selected hidden disabled >Selecione un rol</option>
+			<option selected hidden disabled >Seleccioné Un Rol</option>
 			<?php
 			foreach ($roles as $rol){?>
 				
@@ -25,7 +25,7 @@ if ($_GET['controller'] == 'usuario' ){
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcrol" id="slcrol">
-			<option selected hidden disabled >Selecione un rol</option>
+			<option selected hidden disabled >Seleccioné Un Rol</option>
 			<?php
 			foreach ($roles as $rol){?>
 				

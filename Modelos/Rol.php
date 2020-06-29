@@ -1,6 +1,7 @@
 <?php
+$datos;
 class Rol
-{
+{	
 	//atributos
 	public $id_rol;
 	public $rol;
@@ -19,7 +20,7 @@ class Rol
 	public static function listar_todos(){
 		$lista_roles =[];
 		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM rol WHERE estado!='0'");
+		$sql=$db->query("SELECT DISTINCT * FROM rol WHERE estado!='0'");
 
 		// carga en la $lista_pagos cada registro desde la base de documentoddocumentoatos
 		foreach ($sql->fetchAll() as $rol) {
@@ -75,19 +76,21 @@ class Rol
 		return $rol;
 	}
 	
-	public static function buscar_rol($dato){
-		$lista_roles =[];
-		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM rol
-		WHERE estado like '%$dato%' 
-		OR rol like '%$dato%'
-		");
+	// public static function buscar_rol($dato){
+	// 	$lista_roles =[];
+	// 	$datos = trim($dato);
+	// 	$db=Db::getConnect();
+	// 	$sql=$db->query("SELECT * FROM rol
+	// 	WHERE estado like '%$datos%' 
+	// 	OR rol like '%$datos%'
+	// 	OR id_rol like '%$datos%' 
+	// 	");
 		
-		foreach ($sql->fetchAll() as $rol) {
-			$lista_roles[]= new Rol($rol['id_rol'],$rol['rol'],$rol['estado']);
-		}
-		return $lista_roles;
-    }	
+	// 	foreach ($sql->fetchAll() as $rol) {
+	// 		$lista_roles[]= new Rol($rol['id_rol'],$rol['rol'],$rol['estado']);
+	// 	}
+	// 	return $lista_roles;
+    // }	
 	
 	public static function buscar_tipo_rol($id_rol){
 		//buscar

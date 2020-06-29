@@ -15,7 +15,12 @@
 
 		public function registrar_rol($rol){
 			Rol::registrar_rol($rol);
+			session_start();
+			 $_SESSION['guardar'] = "Agregado Con Éxito";
 			header('Location: ../index.php?controller=rol&action=index');
+		
+			 
+		
 		}
 		
 		public function formulario_modificar(){
@@ -27,7 +32,9 @@
 		
 		public function modificar_rol($id_rol,$rol,$estado){
 			Rol::modificar_rol($id_rol,$rol,$estado);
-			header('Location: ../index.php?controller=rol&action=index');
+			session_start();
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
+			 header('Location: ../index.php?controller=rol&action=index');
 		}
 			
 		public function cambiar_estado_rol(){
@@ -40,11 +47,11 @@
 			header('Location: index.php');
 		}
 //---------------------------------------------------------
-		public function buscar_rol($dato){
-			$roles = Rol::buscar_rol($dato);
-		require_once('../Vistas/Rol/listar_roles.php');
+		// public function buscar_rol($dato){
+		// 	$roles = Rol::buscar_rol($dato);
+		// require_once('../Vistas/Rol/listar_roles.php');
 
-		}
+		// }
 		
 		public function consultar_tipo_rol($dato){
 			$rol = Rol::consultar_tipo_rol($dato);
@@ -60,6 +67,7 @@
 //---------------------------------------------------------		
 		public function error(){
 			header('Vistas/error.php');
+		
 		} 
 		
     }

@@ -1,7 +1,7 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 	<thead>
 		<tr>
-			<td><b>#Tipo Pago</b></td>
+			<td><b>Serial Tipo De Pago</b></td>
 			<td><b>Tipo Pago</b></td>
 			<td><b>Descripción</b></td>
 			<td colspan=2 align="center"><b>Acciones</b></td>
@@ -20,4 +20,12 @@
 		</tr>
 	</tbody>
 	<?php }	?>
+	<tfoot>
+		<tr>
+			<td><b>Serial Tipo De Pago</b></td>
+			<td><b>Tipo Pago</b></td>
+			<td><b>Descripción</b></td>
+			<td colspan=2 align="center"><b>Acciones</b></td>
+		</tr>		
+	</tfoot>
 </table>

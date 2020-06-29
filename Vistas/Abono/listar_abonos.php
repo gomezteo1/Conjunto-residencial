@@ -2,14 +2,15 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 		<thead>
 			<tr>
-				<td><b># Abono</b></td>
-				<td><b>Monto a pagar</b></td>
+				<td><b>Serial Abono</b></td>
+				<td><b>Pago</b></td>
 				<td><b>Nombre</b></td>
 				<td><b>Fecha</b></td>
 				<td><b>Deuda</b></td>
 				<td><b>Abono</b></td>
 				<td><b>Saldo</b></td>
 				<td colspan=3 align="center" ><b>Acciones</b></td>
+			</tr>	
 		</thead>
 		<?php foreach ($abonos as $abono) { ?>
 		<tbody>			
@@ -27,5 +28,17 @@
 			</tr>
 		</tbody>			
 		<?php } ?>
+		<tfoot>
+			<tr>
+				<td><b>Serial Abono</b></td>
+				<td><b>Pago</b></td>
+				<td><b>Nombre</b></td>
+				<td><b>Fecha</b></td>
+				<td><b>Deuda</b></td>
+				<td><b>Abono</b></td>
+				<td><b>Saldo</b></td>
+				<td colspan=3 align="center" ><b>Acciones</b></td>
+			</tr>	
+		</tfoot>
 </table>
 				

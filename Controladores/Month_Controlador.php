@@ -19,6 +19,8 @@
        
       public function registrar_month($month){
         Month::registrar_month($month);
+        session_start();
+			  $_SESSION['guardar'] = "Agregado Con Éxito";
         header('Location: ../index.php?controller=month&action=index');
            
       }
@@ -28,20 +30,22 @@
           require_once('Vistas/Month/formulario_modificar.php');
       }
        
-      public function modificar_month($codigo_month,$mes,$porcentaje,$fecha){
-        Month::modificar_month($codigo_month,$mes,$porcentaje,$fecha);
-         header('Location: ../index.php?controller=month&action=index');
+      public function modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha){
+        Month::modificar_month($codigo_month,$mes,$tarifa,$porcentaje,$fecha);
+        session_start();
+			 $_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
+			 header('Location: ../index.php?controller=month&action=index');
       }
         
       public function eliminar_month($codigo_month){
         Month::eliminar_month($codigo_moth);
         //header('Location: index.php');
       }
-      public function buscar_month($dato){
-        echo "buscar_month";
-        $months = Month::buscar_Month($dato);
-        require_once('../Vistas/Month/listar_months.php');
-      }
+      // public function buscar_month($dato){
+      //   //echo "buscar_month";
+      //   $months = Month::buscar_Month($dato);
+      //   require_once('../Vistas/Month/listar_months.php');
+      // }
 
       public function consultar_month($dato){
       $deuda = Month::consultar_valor($dato);
@@ -80,7 +84,7 @@
          require_once('../Modelos/Month.php');
          require_once('../conexion.php');
          $month_controlador=new Month_Controlador();
-         $month= new month('', $_POST['mes'], $_POST['porcentaje'], $_POST['fecha']);
+         $month= new month('', $_POST['mes'], $_POST['tarifa'], $_POST['porcentaje'], '');
          $month_controlador->registrar_month($month);
      }
     
@@ -91,7 +95,7 @@
          require_once('../conexion.php');
 
          $month_controlador=new Month_Controlador();
-         $month_controlador->modificar_month($_POST['codigo_month'], $_POST['mes'], $_POST['porcentaje'], $_POST['fecha']);
+         $month_controlador->modificar_month($_POST['codigo_month'], $_POST['mes'],$_POST['tarifa'], $_POST['porcentaje'], $_POST['fecha']);
      }
     
  }

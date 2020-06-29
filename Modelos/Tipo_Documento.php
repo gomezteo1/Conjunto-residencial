@@ -16,7 +16,7 @@ function __construct($id_tipo_documento, $documento)
 public static function listar_todos(){
 	$lista_tipo_documentos =[];
 	$db=Db::getConnect();
-	$sql=$db->query('SELECT * FROM tipo_documento');
+	$sql=$db->query('SELECT DISTINCT * FROM tipo_documento');
 
 	// carga en la $lista cada registro desde la base de datos
 	foreach ($sql->fetchAll() as $tipo_documento) {
@@ -66,19 +66,21 @@ public static function listar_todos(){
 		return $tipo_documento;
 	}
 	
-	public static function buscar_documento($dato){
-		$lista_tipo_documentos =[];
-		$db=Db::getConnect();
-		$sql=$db->query("SELECT * FROM tipo_documento
-		WHERE id_tipo_documento like '%$dato%' 
-		OR documento like '%$dato%'
-		");
+	// public static function buscar_documento($dato){
+	// 	$datos = trim($dato);
+	// 	$lista_tipo_documentos =[];
+	// 	$db=Db::getConnect();
+	// 	$sql=$db->query("SELECT * FROM tipo_documento
+	// 	WHERE id_tipo_documento like '%$datos%' 
 		
-		foreach ($sql->fetchAll() as $tipo_documento) {
-			$lista_tipo_documentos[]= new Tipo_Documento($tipo_documento['id_tipo_documento'], $tipo_documento['documento']);
-		}
-		return $lista_tipo_documentos;
-    }	
+	// 	OR documento like '%$datos%'
+	// 	");
+		
+	// 	foreach ($sql->fetchAll() as $tipo_documento) {
+	// 		$lista_tipo_documentos[]= new Tipo_Documento($tipo_documento['id_tipo_documento'], $tipo_documento['documento']);
+	// 	}
+	// 	return $lista_tipo_documentos;
+    // }	
 	
 	public static function buscar_tipo_documento($id_tipo_documento){
 		//buscar

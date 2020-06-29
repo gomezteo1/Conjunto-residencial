@@ -49,7 +49,7 @@
 
 
 	 else {
-		$controller='usuario';
+		$controller='landing';
 		$action='landing';
 		require_once('Vistas/layout.php');
 

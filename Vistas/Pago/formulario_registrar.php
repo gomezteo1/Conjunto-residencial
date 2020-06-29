@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
-	<title>Pago</title>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<title>Pago R</title>
 </head>
 <body>
 		<div id="registrar-pago">	
@@ -38,26 +31,19 @@
 								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
-									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información basica</legend><br>
+									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
 
-										<?php
-											$llenar_select_usuario="si";
-											require("Controladores/Usuario_Controlador.php"
-												);
-										?>		
+										
+										
 
+										
 										<?php
 											$llenar_select_cuenta_cobro="si";
 											require("Controladores/Cuenta_cobro_Controlador.php"
 											);
 										?>		
-
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="date" id="fecha" name="fecha" required>
-											<label class="mdl-textfield__label"  for="fecha"></label>
-											<span class="mdl-textfield__error">Fecha Invalida</span>
-										</div>	
+										
 
 										<?php
 														
@@ -67,32 +53,38 @@
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_cancelado" name="monto_cancelado" required>
-												<label class="mdl-textfield__label" for="monto_cancelado"># monto_cancelado</label>
-												<span class="mdl-textfield__error">Numero de monto_cancelado equivocado</span>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_cancelado" name="monto_cancelado">
+												<label class="mdl-textfield__label" for="Monto Cancelado"> Numero Monto Cancelado</label>
+												<span class="mdl-textfield__error">Numero de Monto Cancelado Invalido</span>
 											</div>
 										</div>
-										
+										<!-- Esta se va a quedar mientras nos da la validacion-->
+										<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="monto_por_cancelar" name="monto_por_cancelar" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
+											<label class="mdl-textfield__label" for="monto_por_cancelar"></label>
+											<span class="mdl-textfield__error">monto_por_cancelar Invalida</span>
+										</div>
+									</div> -->
 
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="number" pattern="-?[0-9- ]*(\.[0-9]+)?" id="monto_a_pagar" name="monto_a_pagar" required>
-												<label class="mdl-textfield__label" for="monto_cancelado"># monto a pagar </label>
-												<span class="mdl-textfield__error">Numero de monto a pagar equivocado</span>
+												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_a_pagar" name="monto_a_pagar" readonly>
+												<label class="mdl-textfield__label" for="Monto a Pagar">Deuda </label>
+												<span class="mdl-textfield__error">Numero de Monto a Pagar Invalido</span>
 											</div>
 										</div>
-									
-										
-
-
 										
 									</div>
+									<div onmouseover="items_pagos()">
 									<p class="text-center">
 										<button id="button-Rpago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 												<i class="zmdi zmdi-plus"></i>
 										</button>
-										<div class="mdl-tooltip" for="btn-addPago">Agregar pago</div>
+										
+										<div class="mdl-tooltip" for="btn-addPago">Agregar Pago</div>
 									</p>
+									<div>
 								
 								
 							</div>
@@ -108,64 +100,121 @@
 
 </body>
 
-<script src="js/usuario.js"></script>
-<script src="js/jquery-3.2.1.min.js"></script>	
-		<!-- Popper js -->
-		<script src="js/popper.min.js"></script>
-		<!-- Bootstrap Js -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Form Validator -->
-		<script src="js/validator.min.js"></script>
-		<!-- Contact Form Js -->
-		<script src="js/contact-form.js"></script>
-	
-		<script src="js/abono.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
 
+<script src="js/pago.js"></script>
+<script type="text/javascript">
+	
+var Lista = [];
+
+function items_pagos($codigo_cuenta_cobro){
 
 
-<!----VALIDACION PERFECTA FULL HD 4K----->
+	if($pago=="1"){
+
+		button-Rpago
+
+		var datos = {"codigo_cuenta_cobro":$codigo_cuenta_cobro};
+		 if(!Lista.includes(datos)){
+            //Si no está un, entonces lo insertamos
+            	Lista.push( datos );
+        	}
+        else{
+            //De lo contrario
+            console.log("Ese ya está");
+        }
+	}
+
+
+}
+
+
+
+</script>
+
 <script type="text/javascript">
 
 $(document).ready(function(){
-		$('#button-Rpago').click(function(){
+	$('#button-Rpago').click(function(){
+			var monto_canceladoRango = $('#monto_cancelado').val();
+			var monto_a_pagarRango = $('#monto_a_pagar').val();
+			var cuentaCobroRango = $('#slccuenta_cobro').val();
+			var tipoPagoRango = $('#slctipo_pago').val();
+			
 
-			if($('#fecha').val()==""){
+			if(monto_a_pagarRango < monto_canceladoRango){
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Monto No Puede Ser Superior A La Deuda',
+				})
+				return false;
+			}
+			else if(cuentaCobroRango==undefined || cuentaCobroRango=="" ){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
-					})
-					return false;
-			}
-			else if($('#monto_cancelado').val()==""){
+					text: 'Debes Ingresar La Cuenta De Cobro!',
+				})
+				return false;
+			}else if(tipoPagoRango==undefined || tipoPagoRango=="" ){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto cancelado!',
-					})
-					return false;
-			}
-			else if($('#monto_a_pagar').val()==""){
+					text: 'Debes Ingresar El Tipo De Pago!',
+				})
+				return false;
+			}else if(monto_canceladoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar el monto a pagar!',
+					text: 'Debes Ingresar El Monto Cancelado!',
 					})
 					return false;
-			}
-			else
+			}else if (monto_canceladoRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto Cancelado No Debe Tener Caracteres Negativos',
+            	})
+            	return false;
+        	}else if(monto_canceladoRango.length<=3 || monto_canceladoRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Monto Cancelado Debe Tener 4 A 9 Caracteres',
+				})
+				return false;
+			}else if(monto_a_pagarRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar el Monto A Pagar!',
+					})
+				return false;
+			}else if (monto_a_pagarRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto A Pagar No Debe Tener Caracteres Negativos',
+				})
+				return false;
+       		}else if(monto_a_pagarRango.length<=3 || monto_a_pagarRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Monto A Pagar Debe Tener 4 A 9 Caracteres',
+				})
+				return false;
+			}else{
 				swal({
 					title: "Hecho!",
-					text: "Se ha registrado correctamente",
+					text: "Se ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
-		});
+			}
+		}); 
 	});
 
 	

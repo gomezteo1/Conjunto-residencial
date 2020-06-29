@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<meta charset="utf-8">
-	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"/>
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	
-	<title>registrar abonos</title>
-	<!-- set your website meta description and keywords -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta name="description" content="Add your business website description here">
-	<meta name="keywords" content="Add your business website keywords here">
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<!-- set your website favicon -->
+	<title>Registrar Abonos</title>
 </head>
-<!----DISEÑO FULL HD 4K------>
-
 <body>
 	<form action='Controladores/Abono_Controlador.php' method='POST' id="res-registrar-abono">
 	<input type='hidden' name='action' value='registrar_abono'>
@@ -43,7 +30,7 @@
 						<input type='hidden' name='action' value='registrar_abono'>
 								<div class="mdl-grid">
 									<div class="mdl-cell mdl-cell--12-col">
-			                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Registrar Abono</legend><br>
+			                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 			                        </div>
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -51,40 +38,23 @@
 															$llenar_select_pago="si";
 																require("Controladores/Pago_Controlador.php");
 															?>
-											<label class="mdl-textfield__label" for="DNICompany"></label>
-											<span class="mdl-textfield__error">Invalid number</span>
+											<label class="mdl-textfield__label" for="Serial Pago"></label>
+											<span class="mdl-textfield__error">Serial Pago</span>
 										</div>
 									</div>
 
+								
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-															<?php
-															$llenar_select_usuario="si";
-																require("Controladores/Usuario_Controlador.php");
-															?>
-											<label class="mdl-textfield__label" for="NameCompany"></label>
-											<span class="mdl-textfield__error">Invalid name</span>
-										</div>
-									</div>
-
-									<div class="mdl-cell mdl-cell--12-col">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="date" id="fecha" name="fecha" >
-											<label class="mdl-textfield__label"  for="fecha"></label>
-											<span class="mdl-textfield__error">Fecha Invalida</span>
-										</div>
-									</div>
-									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="deuda" name="deuda" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
-											<label class="mdl-textfield__label" for="deuda"></label>
+											<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="deuda" name="deuda" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
+											<label class="mdl-textfield__label" for="Deuda"></label>
 											<span class="mdl-textfield__error">Deuda Invalida</span>
 										</div>
 									</div>
 
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="abono" name="abono"
+											<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="abono" name="abono"
 												onkeypress="calcular_total()"
 												onkeyup="calcular_total()"
 												onkeydown="calcular_total()">
@@ -93,11 +63,10 @@
 										</div>
 									</div>
 
-
 									<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="saldo" name="saldo" readonly
-											<label class="mdl-textfield__label" for="abono">Saldo</label>
+											<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="saldo" name="saldo" readonly>
+											<label class="mdl-textfield__label" for="Saldo">Saldo</label>
 											<span class="mdl-textfield__error">Saldo Invalido</span>
 										</div>
 									</div>
@@ -122,82 +91,92 @@
 
 		<a href="#" class="scrollup"><i class="fa fa-arrow-circle-up"></i></a>
 </body>		
-		<!-- jQuery Library -->
-		<script src="js/jquery-3.2.1.min.js"></script>	
-		<!-- Popper js -->
-		<script src="js/popper.min.js"></script>
-		<!-- Bootstrap Js -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Form Validator -->
-		<script src="js/validator.min.js"></script>
-		<!-- Contact Form Js -->
-		<script src="js/contact-form.js"></script>
-	
-		<script src="js/abono.js"></script>
-
 </html>
 
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
 
 $(document).ready(function(){
 		$('#button-Rabono').click(function(){
-			alert('llega')
-
-			if($('#slcusuario').val()==""){
+			// alert('llega')
+			var deudaRango = $('#deuda').val();
+			var abonoRango = $('#abono').val();
+			var saldoRango = $('#saldo').val();
+			var pagoRango = $('#slcpago').val();
+			
+			if(pagoRango ==undefined || pagoRango =="" ){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes seleccionar el usuario!',
+					text: 'Debes Ingresar El Pago!',
+				})
+				return false;
+			}else if(deudaRango==""){
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Debes Ingresar La Deuda!',
 					})
 					return false;
+			}else if(deudaRango==0) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'No hay Deuda',
+				})
+				return false;
 			}
-			else if($('#slcpago').val()==""){
+			 else if(abonoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes seleccionar un pago!',
+					text: 'Debes Ingresar Un Valor A Abonar!',
 					})
 					return false;
-			}
-			else if($('#fecha').val()==""){
+			}else if (abonoRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Abono No Debe Tener Caracteres Negativos',
+           		 })
+       	    	 return false;
+       		}else if(abonoRango.length<=3 || abonoRango.length>=10) {
+				Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Abono Debe Tener De 4 A 9 Caracteres',
+				})
+				return false;
+			}else if(saldoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
-					text: 'Debes ingresar la fecha!',
+					text: 'Debes Ingresar El Saldo!',
 					})
 					return false;
-			}
-			else if($('#deuda').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes ingresar la deuda!',
-					})
-					return false;
-			}
-			else if($('#abono').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes ingresar un valor a abonar!',
-					})
-					return false;
-			}if($('#saldo').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes ingresar el saldo!',
-					})
-					return false;
-			}else
+			}else if (saldoRango <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Saldo No Debe Tener Caracteres Negativos',
+				})
+				return false;
+			 }
+			//else if(saldoRango.length<=-1 || saldoRango.length>=3) {
+			// 	Swal.fire({
+			// 	icon: 'error',
+			// 	title: 'Error',
+			// 	text: 'El Saldo No Puede Ser Menor A Cero',
+			// 	})
+			// 	return false;
+			// }
+			else{
 				swal({
 					title: "Hecho!",
-					text: "Se ha registrado correctamente",
+					text: "Se Ha Registrado Correctamente",
 					icon: "success",
 					button: "Continuar",
 				});
+			}	
 		});
 	});
 

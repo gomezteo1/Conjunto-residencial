@@ -13,17 +13,29 @@
           
           require_once('Vistas/Abono/indexusuario.php');
       }
-		//Mostar vista para registrar el inmueble
-        public function formulario_registrar(){
+		  
+	// Formularios registrar
+
+	    // public function formulario_registrar(){
+		// 	require_once('Vistas/Abono/formulario_registrar.php');
+        // }
+		
+		public function formulario_registrar(){
+        	require_once('Modelos/Cuenta_cobro.php');
+        	Cuenta_cobro::UpMora();
 			require_once('Vistas/Abono/formulario_registrar.php');
         }
 
 		//guardar
 		public function registrar_abono($abono){
 			Abono::registrar_abono($abono);
-			header('Location: ../index.php');
+			session_start();
+			 $_SESSION['guardar'] = "Agregado Con Éxito";
+			 header('Location: ../index.php?controller=abono&action=index');
+			
 		}
 		
+	//------------------------------------------------------	
 		//Mostar vista para modificar el inmueble
         public function formulario_modificar(){
 			require_once('Modelos/Abono.php');				
@@ -32,9 +44,11 @@
         }
 		
 		//guardar cambios
-		public function modificar_abono($codigo_abono,$codigo_pago,$id_usuario,$fecha,$deuda,$abono,$saldo){
-			Abono::modificar_abono($codigo_abono,$codigo_pago,$id_usuario,$fecha,$deuda,$abono,$saldo);
-			header('Location: ../index.php');
+		public function modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo){
+			Abono::modificar_abono($codigo_abono,$codigo_pago,$fecha,$deuda,$abono,$saldo);
+			session_start();
+			$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
+			header('Location: ../index.php?controller=abono&action=index');
 		}
 				
 		public function eliminar_abono(){
@@ -42,12 +56,12 @@
 			header('Location: index.php');
 		}
 
-		public function buscar_abono($dato){
-			echo "buscar_abono";
-			$abonos = Abono::buscar_abono($dato);
-			require_once('../Vistas/Abono/listar_abonos.php');
+		// public function buscar_abono($dato){
+		// 	//echo "buscar_abono";
+		// 	$abonos = Abono::buscar_abono($dato);
+		// 	require_once('../Vistas/Abono/listar_abonos.php');
 
-		}
+		// }
 		
 		public function consultar_valor($dato){
 			$deuda = Abono::buscar_valor($dato);
@@ -106,8 +120,8 @@
 			require_once('../Modelos/Abono.php');
 			require_once('../conexion.php');
 			$abono_controlador=new Abono_Controlador();
-			$abono_controlador=new Abono_Controlador();
-			$abono= new Abono('', $_POST['slcpago'], $_POST['slcusuario'], $_POST['fecha'], $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
+			// $abono_controlador=new Abono_Controlador();
+			$abono= new Abono('', $_POST['slcpago'], '', $_POST['deuda'], $_POST['abono'], $_POST['saldo']);
 			$abono_controlador->registrar_abono($abono);
 			//echo" llego el paro papi ";
 
@@ -128,23 +142,13 @@
 			*/
 			//Medio codigo de Modificar abono sin cambi
 			$abono_controlador=new Abono_Controlador();
-			$abono= new Abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['slcusuario'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
-			$abono_controlador->modificar_abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['slcusuario'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
+			$abono= new Abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
+			$abono_controlador->modificar_abono($_POST['codigo_abono'],$_POST['slcpago'],$_POST['fecha'],$_POST['deuda'],$_POST['abono'],$_POST['saldo']);
 			
 
 		}
 
-		/*
-		if(($_POST['action']=='modificar_inmueble')) {
-			
-			require_once('../Modelos/Inmueble.php');
-			require_once('../conexion.php');
-			
-			$inmueble_controlador=new Inmueble_Controlador();
-			$inmueble= new Inmueble($_POST['id_inmueble'],$_POST['torre'],$_POST['id_categoria'],$_POST['precio']);
-			$inmueble_controlador->modificar_inmueble($_POST['id_inmueble'],$_POST['torre'],$_POST['id_categoria'],$_POST['precio']);
-		*/
-
+		
 		if(($_POST['action']=='eliminar_abono')) {	
 			$abono_controlador->eliminar_abono($_GET['codigo_abono']);			//require_once(//'Vistas/Inmueble/formulario_modificar.php');
 		}
@@ -157,6 +161,14 @@
 		$abono_controlador->buscar_abono($_POST['dato_buscar']);
 		}
 		
+		if($_POST['action']=='consultar_valor'){
+		require_once('../Modelos/Abono.php');	
+		require_once('../conexion.php');
+		$abono_controlador=new Abono_Controlador();
+		$abono = new Abono('','','','','','','');
+		$abono_controlador->consultar_valor($_POST['dato_buscar']);
+
+		}
 		
 	}
 

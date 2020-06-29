@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title>Inicio Cuenta de Cobro</title>
-	<!-- Esto es del toogle-->
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<script
-	  src="https://code.jquery.com/jquery-3.4.1.js"
-	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	  crossorigin="anonymous"></script>
-	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<title>Inicio Abono</title>
 </head>
 <body>
 	<div align="center">
@@ -19,23 +9,24 @@
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-store"></i>
 			</div>
-			<p><a class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
 			<div align="left" class="full-width header-well-text">
 				<p class="text-condensedLight">
-					Inicio de Abono
+					Inicio de Abono 
+					<a align="left" class="btn btn-outline-primary" href="?controller=abono&action=formulario_registrar">Registrar</a>
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
-				<button class="btn-outline" name="btnbuscar" id="btnbuscar">
-					<img src="./Reportes/imajenes/busqueda.png">
-				</button>
+				<img src="./image/buscar.png" class="btn-outline">
 			</div>
 		</section>
 		<div class=""></div>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--12-col-desktop">
+			
 		<div id="resultado_busqueda">
-			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
+			<table id="mytable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
 				<thead>
 					<tr>
-						<td><b># Abono</b></td>
+						<td><b>Serial Abono</b></td>
 						<td><b>Monto a pagar</b></td>
 						<td><b>Nombre</b></td>
 						<td><b>Fecha</b></td>
@@ -62,9 +53,47 @@
 					</tr>
 				</tbody>			
 				<?php } ?>
+				<tfoot>
+					<tr>
+						<td><b>Serial Abono</b></td>
+						<td><b>Monto a pagar</b></td>
+						<td><b>Nombre</b></td>
+						<td><b>Fecha</b></td>
+						<td><b>Deuda</b></td>
+						<td><b>Abono</b></td>
+						<td><b>Saldo</b></td>
+						<td colspan=3 align="center" ><b>Acciones</b></td>
+					</tr>		
+				</tfoot>
 			</table>
 		</div>
 	</div>
+	</div>
+	<script>
+		// Write on keyup event of keyword input element
+		$(document).ready(function(){
+		$("#txtbuscar").keyup(function(){
+		_this = this;
+		// Show only matching TR, hide rest of them
+		$.each($("#mytable tbody tr"), function() {
+		if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+		$(this).hide();
+		else
+		$(this).show();
+		});
+		});
+		});
+		</script>
+		<button data-toggle="modal" 
+				style="
+					position: relative;
+  					left: 450px;
+					 border: 1px solid #E1E1E1;
+					 border-radius: 100%;"
+				data-target="#exampleModala ">
+					<img src="image/info.png"  >
+		</button>	
+	
 </body>
 </html>
 
@@ -75,7 +104,7 @@ $(function(){ //Función Jquery
     e.preventDefault(); //Evitar submit
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	alert(dato_buscar);
+	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
             //url:'Vistas/Inmueble/prueba.php',

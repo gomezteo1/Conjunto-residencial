@@ -1,71 +1,199 @@
-//$(function(){ //Función Jquery
-  //  $('#slcmonth').change(function(e) {//slcmonht
- // e.preventDefault(); //Evitar submit
- // metodo="consultar_tarifa";// consultar el m`precio del mes 
- // dato_buscar=$('#slcmonth').val(); // slcmonht
- // alert(dato_buscar);
- // $.ajax({
-  //  type:'POST',
-   // url:'Controladores/Month_Controlador.php', //controlador --monht
-    //datatype: "jeison",
-  //  data:{action:metodo,dato_buscar:dato_buscar},
-  //  success:function(data){
-    //  $('#txttarifa').val(data);//tarifa del monht
-     //}
-   //});
- // });
-// });
- /*
- function calcular_total()
- {
-   var valor_unitario=0,catidad=0;
-   valor_unitario=document.getElementById('txtprecio').value;
-   catidad=document.getElementById('txtcantidad').value;
-   document.getElementById('txtvalor_total').value = valor_unitario*catidad;
- }
-*/
+const detalleCuentasCobro = [];
 
-var cantidad_detalles=0;
-$(function(){ //funtion jquiery
-  $('#btnagregar').click(function(e){
-    e.preventDefault();//evitar submint
-    slcinmueble=$('#slcinmueble').val();
-    nombre_inmueble=$('#slcinmueble option:selected').text();
-    slcmonth=$('#slcmonth').val();
-    slctipo_pago=$('#slctipo_pago').val();
-    monto_por_cancelar=$('#monto_por_cancelar').val();
-    //detalle
-    //alert(precio);
-   //detalle
-   $("#detalle_cuenta_cobro").append('<div class="col-lg-12" id="detalle_cuenta_cobro'+cantidad_detalles+'"><div class="col-lg-12"><input type="text" name="inmueble"'+cantidad_detalles+' id="inmueble'+cantidad_detalles+'" value="'+slcinmueble+'"></input><input type="text"name="nombre_inmueble"'+cantidad_detalles+' id="nombre_inmueble'+cantidad_detalles+'"value="'+nombre_inmueble+'"></input><input type="text"name=" slcmonth"'+cantidad_detalles+' id="slcmonth'+cantidad_detalles+'" value="'+slctipo_pago+'"</input><input type="text" id="slctipo_pago'+cantidad_detalles+'" name="slctipo_pago+'+ cantidad_detalles+'"value="'+monto_por_cancelar+'"</input><input type="text" id="monto_por_cancelar'+cantidad_detalles+'" name="monto_por_cancelar+'+ cantidad_detalles+  numero_cuenta+'"></input><button id="btnquitar" name="btnquitar"onclick="eliminar_detalle('+cantidad_detalles+')">eliminar</button></div><div class="col-lg-6"></div>');
-   $('#txtcantidad_detalles').val(parseInt($('#txtcantidad_detalles').val())+parseInt(1));cantidad_detalles=$('txtcantidad_detalles').val();
- cantidad_detalles++;
-   });
- });
-    // alert(eliminar_detalle);
+$(function() { //funtion jquery
+    $('#btnagregar').click(function(e) {
+        e.preventDefault(); //evitar submint
+        numeroCuenta = $('#numero_cuenta').val();
+        nit = $('#nit').val()
+        slcusuario_inmueble = $('#slcusuario_inmueble').val();
+        var nombreSelect = $("select#slcusuario_inmueble option:selected").attr("nombre");
+        //--> esta es la que contiene el texto slcusuario = $('#slcusuario_inmueble').text();
+        slcmonth = $('#slcmonth').val();
+        var mesSlect = $("select#slcmonth option:selected").attr("fecha");
+        fecha = $('#fecha').val()
+        monto_por_cancelar = $('#monto_por_cancelar').val();
 
- function eliminar_detalle(cantidad_detalles)
- {
-   $("#detalle_cuenta_cobro"+cantidad_detalles).remove();
- }
- 
-/* para guardar */
-$(function(){ //funtion para guardar en Db
-  $('#btnguardar').click(function(e){
-    e.preventDefault();
-    datos=$('#frmcuenta_cobro').serialize();
-    $.ajax({
-      type:'POST',
-      url:'Controladores/Cuenta_cobro_Controlador.php',
-      //datatype :"json",
-      data:datos,
-      success:function(data){
-alert(data);
-/*document.getElementById('prueba').innerHTML=data*/
-      }
+
+
+        if (numeroCuenta == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Numero De La Cuenta!',
+            })
+            return false;
+        } else if (numeroCuenta <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta No Debe Tener Caracteres Negativos',
+            })
+            return false;
+        } else if (numeroCuenta.length <= 5 || numeroCuenta.length >= 13) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Numero De Cuenta Debe Tener 6 A 13 Caracteres',
+            })
+            return false;
+        } else if (nit == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Nit!',
+            })
+            return false;
+            // } else if (nit <= 0) {
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: 'Error',
+            //         text: 'El Nit No Debe Tener Caracteres Negativos',
+            //     })
+            //     return false;
+            // } 
+        } else if (nit.length <= 7 || nit.length >= 25) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Nit Debe Tener 8 A 24 Caracteres',
+            })
+            return false;
+        } else if (slcusuario_inmueble == undefined || slcusuario_inmueble == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar Los Datos De La Cuenta!',
+            })
+            return false;
+        } else if (slcmonth == undefined || slcmonth == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Mes Y Tarifa De La Cuenta!',
+            })
+            return false;
+        } else if (monto_por_cancelar == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes Ingresar El Monto!',
+            })
+            return false;
+        } else if (monto_por_cancelar <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto No Debe Tener Caracteres Negativos',
+            })
+            return false;
+        } else if (monto_por_cancelar.length <= 5 && monto_por_cancelar.length >= 9) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'El Monto Debe Tener 6 A 8 Caracteres',
+            })
+            return false;
+        } else {
+            detalleCuentasCobro.push({
+                nombre: nombreSelect,
+                mes: mesSlect,
+                numero_cuenta: numero_cuenta.value,
+                nit,
+                slcusuario_inmueble,
+                slcmonth,
+                monto_por_cancelar
+            });
+            actualizar();
+
+        }
+
     });
-  });
 });
+//Que si el array no esta completo me saque un false 
+
+const actualizar = () => {
+    let todo = '<br><br><div class="container justify-content-left"><div class="row">  ';
+    for (const [index, cuenta] of detalleCuentasCobro.entries()) {
+        todo +=
+            `
+            
+            <div class = "col-6 izquierda"   >
+            <br>
+                <div class="card carta">
+                  <div class="card-body">
+                    
+                    
+                    <div class="col-sm-8 ">
+                        
+                        <div class="hijo">
+                            <h5 class="card-title tituloM  justify-content-right">Cuenta Cobro</h5>
+                            <button class="btn btn-outline-danger botoncito" onClick="eliminarCuenta(${index})"><i class="zmdi zmdi-close-circle"></i></button>
+                        </div>
+                        <div></div>
+                        <p class="card-text">Datos: ${cuenta.nombre} </p>
+                        <p class="card-text" hidden>${cuenta.slcusuario_inmueble} </p>
+                        <div>------</div>
+                    </div> 
+
+                    <div class="col-sm-8">
+                    
+                        <p class="card-text">Cuenta:  ${cuenta.numero_cuenta}</p>
+                        <p class="card-text">Nit:  ${cuenta.nit}</p>
+                        <div>------</div>
+                        <p class="card-text">Mes:  ${cuenta.mes}</p>
+                        <p  class="card-text" hidden >${cuenta.slcmonth} </p>
+                        <div> ------ </div>
+                        <p class="card-text">Pagar:  ${cuenta.monto_por_cancelar}</p>
+                    
+                    </div>    
+
+                
+                
+                   </div>
+                </div>
+            </div>
+            
+         `
+    }
+    todo += '</div></div> '
+    todo += '<div class="row"><div class="col-12"></div></div > '
+
+    $("#detalle_cuenta_cobro").html(todo)
+}
+
+function eliminar_detalle(cantidad_detalles) {
+    $("#detalle_cuenta_cobro" + cantidad_detalles).remove();
+}
+
+const eliminarCuenta = (id) => {
+    //console.log(detalleCuentasCobro);
+    detalleCuentasCobro.splice(id, 1)
+    actualizar();
+};
+
+/* para guardar */
+$(function() { //funtion para guardar en Db
+    $('#btnguardar').click(function(e) {
 
 
-//////////////////////////////////////////////////////////////////
+        datos = {
+            cuenta_cobro: 'cuenta_cobro',
+            detalleCuentasCobro: JSON.stringify(detalleCuentasCobro)
+        }
+        $.ajax({
+            type: 'POST',
+            url: 'Controladores/Cuenta_cobro_Controlador.php',
+            datatype: "json",
+            data: datos,
+            success: function(data) {
+                swal.fire({
+                    title: "Hecho!",
+                    text: "Se Ha Registrado Correctamente",
+                    icon: "success",
+                    button: "Continuar",
+                });
+            }
+
+        });
+    })
+})

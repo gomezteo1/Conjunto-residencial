@@ -15,6 +15,8 @@
 			  //guardar  
 			public function registrar_tipoPago($tipo_pago){
 				Tipo_pago::registrar_tipoPago($tipo_pago);
+				session_start();
+				 $_SESSION['guardar'] = "Agregado Con Éxito";
 				header('Location: ../index.php?controller=tipo_pago&action=index');
 			}//guardar
 			
@@ -26,6 +28,8 @@
 			//guardar canbios 
 			public function modificar_tipo_pago($codigo_tipo_pago,$tipo_pago,$descripcion){
 				Tipo_pago::modificar_tipo_pago($codigo_tipo_pago,$tipo_pago,$descripcion);
+				session_start();
+				$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 				header('Location: ../index.php?controller=tipo_pago&action=index');
 			}
 
@@ -41,10 +45,10 @@
 			//}
 			
 
-			public function buscar_pago($dato){
-			  $tipo_pagos = Tipo_pago::buscar_pago($dato);
-			  require_once('../Vistas/Tipo_Pago/listar_tipo_pagos.php');
-			}
+			// public function buscar_pago($dato){
+			//   $tipo_pagos = Tipo_pago::buscar_pago($dato);
+			//   require_once('../Vistas/Tipo_Pago/listar_tipo_pagos.php');
+			// }
 
 			public function consultar_tipo_pago($dato){
 			$tipo_pago = Tipo_pago::consultar_tipo_pago($dato);

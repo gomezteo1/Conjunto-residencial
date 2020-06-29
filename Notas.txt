@@ -1,0 +1,20 @@
+ªBarrido
+ª Validar 
+    ªLa edad  
+    ªTelefono
+    ªNumero documento con los tamaños correctos
+    ªNo se puedan insertar valores negativos en los numeros 
+    ªPago y Abonos
+    ªValidar los select con vacios     
+    ªCuando se llamen las cuentas de cobro, pagos hacer subconsulta de los nombres y las fechas de las que se genero el pago
+    ªTraer los datos a la vista de pagos
+    ªTraer los datos a la vista de abonos
+    ª Falta ayudas en linea del inicio
+    ª Hacer card  body de la cuenta de cobro  
+    ªQue salga la alerta de que se registro la cuenta de cobro
+
+
+    * Validacion del login 
+    * Validación de los datos repetidos
+    * Revisar la mora 
+    

@@ -4,31 +4,29 @@ class Usuario_Controlador
 	
 
 	public function __construct(){}
-
-
-	public function landing(){
 	
-	require_once('Vistas/Usuario/landing.php');
-
-	}
-	
-	//------------------------------------------------------------------
+	//-----------Error----------------------------------------------------------------
 	public function error(){ //este me lleva al indice del administrador
 		//$usuarios=Usuario::error();
 		require_once('Vistas/error.php');
 	} 
-	//------------------------------------------------------------------
+	//----------Inicio Usuario--------------------------------------------------------
 
 	public function index(){ //este me lleva al indice del administrador
 		$usuarios=Usuario::listar_todos();
 		require_once('Vistas/Usuario/index.php');
 	} 
 
+	public function validarCorreo(){
+		$correo=Usuario::validarCorreo();
+	}
+
+
 	public function indexUsuario(){ //este me lleva al usuario individual
 		$usuarios=Usuario::listar_usuario($_GET['id_usuario']);
 		require_once('Vistas/Usuario/indexUsuario.php');
 	} 
-	//------------------CAmbio de clave---------------------------------------------
+	//-----------Cambio de clave-------------------------------------------------------
 	
 
 	public function frm_cambiarClaveAdm(){ 
@@ -51,50 +49,34 @@ class Usuario_Controlador
 	header('Location: ../index.php');
 	}
 	
-
-
 	//------------------------------------------------------------------
-
-	
 	public function frm_login(){ 
 		require_once('Vistas/Usuario/frm_login.php');
 	}
-
-	public function frm_sweet(){ 
-		require_once('Vistas/Usuario/frm_sweet.php');
-	}
-	
 	public function frm_singup(){
 		require_once('Vistas/Usuario/frm_singup.php');
-
 	}
-		
 	public function frm_registrar_usuario(){
 		require_once('Vistas/Usuario/frm_registrar_usuario.php');
 	} 
-
 	public function frm_modificar_usuario(){
 		require_once('Modelos/Usuario.php');
 		$usuario=Usuario::Obtener_por_identificacion($_GET['id_usuario']); //obtener por id 
 		require_once('Vistas/Usuario/frm_modificar_usuario.php');
 	}
-
 	public function frm_modificar_administrador(){
 		require_once('Modelos/Usuario.php');
 		$usuario=Usuario::Obtener_por_identificacion($_GET['id_usuario']); //obtener por id 
 		require_once('Vistas/Usuario/frm_modificar_administrador.php');
 	}
-
 	public function eliminar_administrador(){
 		Usuario::eliminar_usuario($_GET['id_usuario']);
 		//header('Location: ./index.php');
 	}
-
 	public function eliminar_usuario(){
 		Usuario::eliminar_usuario($_GET['id_usuario']);
 		//header('Location: ./index.php');
 	}
-
 	public function desactivar_estado_usuario($id_usuario,$on){
 		require_once('../Modelos/Usuario.php');
 		
@@ -108,24 +90,37 @@ class Usuario_Controlador
 		return Usuario::activar_estado_usuario($id_usuario);	
 
 		}
-
 	}
-
 	public function activar_estado_usuario($id_usuario){
 		require_once('../Modelos/Usuario.php');
 		return Usuario::activar_estado_usuario($id_usuario);
 	}		
+//-------------------------------------------------------------------------
 
+	public function desactivarEstadoLista(){
+		require_once('Modelos/Usuario.php');
+		Usuario::desactivarEstadoLista($_GET['id_usuario']);
+		//header('Location: index.php?controller=usuario&action=index');
+	}
+	public function activarEstadoLista(){
+		require_once('Modelos/Usuario.php');
+		Usuario::activarEstadoLista($_GET['id_usuario']);
+		//header('Location: index.php?controller=usuario&action=index');
+	}		
 	public function registrar_usuario($usuario){
 		Usuario::registrar_usuario($usuario);
 		//echo $usuario->id_usuario, $usuario->nombres, $usuario->apellidos, $usuario->id_tipo_documento, $usuario->numero_documento, $usuario->id_rol, $usuario->telefono, $usuario->fecha_nacimiento, $usuario->estado, $usuario->clave, $usuario->correo, $usuario->correo_recuperacion;
 		//var_dump($usuario);
 		//exit();
+		session_start();
+		$_SESSION['guardar'] = "Agregado Con Éxito";
 		header('Location: ../index.php');
 	} 
 	 	
-	public function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion){
-		Usuario::modificar_usuario($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave, $correo, $correo_recuperacion);
+	public function modificar_usuario($id_usuario, $nombres, $apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $correo, $correo_recuperacion){
+		Usuario::modificar_usuario($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion);
+		session_start();
+		$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
 		header('Location: ../index.php');
 	
 	}
@@ -135,7 +130,9 @@ class Usuario_Controlador
 	public function modificar_administrador($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion){
 		Usuario::modificar_administrador($id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado,  $correo, $correo_recuperacion);
 		//echo"$id_usuario, $nombres ,$apellidos, $id_tipo_documento, $numero_documento, $id_rol, $telefono, $fecha_nacimiento, $estado, $clave,$correo, $correo_recuperacion";
-		header('Location: ../index.php?controller=usuario&action=index');
+		session_start();
+		$_SESSION['modificar'] = "Se Han Modificado Los Datos Con Éxito";
+		header('Location: ../index.php');
 	}
 	
 	public function login_usuario($correo, $clave){
@@ -157,22 +154,24 @@ class Usuario_Controlador
 	} 
 
 	public function cerrarSesion(){
-		session_start();
-		session_destroy();
-		header('Location: ./index.php');
+		
+		// session_start();
+		// $_SESSION['Opcion'] = "¿Desea cerrar la sesión?";
+		// header('Location: ./index.php');
+		// session_destroy();
+		
 		
 	}  
  //--------------------------------------------------------------
-	public function buscar_usuario($dato){
-			$usuarios = Usuario::buscar_usuario($dato);
-		require_once('../Vistas/Usuario/listar_usuarios.php');
-
-		}
+	// public function buscar_usuario($dato){
+	// 	$usuarios = Usuario::buscar_usuario($dato);
+	// 	require_once('../Vistas/Usuario/listar_usuarios.php');
+	// }
 		
 	public function consultar_tipo_usuario($dato){
 			$usuario = Usuario::buscar_tipo_usuario($dato);
 			//echo $usuario;
-		}
+	}
 		
 	public function llenar_select_usuario(){
 			require_once('Modelos/Usuario.php');
@@ -188,7 +187,7 @@ class Usuario_Controlador
 
     public function recuperarClave($referencia)
     {
-    	        require_once('../Modelos/Usuario.php');
+    	require_once('../Modelos/Usuario.php');
         $usuario = Usuario::obtenerPorReferencia($referencia);
         if (is_array($usuario)) {
             Usuario::modificarClave($usuario['correo'], md5($usuario['clave']));
@@ -219,8 +218,18 @@ if(isset($llenar_select_usuario))
  		if($_POST['action'] == 'activar_estado'){
  			$usuario_controlador = new Usuario_Controlador();
  			echo $usuario_controlador->activar_estado_usuario($_POST['id_usuario']);
- 		}
+		 }
+		//Desactivar desde la lista-------------------------------
+		//  if($_POST['action'] == 'desactivarEstadoLista'){
+		// 	$usuario_controlador = new Usuario_Controlador();
+		// 	echo $usuario_controlador->desactivarEstadoLista($_POST['id_usuario']);
+		// }
 
+		// if($_POST['action'] == 'activarEstadoLista'){
+		// 	$usuario_controlador = new Usuario_Controlador();
+		// 	echo $usuario_controlador->activarEstadoLista($_POST['id_usuario']);
+		// }
+		//----------------------------------------------------------
  		if($_POST['action']=='registrar_usuario'){
 			require_once('../Modelos/Usuario.php');
 			require_once('../conexion.php');
@@ -238,7 +247,7 @@ if(isset($llenar_select_usuario))
 			//hasta aca
 			//echo "usuario";
 			//var_dump($usuario);
-			$usuario_controlador->modificar_usuario($_POST['id_usuario'], $_POST['nombres'], $_POST['apellidos'], $_POST['slctipo_documento'], $_POST['numero_documento'], '', $_POST['telefono'], $_POST['fecha_nacimiento'], '', md5($_POST['clave']), $_POST['correo'],  $_POST['correo_recuperacion']);
+			$usuario_controlador->modificar_usuario($_POST['id_usuario'], $_POST['nombres'], $_POST['apellidos'], $_POST['slctipo_documento'], $_POST['numero_documento'],$_POST['slcrol'], $_POST['telefono'], $_POST['fecha_nacimiento'], $_POST['estado'], $_POST['correo'], $_POST['correo_recuperacion']);
 		}
 		
 		if(($_POST['action']=='modificar_administrador')){
