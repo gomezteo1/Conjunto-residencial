@@ -113,32 +113,38 @@
 												<span class="mdl-textfield__error">Correo R.invalido</span>
 											</div>
 										</div>
+
+									<div align="left" class=" form-group mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+											<h2>Terminos y Condiciones</h2>
+											<h5>Click en el botón leer para desplegarlo.</h5>
+												 <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Leer</button>
+												<div id="demo" class="collapse" style="margin:0px rigth:100px; auto;width:250px;text-align:left;padding:10px;background-color:orange;border:1px solid black;">
+												<br>Artículo 1. Objeto. El presente Decreto tiene como objeto reglamentar parcialmente la Ley 1581 de 2012, 
+												<br>por la cual se dictan disposiciones generales para la protección de datos personales. 
+												<br>aquellas actividades que se inscriben en el marco de la vida privada o familiar de las personas naturales.
+												<br>
+													<br> <a href="https://www.mintic.gov.co/portal/604/articles-4274_documento.pdf" target="_blank">Ley 1581</a>
+													<br> <a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html" target="_blank">Ley 1581</a>
+												
+
+													<div align="left" class=" form-group mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+															<div data-toggle="radio">
+																<h5>Aceptar:  <input mdl-textfield__input type="checkbox"  name="politica" id="politica"  autocomplete="on"></h5>
+															</div>
+														</div>
+													</div>
+											
+										</div>	
+										<br><br><br><br><br><br><br><br><br> 
 									
-										<div align="left" class=" form-group mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
-											<label  align="left">Terminos y Condiciones</label><br>
-											<div data-toggle="radio">
-												<a href="htpp://www.google.com">hola</a>
-												<input type="checkbox"  name="politica" id="politica"  autocomplete="on">
-											</div>
-										</div>
-										<!-- <button data-toggle="modal" 
-											style="
-												position: relative;
-												left: 450px;
-												border: 1px solid #E1E1E1;
-												border-radius: 100%;"
-											data-target="#exampleModalPolitica ">
-												<img src="image/info.png"  >
-										</button>	 -->
-									</div>
-									 <!-- <div onclick="validar()">  -->
-										<p class="text-center">
+										<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet">
+										<p  class="text-center">
 											<button id="button-Rusuario"  class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" on>
 												<i class="zmdi zmdi-plus"></i>
 											</button>
 											<div class="mdl-tooltip" for="btn-addProduct">Agregar Usuario</div>
 										</p>
-									<!-- </div> -->
+									</div>
 								
 							</div>
 						</div>
