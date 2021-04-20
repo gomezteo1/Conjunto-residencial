@@ -6,8 +6,8 @@
 			</div>
 			<figure class="full-width navLateral-body-tittle-menu">
 				<div align="center">
-								<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
-							</div>
+					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					</div>
 				<figcaption>
 					<span>
 						Perfil<br>
@@ -28,7 +28,6 @@
 						</a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
-					
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
 						<a href="#!" class="full-width btn-subMenu">
@@ -63,15 +62,12 @@
 							
 						</ul>
 					</li>
-							
 						</ul>
 					</li>
 				</ul>
 			</nav>
 		</div>
 	</section>
-
-
 	<!-- pageContent -->
 	<section class="full-width pageContent">
 		<!-- navBar -->
@@ -81,7 +77,6 @@
 				<div class="mdl-tooltip" for="btn-menu">Ocultar / Mostrar MENU</div>
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
-					
 						<li class="btn-exit" id="btn-exit">
 							<i class="zmdi zmdi-power"></i>
 							<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>

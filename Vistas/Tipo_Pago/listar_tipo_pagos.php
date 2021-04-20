@@ -14,9 +14,6 @@
 			<td><?php echo $tipo_pago->tipo_pago; ?></td>
 			<td><?php echo $tipo_pago->descripcion;?></dh>
 			<td><a href="?controller=tipo_pago&action=formulario_modificar&codigo_tipo_pago=<?php echo $tipo_pago->codigo_tipo_pago ?>" class="btn btn-secondary">Actualizar</a> </th>
-			<!-- <td>
-				<a href="?controller=tipo_pago&action=eliminar_tipo_pago&codigo_tipo_pago=<?php echo $tipo_pago->codigo_tipo_pago ?>" class="btn btn-danger">Eliminar</a>
-			</td> -->
 		</tr>
 	</tbody>
 	<?php }	?>

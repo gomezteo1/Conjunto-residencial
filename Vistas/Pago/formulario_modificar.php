@@ -4,10 +4,8 @@
 	<title>Pago M</title>
 </head>
 <body>
-		
 		<form action="Controladores/Pago_Controlador.php" method="POST">
 		<input type="hidden" name="action" value="modificar_pago">
-		
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-washing-machine"></i>
@@ -19,7 +17,6 @@
 			</div>
 		</section>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -28,34 +25,25 @@
 								 Pago
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
-
 									    <input value="<?php echo $pago->codigo_pago ?>" name="codigo_pago" id="codigo_pago" class="w3-input" type="number" hidden> 
-
-										
-
 										<?php
 											$llenar_select_cuenta_cobro="si";
 											require("Controladores/Cuenta_cobro_Controlador.php"
 											);
 										?>		
-
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 											<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $pago->fecha ?>">
 											<label class="mdl-textfield__label"  for="Fecha_"></label>
 											<span class="mdl-textfield__error">Fecha Invalida</span>
 										</div>	
-
 										<?php
-														
 											$llenar_select_tipo_pago="si";
 											require("Controladores/Tipo_Pago_Controlador.php");
 										?>
-
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_cancelado" name="monto_cancelado" value="<?php echo $pago->monto_cancelado ?>">
@@ -63,8 +51,6 @@
 												<span class="mdl-textfield__error">Numero Monto Cancelado Equivocado</span>
 											</div>
 										</div>
-										
-
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_a_pagar" name="monto_a_pagar" value="<?php echo $pago->monto_a_pagar ?>" readonly>
@@ -72,9 +58,6 @@
 												<span class="mdl-textfield__error">Numero Monto A Pagar Equivocado</span>
 											</div>
 										</div>
-										
-
-
 									</div>
 									<p class="text-center">
 										<button id="button-Rpago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -82,7 +65,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Modificar Pago</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -91,21 +73,15 @@
 			</form>
 			<div class="mostrar"></div>
 		</div>
-
-
-
 </body>
 </html>
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 	$('#button-Rpago').click(function(){
 			var monto_canceladoRango = $('#monto_cancelado').val();
 			var monto_a_pagarRango = $('#monto_a_pagar').val();
 			var cuentaCobroRango = $('#slccuenta_cobro').val();
 			var tipoPagoRango = $('#slctipo_pago').val();
-
 			if(monto_a_pagarRango < monto_canceladoRango){
 				Swal.fire({
 				icon: 'error',
@@ -180,9 +156,6 @@ $(document).ready(function(){
 			}
 		}); 
 	});
-
-	
-
 </script>
 
 

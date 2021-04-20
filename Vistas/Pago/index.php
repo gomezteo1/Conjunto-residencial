@@ -50,7 +50,6 @@ require_once('conexion.php');
 								<td><?php echo $pago->monto_cancelado; ?></td>
 								<td><?php echo $pago->monto_a_pagar;?></td>
 								<td><a class="btn btn-secondary" href="?controller=pago&action=formulario_modificar&codigo_pago=<?php echo $pago->codigo_pago ?>">Actualizar</a></td>
-								<!-- <td><a class="btn btn-danger"  href="?controller=pago&action=eliminar_pago&codigo_pago=<?php echo $pago->codigo_pago?>">Eliminar</a> </th> -->
 								<td><a class="btn btn-success" target="_blank" href="?controller=reporte&action=index&codigo_pago=<?php echo $pago->codigo_pago ?>">Ver</a></td>
 							</tr>
 						</tbody>									
@@ -84,11 +83,9 @@ require_once('conexion.php');
 </body>
 
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -105,7 +102,6 @@ $(function(){ //Función Jquery
     e.preventDefault(); //Evitar submit
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
           	url:'Controladores/Pago_Controlador.php',

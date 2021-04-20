@@ -29,21 +29,12 @@
 			<td><?php echo $usuario->estado==1?'Activo':'Inactivo'; ?></td>
 			<!--<td><?php echo $usuario->clave; ?></th>-->
 			<td><?php echo $usuario->correo; ?></td>
-			<!--<td><?php //echo $usuario->correo_recuperacion; ?></th>-->
 			<td><a class=" btn btn-primary" href="?controller=usuario&action=frm_cambiarClaveAdm&id_usuario=<?php echo$usuario->id_usuario ?>">Clave</a></th>
 			<td><a href=
 				"?controller=usuario&action=frm_modificar_administrador&id_usuario=<?php echo
 					$usuario->id_usuario ?> " class="btn btn-secondary">Actualizar
 				</a>
 			</td>
-			<!-- <th scope="col"><a href=
-					"?controller=usuario&action=eliminar_administrador&id_usuario=<?php echo 
-					$usuario->id_usuario ?> " class="btn btn-danger">Eliminar</a></th> -->
-			<!-- <td>
-				<input <?php echo $usuario->estado==1 ? "checked" : "" ?> onchange="prueba_u(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $usuario->id_usuario ?>">
-			</td> -->
-
-		
 			<?php if($usuario->estado==0){?>
 				<td>
 				<button class="btn btn-success">
@@ -53,7 +44,6 @@
 				 	</a>
 				 </button>
 			</td>		
-
 			<?php } else{?> 
 			 <td >
 				<button class="btn btn-danger">
@@ -79,7 +69,6 @@
 			<td><b>Fecha Nacimiento</b></td>
 			<td><b>Estado</b></td>			
 			<td><b>Correo</b></td>
-			<!--<td>Email recuperacion</th>-->
 			<td><b>Cambiar Clave</b></td>			
 			<td colspan="1" align="center"><b>Acciones</b></td>
 		</tr>		

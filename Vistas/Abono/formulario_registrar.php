@@ -70,10 +70,6 @@
 											<span class="mdl-textfield__error">Saldo Invalido</span>
 										</div>
 									</div>
-
-
-
-
 								</div>
 								<p class="text-center">
 									<button id="button-Rabono" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary button-Rabono" value="res-registrar-abono">
@@ -87,8 +83,6 @@
 				</div>
 			</div>
 		</div>
-	
-
 		<a href="#" class="scrollup"><i class="fa fa-arrow-circle-up"></i></a>
 </body>		
 </html>
@@ -97,12 +91,10 @@
 
 $(document).ready(function(){
 		$('#button-Rabono').click(function(){
-			// alert('llega')
 			var deudaRango = $('#deuda').val();
 			var abonoRango = $('#abono').val();
 			var saldoRango = $('#saldo').val();
 			var pagoRango = $('#slcpago').val();
-			
 			if(pagoRango ==undefined || pagoRango =="" ){
 				Swal.fire({
 					icon: 'error',
@@ -161,14 +153,6 @@ $(document).ready(function(){
 				})
 				return false;
 			 }
-			//else if(saldoRango.length<=-1 || saldoRango.length>=3) {
-			// 	Swal.fire({
-			// 	icon: 'error',
-			// 	title: 'Error',
-			// 	text: 'El Saldo No Puede Ser Menor A Cero',
-			// 	})
-			// 	return false;
-			// }
 			else{
 				swal({
 					title: "Hecho!",

@@ -21,14 +21,12 @@ if ($_GET['controller'] == 'usuario' ){
 <?php
  }else{
 	?>
-	
 	<div class="mdl-cell mdl-cell--12-col">
 	<div class="mdl-textfield mdl-js-textfield">
 		<select required class="mdl-textfield__input" name="slcrol" id="slcrol">
 			<option selected hidden disabled >Seleccioné Un Rol</option>
 			<?php
 			foreach ($roles as $rol){?>
-				
 				<option value="<?php echo $rol->id_rol; ?>">
 					<?php echo $rol->rol;?>
 				</option>	
@@ -36,8 +34,6 @@ if ($_GET['controller'] == 'usuario' ){
 		</select>
 	</div>
 </div>
-
-
 <?php
  	
 }?>

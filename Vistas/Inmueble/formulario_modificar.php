@@ -4,10 +4,8 @@
 	<title>Modificar Inmueble</title>
 </head>
 <body>
-	
 		<form action="Controladores/Inmueble_Controlador.php" method="POST">
 		<input  type="hidden" name="action" value="modificar_inmueble">
-		
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-washing-machine"></i>
@@ -19,7 +17,6 @@
 			</div>
 		</section>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -28,14 +25,11 @@
 								 Inmueble
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
-
 									    <input value="<?php echo $inmueble->codigo_inmueble ?>" name="codigo_inmueble" id="codigo_inmueble" class="w3-input" type="codigo_inmueble" hidden > 
-
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_matricula" name="numero_matricula" value="<?php echo $inmueble->numero_matricula ?>">
@@ -43,7 +37,6 @@
 												<span class="mdl-textfield__error">Numero De Matricula Equivocado</span>
 											</div>
 										</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="tipo" name="tipo" value="<?php echo $inmueble->tipo ?>">
@@ -51,7 +44,6 @@
 												<span class="mdl-textfield__error">Tipo De Inmueble Invalido</span>
 											</div>
 										</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="torre" name="torre" value="<?php echo $inmueble->torre ?>">
@@ -59,7 +51,6 @@
 												<span class="mdl-textfield__error">Torre Invalida</span>
 											</div>
 										</div>
-										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero" name="numero" value="<?php echo $inmueble->numero ?>">
@@ -67,7 +58,6 @@
 												<span class="mdl-textfield__error">Numero De Inmueble Invalido</span>
 											</div>
 										</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="metros" name="metros" value="<?php echo $inmueble->metros ?>">
@@ -76,7 +66,6 @@
 											</div>
 										</div>
 										<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="estado" name="estado" value="<?php echo $inmueble->estado ?>" hidden>
-
 									</div>
 									<p class="text-center">
 									<button id="button-Rinmueble" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -84,7 +73,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Modificar Inmueble</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -94,13 +82,9 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
 
 </html>
-
-
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -206,7 +190,4 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-	
-
 </script>

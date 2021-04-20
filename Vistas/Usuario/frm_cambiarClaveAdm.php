@@ -42,10 +42,6 @@
 									    </div>
 
 									    <input value="<?php echo $_GET['id_usuario']  ?>" name="id_usuario" id="id_usuario" class="w3-input" type="id_usuario" readonly> 
-
-										
-
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave">
@@ -53,10 +49,6 @@
 												<span class="mdl-textfield__error">Clave invalido</span>
 											</div>
 										</div>
-
-								<!--<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php$_SESSION['acceso']['id_Usuairo']?>"
-							></a>-->				
-
 								</div>
 									<p class="text-center">
 										<button id="button-Madministrador" name="button-Madministrador" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -64,7 +56,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Cambiar Clave Usuario</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -74,34 +65,21 @@
 			<div class="mostrar"></div>
 		</div>
 
-
-
 </body>
 
 <script src="js/usuario.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>	
-		<!-- Popper js -->
-		<script src="js/popper.min.js"></script>
-		<!-- Bootstrap Js -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- Form Validator -->
-		<script src="js/validator.min.js"></script>
-		<!-- Contact Form Js -->
-		<script src="js/contact-form.js"></script>
-	
-		<script src="js/abono.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/validator.min.js"></script>
+<script src="js/contact-form.js"></script>
+<script src="js/abono.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
-
-
-
-
-<!----VALIDACION PERFECTA FULL HD 4K----->
 <script type="text/javascript">
-
 $(document).ready(function(){
 		$('#button-Madministrador').click(function(){
 

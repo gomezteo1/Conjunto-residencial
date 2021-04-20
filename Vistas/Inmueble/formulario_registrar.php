@@ -8,7 +8,6 @@
 		<div id="registrar-inmueble">	
 		<form action="Controladores/Inmueble_Controlador.php" method="POST" id="res-registrar-inmueble">
 		<input  type="hidden" name="action" value="registrar_inmueble">
-		
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-washing-machine"></i>
@@ -20,7 +19,6 @@
 			</div>
 		</section>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -29,13 +27,10 @@
 								 Inmueble
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
-
-
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero_matricula" name="numero_matricula" >
@@ -43,7 +38,6 @@
 												<span class="mdl-textfield__error">Numero De Matricula Invalido</span>
 											</div>
 										</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="tipo" name="tipo" >
@@ -51,7 +45,6 @@
 												<span class="mdl-textfield__error">Tipo De Inmueble Invalido</span>
 											</div>
 										</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="torre" name="torre" >
@@ -59,7 +52,6 @@
 												<span class="mdl-textfield__error">Torre Invalida</span>
 											</div>
 										</div>
-										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="numero" name="numero" >
@@ -67,7 +59,6 @@
 												<span class="mdl-textfield__error">Numero De Inmueble Invalido</span>
 											</div>
 										</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="metros" name="metros" >
@@ -75,7 +66,6 @@
 												<span class="mdl-textfield__error">Tipo De Inmueble Invalido</span>
 											</div>
 										</div>
-
 									</div>
 									<p class="text-center">
 										<button id="button-Rinmueble" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -83,7 +73,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Agregar Inmueble</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -93,22 +82,16 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
 </html>
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 		$('#button-Rinmueble').click(function(){
-
 			var numeroMatriculaRango = $('#numero_matricula').val();
 			var tipoRango = $('#tipo').val();
 			var torreRango = $('#torre').val();
 			var numeroRango = $('#numero').val();
 			var metrosRango = $('#metros').val();
-	
 			if(numeroMatriculaRango==""){
 				Swal.fire({
 					icon: 'error',

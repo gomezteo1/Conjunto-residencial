@@ -37,7 +37,6 @@
 								<td><?php echo $tipo_documento->id_tipo_documento; ?></td>
 								<td><?php echo $tipo_documento->documento; ?></td>
 								<td><a class="btn btn-secondary" href="?controller=tipo_documento&action=formulario_modificar&id_tipo_documento=<?php echo $tipo_documento->id_tipo_documento ?>">Actualizar</a></td>
-								<!-- <td><a class="btn btn-danger" href="?controller=tipo_documento&action=eliminar_tipo_documento&id_tipo_documento=<?php echo $tipo_documento->id_tipo_documento ?>">Eliminar</a> </th> -->
 							</tr>		
 						</tbody>
 						<?php } ?>
@@ -64,11 +63,9 @@
 	</div>
 </body>
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -79,12 +76,11 @@
 });
 </script>
 <script>
-$(function(){ //Función Jquery
+$(function(){ 
   	$('#btnbuscar').click(function(e) {
-    e.preventDefault(); //Evitar submit
+    e.preventDefault();
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
           	url:'Controladores/Tipo_Documento_Controlador.php',

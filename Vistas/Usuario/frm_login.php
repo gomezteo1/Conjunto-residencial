@@ -40,17 +40,11 @@
 
 </body>
 </html>
-<!----VALIDACION PERFECTA FULL HD 4K----->
-
-
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 		$('#Login').click(function(){
 			var correoRango = $('#correo').val();
 			var claveRango = $('#clave').val();
-		
 			if(correoRango==""){
 				Swal.fire({
 					icon: 'error',
@@ -81,5 +75,3 @@ $(document).ready(function(){
 	
 
 </script>
-<!-- <script type="text/javascript" src="js/show.js"></script>
-<script src="https://use.fontawesome.com/e622d3b53e.js"></script> -->

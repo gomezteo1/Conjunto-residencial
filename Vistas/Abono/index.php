@@ -48,7 +48,6 @@
 						<td><?php echo $abono->abono;?></td>
 						<td><?php echo $abono->saldo;?></td>
 						<td><a  class="btn btn-secondary" href="?controller=abono&action=formulario_modificar&codigo_abono=<?php echo $abono->codigo_abono ?>">Actualizar</a> </td>
-						<!-- <td><a class="btn btn-danger" href="?controller=abono&action=eliminar_abono&codigo_abono=<?php echo $abono->codigo_abono ?>">Eliminar</a> </td> -->
 						<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportea&action=index&codigo_abono=<?php echo $abono->codigo_abono ?>">Ver</a> </td>
 					</tr>
 				</tbody>			

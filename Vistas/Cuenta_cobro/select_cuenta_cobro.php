@@ -7,7 +7,6 @@ if ($_GET['controller'] == 'pago' ){
 			<option selected hidden disabled >Seleccioné Una Cuenta De Cobro</option>
 			<?php
 			foreach ($cuenta_cobros as $cuenta_cobro){?>
-				
 				<option <?php 
 					echo  isset($pago) && $pago->codigo_cuenta_cobro==$cuenta_cobro->codigo_cuenta_cobro ?'
 				selected':''; ?> value="<?php echo $cuenta_cobro->codigo_cuenta_cobro; ?>"  nombre="<?php echo  $cuenta_cobro->nombrePagos;  ?>">
@@ -17,7 +16,6 @@ if ($_GET['controller'] == 'pago' ){
 		</select>
 	</div>
 </div>
-
 <?php
  }else{
 	?>

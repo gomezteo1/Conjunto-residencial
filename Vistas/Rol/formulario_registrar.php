@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +14,6 @@
 		<div id="registrar-rol">	
 		<form action="Controladores/Rol_Controlador.php" method="POST" id="res-registrar-rol">
 		<input  type="hidden" name="action" value="registrar_rol">
-		
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-washing-machine"></i>
@@ -27,7 +24,6 @@
 				</p>
 			</div>
 		</section>
-		
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -36,7 +32,6 @@
 								 Rol
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
@@ -48,10 +43,6 @@
 												<span class="mdl-textfield__error">Rol invalido</span>
 											</div>
 										</div>
-										
-										
-										
-
 									</div>
 									<p class="text-center">
 										<button id="button-Rrol" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -59,7 +50,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addRol">Agregar Rol</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -69,13 +59,9 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
 </html>
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 		$('#button-Rrol').click(function(){
 

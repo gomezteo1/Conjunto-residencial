@@ -1,9 +1,4 @@
-$('.prueba-jquery').click(function() {
-
-});
-
-
-/*Agregar rol con jquery y ajax*/
+$('.prueba-jquery').click(function() {});
 $('.button-Rrol').click(function() {
     var myId = $(this).val();
     $('#registrar-rol form#' + myId).submit(function(e) {
@@ -20,9 +15,7 @@ $('.button-Rrol').click(function() {
             },
             error: function() {
                 $("div#" + myId).html('Ha ocurrido un error en el sistema');
-
             },
-
             success: function(data) {
                 $("div#" + myId).html(data);
             }

@@ -45,11 +45,6 @@
 											require("Controladores/Inmueble_Controlador.php"
 											);
 										?>		
-									
-										
-
-
-										
 									</div>
 									<p class="text-center">
 										<button id="button-Rusuario_inmueble" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -74,10 +69,8 @@
 
 $(document).ready(function(){
 		$('#button-Rusuario_inmueble').click(function(){
-			
 			var usuarioRango = $("#slcusuario").val();
 			var inmuebleRango = $("#slcinmueble").val();
-			
 			if(usuarioRango==undefined || usuarioRango=="" ){
 				Swal.fire({
 					icon: 'error',

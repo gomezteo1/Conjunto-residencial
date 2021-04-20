@@ -19,7 +19,6 @@
 			</div>
 		</section>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -28,29 +27,19 @@
 								 Pago
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
-
-										
-										
-
-										
 										<?php
 											$llenar_select_cuenta_cobro="si";
 											require("Controladores/Cuenta_cobro_Controlador.php"
 											);
 										?>		
-										
-
 										<?php
-														
 											$llenar_select_tipo_pago="si";
 											require("Controladores/Tipo_Pago_Controlador.php");
 										?>
-
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_cancelado" name="monto_cancelado">
@@ -58,15 +47,6 @@
 												<span class="mdl-textfield__error">Numero de Monto Cancelado Invalido</span>
 											</div>
 										</div>
-										<!-- Esta se va a quedar mientras nos da la validacion-->
-										<!-- <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-											<input class="mdl-textfield__input" type="number"  pattern="-?[0-9]*(\.[0-9]+)?" id="monto_por_cancelar" name="monto_por_cancelar" placeholder="Aqui estará su deuda al seleccionar el codigo de pago" readonly>
-											<label class="mdl-textfield__label" for="monto_por_cancelar"></label>
-											<span class="mdl-textfield__error">monto_por_cancelar Invalida</span>
-										</div>
-									</div> -->
-
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_a_pagar" name="monto_a_pagar" readonly>
@@ -74,19 +54,15 @@
 												<span class="mdl-textfield__error">Numero de Monto a Pagar Invalido</span>
 											</div>
 										</div>
-										
 									</div>
 									<div onmouseover="items_pagos()">
 									<p class="text-center">
 										<button id="button-Rpago" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
 												<i class="zmdi zmdi-plus"></i>
 										</button>
-										
 										<div class="mdl-tooltip" for="btn-addPago">Agregar Pago</div>
 									</p>
 									<div>
-								
-								
 							</div>
 						</div>
 					</div>
@@ -96,52 +72,31 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
-
 </html>
-
 <script src="js/pago.js"></script>
 <script type="text/javascript">
-	
 var Lista = [];
-
 function items_pagos($codigo_cuenta_cobro){
-
-
 	if($pago=="1"){
-
 		button-Rpago
-
 		var datos = {"codigo_cuenta_cobro":$codigo_cuenta_cobro};
 		 if(!Lista.includes(datos)){
-            //Si no está un, entonces lo insertamos
             	Lista.push( datos );
         	}
         else{
-            //De lo contrario
             console.log("Ese ya está");
         }
 	}
-
-
 }
-
-
-
 </script>
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 	$('#button-Rpago').click(function(){
 			var monto_canceladoRango = $('#monto_cancelado').val();
 			var monto_a_pagarRango = $('#monto_a_pagar').val();
 			var cuentaCobroRango = $('#slccuenta_cobro').val();
 			var tipoPagoRango = $('#slctipo_pago').val();
-			
-
 			if(monto_a_pagarRango < monto_canceladoRango){
 				Swal.fire({
 				icon: 'error',
@@ -216,7 +171,4 @@ $(document).ready(function(){
 			}
 		}); 
 	});
-
-	
-
 </script>

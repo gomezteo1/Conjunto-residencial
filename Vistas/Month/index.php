@@ -13,8 +13,6 @@
 				<p class="text-condensedLight">
 					Inicio Mes
 					<a class="btn btn-outline-primary" href="?controller=month&action=formulario_registrar">Registrar</a>
-			
-
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<img src="./image/buscar.png" class="btn-outline">
@@ -44,7 +42,6 @@
 								<td><?php echo $month->porcentaje; ?></td>
 								<td><?php echo $month->fecha; ?></td>
 								<td><a class="btn btn-secondary" href="?controller=month&action=formulario_modificar&codigo_month=<?php echo $month->codigo_month ?>">Actualizar</a></td>
-								<!-- <td><a class="btn btn-danger" href="?controller=month&action=eliminar_month&codigo_month=<?php echo $month->codigo_month ?>">Eliminar</a> </th> -->
 							</tr>
 						</tbody>			
 						<?php } ?>
@@ -73,13 +70,10 @@
 		</button>							
 	</div>
 </body>
-
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -95,7 +89,6 @@ $(function(){ //Función Jquery
     e.preventDefault(); //Evitar submit
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
           	url:'Controladores/Month_Controlador.php',

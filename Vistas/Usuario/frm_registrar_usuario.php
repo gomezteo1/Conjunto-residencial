@@ -161,7 +161,6 @@
 </html>
 
 <script type="text/javascript">
-	//Validacion del checkbox de las normas
 		$(document).ready(function() {
 			$("#button-Rusuario").on("click", function() {
 				var condiciones = $("#politica").is(":checked");
@@ -175,9 +174,7 @@
 
 
 <script type="text/javascript">
-//fecha
 $(document).ready(function(){
-
 	var dateNow = new Date();
 	var validDate = [dateNow.getFullYear()-15, ("0" + dateNow.getMonth()).slice(-2),("0" + dateNow.getDate()).slice(-2)].join('-');
 	document.getElementById('fecha_nacimiento').setAttribute('max',validDate);
@@ -185,31 +182,27 @@ $(document).ready(function(){
 	$('#correo').change(function(){
 		var cadena=$('#correo').val()
 		$.ajax({
-						type:"POST",
-						url:"?controller=usuario&action=validarCorreo&correo="+cadena+"",
-						data:cadena,
-						success:function(r){
-							 var Resp =r.split("--HayRegistro--")
-							 console.log(Resp.length)
+			type:"POST",
+			url:"?controller=usuario&action=validarCorreo&correo="+cadena+"",
+			data:cadena,
+			success:function(r){
+					var Resp =r.split("--HayRegistro--")
+					console.log(Resp.length)
 
-							if(Resp.length==2){
-								Swal.fire({
-								icon: 'error',
-								title: 'Error',
-								text: 'Este correo ya se encuentra registrado',
-								})
-								$('#button-Rusuario').prop( "disabled", true );
-							}
-							else{
-								$('#button-Rusuario').prop( "disabled", false );
-							}
-						}
-					});
-
+				if(Resp.length==2){
+					Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Este correo ya se encuentra registrado',
+					})
+					$('#button-Rusuario').prop( "disabled", true );
+				}
+				else{
+					$('#button-Rusuario').prop( "disabled", false );
+				}
+			}
+		});
 	})
-
-
-	
 	$('#button-Rusuario').click(function(){
 			var nombreRango = $('#nombres').val();
 			var apellidoRango = $('#apellidos').val();

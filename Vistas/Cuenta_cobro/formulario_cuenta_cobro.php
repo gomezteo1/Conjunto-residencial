@@ -19,7 +19,6 @@
 		padding: 10px;
 		font-size: 20px;
 		border-radius: 5px;
-		/* position: relative; */
 		box-sizing: border-box;
 		transition:  500ms ease-out;  
 		position: relative;
@@ -42,9 +41,6 @@
 
 			  display:inline-block;
 			}
-
-
-
 	</style>
 	</head>
 <body>
@@ -52,7 +48,6 @@
 		<form name="frmcuenta_cobro" id="frmcuenta_cobro" method="POST" action=""  
 		data-toggle="validator" class="popup-form" >
 		<div id="prueba"></div>  
-		
 			<section class="full-width header-well">
 				<div class="full-width header-well-icon">
 					<i class="zmdi zmdi-washing-machine"></i>
@@ -64,7 +59,6 @@
 				</div>
 			</section>
 			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-				
 				<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--12-col">
@@ -84,7 +78,6 @@
 												<span class="mdl-textfield__error">Numero Cuenta Invalido</span>
 											</div>
 										</div>
-										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" name="nit" id="nit" >
@@ -93,34 +86,23 @@
 											</div>
 										</div>
 										<div>
-
 										<div class="form-group col-sm-8">
-																	
 										</div><!-- end form-group -->
-
 										<div class="form-group col-sm-12 col-12">
 											<?php $llenar_select_usuario_inmueble="si";
 											require_once("Controladores/Usuario_Inmueble_Controlador.php");
 											?>
 										</div><!-- end form-group -->
-																			
 										<div class="form-group col-sm-8">
-																	
 										</div><!-- end form-group -->
-									
-
 										<div class="form-group col-sm-6">
 											<?php $llenar_select_month="si";
 											require_once("Controladores/Month_Controlador.php");
 											?>
 										</div><!-- end form-group -->
-
-										
 										<br>
 										<br>
 										<br>
-										
-										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number" pattern="^[0-9]" id="monto_por_cancelar"  name="monto_por_cancelar" placeholder="Ingrese el monto">
@@ -128,8 +110,6 @@
 												<span class="mdl-textfield__error">Monto por Cancelar</span>
 											</div>
 										</div>
-
-
 									</div>
 							</div>
 								<center>
@@ -156,8 +136,6 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
 </html>
 

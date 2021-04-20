@@ -7,8 +7,6 @@
 		
 <form action="Controladores/Cuenta_cobro_Controlador.php" method="POST" data-toggle="validator" class="popup-form">
 	<input type='hidden' name='action' value='modificar_cuenta_cobro'>                 
-
-		
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-washing-machine"></i>
@@ -52,26 +50,21 @@
 												<span class="mdl-textfield__error">Nit</span>
 											</div>
 											</div>
-									
 											<div class="form-group col-sm-12">
 												<?php $llenar_select_usuario_inmueble="si";
 												require_once("Controladores/Usuario_Inmueble_Controlador.php");
 												?>
 											</div><!-- end form-group -->
-											
 											<div class="form-group col-sm-8">
 												<?php $llenar_select_month="si";
 												require_once("Controladores/Month_Controlador.php");
 												?>
 											</div><!-- end form-group -->
-											
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $cuenta_cobro->fecha ?>">
 												<label class="mdl-textfield__label"  for="Fecha_"></label>
 												<span class="mdl-textfield__error">Fecha </span>
 											</div>	
-											
-											
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->monto_por_cancelar ?>" type="number"  pattern="^[0-9]" min="0" step="1" id="monto_por_cancelar" name="monto_por_cancelar">
@@ -79,7 +72,6 @@
 												<span class="mdl-textfield__error">Monto por Cancelar</span>
 											</div>
 											</div>
-												
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" readonly>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" value="<?php echo $cuenta_cobro->porMora ?>" type="float"  id="porMora" name="porMora">
@@ -87,7 +79,6 @@
 												<span class="mdl-textfield__error">Mora</span>
 											</div>
 											</div>
-
 									</div>
 									<p class="text-center">
 										<button id="button-Mcc" value='Guardar' name="button-Mcc" value="res-registrar-cuenta_cobro" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit" >
@@ -95,7 +86,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Modificar CC</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -104,13 +94,9 @@
 			</form>
 			<div class="mostrar"></div>
 		</div>
-
 <script>
-
-
 $(document).ready(function(){
     $('#button-Mcc').click(function(e) {
-    
         numeroCuenta = $('#numero_cuenta').val()
         nit = $('#nit').val()
         slcusuario_inmueble = $('#slcusuario_inmueble').val();
@@ -119,7 +105,6 @@ $(document).ready(function(){
         var mesSlect = $("select#slcmonth option:selected").attr("fecha");
         fecha = $('#fecha').val()
         monto_por_cancelar = $('#monto_por_cancelar').val();
-
 		if (numeroCuenta == "") {
             Swal.fire({
                 icon: 'error',
@@ -148,13 +133,6 @@ $(document).ready(function(){
                 text: 'Debes Ingresar El Nit!',
             })
             return false;
-        // } else if (nit <= 0) {
-        //     Swal.fire({
-        //         icon: 'error',
-        //         title: 'Error',
-        //         text: 'El Nit No Debe Tener Caracteres Negativos',
-        //     })
-        //     return false;
         } else if (nit.length <= 7 || nit.length >= 25) {
             Swal.fire({
                 icon: 'error',

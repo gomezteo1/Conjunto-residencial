@@ -4,10 +4,9 @@
 	<title>Mes</title>
 </head>
 <body>
-		<div id="registrar-month">	
+	<div id="registrar-month">	
 		<form action="Controladores/Month_Controlador.php" method="POST" id="res-registrar-month">
 		<input  type="hidden" name="action" value="registrar_month">
-		
 		<section class="full-width header-well">
 			<div class="full-width header-well-icon">
 				<i class="zmdi zmdi-washing-machine"></i>
@@ -19,7 +18,6 @@
 			</div>
 		</section>
 		<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-			
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -28,19 +26,16 @@
 								Mes
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 									    </div>
-										
 											<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="mes" name="mes">
 												<label class="mdl-textfield__label" for="Mes">Mes</label>
 												<span class="mdl-textfield__error">Mes Invalido</span>
 											</div>
-
 										</div>
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -49,7 +44,6 @@
 												<span class="mdl-textfield__error">Farifa Invalido</span>
 											</div>
 										</div>
-										
 										<div class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="porcentaje" name="porcentaje">
@@ -64,7 +58,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addProduct">Agregar Mes</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -74,22 +67,15 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
 </html>
-
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 		$('#button-Rmonth').click(function(){
-
 			var mesRango = $('#mes').val();
 			var tarifaRango = $('#tarifa').val();
 			var fechaRango = $('#fecha').val();
 			var porcentajeRango = $('#porcentaje').val();
-			
 			if(mesRango==""){
 				Swal.fire({
 					icon: 'error',
@@ -163,9 +149,6 @@ $(document).ready(function(){
 			}	
 		});
 	});
-
-	
-
 </script>
 
 

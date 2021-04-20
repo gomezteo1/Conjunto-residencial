@@ -1,11 +1,9 @@
 <?php
 session_start();
-//Este es el bueno de los layousts
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<!--------------------------------------------Tonto el que lea :V okno jajajaj--------------------------------------------------------->
 	<title>Zamasoft</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta charset="UTF-8">
@@ -20,10 +18,8 @@ session_start();
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<!-- -------------------------------  CSS nativo ---------------------------------->
 	<link rel="stylesheet" href="Estilo/css/stilo.css">
 	<link rel="stylesheet" href="Estilo/css/estilachos.css">
-	 <!-------------------------------------Viene de cuenta cobro index----------------------->
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 	<script
 	  src="https://code.jquery.com/jquery-3.4.1.js"
@@ -31,10 +27,8 @@ session_start();
 	  crossorigin="anonymous"></script>
 	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-	<!--------------------------------Sweetalert--------------------------------------------->
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="icon" type="image/png" href="icon/house.png"/>
-
 	<style>.footer-style {padding-top: 50px;background-color: rgb(28, 30, 32);}footer {color: white;}footer h3 {margin-bottom: 30px;font-weight: 800;}footer .footer-above {padding-top: 50px;background-color: #2C3E50;}footer .footer-col {margin-bottom: 50px;
 	}footer .footer-below { padding: 25px 0;background-color: #233140;}</style>
 	
@@ -42,10 +36,8 @@ session_start();
 <body>
 	
 <?php if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==1){ ?>	
-	 <!--//Layout Administrador-->
 	<?php require_once('Vistas/Landing/administrador.php') ?> <?php } 
 
-	//Layout Propietarios
 	if(isset($_SESSION['acceso']['id_rol']) && $_SESSION['acceso']['id_rol']==2){
 		if(isset($_SESSION['acceso'])){ 
 			$cuenta_cobros;
@@ -53,7 +45,6 @@ session_start();
 				require_once('Modelos/Cuenta_Cobro.php');
 				$cuenta_cobros=Cuenta_Cobro::notificar_cuenta_cobro_propietario($_SESSION['acceso']['id_usuario']);
 			} ?>
-			<!-- Notifications area -->
 			<section class="full-width container-notifications">
 				<div class="full-width container-notifications-bg btn-Notification"></div>
 			    <section class="NotificationArea">
@@ -61,7 +52,6 @@ session_start();
 			        	 <?php if(isset($cuenta_cobros) && count($cuenta_cobros)>0){
 			            		$_SESSION['debe']=true;
 			            		foreach ($cuenta_cobros as $cuenta_cobro) {
-			            		//var_dump($cuenta_cobros);	
 			            		if($cuenta_cobro['estado']==0){ ?>	
 									<a href="#" class="Notification" id="notifation-unread-1">
 											<div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-info"></i></div>
@@ -92,8 +82,6 @@ session_start();
 						    <?php  } } } ?>
 				</section>
 			</section>
-			<!-- navLateral -->
-
 			<section class="full-width navLateral">
 				<div class="full-width navLateral-bg btn-menu"></div>
 					<div class="full-width navLateral-body">
@@ -123,7 +111,6 @@ session_start();
 										</div>
 									</a>
 								</li>
-								<!--lOS QUE DIVIDEN LA ZONA-->
 								<li class="full-width divider-menu-h"></li>
 									<li class="full-width">
 										<a href="#!" class="full-width btn-subMenu">
@@ -176,7 +163,6 @@ session_start();
 											
 										</ul>
 									</li>
-								<!--lOS QUE DIVIDEN LA ZONA-->
 								<li class="full-width divider-menu-h"></li>
 								<li class="full-width">
 									<a href="#!" class="full-width btn-subMenu">
@@ -218,10 +204,7 @@ session_start();
 					</div>
 			</section>
 
-			<!-- pageContent -->
 			<section class="full-width pageContent">
-				<!-- navBar -->
-				
 				<div class="full-width navBar">
 					<div class="full-width navBar-options">
 						<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>	
@@ -232,7 +215,6 @@ session_start();
 									<i class="zmdi zmdi-notifications"></i>
 									<div class="mdl-tooltip" for="notifications">Notificación</div>
 								</li>
-								
 								</li>
 								<li class="text-condensedLight noLink" ><small> <?php  echo "".$_SESSION['acceso']['nombres'].""; ?> </small></li>
 								<li class="noLink">
@@ -249,17 +231,11 @@ session_start();
 				<?php require_once('Landing/modales.php'); ?>
 <?php } 
 if($_SESSION['acceso']['id_rol']==3){ ?>	
-	
-	<!---Layout del Inquilino------------------------------------------>
 	<?php require_once('Vistas/Landing/inquilino.php') ?>
-	
 <?php } }
 
 if(!isset($_SESSION['acceso']['id_rol']) && !isset($_SESSION['acceso'])){ ?>
-	<!---La cabecera sin loguear ------------------------------------------>
-
 	<?php require_once('Vistas/Landing/header.php') ?>
-	
 <?php } require_once('routes.php'); ?>
 
 

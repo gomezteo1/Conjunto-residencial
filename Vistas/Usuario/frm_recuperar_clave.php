@@ -15,9 +15,6 @@
 				<div class="panel panel-info" >
 					<div class="panel-heading">
 						<div class="panel-title">Recuperar Clave</div>
-						<!--<div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="?controller=usuario&action=frm_login">Iniciar Sesi&oacute;n</a></div>
-					</div> -->    
-					
 					<div style="padding-top:75px" class="panel-body" >
 						
 						<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
@@ -62,32 +59,4 @@
 	<script src="js/recuperarPass.js"></script>
 	</body>
 </html>
-
-<!-- 
-<script type="text/javascript">
-
-$(document).ready(function(){
-		$('#buttonR').click(function(){
-
-			if($('#correo_recuperacion').val()==""){
-				Swal.fire({
-					icon: 'error',
-					title: 'Error',
-					text: 'Debes Ingresar El Correo Alternativo!',
-					})
-					return false;
-			}
-			else
-				Swal.fire({
-						title: "Hecho!",
-						text: "Se Ha Enviado La Clave Al Correo",
-						icon: "info",
-						button: "Continuar",
-					});
-		});
-	});
-
-	
-
-</script> -->
 

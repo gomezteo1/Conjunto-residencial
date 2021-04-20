@@ -18,7 +18,6 @@
 			<td><?php echo $month->porcentaje; ?></td>
 			<td><?php echo $month->fecha; ?></td>
 			<td><a class="btn btn-secondary" href="?controller=month&action=formulario_modificar&codigo_month=<?php echo $month->codigo_month ?>">Actualizar</a></td>
-			<!-- <td><a class="btn btn-danger" href="?controller=month&action=eliminar_month&codigo_month=<?php echo $month->codigo_month ?>">Eliminar</a> </th> -->
 		</tr>
 	</tbody>			
 	<?php } ?>

@@ -13,11 +13,9 @@
 				<p class="text-condensedLight">
 					Inicio Rol
 					<a class="btn btn-outline-primary" href="?controller=rol&action=formulario_registrar">Registrar</a>
-
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<img src="./image/buscar.png" class="btn-outline">				
-				
 			</div>
 		</section>
 		<div class=""></div>
@@ -37,7 +35,6 @@
 								<td><?php echo $rol->id_rol; ?> </td>
 								<td><?php echo $rol->rol; ?> </td>
 								<td><a class="btn btn-secondary" href="?controller=rol&action=formulario_modificar&id_rol=<?php echo $rol->id_rol ?>">Actualizar</a> </td>
-								<!-- <td><a class="btn btn-danger" href="?controller=rol&action=eliminar_rol&id_rol=<?php echo $rol->id_rol ?>">Eliminar</a> </th> -->
 							</tr>		
 						</tbody>
 						<?php }	?>
@@ -47,7 +44,6 @@
 								<td><b>Rol</b></td>
 							</tr>		
 						</tfoot>
-						
 					</table>
 				</div>
 			</div>
@@ -65,11 +61,9 @@
 </body>
 
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -86,7 +80,6 @@ $(function(){ //Función Jquery
     e.preventDefault(); //Evitar submit
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
           	url:'Controladores/Rol_Controlador.php',

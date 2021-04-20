@@ -3,17 +3,16 @@
 <head>
 	<title>Modificar Abonos</title>
 </head>
-
 <body>
 <section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-washing-machine"></i>
-			</div>
-			<div class="full-width header-well-text" align="left">
-				<p class="text-condensedLight">
-					Modificar Abono
-				</p>
-			</div>
+	<div class="full-width header-well-icon">
+		<i class="zmdi zmdi-washing-machine"></i>
+	</div>
+	<div class="full-width header-well-text" align="left">
+		<p class="text-condensedLight">
+			Modificar Abono
+		</p>
+	</div>
 		</section>
 		<div class="full-width divider-menu-h"></div>
 		<div class="mdl-grid">
@@ -29,7 +28,6 @@
 								<div class="mdl-cell mdl-cell--12-col">
 		                            <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
 								</div>
-								
 								<div class="mdl-cell mdl-cell--12-col">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="codigo_abono" name="codigo_abono" value="<?php echo $abono->codigo_abono ?>" readonly>
@@ -37,7 +35,6 @@
 										<span class="mdl-textfield__error">Serial A. Invalido</span>
 									</div>
 								</div>
-
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 														<?php
@@ -48,8 +45,6 @@
 										<span class="mdl-textfield__error">Numero Invalido</span>
 									</div>
 								</div>
-
-
 								 <div class="mdl-cell mdl-cell--12-col " >
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input readonly class="mdl-textfield__input" type="date" id="fecha" name="fecha" value="<?php echo $abono->fecha ?>">
@@ -64,7 +59,6 @@
 										<span class="mdl-textfield__error">Deuda Invalida</span>
 									</div>
 								</div>
-
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="abono" name="abono" value="<?php echo $abono->abono ?>" placeholder="Digite el Valor a Abonar"
@@ -75,8 +69,6 @@
 										<span class="mdl-textfield__error">Abono Invalido</span>
 									</div>
 								</div>
-
-
 								<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="saldo" name="saldo"  value="<?php echo $abono->saldo ?>" readonly>
@@ -113,15 +105,12 @@
 
 
 <script type="text/javascript">
-
-$(document).ready(function(){
+	$(document).ready(function(){
 		$('#button-Rabono').click(function(){
-			// alert('llega')
 			var deudaRango = $('#deuda').val();
 			var abonoRango = $('#abono').val();
 			var saldoRango = $('#saldo').val();
 			var pagoRango = $('#slcpago').val();
-			
 			if(pagoRango ==undefined || pagoRango =="" ){
 				Swal.fire({
 					icon: 'error',
@@ -134,35 +123,35 @@ $(document).ready(function(){
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar La Deuda!',
-					})
-					return false;
+				})
+				return false;
 			}else if(deudaRango==0) {
 				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'No hay Deuda',
+					icon: 'error',
+					title: 'Error',
+					text: 'No hay Deuda',
 				})
 				return false;
 			}
-			 else if(abonoRango==""){
+			else if(abonoRango==""){
 				Swal.fire({
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar Un Valor A Abonar!',
-					})
-					return false;
+				})
+				return false;
 			}else if (abonoRango <= 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El Abono No Debe Tener Caracteres Negativos',
-           		 })
-       	    	 return false;
-       		}else if(abonoRango.length<=3 || abonoRango.length>=10) {
 				Swal.fire({
-				icon: 'error',
-				title: 'Error',
-				text: 'El Abono Debe Tener De 4 A 9 Caracteres',
+					icon: 'error',
+					title: 'Error',
+					text: 'El Abono No Debe Tener Caracteres Negativos',
+				})
+				return false;
+			}else if(abonoRango.length<=3 || abonoRango.length>=10) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'El Abono Debe Tener De 4 A 9 Caracteres',
 				})
 				return false;
 			}else if(saldoRango==""){
@@ -170,24 +159,16 @@ $(document).ready(function(){
 					icon: 'error',
 					title: 'Error',
 					text: 'Debes Ingresar El Saldo!',
-					})
-					return false;
+				})
+				return false;
 			}else if (saldoRango <= 0) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'El Saldo No Debe Tener Caracteres Negativos',
+			Swal.fire({
+				icon: 'error',
+				title: 'Error',
+				text: 'El Saldo No Debe Tener Caracteres Negativos',
 				})
 				return false;
 			}
-			//else if(saldoRango.length<=-1 || saldoRango.length>=3) {
-			// 	Swal.fire({
-			// 	icon: 'error',
-			// 	title: 'Error',
-			// 	text: 'El Saldo No Puede Ser Menor A Cero',
-			// 	})
-			// 	return false;
-			// }
 			else{
 				swal({
 					title: "Hecho!",
@@ -196,11 +177,6 @@ $(document).ready(function(){
 					button: "Continuar",
 				});
 			}	
+			});
 		});
-	});
-
-	
-
-	
-
 </script>

@@ -1,5 +1,4 @@
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width table-responsive">
-   <!--EL jajas-->
     <thead>
         <tr>
             <td><b>Serial</b></td>
@@ -30,10 +29,8 @@
             <td><?php echo $cuenta_cobro->estado==1?'Pagado':'Sin Pagar'; ?></td>
                 
                 <td><a href="?controller=cuenta_cobro&action=formulario_modificar&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro?> "class="btn btn-secondary">Actualizar</a></td>
-                <!-- <td>
-                    <input <?php echo $cuenta_cobro->estado==1 ? "checked" : "" ?> onchange="prueba_cc(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">
-                </td> -->
-
+         
+                    <?php echo $cuenta_cobro->estado==1 ? "checked" : "" ?> onchange="prueba_cc(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">
             <?php if($cuenta_cobro->estado==0){?>
 				<td>
 				<button class="btn btn-success">
@@ -43,7 +40,6 @@
 				 	</a>
 				 </button>
 			</td>		
-
 			<?php } else{?> 
 			 <td >
 				<button class="btn btn-danger">
@@ -54,10 +50,6 @@
 				 </button>
 			</td>
 			<?php	}  ?>
-
-
-
-                <!-- <td><a href="?controller=cuenta_cobro&action=eliminar_cuenta_cobro&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>"class="btn btn-danger">Eliminar</a></td> -->
                 <td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportec&action=index&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">Ver</a> </td>
             </tr>
         </tbody>			

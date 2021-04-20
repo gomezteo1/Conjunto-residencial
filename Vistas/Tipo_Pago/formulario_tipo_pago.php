@@ -18,7 +18,6 @@
 				</div>
 			</section>
 			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-				
 				<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--12-col">
@@ -27,7 +26,6 @@
 									Tipo De Pago
 								</div>
 								<div class="full-width panel-content">
-									
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 											<legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
@@ -39,7 +37,6 @@
 												<span class="mdl-textfield__error">Tipo De Pago Invalido</span>
 											</div>
 										</div>
-										
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="textarea" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="descripcion" name="descripcion">
@@ -54,7 +51,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-tipo-pago">Agregar Tipo De Pago</div>
 									</p>
-									
 								</div>
 							</div>
 						</div>
@@ -64,20 +60,14 @@
 		</form>
 		<div class="mostrar"></div>
 	</div>
-
-
 </body>
 </html>
-
-
 <script type="text/javascript">
-
 $(document).ready(function(){
 		$('#button-RTipo_pago').click(function(){
 
 		var tipoPagoRango = $('#tipo_pago').val();
 		var descripcionRango = $('#descripcion').val()
-
 			if(tipoPagoRango==""){
 				Swal.fire({
 					icon: 'error',

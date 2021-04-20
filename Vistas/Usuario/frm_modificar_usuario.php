@@ -81,10 +81,6 @@
 												require("Controladores/Rol_Controlador.php");
 											?>
 										</div>
-										
-
-										
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="number"  pattern="^[0-9]" min="0" step="1" id="telefono" name="telefono" value="<?php echo $usuario->telefono  ?>">
@@ -92,13 +88,11 @@
 												<span class="mdl-textfield__error">Telefono invalido</span>
 											</div>
 										</div>
-
 									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 										<input class="mdl-textfield__input" type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<?php echo $usuario->fecha_nacimiento  ?>">
 										<label class="mdl-textfield__label"  for="fecha_nacimiento"></label>
 										<span class="mdl-textfield__error">Fecha Invalida</span>
 									</div>
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet" hidden>
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="estado" name="estado" value="<?php echo $usuario->estado  ?>">
@@ -106,19 +100,7 @@
 												<span class="mdl-textfield__error">Estado invalido</span>
 											</div>
 										</div>
-<!--------------------------------------------------------------------------------------------
-
-										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave" value="<?php echo $usuario->clave  ?>">
-												<label class="mdl-textfield__label" for="clave">Clave</label>
-												<span class="mdl-textfield__error">Clave invalido</span>
-											</div>
-										</div>--->
-																	
 										<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
-<!--------------------------------------------------------------------------------------------_----->
-
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ@*\/\-_.]*(\.[0-9]+)?" id="correo" name="correo" value="<?php echo $usuario->correo  ?>">
@@ -140,7 +122,6 @@
 											</button>
 											<div class="mdl-tooltip" for="btn-addProduct">Modificar Usuario</div>
 										</p>
-								
 							</div>
 						</div>
 					</div>

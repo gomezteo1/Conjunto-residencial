@@ -19,7 +19,6 @@ if($_GET['controller'] == 'cuenta_cobro'){ ?>
 </div>
 
 <?php }
-
 else{
 	?>
 	<div class="mdl-cell mdl-cell--12-col">

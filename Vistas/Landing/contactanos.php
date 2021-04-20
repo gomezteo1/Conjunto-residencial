@@ -16,8 +16,6 @@
                 text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3);  
             }
         }
-
-
         h2 {
             cursor: default;
             position: absolute;
@@ -29,7 +27,6 @@
             margin: auto;
             display: block;
             font-family: 'sans-serif';
-
             font-size: 70px;
             color: #000000;
             text-align: center;
@@ -43,9 +40,7 @@
     <div class="container">
         <div class="jumbotron text-center">
         <h2>Contactanos</h2>
-        <!-- <p>Resize this responsive page to see the effect!</p> -->
     </div>
-
     <div class="container">
         <footer>
 			<div class="container-footer-all">
@@ -99,16 +94,16 @@
 				</div>
 			</div>
 			<div class="container-footer">
-									<div class="footer">
-										<div class="copyright">
-											© 2019 Todos los Derechos Reservados | <a href="">Zamasoft</a>
-										</div>
-								<div class="information">
-											<a href="">Informacion Compañia</a> | <a href="">Privacion y Politica</a> | <a href="">Terminos y Condiciones</a>
-										</div>
-									</div>
-						</div>
-			</footer>
+                        <div class="footer">
+                            <div class="copyright">
+                                © 2019 Todos los Derechos Reservados | <a href="">Zamasoft</a>
+                            </div>
+                    <div class="information">
+                                <a href="">Informacion Compañia</a> | <a href="">Privacion y Politica</a> | <a href="">Terminos y Condiciones</a>
+                            </div>
+                        </div>
+            </div>
+	</footer>
 </div>
  
     </div>

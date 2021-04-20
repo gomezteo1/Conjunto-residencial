@@ -106,18 +106,6 @@
 												<span class="mdl-textfield__error">Estado invalido</span>
 											</div>
 										</div>
-<!--------------------------------------------------------------------------------------------
-
-										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input" type="text" pattern="-?[A-Za-z0-9áéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="clave" name="clave" value="<?php echo $usuario->clave  ?>">
-												<label class="mdl-textfield__label" for="clave">Clave</label>
-												<span class="mdl-textfield__error">Clave invalido</span>
-											</div>
-										</div>--->
-
-	<a href="controller=usuario&action=cambiarClaveAdm&id_usuario=<?php $_SESSION['acceso']['id_Usuairo']?>"></a>				
-<!--------------------------------------------------------------------------------------------_----->
 
 										<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -161,10 +149,8 @@
 
 
 
-<!----VALIDACION PERFECTA FULL HD 4K----->
 
 <script type="text/javascript">
-//fecha
 $(document).ready(function(){
 
 	var dateNow = new Date();

@@ -1,4 +1,3 @@
-/*agregar producto con jquery y ajas*/
 $('.button-Rtipo_pago').click(function() {
     var myId = $(this).val();
     $('#registrar-tipo_pago form#' + myId).submit(

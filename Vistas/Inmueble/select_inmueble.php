@@ -7,7 +7,6 @@ if ($_GET['controller'] == 'cuenta_cobro' ){
 			<option selected hidden disabled >Seleccioné Un Inmueble</option>
 			<?php
 			foreach ($inmuebles as $inmueble){?>
-				
 				<option <?php 
 					echo  isset($cuenta_cobro) && $cuenta_cobro->codigo_inmueble==$inmueble->codigo_inmueble ?'
 				selected':''; ?> value="<?php echo $inmueble->codigo_inmueble; ?>">
@@ -17,10 +16,8 @@ if ($_GET['controller'] == 'cuenta_cobro' ){
 		</select>
 	</div>
 </div>
-
 <?php
  }
-
 else if($_GET['controller'] == 'usuario_inmueble' ){
 	?>
 	<div class="mdl-cell mdl-cell--12-col">
@@ -29,7 +26,6 @@ else if($_GET['controller'] == 'usuario_inmueble' ){
 			<option selected hidden disabled >Seleccioné Un Inmueble</option>
 			<?php
 			foreach ($inmuebles as $inmueble){?>
-				
 				<option <?php 
 					echo  isset($usuario_inmueble) && $usuario_inmueble->codigo_inmueble==$inmueble->codigo_inmueble ?'
 				selected':''; ?> value="<?php echo $inmueble->codigo_inmueble; ?>">

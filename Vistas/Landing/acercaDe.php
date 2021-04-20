@@ -13,8 +13,6 @@
         text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 #CCC, 0 7px 0 #CCC, 0 8px 0 #CCC, 0 9px 0 #CCC, 0 30px 30px rgba(0, 0, 0, .3); 
     }
 }
-
-
 h1 {
     cursor: default;
     position: absolute;
@@ -32,8 +30,7 @@ h1 {
     line-height: 100px;
     text-shadow: 0 1px 0 #CCC, 0 2px 0 #CCC, 0 3px 0 #CCC, 0 4px 0 #CCC, 0 5px 0 #CCC, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, .6);
 }
-
-    </style>
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca De</title>
@@ -42,11 +39,9 @@ h1 {
     <br>
     <div class="container">
         <div class="row">
-            
             <div class="col-3">
                  <div class="h-75 jumbotron text-center">
-                     
-                    <h1>Imagenes Del Lugar</h1>
+                     <h1>Imagenes Del Lugar</h1>
                 </div>
             </div> 
             <div class="col-1"></div>
@@ -80,7 +75,5 @@ h1 {
             </div>
         </div>    
     </div>
-
-
 </body>
 </html>

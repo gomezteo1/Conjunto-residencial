@@ -29,11 +29,8 @@ require_once('conexion.php');
 							<td><b>Apellido</b></td>			
 							<td><b>Tipo Documento</b></td>
 							<td><b>Numero Documento</b></td>
-							<!--<td><b>Rol</b></th>-->	
 							<td><b>Telefono</b></td>
 							<td><b>Fecha Nacimiento</b></td>
-							<!--<td>Estado</td>-->			
-								<!--<td>Clave</td>-->	
 							<td><b>Correo</b></td>			
 							<td><b>Correo recuperacion</b></td>	
 							<td><b>Cambiar Clave</b></td>		
@@ -48,16 +45,11 @@ require_once('conexion.php');
 							<td><?php echo $usuario->apellidos; ?></td>
 							<td><?php echo $usuario->nombreTipoDocumento; ?></td>
 							<td><?php echo $usuario->numero_documento; ?></td>
-							<!--<td><?php //echo $usuario->id_rol; ?></td>-->
 							<td><?php echo $usuario->telefono; ?></td>
 							<td><?php echo $usuario->fecha_nacimiento; ?></td>
-							<!--<td><?php //echo $usuario->estado; ?></th>-->
-							<!--<td><?php //echo $usuario->clave; ?></th>
-							-->
 							<td><?php echo $usuario->correo; ?></td>
 							<td><?php echo $usuario->correo_recuperacion; ?></td>
 							<td> <a class="btn btn-primary" href="?controller=usuario&action=frm_cambiarClaveUsu&id_usuario=<?php echo $usuario->id_usuario ?>">Cambiar Clave</a></td>
-
 							<td>
 								<a href=
 									"?controller=usuario&action=frm_modificar_usuario&id_usuario=<?php echo
@@ -74,14 +66,11 @@ require_once('conexion.php');
 								<td><b>Apellido</b></td>			
 								<td><b>Tipo Documento</b></td>
 								<td><b>Numero Documento</b></td>
-								<!-- <td>Rol</td>	 -->
 								<td><b>Telefono</b></td>
 								<td><b>Fecha Nacimiento</b></td>
-								<!-- <td>Estado</td>			 -->
 								<td><b>Correo</b></td>
 								<td><b>Correo recuperacion</b></td>
 								<td><b>Cambiar Clave</b></td>			
-							
 								<td colspan="1" align="center"><b>Acciones</b></td>
 							</tr>		
 						</tfoot>

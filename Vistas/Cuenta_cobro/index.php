@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 
 	<title>Inicio Cuentas De Cobro</title>
-	<!-- Esto es del toogle-->
-
 </head>
 <body>
 	<div align="center">
@@ -66,7 +64,6 @@
 									<td>
 										<input <?php echo $cuenta_cobro->estado==1 ? "checked" : "" ?> onchange="prueba_cc(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">
 									</td>
-									<!-- <td><a href="?controller=cuenta_cobro&action=eliminar_cuenta_cobro&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>"class="btn btn-danger">Eliminar</a></td> -->
 									<td scope="col"><a class="btn btn-success" target="_blank" href="?controller=reportec&action=index&codigo_cuenta_cobro=<?php echo $cuenta_cobro->codigo_cuenta_cobro ?>">Ver</a> </td>
 								</tr>
 							</tbody>			
@@ -107,11 +104,9 @@
 </body>
 
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -139,13 +134,11 @@
 		 $.ajax({
 			type:'POST',
 			url:'Controladores/Cuenta_cobro_Controlador.php',
-            //dataType: "json",
             data:{codigo_cuenta_cobro:as.id,
 					action:'desactivar_estado', 
 					on: estado},
             success:function(data){
             console.log(data);	
-			//console.log("llega mi pez");
 			}
 			});
 }   
@@ -156,15 +149,12 @@
 <script>
 $(function(){ //Función Jquery
   	$('#btnbuscar').click(function(e) {
-    e.preventDefault(); //Evitar submit
+    e.preventDefault(); 
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
-            //url:'Vistas/Producto/prueba.php',
 			url:'Controladores/Cuenta_cobro_Controlador.php',
-           //dataType: "json",
            data:{action:metodo,dato_buscar:dato_buscar},
             success:function(data){	
 			document.getElementById('resultado_busqueda').innerHTML=data;				

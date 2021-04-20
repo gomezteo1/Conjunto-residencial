@@ -11,7 +11,6 @@
 			<td><?php echo $rol->id_rol; ?> </td>
 			<td><?php echo $rol->rol; ?> </td>
 			<td><a class="btn btn-secondary" href="?controller=rol&action=formulario_modificar&id_rol=<?php echo $rol->id_rol ?>">Actualizar</a> </td>
-			<!-- <td><a class="btn btn-danger" href="?controller=rol&action=eliminar_rol&id_rol=<?php echo $rol->id_rol ?>">Eliminar</a> </th> -->
 		</tr>		
 	</tbody>
 	<?php }	?>

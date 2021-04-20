@@ -18,7 +18,6 @@
 				</p>
 			</div>
 		</section>
-		
 			<div class="mdl-tabs__panel is-active" id="tabNewProduct">
 				<div class="mdl-grid">
 					<div class="mdl-cell mdl-cell--12-col">
@@ -27,7 +26,6 @@
 								Tipo Documento
 							</div>
 							<div class="full-width panel-content">
-								
 									<div class="mdl-grid">
 										<div class="mdl-cell mdl-cell--12-col">
 									        <legend class="text-condensedLight"><i class="zmdi zmdi-border-color"></i> &nbsp; Información Basica</legend><br>
@@ -39,10 +37,6 @@
 												<span class="mdl-textfield__error">Tipo De Documento Invalido</span>
 											</div>
 										</div>
-										
-										
-										
-
 									</div>
 									<p class="text-center">
 										<button id="button-Rtipo_documento" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" type="submit">
@@ -50,7 +44,6 @@
 										</button>
 										<div class="mdl-tooltip" for="btn-addTipo_documento">Agregar Documento</div>
 									</p>
-								
 							</div>
 						</div>
 					</div>
@@ -60,19 +53,13 @@
 			<div class="mostrar"></div>
 		</div>
 	</div>
-
-
 </body>
-
 </html>
-
 <script type="text/javascript">
 
 $(document).ready(function(){
 		$('#button-Rtipo_documento').click(function(){
-
 		var documentoRango = $('#documento').val();
-	
 			if(documentoRango==""){
 				Swal.fire({
 					icon: 'error',
@@ -97,7 +84,4 @@ $(document).ready(function(){
 				});
 		});
 	});
-
-	
-
 </script>

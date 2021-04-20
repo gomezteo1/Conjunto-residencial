@@ -1,9 +1,5 @@
- $('.prueba-jquery').click(function() {
+ $('.prueba-jquery').click(function() {});
 
- });
-
-
- /*Agregar inmueble_usu con jquery y ajax*/
  $('.button-Rusuario_inmueble').click(function() {
      var myId = $(this).val();
      $('#registrar-usuario_inmueble form#' + myId).submit(function(e) {
@@ -20,9 +16,7 @@
              },
              error: function() {
                  $("div#" + myId).html('Ha ocurrido un error en el sistema');
-
              },
-
              success: function(data) {
                  $("div#" + myId).html(data);
              }

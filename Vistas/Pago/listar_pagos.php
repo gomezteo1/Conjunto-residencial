@@ -23,7 +23,6 @@
 			<td><?php echo $pago->monto_cancelado; ?></td>
 			<td><?php echo $pago->monto_a_pagar;?></td>
 			<td><a class="btn btn-secondary" href="?controller=pago&action=formulario_modificar&codigo_pago=<?php echo $pago->codigo_pago ?>">Actualizar</a></td>
-			<!-- <td><a class="btn btn-danger"  href="?controller=pago&action=eliminar_pago&codigo_pago=<?php echo $pago->codigo_pago?>">Eliminar</a> </th> -->
 			<td><a class="btn btn-success" target="_blank" href="?controller=reporte&action=index&codigo_pago=<?php echo $pago->codigo_pago ?>">Ver</a></td>
 		</tr>
 	</tbody>									

@@ -1,16 +1,13 @@
-$(function() { //Función Jquery
+$(function() {
     $('#slccuenta_cobro').change(function(e) {
-        e.preventDefault(); //Evitar submit
+        e.preventDefault();
         metodo = "consultar_valor";
         dato_buscar = $('#slccuenta_cobro').val();
         $.ajax({
             type: 'POST',
             url: 'Controladores/Cuenta_cobro_Controlador.php',
-            // dataType: "json",
             data: { action: metodo, dato_buscar: dato_buscar },
-
             success: function(data) {
-                // $('#monto_por_cancelar').val(data);
                 $('#monto_a_pagar').val(data);
             }
         });
@@ -18,11 +15,8 @@ $(function() { //Función Jquery
 
 });
 
-$('.prueba-jquery').click(function() {
-    // alert("llega");
-});
+$('.prueba-jquery').click(function() {});
 
-/*agregar producto con jquery y ajas*/
 $('.button-Rpago').click(function() {
     var myId = $(this).val();
     $('#registrar-pago form#' + myId).submit(

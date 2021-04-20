@@ -1,13 +1,8 @@
 <?php 
 	Class ReporteC_Controlador{
-
-
 		public function __construct(){}
-
 		public function index(){
-			//echo "wtf";
-		require_once('reportes/reporte_cuenta_cobro.php');	
-
+			require_once('reportes/reporte_cuenta_cobro.php');	
 		}
 
 	}

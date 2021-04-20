@@ -13,8 +13,6 @@
 				<p class="text-condensedLight">
 					Inicio Tipo Pago
 					<a align="rigth" class="btn btn-outline-primary" href="?controller=tipo_pago&action=formulario_registrar">Registrar</a>
-					
-				
 				</p>
 				<input type="text" name="txtbuscar" id="txtbuscar" />
 				<img src="./image/buscar.png" class="btn-outline">
@@ -40,9 +38,6 @@
 								<td><?php echo $tipo_pago->tipo_pago; ?></td>
 								<td><?php echo $tipo_pago->descripcion;?></dh>
 								<td><a href="?controller=tipo_pago&action=formulario_modificar&codigo_tipo_pago=<?php echo $tipo_pago->codigo_tipo_pago ?>" class="btn btn-secondary">Actualizar</a> </th>
-								<!-- <td>
-									<a href="?controller=tipo_pago&action=eliminar_tipo_pago&codigo_tipo_pago=<?php echo $tipo_pago->codigo_tipo_pago ?>" class="btn btn-danger">Eliminar</a>
-								</td> -->
 							</tr>
 						</tbody>
 						<?php }	?>
@@ -73,11 +68,9 @@
 
 
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -88,17 +81,14 @@
 });
 </script>
 <script>
-$(function(){ //Función Jquery
+$(function(){
   	$('#btnbuscar').click(function(e) {
-    e.preventDefault(); //Evitar submit
+    e.preventDefault(); 
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
 	 $.ajax({
 			type:'POST',
-            //url:'Vistas/Producto/prueba.php',
 			url:'Controladores/Tipo_Pago_Controlador.php',
-           	//dataType: "json",
            	data:{action:metodo,dato_buscar:dato_buscar},
             success:function(data){	
 			document.getElementById('resultado_busqueda').innerHTML=data;				

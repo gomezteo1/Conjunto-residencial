@@ -36,7 +36,6 @@
 								<td><b>Fecha_nacimiento</b></td>
 								<td><b>Estado</b></td>			
 								<td><b>Correo</b></td>
-								<!--<td>Email recuperacion</th>-->
 								<td><b>Cambiar Clave</b></td>			
 								
 								<td colspan="1" align="center"><b>Acciones</b></td>
@@ -63,9 +62,7 @@
 										$usuario->id_usuario ?> " class="btn btn-secondary">Actualizar
 									</a>
 								</td>
-								<!-- <th scope="col"><a href=
-										"?controller=usuario&action=eliminar_administrador&id_usuario=<?php echo 
-										$usuario->id_usuario ?> " class="btn btn-danger">Eliminar</a></th> -->
+								
 								<td>
 									<input <?php echo $usuario->estado==1 ? "checked" : "" ?> onchange="prueba_u(this)" type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" name="status" id="<?php echo $usuario->id_usuario ?>">
 								</td>
@@ -84,7 +81,6 @@
 								<td><b>Fecha Nacimiento</b></td>
 								<td><b>Estado</b></td>			
 								<td><b>Correo</b></td>
-								<!--<td>Email recuperacion</th>-->
 								<td><b>Cambiar Clave</b></td>			
 								<td colspan="1" align="center"><b>Acciones</b></td>
 							</tr>		
@@ -94,18 +90,6 @@
 				</div>
 			</div>
 		</div>		
-		<!--  
-		
-		<button data-toggle="modal" 
-				style="
-					position: relative;
-  					left: 450px;
-					 border: 1px solid #E1E1E1;
-					 border-radius: 100%;"
-				data-target="#exampleModalPolitica ">
-					<img src="image/info.png"  >
-		</button>	
-		-->
 		<button data-toggle="modal" 
 				style="
 					position: relative;
@@ -119,11 +103,9 @@
 </body>
 
 <script>
- // Write on keyup event of keyword input element
  $(document).ready(function(){
  $("#txtbuscar").keyup(function(){
  _this = this;
- // Show only matching TR, hide rest of them
  $.each($("#mytable tbody tr"), function() {
  if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
  $(this).hide();
@@ -151,74 +133,24 @@
 		 $.ajax({
 			type:'POST',
 			url:'Controladores/Usuario_Controlador.php',
-            //dataType: "json",
             data:{id_usuario:as.id,
 					action:'desactivar_estado', 
 					on: estado},
             success:function(data){
             console.log(data);	
-			//console.log("llega mi pez");
 			}
 			});
-}   /*$(function() {
-    $('input[name="status"]').change(()=>{
-      console.log("llego");	
-      console.log(this);
-
-     
-		});		
-     });*/
-
-
-
-/*
-function estado(estado) {
-    metodo = "cambiarEstado";
-    id = $(estado).attr('id');
-    componente = document.getElementById('url').value;
-    $.ajax({
-        type: 'POST',
-        url: 'controlador/' + componente + '.php', // aqui estara la logica del buscador, al url del controlador
-        data: {
-            action: metodo,
-            id: id
-        },
-        beforeSend: function() {},
-        error: function() {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Ha ocurrido un error en el sistema',
-                type: 'error',
-                confirmButtonText: 'Cool'
-            })
-        },
-        success: function(data) {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'bottom-end',
-                showConfirmButton: false,
-                timer: 3000
-            })
-
-            Toast.fire({
-                type: 'success',
-                title: data +
-                    'Cambio realizado con exito'
-            })
-        }
-    });
-    //  });
-}*/
+}  
 
 </script>
 
 <script>
-$(function(){ //Función Jquery
+$(function(){ 
   	$('#btnbuscar').click(function(e) {
-    e.preventDefault(); //Evitar submit
+    e.preventDefault(); 
 	metodo="Buscar";
 	dato_buscar=document.getElementById('txtbuscar').value;
-	//alert(dato_buscar);
+	
 	 $.ajax({
 			type:'POST',
           	url:'Controladores/Usuario_Controlador.php',

@@ -2,7 +2,6 @@
 		<img src="image/logo.png" class="img-logo">
 		<!--<input type="checkbox" id="check">-->
 		<label for="check" class="icon-menu"></label>
-
 		<nav class="menu">
 			<ul>
 				<li id="inicio"><a href="?controller=landing&action=inicio" id="inicio2">Inicio</a></li>
